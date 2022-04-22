@@ -1,0 +1,33 @@
+<div  ng-controller="configurator.controller.tools.Setup_Wizard.StorageProfileDetails">
+  <div class="dialog-form">
+    <div class="dialog-title">
+      <h3>{{local.title}}</h3>
+      <h6>{{local.info}}</h6>
+    </div>
+    <div class="dialog-content" ng-init="data.storageProfile = data.storageProfile ||'typical'">
+      <div class="control-group">
+        <label class="radio">
+          <input type="radio" name="mode" value="true"  ng-model="data.storageProfile" ng-change="changeProfile()">
+          <strong>{{local.defaultTablespace}}</strong>
+          <br/><span>{{local.defaultTablespaceInfo1}}</span>
+		   <br/><span>{{local.defaultTablespaceInfo2}}</span>
+        </label>
+      </div>
+      <div class="control-group">
+        <label class="radio">
+          <input type="radio" name="mode" value="false"  ng-model="data.storageProfile" ng-change="changeProfile()">
+          <strong>{{local.customTablespace}}</strong>
+          <br/><span>{{local.customTablespaceInfo1}}</span>
+		  <br/><span>{{local.customTablespaceInfo2}}</span>
+		  <br/><span>{{local.customTablespaceInfo3}}</span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+    <button class="cfg_butt float-right" ng-disabled="true" ng-click="previousButtonClick()">{{local.previous}}</button>
+  </div>
+</div>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

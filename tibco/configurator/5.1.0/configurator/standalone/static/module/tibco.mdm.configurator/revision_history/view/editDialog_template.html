@@ -1,0 +1,15 @@
+<div id="editDialogPanel" class="dialog-form" ng-controller="configurator.controller.revision_history.editRevisionCtrl">
+  <div class="dialog-title">
+      <h3>{{local.information}}{{"Revision No " + editRevision.rank}}</h3>
+  </div>
+  <div class="dialog-content">
+      <!-- <div class="control-group">
+        <label class="control-label">{{local.name}}</label>
+        <input ng-model="editRevision.type" class="control-input input-block-level" type="text" />
+      </div> -->
+      <div class="control-group">
+        <label class="control-label">{{local.description}}</label>
+         <textarea style="height:90px;" ng-model="editRevision.description" class="control-input input-block-level"></textarea>
+      </div>
+    </div>
+</div>

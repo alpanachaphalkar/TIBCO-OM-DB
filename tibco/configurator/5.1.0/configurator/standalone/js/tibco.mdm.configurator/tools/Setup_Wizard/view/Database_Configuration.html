@@ -1,0 +1,27 @@
+<div ng-controller="configurator.controller.tools.Setup_Wizard.Database_Configuration">
+    <div class="dialog-form">
+    <div class="dialog-title">
+      <h3>{{local.title}}</h3>
+      <h6>{{local.info}}</h6>
+    </div>
+	 <div class="dialog-content">
+	 
+     <div class="control-group">
+            <label ng-show="data.values.omsuser">{{local.OMS}}</label>
+            <input type="text" name="name" ng-disabled="true" ng-show="data.values.omsuser" ng-model="data.name1" >
+     </div>
+	 
+	 <div class="control-group">
+            <label ng-show="data.values.ocsuser">Order Capture System</label>
+            <input type="text" name="name" ng-disabled="true" ng-show="data.values.ocsuser" ng-model="data.name2" >
+     </div>
+	
+	</div>
+	</div>
+    <div class="form_buttons">
+		<button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+        <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+        <button class="cfg_butt float-right" ng-disabled="true" ng-click="previousButtonClick()">{{local.previous}}</button>
+    </div>
+</div>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

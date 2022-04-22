@@ -1,0 +1,59 @@
+<div  ng-controller="configurator.controller.tools.setupDatabaseOracle.MDMSeedDataSummary">
+  <div class="dialog-form" ng-show="showSummary">
+    <div class="dialog-title">
+        <h3>{{local.showSummaryTitle}}</h3>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <label>{{local.showSummaryReport}}</label>
+      </div>
+      <div class="control-group label-inline form-horizontal">
+        <label class="control-label">{{local.showSummarySeedDataCreation}}</label>
+        <label class="checkbox">{{data.seeddata}}</label>
+      </div>
+
+      <div class="control-group label-inline form-horizontal" ng-show="data.seeddata === 'Failed'">
+        <label class="control-label">{{local.tablespaceErrorCount}}</label>
+        <label class="checkbox">{{data.schemaErrorCount}}</label>
+      </div> 
+      <div class="control-group label-inline form-horizontal">
+        <label class="control-label">{{local.tablespaceLogFile}}</label>
+        <label class="checkbox logFile">{{data.schemaLogFilePath}}</label>
+        <form action="DatabaseSetup.do" method="post" target="_blank" style="display:inline;margin-left: 20px;">
+        <input type="hidden" name="action" value="download">
+          <input type="hidden" name="fileType" value="{{data.schemaLogFilePath}}">
+          <input type="hidden" name="DATABASETYPE" value="{{databasetype}}">
+          <button type="submit" class="cfg_butt">{{local.open}}</button>
+        </form>
+      </div>
+      <div class="control-group label-inline form-horizontal" ng-show="data.seeddata === 'Failed'">
+        <label class="control-label">{{local.seedDataErrorCount}}</label>
+        <label class="checkbox">{{data.errorCount}}</label>
+      </div> 
+      <div class="control-group label-inline form-horizontal">
+        <label class="control-label">{{local.seedDataLogFile}}</label>
+        <label class="checkbox logFile">{{data.logFilePath}}</label>
+        <form action="DatabaseSetup.do" method="post" target="_blank" style="display:inline;margin-left: 20px;">
+        <input type="hidden" name="action" value="download">
+          <input type="hidden" name="fileType" value="{{data.logFilePath}}">
+          <input type="hidden" name="DATABASETYPE" value="{{databasetype}}">
+          <button type="submit" class="cfg_butt">{{local.open}}</button>
+        </form>
+      </div> 
+    </div>
+  </div>
+  <div class="dialog-form" ng-hide="showSummary">
+    <div class="dialog-title">
+        <h3>{{local.hideShowSummaryTitle}}</h3>
+    </div>
+    <div class="dialog-content">
+        <div class="control-group">
+          <label class="control-label">{{local.hideShowSummaryContent}}</label>
+          <div class="progress-striped active">
+            <div class="progress_bar"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>

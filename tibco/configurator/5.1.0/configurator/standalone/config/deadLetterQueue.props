@@ -1,0 +1,19 @@
+#Define all dead letter queues which can be processed from JMX.
+#Need to define externalized values of the queus as mentioned in configValues_OMS. Not the actual destination name.
+
+ORDER_SUBMIT_DEAD_QUEUE_KEY=com.tibco.fom.orch.order.submit.dead.queue
+ORDER_OPD_REPLY_DEAD_QUEUE_KEY=com.tibco.fom.oms.afi.orch.opdresponse.sender.dead.queue
+PLANITEM_EXECUTE_RESPONSE_DEAD_QUEUE_KEY=com.tibco.fom.orch.planItem.execute.response.dead.queue
+PLANITEM_MILESTONE_NOTIFYREQUEST_DEAD_QUEUE_KEY=com.tibco.fom.orch.planItem.milestone.notifyRequest.dead.queue
+ORDER_WITHDRAW_DEAD_QUEUE_KEY=com.tibco.fom.orch.order.withdraw.dead.queue
+ORDER_ACTIVATEREQUEST_DEAD_QUEUE_KEY=com.tibco.fom.orch.order.activateRequest.dead.queue
+PLANITEM_SUSPEND_RESPONSE_DEAD_QUEUE_KEY=com.tibco.fom.orch.planItem.suspend.response.dead.queue
+ORDER_SUSPENDREQUEST_DEAD_QUEUE_KEY=com.tibco.fom.orch.order.suspendRequest.dead.queue
+CACHE_CLEANUP_DEAD_QUEUE_KEY=com.tibco.fom.orch.cache.cleanup.dead.queue
+FEASIBILITY_REPLY_DEAD_QUEUE_KEY=com.tibco.fom.orch.feasibility.reply.dead.queue
+PREQUALIFICATIONFAILED_REPLY_DEAD_QUEUE_KEY=com.tibco.fom.orch.prequalificationfailed.reply.dead.queue
+PLANITEM_ERRHANDLER_RESPONSE_DEAD_QUEUE_KEY=com.tibco.fom.orch.planItem.errhandler.response.dead.queue
+PLANITEM_EXTERNALDEPENDENCY_RELEASE_REQUEST_DEAD_QUEUE_KEY=com.tibco.fom.orch.planItem.externalDependency.release.request.dead.queue
+TIMEDEPENDENCY_CACHE_ADD_EVENT_DEAD_QUEUE_KEY=com.tibco.fom.orch.cache.addEvent.dead.queue
+ORDER_AMEND_ACK_TASK_DEAD_QUEUE_KEY=com.tibco.af.oms.orderService.amendment.task.ack.dead.queue
+PI_INTERNAL_ERROR_REQ_DEAD_QUEUE_KEY=com.tibco.af.oms.internal.errorhandler.request.internal.dead.queue

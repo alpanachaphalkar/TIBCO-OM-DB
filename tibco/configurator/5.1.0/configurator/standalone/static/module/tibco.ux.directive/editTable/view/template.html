@@ -1,0 +1,149 @@
+<div class="ediTable">
+    <div class="ediTable-action-area">
+        <div class="ediTable-title">
+            <span>{{local.configurationInformation}}</span>
+            <span class="ediTable-title-cluster">{{serverName}} - </span>
+            <span class="ediTable-title-configuration">{{getConfigNames()}}</span>
+        </div>
+        <div class="ediTable-action-bar">
+            <button class="cfg_butt" ng-click="buttons.addproperty()">{{local.buttonAddNewProperty}}</button>
+            <!--<button class="cfg_butt" ng-class="{inactive : disable.clone}" ng-click="buttons.clone()" ng-disabled="disable.clone">{{local.cloneButton}}</button>-->
+            <button class="cfg_butt" ng-class="{inactive : disable.todelete}" ng-click="buttons.todelete()" ng-disabled="disable.todelete">{{local.deleteButton}}</button>
+            <button class="ediTable-action-colpicker" ng-click="columnPicker()"></button>
+            <span ng-show="inFilter" class="ediTable-action-filter-span">
+                <input class="ediTable-action-filter-input" ng-blur="blurAction();" ng-model="filterKey" ng-change="filter();" ng-placeholder placeholder="{{local.filterHint}}" />
+                <i class="ediTable-action-filter-img"></i>
+            </span>
+            <button ng-hide="inFilter" class="ediTable-action-filter-icon" ng-click="inFilterAction();"></button>
+        </div>
+    </div>
+    <script type="text/ng-template" id="columnPicker">
+        <div ng-controller="configurator.controller.columnPickerCtrl">
+            <div class="columnPickerHeader">
+                <span>{{local.showInformation}}</span>
+            </div>
+            <div class="columnPickerContent">
+                <table>
+                    <tbody>
+                        <tr ng-repeat="option in selected">
+                            <td><button class="cfg_butt" ng-click="option.value = !option.value; changeValue(option);">{{option.name}}</button></td>
+                            <td><div ng-if="option.value" class="selectedIcon">{{local.selectedInfor}}</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </script>
+    <div class="ediTable-Header-wrapper">
+        <div class="ediTable-header">
+            <table class="ediTable-table">
+                <thead class="ediTable-table-head">
+                    <tr class="ediTable-table-row">
+                        <th class="ediTable-table-cell hotdeployableRow" ng-class="{'ascending':reverse==true&&predicate=='isHotDeployable','descending':reverse==false&&predicate=='isHotDeployable'}"  ng-show="selected.isHotDeployable">
+                            <div ng-click="sortBy('isHotDeployable');">
+                                <span class='ediTable-not-hot-deployable header'></span>
+                            </div>
+                        </th>
+                        <th class="ediTable-table-cell propertyRow" ng-class="{'ascending':reverse==true&&predicate=='name','descending':reverse==false&&predicate=='name'}"  ng-show="selected.name">
+                            <!-- <span class="ediTable-resize-bar" ng-colunm-resize free-column=".freecolumn"></span> -->
+                            <div ng-click="sortBy('name');">
+                                {{local.theadProperty}}
+                            </div>
+                        </th>
+                        <th class="ediTable-table-cell valueRow" ng-class="{'ascending':reverse==true&&predicate=='value','descending':reverse==false&&predicate=='value'}"  ng-show="selected.value">
+                            <!-- <span class="ediTable-resize-bar" ng-colunm-resize free-column=".freecolumn"></span> -->
+                            <div ng-click="sortBy('value');">
+                                {{local.theadValue}}
+                            </div>
+                        </th>
+                        <th class="ediTable-table-cell descriptionRow freecolumn" ng-class="{'ascending':reverse==true&&predicate=='description','descending':reverse==false&&predicate=='description'}" ng-show="selected.description">
+                            <div  ng-click="sortBy('description');">
+                                {{local.theadDescription}}
+                            </div>
+                        </th>
+                        <th class="ediTable-table-cell sinceversionRow" ng-class="{'ascending':reverse==true&&predicate=='sinceVersion','descending':reverse==false&&predicate=='sinceVersion'}" ng-show="selected.sinceVersion">
+                            <div  ng-click="sortBy('sinceVersion');">
+                                {{local.theadVersion}}
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div class="ediTable-wrapper" ng-scrollbar="propertyTable" scroll-wrapper=".ediTable">
+        <div class="ediTable-container" >
+        <!-- <div class="ediTable-container"> -->
+            <table class="ediTable-table">
+                <tbody class="ediTable-table-body" >
+                    <tr class="ediTable-table-row item-{{$index}}" ng-class="{last: {{$index}} == tableData.length-1, 'selected': $index === selectedindex}"  ng-repeat="row in tableData | orderBy:sortMe():reverse | filter:filterKey" ng-repeat-finished="propertyTable" ng-click="selectRow($index, row);">
+                        <td style="width:44px;" class="ediTable-table-cell deployable" ng-show="selected.isHotDeployable">
+                            <div class="editHotDeploy" ng-switch="row.isHotDeployable">
+                                <span ng-switch-when="true" class='ediTable-not-hot-deployable deployable'></span>
+                                <span ng-switch-when="false" class='ediTable-not-hot-deployable'></span>
+                            </div>
+                        </td>
+                        <td class="ediTable-table-cell property" ng-show="selected.name">
+                            <div class="editName" ng-class="{editHeight: $index != selectedindex}">
+                                <span marker="{{row.name}}">{{row.name}}</span>
+                            </div>
+                        </td>
+                        <td class="ediTable-table-cell value" ng-show="selected.value" ng-switch="row.dataType" ng-click="onRender($event, row);">
+                            <div class="editValue" ng-switch-when="string"
+                                editable-cell="row.inEditing">
+                                <span ng-hide="row.inEditing"  marker="{{row.value}}">{{row.value}}</span> <input
+                                    ng-show="row.inEditing" type="text" class="editInput" value="{{row.value}}"
+                                    ng-blur="onRenderQuit($event, row);">
+                            </div>
+                            <div class="editValue" ng-switch-when="number" editable-cell="row.inEditing">
+                                <span ng-hide="row.inEditing">{{row.value}}</span> 
+                                <input ng-show="row.inEditing" type="text" class="editInput" value="{{row.value}}" ng-blur="onRenderQuit($event, row);">
+                            </div>
+                            <div class="editValue" ng-switch-when="password"
+                                editable-cell="row.inEditing">
+                                <span ng-hide="row.inEditing">******</span> <input
+                                    ng-show="row.inEditing" class="editInput" type="password"
+                                    value="{{row.value}}"
+                                    ng-blur="onRenderQuit($event, row);">
+                            </div>
+                            <div class="editValue" ng-switch-when="boolean"
+                                editable-cell="row.inEditing">
+                                <span ng-hide="row.inEditing">{{row.value}}</span>
+                                <select ng-show="row.inEditing" class="editInput" value="{{row.value}}" ng-blur="onRenderQuit($event, row);">
+                                    <option>false</option>
+                                    <option>true</option>
+                                </select>
+                            </div>
+                            <div class="editValue" ng-switch-when="enum"
+                                editable-cell="row.inEditing">
+                                <span ng-hide="row.inEditing">{{row.value}}</span>
+                                <select ng-show="row.inEditing" class="editInput" value="{{row.value}}" ng-blur="onRenderQuit($event, row);">
+                                    <option ng-repeat="opt in row.valueOpts" ng-selected="{{opt == row.value}}">{{opt}}</option>
+                                </select>
+                            </div>
+                            <div class="editValue listBox" ng-switch-when="list">
+                                <span class="listSpan">{{row.value.join(",")}}</span>
+                                <div class="listTable hide">
+                                    <div class="listTableTitle">
+                                        <span>Edit List Porperty</span>
+                                        <i class="icon-remove" title="close" ng-click="closeListTable($event)"></i>
+                                    </div>
+                                    <div class="listTableWrapper">
+                                        <list table-data="row.value" value="Value" delete="Delete" obj="currentList"></list>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="ediTable-table-cell description freecolumn" ng-show="selected.description">
+                            <div ng-class="{editHeight: $index != selectedindex}">{{transcludeDesc(row.description)}}</div>
+                        </td>
+                        <td class="ediTable-table-cell sinceVersion" ng-show="selected.sinceVersion">
+                            <div class="editVersion">{{row.sinceVersion}}</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+<div>

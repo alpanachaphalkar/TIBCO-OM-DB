@@ -1,0 +1,54 @@
+{ 
+  "tableSpaceValues" : 
+    [ 
+      { "description" : "CIM system table space",
+        "maxSize" : 500,
+        "minSize" : 100,
+        "tableSpaceID" : "CimFixedTable",
+        "tableSpaceLocation" : "VELODBDATA1.DBF",
+        "tableSpaceName" : "VELODBDATA1"
+      },
+      { "description" : "CIM system index table space",
+        "maxSize" : 100,
+        "minSize" : 100,
+        "tableSpaceID" : "CimFixedIndex",
+        "tableSpaceLocation" : "VELODBINDX1.DBF",
+        "tableSpaceName" : "VELODBINDX1"
+      },
+      { "description" : "Datasource Table Space Name",
+        "maxSize" : 100,
+        "minSize" : 100,
+        "tableSpaceID" : "DataSourceTables",
+        "tableSpaceLocation" : "VELODBDF.DBF",
+        "tableSpaceName" : "VELODBDF"
+      },
+      { "description" : "Master Catalog/Repository Data Table Space",
+        "maxSize" : 100,
+        "minSize" : 100,
+        "tableSpaceID" : "MasterCatalogTable",
+        "tableSpaceLocation" : "VELODBDATA.DBF",
+        "tableSpaceName" : "VELODBDATA"
+      },
+      { "description" : "Master Catalog/Repository Index Table Space",
+        "maxSize" : 100,
+        "minSize" : 100,
+        "tableSpaceID" : "MasterCatalogIndex",
+        "tableSpaceLocation" : "VELODBINDX.DBF",
+        "tableSpaceName" : "VELODBINDX"
+      },
+      { "description" : "Temporary Table Space Name",
+        "maxSize" : 100,
+        "minSize" : 100,
+        "tableSpaceID" : "TempTableSpace",
+        "tableSpaceLocation" : "VELODBTEMP.DBF",
+        "tableSpaceName" : "VELODBTEMP"
+      },
+      { "description" : "Temporary Table Index  Table Space Name",
+        "maxSize" : 100,
+        "minSize" : 100,
+        "tableSpaceID" : "TempIndexTableSpace",
+        "tableSpaceLocation" : "VELODBTEMPINDX.DBF",
+        "tableSpaceName" : "VELODBTEMPINDX"
+      }
+    ] 
+}

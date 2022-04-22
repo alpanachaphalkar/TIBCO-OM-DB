@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration description="The Initial Configuration Setup for Data Service" displayName="Order Management - Data Service" name="Data Service" xmlns="http://www.tibco.com/af/config/confbeans/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tibco.com/af/config/confbeans/1.0">
+	<Cluster>
+		<Category description="DataService Engine Configuration" name="DataService Engine Configuration" visibility="Basic">
+			<ConfValue description="Inclusion of Properties During Serialization" isHotDeployable="true" name="Inclusion of Properties During Serialization" propname="spring.jackson.default-property-inclusion" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="NON_EMPTY" value="NON_EMPTY"/>
+			</ConfValue>
+			<ConfValue description="Enable Unique UDF Names" isHotDeployable="true" name="Enable Unique UDF Names" propname="enableUniqueUDFNames" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Logging Configuration File Path" isHotDeployable="true" name="Logging Configuration File Path" propname="logging.config" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="config/logback_dataservice.xml" value="config/logback_dataservice.xml"/>
+			</ConfValue>
+			<ConfValue description="Application name to show on actuator info endpoint" isHotDeployable="false" name="Application Name" propname="info.app.name" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="Data Service" value="Data Service"/>
+			</ConfValue>
+		</Category>
+		<Category description="Application Security Configurations" name="Application Security Configurations" visibility="Basic">
+			<ConfValue description="User Role for submitPlanUDFChange Service" isHotDeployable="true" name="User Role for submitPlanUDFChange Service" propname="operation.roles.submitPlanUDFChange" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="User Role for submitPlanItemUDFChange Service" isHotDeployable="true" name="User Role for submitPlanItemUDFChange Service" propname="operation.roles.submitPlanItemUDFChange" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="User Role for getPlanItemsDetail Service" isHotDeployable="true" name="User Role for getPlanItemsDetail Service" propname="operation.roles.getPlanItemsDetail" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+			<ConfValue description="User Role for getPlanDetail Service" isHotDeployable="true" name="User Role for getPlanDetail Service" propname="operation.roles.getPlanDetail" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+		</Category>
+		<Category description="Messaging Configuration" name="Messaging Configuration" visibility="Basic">
+			<ConfValue description="JMS Server URL" isHotDeployable="true" name="JMS Server URL" propname="emsServerURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tcp://localhost:7222" value="tcp://localhost:7222"/>
+			</ConfValue>
+			<ConfValue description="JMS Server User Name" isHotDeployable="true" name="JMS Server User Name" propname="emsServerUsername" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" value="admin"/>
+			</ConfValue>
+			<ConfValue description="JMS Server Password" isHotDeployable="true" name="JMS Server Password" propname="emsServerPassword" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" isPassword="true"  value="admin"/>
+			</ConfValue>
+			<ConfValue description="JNDI Connection Factory Name" name="JNDI Connection Factory Name" propname="jndiConnectionFactory" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="GenericConnectionFactory" value="GenericConnectionFactory"/>
+			</ConfValue>
+			<ConfValue description="For SSL Configuration value should be ssl" name="Constant that holds the name of the environment property for specifying the security protocol to use in Tibjms JNDI lookups." propname="tibjmsNamingSecurityProtocol" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="For SSL enable verify host value should be false" name="Constant that holds the name of SSL property specifying if client should verify the server certificate in Tibjms JNDI lookups." propname="tibjmsNamingSslEnableVerifyHost" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="Initializing Context Factory Name" name="Initializing Context Factory Name" propname="initialContextFactory" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="com.tibco.tibjms.naming.TibjmsInitialContextFactory" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+			</ConfValue>
+			<ConfValue description="Keep JMS Session Transacted" name="Keep JMS Session Transacted" propname="jmsSessionTransacted" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="JMS Receive Calls Timeout" name="JMS Receive Calls Timeout" propname="timeoutReceiveCalls" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="JMS Concurrent Consumers" name="JMS Concurrent Consumers" propname="concurrentEmsConsumers" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Plan Request Loading Queue" name="Plan Request Loading Queue" propname="plan.request.loading.queue" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.tds.plan.request" value="tibco.aff.tds.plan.request"/>
+			</ConfValue>
+			<ConfValue description="SetPlan/SetPlanItem Response sender queue" name="SetPlan/SetPlanItem Response sender queue" propname="com.tibco.fom.oms.tds.setplanresponse.sender.queue" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="tibco.aff.tds.plan.reply" value="tibco.aff.tds.plan.reply"/>
+			</ConfValue>
+			<ConfValue description="SetPlan/SetPlanItem Request receiver dead queue" name="SetPlan/SetPlanItem Request receiver dead queue" propname="com.tibco.fom.oms.tds.setplanrequest.receiver.deadqueue" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="tibco.aff.oms.tds.plan.request.dead" value="tibco.aff.oms.tds.plan.request.dead"/>
+			</ConfValue>
+			<ConfValue description="SetPlan/SetPlanItem Request receiver count" name="SetPlan/SetPlanItem Request receiver count" propname="com.tibco.fom.oms.tds.setplanrequest.receiver.count" sinceVersion="5.0" visibility="Advanced">
+				<ConfNum default="3" value="3"/>
+			</ConfValue>
+			<ConfValue description="deliveryPersistent flag for NON-RPC set operations" name="deliveryPersistent flag for RPC set operations" propname="com.tibco.fom.oms.tds.set.jms.deliveryPersistent" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true"  value="true"/>
+			</ConfValue>
+			<ConfValue description="deliveryPersistent flag for NON-RPC get operations" name="deliveryPersistent flag for RPC get operations" propname="com.tibco.fom.oms.tds.get.jms.deliveryPersistent" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true"  value="true"/>
+			</ConfValue>
+			<ConfValue description="GetPlan/GetPlanItem Request receiver queue" name="GetPlan/GetPlanItem Request receiver queue" propname="com.tibco.fom.oms.tds.getplanrequest.receiver.queue" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="tibco.aff.tds.plan.read.request" value="tibco.aff.tds.plan.read.request"/>
+			</ConfValue>
+			<ConfValue description="GetPlan/GetPlanItem Request receiver count" name="GetPlan/GetPlanItem Request receiver count" propname="com.tibco.fom.oms.tds.getplanrequest.receiver.count" sinceVersion="5.0" visibility="Advanced">
+				<ConfNum default="3" value="3"/>
+			</ConfValue>
+			<ConfValue description="GetPlan/GetPlanItem Request receiver dead queue" name="GetPlan/GetPlanItem Request receiver dead queue" propname="com.tibco.fom.oms.tds.getplanrequest.receiver.deadqueue" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="tibco.aff.oms.tds.plan.read.request.dead" value="tibco.aff.oms.tds.plan.read.request.dead"/>
+			</ConfValue>
+			<ConfValue description="GetPlan/GetPlanItem Response sender queue" name="GetPlan/GetPlanItem Response sender queue" propname="com.tibco.fom.oms.tds.getplanresponse.sender.queue" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="tibco.aff.tds.plan.reply" value="tibco.aff.tds.plan.reply"/>
+			</ConfValue>
+		</Category>
+		<Category description="Status Messages Redelivery Policy Configuration" name="Status Messages Redelivery Policy Configuration" visibility="Advanced">
+			<ConfValue description="Maximum number of times the Status Message to be retried" name="Status Message Max Retry Count" propname="com.tibco.af.oms.statusmessage.max.redeliveries" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="3" value="3"/>
+			</ConfValue>
+			<ConfValue description="Interval delay in millisecs between Status Message retries" name="Status Message Retry Interval" propname="com.tibco.af.oms.statusmessage.redelivery.delay" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="3000" value="3000"/>
+			</ConfValue>
+			<ConfValue description="Maximum delay in millisecs For Status Message retries" name="Status Message Max Retry Delay" propname="com.tibco.af.oms.statusmessage.max.redelivery.delay" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="30000" value="30000"/>
+			</ConfValue>
+			<ConfValue description="Use Exponential backoff For Status Message retries" name="Use Exponential backoff For Status Message retries" propname="com.tibco.af.oms.statusmessage.useExponentialBackOff" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Exponential backoff Multiplier For Status Message retries" name="Exponential backoff Multiplier For Status Message retries" propname="com.tibco.af.oms.statusmessage.exponentialBackOffMultiplier" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="2" value="2"/>
+			</ConfValue>
+			<ConfValue description="Log retry attempt For Status Message retries" name="Log retry attempt For Status Message retries" propname="com.tibco.af.oms.statusmessage.logRetryAttempted" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Log retry failed stacktrace For Status Message retries" name="Log retry failed stacktrace For Status Message retries" propname="com.tibco.af.oms.statusmessage.logStackTrace" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+		</Category>
+		<Category description="Order Data Source Configuration" name="Order Data Source Configuration" visibility="Basic">
+			<ConfValue description="Pooled Data Source Driver Class Name" name="Pooled Data Source Driver Class Name" propname="datasourceDriverClassName" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="org.postgresql.Driver"/>
+					<EnumValue value="oracle.jdbc.driver.OracleDriver"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Username" name="Pooled Data Source Username" propname="orderDsUsername" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" value="orderdsuserll"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Password" name="Pooled Data Source Password" propname="orderDsPassword" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" isPassword="true" value="orderdsuserll"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source URL" name="Pooled Data Source URL" propname="orderDsUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue  selected="true" default="true" value="jdbc:postgresql://localhost:5432/orderdsdbll?currentSchema=orderdsschemall"/>
+					<EnumValue   value="jdbc:oracle:thin:@//localhost:1521/orcl.apac.tibco.com"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Initialize Size" name="Pooled Data Source Initialize Size" propname="orderDsInitializeSize" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="2" value="2"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Idle" name="Pooled Data Source Max Idle" propname="orderDsMaxIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="11" value="11"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Active" name="Pooled Data Source Max Active" propname="orderDsMaxActive" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="12" value="12"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Wait" name="Pooled Data Source Max Wait" propname="orderDsMaxWait" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Query" name="Pooled Data Source Validation Query" propname="datasourceValidationQuery" sinceVersion="5.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue  value="select 1 from dual"/>
+					<EnumValue  selected="true" default="true" value="SELECT 1"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test OnBorrow" name="Pooled Data Source Test OnBorrow" propname="orderDsTestOnBorrow" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Interval" name="Pooled Data Source Validation Interval" propname="orderDsValidationInterval" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test WhileIdle" name="Pooled Data Source Test WhileIdle" propname="orderDsTestWhileIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Eviction Interval" name="Pooled Data Source Eviction Interval" propname="orderDsTimeBetweenEvictionRunsMillis" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Minimum Evictable Idle Time" name="Pooled Data Source Minimum Evictable Idle Time" propname="orderDsMinEvictableIdleTimeMillis" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Tests Per Eviction Run" name="Pooled Data Source Tests Per Eviction Run" propname="orderDsNumTestsPerEvictionRun" sinceVersion="5.0" visibility="Advanced">
+				<ConfNum default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Default AutoCommit" name="Pooled Data Source Default AutoCommit" propname="orderDsDefaultAutoCommit" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Rollback On Return" name="Pooled Data Source Rollback On Return" propname="orderDsRollbackOnReturn" sinceVersion="2.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Commit On Return" name="Pooled Data Source Commit On Return" propname="orderDsCommitOnReturn" sinceVersion="2.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Database Custom Property" name="Pooled Database Custom Property" propname="orderDsCustomProperty" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="" value=""/>
+			</ConfValue>
+
+		</Category>
+		<Category description="Redis Data Source Configuration" name="Redis Data Source Configuration" visibility="Basic">
+			<ConfValue description="Redis Server Host for Storing Order Related Information" isHotDeployable="true" name="Redis Server Host for Storing Order Related Information" propname="orderRedisHost" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="localhost" value="localhost"/>
+			</ConfValue>
+			<ConfValue description="Whether redis is running in Cluster Mode" isHotDeployable="true" name="clusterEnabled" propname="redisClusterEnabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Redis Server Port for Storing Order Related Information" isHotDeployable="true" name="Redis Server Port for Storing Order Related Information" propname="orderRedisPort" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6379" value="6379"/>
+			</ConfValue>
+			<ConfValue description="Test On Borrow" isHotDeployable="true" name="Test On Borrow" propname="redisTestOnBorrow" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Test On Return" isHotDeployable="true" name="Test On Return" propname="redisTestOnReturn" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Test While Idle" isHotDeployable="true" name="Test While Idle" propname="redisTestWhileIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Block When Exhausted" isHotDeployable="true" name="Block When Exhausted" propname="redisBlockedWhenExhausted" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="JMX Enabled" isHotDeployable="true" name="JMX Enabled" propname="redisJmxEnabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="LIFO" isHotDeployable="true" name="LIFO" propname="redisLifo" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Max Idle" isHotDeployable="true" name="Max Idle" propname="redisMaxIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="64" value="64"/>
+			</ConfValue>
+			<ConfValue description="Min Idle" isHotDeployable="true" name="Min Idle" propname="redisMinIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="16" value="16"/>
+			</ConfValue>
+			<ConfValue description="Max Total" isHotDeployable="true" name="Max Total" propname="redisMaxTotal" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="64" value="64"/>
+			</ConfValue>
+			<ConfValue description="Number of Test Eviction Per Run" isHotDeployable="true" name="Number of Test Eviction Per Run" propname="redisNumTestsPerEvictionRun" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Soft Min Evictable Idle Time Millis" isHotDeployable="true" name="Soft Min Evictable Idle Time Millis" propname="redisSoftMinEvictableIdleTimeMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="3000" value="3000"/>
+			</ConfValue>
+			<ConfValue description="Min Evictable Idle Time Millis" isHotDeployable="true" name="Min Evictable Idle Time Millis" propname="redisMinEvictableIdleTimeMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6000" value="6000"/>
+			</ConfValue>
+			<ConfValue description="Time Between Eviction Runs Millis" isHotDeployable="true" name="Time Between Eviction Runs Millis" propname="redisTimeBetweenEvictionRunsMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="3000" value="3000"/>
+			</ConfValue>
+		</Category>
+		<Category description="Persistence" name="Persistence" visibility="Basic">
+			<ConfValue description="Database Type. Allowed values are oracle or postgres" name="Database Type" propname="databaseType" readonly="false" sinceVersion="3.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="postgres"/>
+					<EnumValue value="oracle"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Hibernate Dialect" name="com.tibco.af.hibernate.dialect" propname="hibernateDialect" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" value="org.hibernate.dialect.PostgreSQLDialect"/>
+					<EnumValue value="org.hibernate.dialect.Oracle10gDialect"/>				
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Hibernate Show SQL" name="hibernate.show_sql" propname="orderHibernateShowSql" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+		</Category>
+	</Cluster>
+</Configuration>
+<!-- Copyright (c) 2017-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

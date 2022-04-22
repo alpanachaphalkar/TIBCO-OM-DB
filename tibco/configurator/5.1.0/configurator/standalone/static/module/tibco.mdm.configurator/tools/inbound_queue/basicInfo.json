@@ -1,0 +1,224 @@
+{
+  "inboundCommContext" : 
+    [ 
+      { 
+        "configPropName" : "com.tibco.cim.commReceiver.JMS.execMode",
+        "key" : "execMode",
+        "propName" : "Execution mode",
+        "valueType" : "string"
+      },
+      { "configPropName" : "com.tibco.cim.commReceiver.JMS.payloadProtocol",
+        "defaultValue" : "",
+        "key" : "payloadProtocol",
+        "propName" : "Payload protocol",
+        "valueType" : "string"
+      },
+      { "configPropName" : "com.tibco.cim.commReceiver.JMS.sender.msgPersistent",
+        "key" : " sender.msgPersistent",
+        "propName" : "Sender message persistence",
+        "valueType" : "boolean"
+      },
+      { "configPropName" : "com.tibco.cim.commReceiver.JMS.sender.msgTimeToLive",
+        "key" : " sender.msgTimeToLive",
+        "propName" : "Sender message time to live",
+        "valueType" : "number"
+      },
+      { "configPropName" : "com.tibco.cim.commReceiver.JMS.receiver.msgTimeout",
+        "key" : "receiver.msgTimeout",
+        "propName" : "Receiver message time out",
+        "valueType" : "number"
+      },
+      { "defaultValue" : "STANDARD_INTEGRATION",
+        "key" : "payloadPackagingScheme",
+        "propName" : "Payload packaging scheme",
+        "valueType" : "string"
+      }
+    ],
+  "inboundIOProcessTemp" : 
+    [ 
+      "StandardInboundIntgrMsgByteStreamMsgIOProcess",
+      "StandardInboundIntgrMsgStringMsgIOProcess",
+      "InboundIntgrMsgIOProcess",
+      "StandardInboundIntgrMsgUTFStringMsgIOProcess",
+      "StandardIntgrEventByteStreamMsgIOProcess",
+      "StandardIntgrEventStringMsgIOProcess",
+      "StandardIntgrEventUTFStringMsgIOProcess"
+    ],
+  "receiverMgClass" : 
+    [ 
+      "MqMessageReceiverManager",
+      "MqDymanicallFiteredMessageReceiverManager"
+    ],
+  "senderMgClass" : 
+    [ 
+      "MqMessageSenderManager",
+      "MqDynamicallyFilteredMessageSenderManager"
+    ],
+  "targetClient" : 
+    [ 
+      "NONJMS_MQ",
+      "JMS_COMPLIANT"
+    ],
+  "selectedInboundUnMarshallers" : 
+    { 
+      "StandardInboundIntgrMsgByteStreamMsgIOProcess" :
+        { 
+          "messageContentExtractor" : [ "ByteStreamMessageContentUnmarshaler" ],
+            "messageContentProcessors" : 
+              [ 
+                "CreateFileMessageContentProcessor",
+                "MapFromMessageContentCarrierMessageContentProcessor"
+              ],
+            "messageProcessor" : [  ]
+        },
+      "StandardInboundIntgrMsgStringMsgIOProcess" :
+        { "messageContentExtractor" : [ "StringMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "TransformStringMessageContentProcessor",
+              "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        },
+      "InboundIntgrMsgIOProcess" : 
+        { "messageContentExtractor" : [ "StringMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "TransformStringMessageContentProcessor",
+              "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        },
+      "StandardInboundIntgrMsgUTFStringMsgIOProcess" : 
+        { "messageContentExtractor" : [ "UTFStringMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "TransformStringMessageContentProcessor",
+              "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        },
+      "StandardIntgrEventByteStreamMsgIOProcess" :
+        { "messageContentExtractor" : [ "ByteStreamMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        },
+      "StandardIntgrEventStringMsgIOProcess" : 
+        { "messageContentExtractor" : [ "StringMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "TransformStringMessageContentProcessor",
+              "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        },
+      "StandardIntgrEventUTFStringMsgIOProcess" :
+        { "messageContentExtractor" : [ "UTFStringMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "TransformStringMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        }
+    },
+  "selectedInboundMarshallers" : 
+    { 
+      "StandardInboundIntgrMsgByteStreamMsgIOProcess" : 
+        { 
+          "messageContentProcessors" : 
+            [ 
+              "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler",
+              "MapToMessageContentCarrierMessageContentProcessor",
+              "XMLToMessageContentCarrierMessageContentProcessor",
+              "XSLTransformMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor",
+              "CustomStdIntgrInboundMessageContentToMessageContentMarshaler",
+              "CommCommandInfoFromMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "SerializableMessageContentMarshaler" ],
+          "messageFormatters" : [  ],
+          "name" : "StandardInboundIntgrMsgByteStreamMsgIOProcess"
+        },
+      "StandardInboundIntgrMsgStringMsgIOProcess" : 
+        { 
+          "messageContentProcessors" : 
+            [ 
+              "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler",
+              "MapToMessageContentCarrierMessageContentProcessor",
+              "XMLToMessageContentCarrierMessageContentProcessor",
+              "XSLTransformMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor",
+              "CustomStdIntgrInboundMessageContentToMessageContentMarshaler",
+              "CommCommandInfoFromMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "SerializableMessageContentMarshaler" ],
+          "messageFormatters" : [  ],
+          "name" : "StandardInboundIntgrMsgStringMsgIOProcess"
+        },
+      "InboundIntgrMsgIOProcess" : 
+        { 
+          "messageContentProcessors" : 
+            [ 
+              "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler",
+              "MapToMessageContentCarrierMessageContentProcessor",
+              "XMLToMessageContentCarrierMessageContentProcessor",
+              "XSLTransformMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor",
+              "CustomStdIntgrInboundMessageContentToMessageContentMarshaler",
+              "CommCommandInfoFromMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "SerializableMessageContentMarshaler" ],
+          "messageFormatters" : [  ],
+          "name" : "InboundIntgrMsgIOProcess"
+        },
+      "StandardInboundIntgrMsgUTFStringMsgIOProcess" :
+        { "messageContentProcessors" : [ "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler",
+              "MapToMessageContentCarrierMessageContentProcessor",
+              "XMLToMessageContentCarrierMessageContentProcessor",
+              "XSLTransformMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor",
+              "CustomStdIntgrInboundMessageContentToMessageContentMarshaler",
+              "CommCommandInfoFromMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "SerializableMessageContentMarshaler" ],
+          "messageFormatters" : [  ],
+          "name" : "StandardInboundIntgrMsgUTFStringMsgIOProcess"
+        },
+      "StandardIntgrEventByteStreamMsgIOProcess" : 
+        { "messageContentProcessors" : [ "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler",
+              "MapToMessageContentCarrierMessageContentProcessor",
+              "XMLToMessageContentCarrierMessageContentProcessor",
+              "XSLTransformMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor",
+              "CustomStdIntgrInboundMessageContentToMessageContentMarshaler",
+              "CommCommandInfoFromMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "SerializableMessageContentMarshaler" ],
+          "messageFormatters" : [  ],
+          "name" : "StandardIntgrEventByteStreamMsgIOProcess"
+        },
+      "StandardIntgrEventStringMsgIOProcess" : 
+        { "messageContentProcessors" : [ "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler",
+              "MapToMessageContentCarrierMessageContentProcessor",
+              "XMLToMessageContentCarrierMessageContentProcessor",
+              "XSLTransformMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor",
+              "CustomStdIntgrInboundMessageContentToMessageContentMarshaler",
+              "CommCommandInfoFromMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "SerializableMessageContentMarshaler" ],
+          "messageFormatters" : [  ],
+          "name" : "StandardIntgrEventStringMsgIOProcess"
+        },
+      "StandardIntgrEventUTFStringMsgIOProcess" : 
+        { "messageContentProcessors" : [ "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler",
+              "MapToMessageContentCarrierMessageContentProcessor",
+              "XMLToMessageContentCarrierMessageContentProcessor",
+              "XSLTransformMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor",
+              "CustomStdIntgrInboundMessageContentToMessageContentMarshaler",
+              "CommCommandInfoFromMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "SerializableMessageContentMarshaler" ],
+          "messageFormatters" : [  ],
+          "name" : "StandardIntgrEventUTFStringMsgIOProcess"
+        }
+    }
+}

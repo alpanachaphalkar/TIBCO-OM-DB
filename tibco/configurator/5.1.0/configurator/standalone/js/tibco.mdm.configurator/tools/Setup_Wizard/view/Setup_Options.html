@@ -1,0 +1,33 @@
+<div ng-controller="configurator.controller.tools.Setup_Wizard.Setup_Options">
+	
+	<div class="dialog-form">
+    <div class="dialog-title">
+      <h3>{{local.title}}</h3>
+      <h6>{{local.info}}</h6>
+    </div>
+	 <div class="dialog-content">
+     <div class="control-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" name="mode"  ng-model="data.dbConfig"  ng-true-value="true" ng-false-value="false">
+				<strong>{{local.dbConfig}}</strong>
+				<br/><span>{{local.dbConfigInfo1}}</span>
+				<br/><span>{{local.dbConfigInfo2}}</span>
+            </label>                        
+     </div>
+	 <div class="control-group">
+            <label class="checkbox-inline">
+                 <input type="checkbox" name="mode" ng-model="data.msgConfig"  ng-true-value="true" ng-false-value="false">
+				<strong>{{local.msgConfig}}</strong>
+				<br/><span>{{local.msgConfigInfo1}}</span>
+				<br/><span>{{local.msgConfigInfo2}}</span>
+            </label>                      
+    </div>
+	</div>
+	</div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+  </div>
+
+</div>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

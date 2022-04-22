@@ -1,0 +1,202 @@
+<Queue description="Sample setup for Queue definition" name="InitialConfig" xmlns="http://www.tibco.com/mdm/config/confbeans/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">	
+	<QueueDefinition>
+		<ConfValue name="Inherited Queue" propname="com.tibco.cim.queue.queue.SampleQueue" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="inherit:com.tibco.cim.queue.queue.DefQueue" default="inherit:com.tibco.cim.queue.queue.DefQueue"/>
+		</ConfValue>
+		<ConfValue name="EMS Queue Name" propname="com.tibco.cim.queue.queue.SampleQueue.cluster.TIBCOCluster.queue" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="SamplePhysical" default="SamplePhysical"/>
+		</ConfValue>
+		<ConfValue name="MQSeries Queue Name" propname="com.tibco.cim.queue.queue.SampleQueue.cluster.MQSeriesCluster.mqBaseQueue" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="SamplePhysical" default="SamplePhysical"/>
+		</ConfValue>
+		<ConfValue name="Add to external JNDI file" propname="com.tibco.cim.queue.queue.SampleQueue.addToJNDI" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfBool value="false" default="false"/>
+		</ConfValue>
+		
+		<ConfValue name="Inherited Pipeline" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="inherit:com.tibco.cim.queue.msgIO.process.PipelineMsgIOProcess" default="inherit:com.tibco.cim.queue.msgIO.process.PipelineMsgIOProcess"/>
+		</ConfValue>
+
+	
+	</QueueDefinition>
+	<QueueDefinitionII>
+		<ConfValue name="Inherited Queue" propname="com.tibco.cim.queue.queue.SampleQueue" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="inherit:com.tibco.cim.queue.queue.CommStandardInboundIntgrMsg" default="inherit:com.tibco.cim.queue.queue.CommStandardInboundIntgrMsg"/>
+		</ConfValue>
+	</QueueDefinitionII>
+
+
+	<TIBCOCluster>
+		<ConfValue propname="com.tibco.cim.queue.cluster.TIBCOCluster.clusterLiaison.clusteredServer.SampleServer" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="host:port" default="host:port"/>
+		</ConfValue>
+		<ConfValue propname="com.tibco.cim.queue.cluster.TIBCOCluster.clusterLiaison.clusteredServer.encoding.SampleServer" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="UTF-8" default="UTF-8"/>
+		</ConfValue>
+		<ConfValue propname="com.tibco.cim.queue.cluster.TIBCOCluster.clusterLiaison.clusteredServers" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false"/>
+	</TIBCOCluster>
+	<MQSeriesCluster>
+		<ConfValue propname="com.tibco.cim.queue.cluster.MQSeriesCluster.clusterLiaison.clusteredQMgr.SampleServer.connFactory.mqQMgr" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="SampleQMgr" default="SampleQMgr"/>
+		</ConfValue>
+		<ConfValue propname="com.tibco.cim.queue.cluster.MQSeriesCluster.clusterLiaison.clusteredQMgr.SampleServer.connFactory.mqHost" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="host" default="host"/>
+		</ConfValue>
+		<ConfValue propname="com.tibco.cim.queue.cluster.MQSeriesCluster.clusterLiaison.clusteredQMgr.SampleServer.connFactory.mqPort" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="port" default="port"/>
+		</ConfValue>
+		<ConfValue propname="com.tibco.cim.queue.cluster.MQSeriesCluster.clusterLiaison.clusteredQMgr.SampleServer.connFactory.mqChannel" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="SCC_ECM" default="SCC_ECM"/>
+		</ConfValue>
+		<ConfValue propname="com.tibco.cim.queue.cluster.MQSeriesCluster.clusterLiaison.clusteredQMgr.SampleServer.connFactory.mqCCSID" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="1208" default="1208"/>
+		</ConfValue>
+		<ConfValue propname="com.tibco.cim.queue.cluster.MQSeriesCluster.clusterLiaison.clusteredQMgrs" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false"/>
+	</MQSeriesCluster>
+	<WebsphereMQ>
+		<ConfValue name="MQSeries Queue Extension SampleProp " propname="com.tibco.cim.queue.queue.SampleQueue.cluster.MQSeriesCluster.SampleProp" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="" default=""/>
+		</ConfValue>
+	</WebsphereMQ>
+	<PackagingScheme>
+		<ConfValue name="SamplePkgScheme Internal Integration Packaging" propname="com.tibco.cim.init.IntraCommunicatorMessagingManager.commType.JMS.payloadPackagingScheme.SamplePkgScheme" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="inherit:com.tibco.cim.init.IntraCommunicatorMessagingManager.DefCommTypeDefPayloadPackagingScheme" default="inherit:com.tibco.cim.init.IntraCommunicatorMessagingManager.DefCommTypeDefPayloadPackagingScheme"/>
+		</ConfValue>
+	</PackagingScheme>
+	<CommReceiver>
+		<ConfValue name="SampleCommReceiver Message Receiver" propname="com.tibco.cim.commReceiver.SampleCommReceiver" sinceVersion="7.1" visibility="All" description="Default Message Receiver for Events over Synchronous HTTP/HTTPS" isHotDeployable="false">
+			<ConfString value="inherit:com.tibco.cim.commReceiver.JMSInboundMsg" default="inherit:com.tibco.cim.commReceiver.JMSInboundMsg"/>
+		</ConfValue>		
+		<ConfValue name="SampleCommReceiver Message Receiver SampleProp" propname="com.tibco.cim.commReceiver.SampleCommReceiver.SampleProp" sinceVersion="7.1" visibility="All" description="Message Receiver for receiving Standard Integration Inbound Integration Messages over JMS" isHotDeployable="false">
+			<ConfString value="SamplePropName" default="SamplePropName"/>
+		</ConfValue> 
+	</CommReceiver>
+	<ReceiverManager>
+		<ConfValue name="SampleQueue Queue Inbound Receiver Class" propname="com.tibco.cim.init.SampleReceiverManager.class" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="com.tibco.mdm.integration.messaging.util.SampleReceiverClass" default="com.tibco.mdm.integration.messaging.util.SampleReceiverClass"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Inbound Receiver Property Prefix" propname="com.tibco.cim.init.SampleReceiverManager.receiver.msgListenerPropsKeyPrefix" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="com.tibco.cim.init.SampleListener" default="com.tibco.cim.init.SampleListener"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Inbound Listener Class" propname="com.tibco.cim.init.SampleListener.class" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="com.tibco.mdm.integration.messaging.JMSCommMessageListener" default="com.tibco.mdm.integration.messaging.JMSCommMessageListener"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Inbound Listener Property Prefix" propname="com.tibco.cim.init.SampleListener.commReceiverPropsKeyPrefix" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="com.tibco.cim.commReceiver.SampleCommReceiver" default="com.tibco.cim.commReceiver.SampleCommReceiver"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Inbound Receiver Pool size" propname="com.tibco.cim.init.SampleReceiverManager.poolSize" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfNum value="1" default="1"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Inbound Receiver Share Mode" propname="com.tibco.cim.init.SampleReceiverManager.connShareMode" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="useDestDefConn" default="useDestDefConn"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Inbound Receiver Destination Type" propname="com.tibco.cim.init.SampleReceiverManager.destType" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="com.tibco.mdm.integration.messaging.queue.IMqSampleDestType" default="com.tibco.mdm.integration.messaging.queue.IMqSampleDestType"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Inbound Receiver Destination Name" propname="com.tibco.cim.init.SampleReceiverManager.destName" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="SampleQueue" default="SampleQueue"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Inbound Receiver ACK Mode" propname="com.tibco.cim.init.SampleReceiverManager.receiver.msgAckMode" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="autoAck" default="autoAck"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Inbound Receiver Manager" propname="com.tibco.cim.msgDest.SampleQueue.receiverManager.startupInitObjPropKey" sinceVersion="7.1" visibility="All" description="The messaging destination is the internal name used by the application for accessing the real JMS destination. This name is mapped to the real JMS destination in the queue and bus configuration" isHotDeployable="false">
+			<ConfString value="com.tibco.cim.init.SampleReceiverManager" default="com.tibco.cim.init.SampleReceiverManager"/>
+		</ConfValue>
+	</ReceiverManager>
+	<SenderManager>
+		<ConfValue name="SampleQueue Queue Direction Sender Class" propname="com.tibco.cim.init.SampleSender.class" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+	            <ConfString value="com.tibco.mdm.integration.messaging.util.SenderClass" default="com.tibco.mdm.integration.messaging.util.SenderClass"/>
+            	</ConfValue>
+		<ConfValue name="SampleQueue Queue Direction Sender Pool Size" propname="com.tibco.cim.init.SampleSender.poolSize" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfNum value="1" default="1"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Direction Sender Share Mode" propname="com.tibco.cim.init.SampleSender.connShareMode" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="useDestDefConn" default="useDestDefConn"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Direction Sender Destination Type" propname="com.tibco.cim.init.SampleSender.destType" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="com.tibco.mdm.integration.messaging.queue.IMqSampleDestType" default="com.tibco.mdm.integration.messaging.queue.IMqSampleDestType"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Direction Sender Destination Name" propname="com.tibco.cim.init.SampleSender.destName" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="SampleQueue" default="SampleQueue"/>
+		</ConfValue>
+        	<ConfValue name="SampleQueue Queue Direction Sender Message Persistance" propname="com.tibco.cim.init.SampleSender.sender.msgPersistent" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+        		<ConfBool value="true" default="true"/>
+        	</ConfValue>
+		<ConfValue name="SampleQueue Queue Direction Sender Manager" propname="com.tibco.cim.msgDest.SampleQueue.senderManager.startupInitObjPropKey" sinceVersion="7.1" visibility="All" description="Associate the message destination with a sender manager" isHotDeployable="false">
+			<ConfString value="com.tibco.cim.init.SampleSender" default="com.tibco.cim.init.SampleSender"/>
+		</ConfValue>
+	</SenderManager>
+	<Unmarshalers>
+		<ConfValue name="Message Content Extractor" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO.msgContentUnmarshaler.msgContentFromMsgUnmarshaler" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="" default=""/>
+		</ConfValue>
+		<ConfValue name="Message Content Extractor SampleFormater Property" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO.msgContentUnmarshaler.msgContentFromMsgUnmarshaler.SampleFormater.Property" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false"/>
+		<ConfValue name="Message Content Unmarshalers" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO.msgContentUnmarshaler.msgContentFromMsgContentUnmarshalers" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false"/>
+		<ConfValue name="Message Content Unmarshaler SampleProcessor Property" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO.msgContentUnmarshaler.msgContentFromMsgContentUnmarshalers.SampleProcessor.Property" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false"/>
+		<ConfValue name="Message Unmarshalers" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO.msgContentUnmarshaler.msgFromMsgUnmarshalers" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false"/>
+		<ConfValue name="Message Unmarshaler SampleProcessor Property" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO.msgContentUnmarshaler.msgFromMsgUnmarshalers.SampleProcessor.Property" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false"/>
+	</Unmarshalers>
+	<Marshalers>
+		<ConfValue name="Message Creator" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO.msgContentMarshaler.msgContentToMsgMarshaler" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false">
+			<ConfString value="" default=""/>
+		</ConfValue>
+		<ConfValue name="Message Creator SampleFormater Property" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO.msgContentMarshaler.msgContentToMsgMarshaler.SampleFormater.Property" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false"/>
+		<ConfValue name="Message Content Marshalers" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO.msgContentMarshaler.msgContentToMsgContentMarshalers" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false"/>
+		<ConfValue name="Message Content Marshaler SampleProcessor Property" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO.msgContentMarshaler.msgContentToMsgContentMarshalers.SampleProcessor.Property" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false"/>
+		<ConfValue name="Message Marshalers" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO.msgContentMarshaler.msgToMsgMarshalers" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false"/>
+		<ConfValue name="Message Marshaler SampleProcessor Property" propname="com.tibco.cim.queue.queue.SampleQueue.msgIO.msgContentMarshaler.msgToMsgMarshalers.SampleProcessor.Property" sinceVersion="7.1" visibility="Advanced" description="" isHotDeployable="false"/>
+	</Marshalers>
+	<Routing>
+		<ConfValue name="SamplePkgScheme Integration Direction Sender Property Key" propname="com.tibco.cim.init.IntraCommunicatorMessagingManager.commType.JMS.payloadPackagingScheme.SamplePkgScheme.DirectionMsgSenderManager.startupInitObjPropKey" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="com.tibco.cim.init.SampleSender" default="com.tibco.cim.init.SampleSender"/>
+		</ConfValue>
+	</Routing>
+    <CommType>
+        <ConfValue isHotDeployable="false" name="Internal Transport SampleCommType Communication Type" propname="com.tibco.cim.init.IntraCommunicatorMessagingManager.commType.SampleCommType" sinceVersion="7.1" visibility="All">
+            <ConfString default="inherit:com.tibco.cim.init.IntraCommunicatorMessagingManager.commType.Default" value="inherit:com.tibco.cim.init.IntraCommunicatorMessagingManager.commType.Default"/>
+        </ConfValue>
+        <ConfValue name="SamplePkgScheme Integration Outbound Sender Property Key" propname="com.tibco.cim.init.IntraCommunicatorMessagingManager.commType.SampleCommType.payloadPackagingScheme.SamplePkgScheme.outboundMsgSenderManager.startupInitObjPropKey" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+            <ConfString value="com.tibco.cim.init.SampleSender" default="com.tibco.cim.init.SampleSender"/>
+        </ConfValue>
+    </CommType>
+
+	<InheritSender>
+		<ConfValue name="SampleQueue Queue Direction Sender Properties" propname="com.tibco.cim.init.SampleSender" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="inherit:com.tibco.cim.init.InheritSender" default="inherit:com.tibco.cim.init.InheritSender"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Direction Sender Destination Name" propname="com.tibco.cim.init.SampleSender.destName" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="SampleQueue" default="SampleQueue"/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Direction Sender Pool Size" propname="com.tibco.cim.init.SampleSender.poolSize" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfNum value="" default=""/>
+		</ConfValue>
+		<ConfValue name="SampleQueue Queue Direction Sender Manager" propname="com.tibco.cim.msgDest.SampleQueue.senderManager.startupInitObjPropKey" description="Associate the message destination with a sender manager" sinceVersion="7.1" visibility="All" isHotDeployable="false">
+			<ConfString value="com.tibco.cim.init.SampleSender" default="com.tibco.cim.init.SampleSender"/>
+		</ConfValue>
+	</InheritSender>
+	<ReceiverOrganization>
+		<ConfValue name="Communicator Proxy JMS Destination Address For Organization RecvOrganization" propname="com.tibco.cim.commInfoExtractor.JMS.DestAddr.RecvOrganization" sinceVersion="7.1" visibility="All" description="" isHotDeployable="false">
+			<ConfString value="SampleQueue" default="SampleQueue"/>
+		</ConfValue>
+	</ReceiverOrganization>	
+	<CommunicationHandler>
+		<ConfValue name="Communication Context for CommType SampleComm" propname="com.tibco.cim.commInfoExtractor.SampleComm" sinceVersion="7.1" visibility="Advanced" description="Custom Integration Outbound Sender Property Key" isHotDeployable="false">
+			<ConfString value="inherit:com.tibco.cim.commInfoExtractor.JMS" default="inherit:com.tibco.cim.commInfoExtractor.JMS"/>
+		</ConfValue>
+		<ConfValue name="Destination Address for CommType SampleComm" propname="com.tibco.cim.commInfoExtractor.SampleComm.DestAddr" sinceVersion="7.1" visibility="Advanced" description="Custom Integration Outbound Sender Property Key" isHotDeployable="false">
+			<ConfString value="SampleQueue" default="SampleQueue"/>
+		</ConfValue>
+		<ConfValue name="SampleProp for CommType SampleComm" propname="com.tibco.cim.commInfoExtractor.SampleComm.SampleProp" sinceVersion="7.1" visibility="Advanced" description="Custom Integration Outbound Sender Property Key" isHotDeployable="false"/>
+	</CommunicationHandler>
+         <LoadXPath>
+                  <ConfValue name="SamplePkgScheme XPath Terms Configuration File" propname="com.tibco.cim.neutralizexpath.propFile.SamplePkgScheme" sinceVersion="7.1" visibility="Advanced" description="For a packaging scheme, Xpath Mapping file defines how the data is to be extracted from incoming message." isHotDeployable="false">
+		    <ConfString value="config/xpath.props" default="config/xpath.props"/>
+		</ConfValue>
+         </LoadXPath>
+         <ByPassComm>
+                  <ConfValue name="Use Internal Transport for SamplePkgScheme" propname="com.tibco.cim.init.IntraCommunicatorMessagingManager.DefCommType.payloadPackagingScheme.SamplePkgScheme.outboundMsgSenderManager.startupInitObjPropKey" sinceVersion="7.1" visibility="Basic" description="" isHotDeployable="false">
+		    <ConfString value="com.tibco.cim.init.InternalIntgrMsgQueueSenderManager" default="com.tibco.cim.init.InternalIntgrMsgQueueSenderManager"/>
+		</ConfValue>
+         </ByPassComm>	
+</Queue>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

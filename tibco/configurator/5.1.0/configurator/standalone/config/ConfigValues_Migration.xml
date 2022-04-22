@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration description="The Initial Configuration Setup for Migration" displayName="Order Management - Migration" name="Migration" xmlns="http://www.tibco.com/af/config/confbeans/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tibco.com/af/config/confbeans/1.0">
+	<Cluster>
+		<Category description="Data Source Configuration for Source Application" name="Data Source Configuration for Source Application" visibility="Basic">
+			<ConfValue description="Pooled Data Source Type" name="Pooled Data Source Type" propname="databaseType" sinceVersion="1.1" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" value="oracle"/>
+					<EnumValue default="true" value="postgres"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Driver Class Name" name="Pooled Data Source Driver Class Name" propname="omsDatasourceDriverClassName" sinceVersion="1.1" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" value="oracle.jdbc.driver.OracleDriver"/>
+					<EnumValue default="true" value="org.postgresql.Driver"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Host" name="Pooled Data Source Host" propname="omsDsHost" sinceVersion="1.1" visibility="Basic">
+				<ConfString default="localhost" value="localhost"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Port" name="Pooled Data Source Port" propname="omsDsPort" sinceVersion="1.1" visibility="Basic">
+				<ConfString default="1521" value="1521"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Database" name="Pooled Data Source Database" propname="omsDsDatabase" sinceVersion="1.1" visibility="Basic">
+				<ConfString default="orcl" value="orcl.apac.tibco.com"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Username" name="Pooled Data Source Username" propname="omsDsUsername" sinceVersion="1.1" visibility="Basic">
+				<ConfString default="tenantpdb" value="tenantpdb"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Password" name="Pooled Data Source Password" propname="omsDsPassword" sinceVersion="1.1" visibility="Basic">
+				<ConfString default="tenantpdb" isPassword="true" value="tenantpdb"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Schema for postgres" name="Pooled Data Source Schema for postgres" propname="omsDsPostgresSchema" sinceVersion="1.1" visibility="Basic">
+				<ConfString default="fomschema" value="fomschema"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source URL" name="Pooled Data Source URL" propname="omsDsUrl" sinceVersion="2.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue selected="true" value="jdbc:oracle:thin:@//${omsDsHost}:${omsDsPort}/${omsDsDatabase}"/>
+					<EnumValue default="true" value="jdbc:postgresql://${omsDsHost}:${omsDsPort}/${omsDsDatabase}?currentSchema=${omsDsPostgresSchema}"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Initialize Size" name="Pooled Data Source Initialize Size" propname="omsDsInitialSize" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="10" value="10"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Idle" name="Pooled Data Source Max Idle" propname="omsDsMaxIdle" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="100" value="100"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Min Idle" name="Pooled Data Source Min Idle" propname="omsDsMinIdle" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="100" value="100"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Active" name="Pooled Data Source Max Active" propname="omsDsMaxActive" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="100" value="100"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Wait" name="Pooled Data Source Max Wait" propname="omsDsMaxWait" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="30000" value="30000"/>
+			</ConfValue>
+			<ConfValue description="Hibernate Dialect" name="Hibernate Dialect" propname="omsHibernateDialect" sinceVersion="1.1" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue selected="true"  value="org.hibernate.dialect.Oracle10gDialect"/>
+					<EnumValue default="true"  value="org.hibernate.dialect.PostgreSQLDialect"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Hibernate Second Level Cache Usage" name="Hibernate Second Level Cache Usage" propname="omsHibernateCacheUseSecondLevelCache" sinceVersion="1.2" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Hibernate Cache Provider Class" name="Hibernate Cache Provider Class" propname="omsHibernateCacheProviderClass" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="org.hibernate.cache.ASCacheProvider" value="com.tibco.as.hibernate.ASCacheProvider"/>
+			</ConfValue>
+			<ConfValue description="Hibernate Transaction Factory Class" name="Hibernate Transaction Factory Class" propname="omsHibernateTransactionFactoryClass" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="org.hibernate.transaction.JDBCTransactionFactory" value="org.hibernate.transaction.JDBCTransactionFactory"/>
+			</ConfValue>
+			<ConfValue description="Hibernate JDBC Batch size" name="Hibernate JDBC Batch size" propname="omsHibernateJdbcBatchSize" sinceVersion="1.1" visibility="Advanced">
+				<ConfNum default="30" value="30"/>
+			</ConfValue>
+			<ConfValue description="Hibernate Show SQL" name="Hibernate Show SQL" propname="omsHibernateShowSql" sinceVersion="1.1" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Query" name="Pooled Data Source Validation Query" propname="omsDatasourceValidationQuery" sinceVersion="1.1" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue  selected="true" value="select 1 from dual"/>
+					<EnumValue default="true" value="SELECT 1"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test OnBorrow" name="Pooled Data Source Test OnBorrow" propname="omsDsTestOnBorrow" sinceVersion="1.1" visibility="Advanced">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Interval" name="Pooled Data Source Validation Interval" propname="omsDsValidationInterval" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+		</Category>
+		<Category description="Archival Database Configurations for Target Application" name="Archival Database Configurations for Target Application" visibility="Basic">
+			<ConfValue description="Data Source Driver Name" isHotDeployable="true" name="Data Source Driver Name" propname="archivalDatasourceDriverClassName" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="org.postgresql.Driver"/>
+					<EnumValue value="oracle.jdbc.driver.OracleDriver"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Data Source URL" isHotDeployable="false" name="Data Source URL" propname="archivalDsUrl" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="jdbc:postgresql://localhost:5432/archivaldbll?currentSchema=archivalschemall"/>
+					<EnumValue value="jdbc:oracle:thin:@//localhost:1521/orcl.apac.tibco.com"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Data Source Username" isHotDeployable="true" name="Data Source Username" propname="archivalDsUsername" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="archivaluserll" value="archivaluserll"/>
+			</ConfValue>
+			<ConfValue description="Data Source Password" isHotDeployable="true" name="Data Source Password" propname="archivalDsPassword" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="archivaluserll" isPassword="true"  value="archivaluserll"/>
+			</ConfValue>
+			<ConfValue description="Hibernate Dialect" isHotDeployable="true" name="Hibernate Dialect" propname="archivalHibernateDialect" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="org.hibernate.dialect.PostgreSQLDialect"/>
+					<EnumValue  value="org.hibernate.dialect.Oracle10gDialect"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Enable Hibernate Metadata Defaults" isHotDeployable="true" name="Enable Hibernate Metadata Defaults" propname="archivalHibernateDsDefaults" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Query" name="Pooled Data Source Validation Query" propname="archivalDatasourceValidationQuery" sinceVersion="1.1" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue  default="true" selected="true"  value="SELECT 1"/>
+					<EnumValue value="SELECT 1 from dual"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test OnBorrow" name="Pooled Data Source Test OnBorrow" propname="archivalDsTestOnBorrow" sinceVersion="1.1" visibility="Advanced">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Interval" name="Pooled Data Source Validation Interval" propname="archivalDsValidationInterval" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Hibernate Show SQL" name="Hibernate Show SQL" propname="archivalHibernateShowSql" sinceVersion="1.1" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Initialize Size" name="Pooled Data Source Initialize Size" propname="archivalDsInitialSize" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="10" value="10"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Wait" name="Pooled Data Source Max Wait" propname="archivalDsMaxWait" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Active" name="Pooled Data Source Max Active" propname="archivalDsMaxActive" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="100" value="100"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Idle" name="Pooled Data Source Max Idle" propname="archivalDsMaxIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="11" value="100"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Min Idle" name="Pooled Data Source Min Idle" propname="archivalDsMinIdle" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="100" value="100"/>
+			</ConfValue>
+		</Category>	
+		<Category description="Redis Data Source Configuration for Target Application" name="Redis Data Source Configuration for Target Application" visibility="Basic">
+			<ConfValue description="Redis Server Host for Storing Order Related Information" isHotDeployable="true" name="Redis Server Host for Storing Order Related Information" propname="orderRedisHost" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="localhost" value="localhost"/>
+			</ConfValue>
+			<ConfValue description="Whether redis is running in Cluster Mode" isHotDeployable="true" name="clusterEnabled" propname="redisClusterEnabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Redis Server Port for Storing Order Related Information" isHotDeployable="true" name="Redis Server Port for Storing Order Related Information" propname="orderRedisPort" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6379" value="6379"/>
+			</ConfValue>
+			<ConfValue description="Test On Borrow" isHotDeployable="true" name="Test On Borrow" propname="redisTestOnBorrow" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Test On Return" isHotDeployable="true" name="Test On Return" propname="redisTestOnReturn" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Test While Idle" isHotDeployable="true" name="Test While Idle" propname="redisTestWhileIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Block When Exhausted" isHotDeployable="true" name="Block When Exhausted" propname="redisBlockedWhenExhausted" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="JMX Enabled" isHotDeployable="true" name="JMX Enabled" propname="redisJmxEnabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="LIFO" isHotDeployable="true" name="LIFO" propname="redisLifo" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Max Idle" isHotDeployable="true" name="Max Idle" propname="redisMaxIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="64" value="64"/>
+			</ConfValue>
+			<ConfValue description="Min Idle" isHotDeployable="true" name="Min Idle" propname="redisMinIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="16" value="16"/>
+			</ConfValue>
+			<ConfValue description="Max Total" isHotDeployable="true" name="Max Total" propname="redisMaxTotal" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="64" value="64"/>
+			</ConfValue>
+			<ConfValue description="Number of Test Eviction Per Run" isHotDeployable="true" name="Number of Test Eviction Per Run" propname="redisNumTestsPerEvictionRun" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Soft Min Evictable Idle Time Millis" isHotDeployable="true" name="Soft Min Evictable Idle Time Millis" propname="redisSoftMinEvictableIdleTimeMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="3000" value="3000"/>
+			</ConfValue>
+			<ConfValue description="Min Evictable Idle Time Millis" isHotDeployable="true" name="Min Evictable Idle Time Millis" propname="redisMinEvictableIdleTimeMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6000" value="6000"/>
+			</ConfValue>
+			<ConfValue description="Time Between Eviction Runs Millis" isHotDeployable="true" name="Time Between Eviction Runs Millis" propname="redisTimeBetweenEvictionRunsMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="3000" value="3000"/>
+			</ConfValue>
+		</Category>
+		<Category description="Miscellaneous" name="Miscellaneous" visibility="Basic">
+			<ConfValue description="Legacy System Tenant ID" isHotDeployable="true" name="Legacy System Tenant ID" propname="com.tibco.oms.legacy.tenantId" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="TIBCO" value="TIBCO"/>
+			</ConfValue>
+			<ConfValue description="" isHotDeployable="true" name="Order UDF Search Keys" propname="com.tibco.archival.order.udf.searchkeys" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfList>
+					<ConfListString value="OrderUDF"/> 
+				</ConfList>
+			</ConfValue>
+			<ConfValue description="" isHotDeployable="true" name="Order Line UDF Search Keys" propname="com.tibco.archival.orderline.udf.searchkeys" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfList>
+					<ConfListString value="test"/> 
+				</ConfList>
+			</ConfValue>
+			<ConfValue description="Migrate Order In Final State" isHotDeployable="true" name="Migrate Order In Final State" propname="com.tibco.offlineMigration.migrateOrderInFinalState" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Flag to enable or disable the Order Sequencing" name="Flag to enable or disable the Order Sequencing" propname="com.tibco.fom.orch.enableOrderSequencing" sinceVersion="2.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Logging Configuration File Path" isHotDeployable="true" name="Logging Configuration File Path" propname="logging.config" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="config/logback_migration.xml" value="config/logback_migration.xml"/>
+			</ConfValue>
+			<ConfValue description="Enable Audit Trail" isHotDeployable="true" name="Enable Audit Trail" propname="enableAuditTrail" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+            <ConfValue description="Enable Milestone Release during activation" name="Enable Milestone Release during activation" propname="com.tibco.fom.orch.enableMilestoneReleaseDuringActivation" readonly="false" sinceVersion="2.1" visibility="Basic">
+					<ConfString default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Application name to show on actuator info endpoint" isHotDeployable="false" name="Application Name" propname="info.app.name" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="OM-Migration" value="OM-Migration"/>
+			</ConfValue>
+		</Category>
+		<Category description="Messaging Configuration" name="Messaging Configuration" visibility="Basic">
+			<ConfValue description="JNDI Connection factory JNDI Name" name="JNDI Connection factory JNDI Name" propname="jndiConnectionFactory" sinceVersion="1.1" visibility="Basic">
+				<ConfString default="GenericConnectionFactory" value="GenericConnectionFactory"/>
+			</ConfValue>
+			<ConfValue description="JNDI Initial Context Factory" name="JNDI Initial Context Factory" propname="initialContextFactory" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="com.tibco.tibjms.naming.TibjmsInitialContextFactory" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+			</ConfValue>
+			<ConfValue description="JNDI URL for JMS Service" name="JNDI URL" propname="emsServerURL" sinceVersion="1.2" visibility="Basic">
+				<ConfString default="tibjmsnaming://localhost:7222" value="tibjmsnaming://localhost:7222"/>
+			</ConfValue>
+			<ConfValue description="JNDI Username" name="JNDI Username" propname="emsServerUsername" sinceVersion="1.1" visibility="Basic">
+				<ConfString default="admin" value="admin"/>
+			</ConfValue>
+			<ConfValue description="JNDI Password" name="JNDI Password" propname="emsServerPassword" sinceVersion="1.1" visibility="Basic">
+				<ConfString default="admin" isPassword="true" value="admin"/>
+			</ConfValue>
+			<ConfValue description="For SSL Configuration value should be ssl" name="Constant that holds the name of the environment property for specifying the security protocol to use in Tibjms JNDI lookups." propname="tibjmsNamingSecurityProtocol" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="For SSL enable verify host value should be false" name="Constant that holds the name of SSL property specifying if client should verify the server certificate in Tibjms JNDI lookups." propname="tibjmsNamingSslEnableVerifyHost" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="Submit Order Sequencer Queue" name="Submit Order Sequencer Queue" propname="omsOrdersSequencerSubmitOrder" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="tibco.aff.oms.ordersSequencer.submitOrder" value="tibco.aff.oms.ordersSequencer.submitOrder"/>
+			</ConfValue>
+			<ConfValue description="Submit Order Sequencer Queue Receive TimeOut" name="Submit Order Sequencer Queue Receive TimeOut" propname="omsOrdersSequencerSubmitOrderReceiveTimeout" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="1000" value="1000"/>
+			</ConfValue>	
+		</Category>
+		<Category description="Order Data Source Configuration for Target Application" name="Order Data Source Configuration for Target Application" visibility="Basic">
+			<ConfValue description="Pooled Data Source Driver Class Name" name="Pooled Data Source Driver Class Name" propname="orderDatasourceDriverClassName" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" default="true" value="org.postgresql.Driver"/>
+					<EnumValue  value="oracle.jdbc.driver.OracleDriver"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Username" name="Pooled Data Source Username" propname="orderDsUsername" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" value="fom51tnt"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Password" name="Pooled Data Source Password" propname="orderDsPassword" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" isPassword="true" value="fom51tnt"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source URL" name="Pooled Data Source URL" propname="orderDsUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" default="true" value="jdbc:postgresql://localhost:5432/admindbll?currentSchema=adminschemall"/>
+					<EnumValue value="jdbc:oracle:thin:@//localhost:1521/orcl.apac.tibco.com"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Initialize Size" name="Pooled Data Source Initialize Size" propname="orderDsInitializeSize" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="2" value="10"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Idle" name="Pooled Data Source Max Idle" propname="orderDsMaxIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="11" value="100"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Min Idle" name="Pooled Data Source Min Idle" propname="orderDsMinIdle" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="100" value="100"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Active" name="Pooled Data Source Max Active" propname="orderDsMaxActive" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="12" value="100"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Wait" name="Pooled Data Source Max Wait" propname="orderDsMaxWait" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Query" name="Pooled Data Source Validation Query" propname="orderDatasourceValidationQuery" sinceVersion="5.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue  value="select 1 from dual"/>
+					<EnumValue selected="true" default="true" value="SELECT 1"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test OnBorrow" name="Pooled Data Source Test OnBorrow" propname="orderDsTestOnBorrow" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Enable Hibernate Metadata Defaults" isHotDeployable="true" name="Enable Hibernate Metadata Defaults" propname="orderHibernateDsDefaults" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Hibernate Dialect" isHotDeployable="true" name="Hibernate Dialect" propname="orderHibernateDialect" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue selected="true" default="true" value="org.hibernate.dialect.PostgreSQLDialect"/>
+					<EnumValue  value="org.hibernate.dialect.Oracle10gDialect"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Hibernate Show SQL" name="Hibernate Show SQL" propname="orderHibernateShowSql" sinceVersion="1.1" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Interval" name="Pooled Data Source Validation Interval" propname="orderDsValidationInterval" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+		</Category>
+	</Cluster>
+</Configuration>
+<!-- Copyright (c) 2017-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

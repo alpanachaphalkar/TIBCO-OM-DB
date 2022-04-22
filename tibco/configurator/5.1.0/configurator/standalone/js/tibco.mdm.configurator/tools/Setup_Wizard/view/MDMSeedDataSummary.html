@@ -1,0 +1,53 @@
+<div  ng-controller="configurator.controller.tools.Setup_Wizard.MDMSeedDataSummary">
+  <div class="dialog-form" ng-show="showSummary">
+    <div class="dialog-title">
+        <h3>{{local.title}}</h3>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <label>{{local.report}}</label>
+      </div>
+      <!-- <div class="control-group label-inline form-horizontal">
+        <label class="control-label">{{local.showSummaryTableSpaceCreation}}</label>
+        <label class="checkbox">{{data.Tablespace}}</label>
+      </div>  -->
+      <div class="control-group label-inline form-horizontal">
+		<label class="control-label">TableSpace</label>
+        <label class="checkbox">{{data.tableSpace}}</label>       
+      </div>
+	  <div class="control-group label-inline form-horizontal">
+		<label class="control-label">SeedData</label>
+        <label class="checkbox">{{data.seedData}}</label>
+      </div> 
+	  <div class="control-group label-inline form-horizontal">
+		<label class="control-label">ErrorCount</label>
+        <label class="checkbox">{{data.ErrorCount}}</label>
+      </div>	  
+      <div class="control-group label-inline form-horizontal">
+        <label class="control-label">{{local.logFile}}</label>
+        <label class="checkbox">{{data.logFilePath}}</label>
+        <form action="DatabaseSetup.do" method="post" target="_blank" style="display:inline;margin-left: 20px;">
+        <input type="hidden" name="action" value="downloadFOM">
+          <input type="hidden" name="fileType" value="output">
+          <input type="hidden" name="CONFIG" value="dbConfig">
+          <button type="submit" class="cfg_butt">{{local.open}}</button>
+        </form>
+      </div> 
+    </div>
+  </div>
+  <div class="dialog-form" ng-hide="showSummary">
+    <div class="dialog-title">
+        <h3>{{local.hideSummaryTitle}}</h3>
+    </div>
+    <div class="dialog-content">
+        <div class="control-group">
+          <label class="control-label">{{local.hideSummaryContent}}</label>
+          <div class="progress progress-striped active">
+            <div class="bar" style="width: 100%;"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

@@ -1,0 +1,126 @@
+<div id="addNewProperty" class="dialog-form" ng-controller="configurator.controller.addnewproperty_dialog">
+    <div class="dialog-title">
+      <h3>{{local.infor}}</h3>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <label class="control-label">{{local.configName}}</label>
+        <input ng-model="newconfigData.name" class="control-input input-block-level" type="text" />
+      </div>
+      <div class="control-group">
+        <label class="control-label">{{local.internalName}}</label>
+        <textarea ng-model="newconfigData.propname" class="control-input input-block-level" placeholder="{{local.internalNameValue}}" style="resize:none;"></textarea>
+      </div>
+      <div class="control-group label-inline">
+        <label class="control-label">{{local.version}}</label>
+           <select ng-model="newconfigData.sinceVersion" ng-init="newconfigData.sinceVersion = '8.3.2'" ng-options = "v for v in ['8.2.0','8.3.0','8.3.2']"></select>
+        <label class="control-label">{{local.visibility}}</label>
+        <div class="switchButton butt_grey" firstbutton = "button.basic" secondbutton = "button.advanced" visibility="button.visibility"></div>
+        <label class="checkbox">
+          <input type="checkbox" ng-model="newconfigData.readonly"/>
+          <span>{{local.checkboxRead}}</span>
+        </label>
+        <label class="checkbox" ng-hide="isCloudMode == 'true'">
+          <input type="checkbox" ng-model="newconfigData.isHidden"/>
+          <span>{{local.checkboxSet}}</span>
+          <i class="icon-question-sign tooltip-icon" ng-tooltip="local.hiddenPropertyTooltip" placement="bottom"></i>
+        </label>
+      </div>
+      <div class="control-group">
+        <label class="control-label">{{local.description}}</label>
+        <textarea ng-model="newconfigData.description" class="control-input input-block-level"></textarea>
+      </div>
+      <div class="control-group valueType">
+        <label class="control-label">{{local.valueType}}</label>
+        <select ng-model="newconfigData.valueType"  ng-init="newconfigData.valueType = 'string'" ng-change="initValueData(newconfigData.valueType)" ng-options="t.value as t.name for t in valueType">
+        </select>
+        <div class="currentValueSet">
+          <label class="checkbox">
+            <input class="currentValueCheckbox" type="checkbox" ng-model="setDefaultValue" ng-change="checkboxToggle();">
+            <span>{{local.currentValueSet}}</span>
+          </label>
+        </div>
+      </div>
+      <div ng-show="newconfigData.valueType == 'string'">
+        <div class="control-group">
+          <label class="control-label">{{local.currentValue}}</label>
+          <input ng-model="newconfigData.value" class="control-input input-block-level" type="text" />
+          <label class="control-label">{{local.defaultValue}}</label>
+          <input ng-model="newconfigData.defaultValue" class="control-input input-block-level" type="text" />
+        </div>
+      </div>
+      <div ng-show="newconfigData.valueType == 'number'">
+        <div class="control-group">
+          <label class="control-label">{{local.currentValue}} </label>
+          <input ng-model="newconfigData.value" ng-blur="checkNumber($event, newconfigData.value)" class="control-input input-block-level" type="text" />
+          <label class="control-label">{{local.defaultValue}} </label>
+          <input ng-model="newconfigData.defaultValue" ng-blur="checkNumber($event, newconfigData.defaultValue)" class="control-input input-block-level" type="text" />
+        </div>
+      </div>
+      <div ng-show="newconfigData.valueType == 'boolean'">
+        <div class="control-group">
+          <label class="control-label">{{local.currentValue}}</label>
+          <select ng-model="newconfigData.value" ng-options = "v for v in [true,false]"></select>
+          <label class="control-label">{{local.defaultValue}}</label>
+          <select ng-model="newconfigData.defaultValue"  ng-options = "v for v in [true,false]"></select>
+        </div>
+      </div>
+      <div ng-show="newconfigData.valueType == 'enum'">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>{{local.currentSelection}}</th>
+                    <th>{{local.defaultSelection}}</th>
+                    <th>{{local.value}}</th>
+                    <th>{{local.deleteUppercase}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in enumData">
+                    <td>
+                        <label class="radio">
+                            <input type="radio" name="current" ng-model="newconfigData.value" value="{{enumData[$index].value}}" />
+                        </label>
+                    </td>
+                    <td>
+                        <label class="radio">
+                            <input type="radio" name="default" ng-model="newconfigData.defaultValue" value="{{enumData[$index].value}}" />
+                        </label>
+                    </td>
+                    <td>
+                        <input type="text" ng-model="enumData[$index].value" ng-keyup="enumerationAddNew(item,$index)"/>
+                    </td>
+                    <td>
+                        <span class="deleteIcon" ng-click="enumerationDel($index)"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <div ng-show="newconfigData.valueType == 'list'" class="row-fluid" id="list">
+        <div class="span6">
+            <div class="breadcrumb">{{local.currentValue}}</div>
+            <list value="Value" delete="Delete" table-data="newconfigData.value" list-name="currentValue"></list>
+        </div>
+        <div class="span6">
+            <div class="breadcrumb">{{local.defaultValue}}</div>
+            <list value="Value" delete="Delete" table-data="newconfigData.defaultValue" list-name="defaultValue"></list>
+        </div>
+      </div>
+      <div ng-show="newconfigData.valueType == 'password'">
+        <div class="control-group">
+          <label class="control-label">{{local.currentPassword}}</label>
+          <input ng-model="newconfigData.value" class="control-input input-block-level" type="password" />
+          <label class="control-label">{{local.reCurrentPassword}}</label>
+          <input ng-model="newconfigData.recurrentPassword" ng-blur="checkPassword($event, newconfigData.value, newconfigData.recurrentPassword)" class="control-input input-block-level" type="password" />
+        </div>
+        <div class="control-group">
+          <label class="control-label">{{local.defaultPassword}}</label>
+          <input ng-model="newconfigData.defaultValue" class="control-input input-block-level" type="password" />
+          <label class="control-label">{{local.reDefaultPassword}}</label>
+          <input ng-model="newconfigData.reDefaultPassword" ng-blur="checkPassword($event, newconfigData.defaultValue, newconfigData.reDefaultPassword)" class="control-input input-block-level" type="password" />
+        </div>
+      </div>
+
+  </div>
+</div>

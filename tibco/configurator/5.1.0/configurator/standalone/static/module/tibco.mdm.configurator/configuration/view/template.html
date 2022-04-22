@@ -1,0 +1,155 @@
+<div class="cfg_mainConfig splitHorizontal" ng-controller="configurator.configuration.controller">
+	<div class="leftPanel splitVertical splitLineContainer" ng-controller="cfg.configurationOutline.controller">
+		<div ng-hide="selectConfiguration.configFileList.length === 0 " id="selectpanel" class="clusterOutline" style="height:80px;">
+			<h3 class="titleText">Select Configuration</h3>
+			<select class="configDropdown" ng-model="selectConfiguration.selected" ng-change="changeConfiguration(selectConfiguration.selected)" ng-options = "v as v.name for v in selectConfiguration.configFileList" ></select>
+		</div>
+		
+		<div id="clusterpanel" class="clusterOutline">
+			<h3 class="titleText">{{local.outlineCluster}}</h3>
+			<div class="clusterCategoryContainer">
+				<ul class="level0 clusterOnly" ng-scrollbar="cluster" scroll-wrapper="#clusterpanel">
+					<li class="level0-{{$index}}" ng-repeat-finished="cluster" ng-repeat="item in initialInfo.clusterData" ng-class="{'hasSubitem': item.subItem.length > 0, 'highlight': highlight.cluster === item.name, 'extend': extend.cluster.level0 === item.name, 'last': $index === initialInfo.clusterData.length - 1}" ng-click="configurationItemClicked($event, $index, 'level0', 'cluster')">
+						<label for="" class="list" ng-mouseenter="mouseEnter($event)" ng-mouseleave="mouseLeave($event)">
+							<i class="level0 arrow" ng-click="configurationItemArrowClicked($event, 'level0', 'cluster')"></i>
+							<span for="" class="itemTitle level0" marker="{{item.name}}" title="{{item.name}}" dataType="{{item.type}}" isactive="{{item.isActive}}">{{item.name}}</span>
+							<!--<i class="icon-align-justify icon-white menu-icon level0 hide" ng-click="configurationMenuIconClicked($event, '.clusterOnly')">
+								<ul class="menu hide"  ng-click="configurationMenuPanelClicked($event)">
+									<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'edit', 'level0', 'Cluster')"><i class="ic ic_edit"></i><span class="editAction">{{local.editUppercase}}</span></a></li>
+								</ul>
+							</i>-->
+						</label>					
+						<ul class="level1">
+							<li class="level1-{{$index}}" ng-repeat="sub_item in item.subItem" ng-class="{'hasSubitem': sub_item.subItem.length > 0, 'highlight': highlight.cluster === sub_item.name}" ng-click="configurationItemClicked($event, $index, 'level1', 'cluster')">
+								<label for="" class="list" ng-mouseenter="mouseEnter($event)" ng-mouseleave="mouseLeave($event)">
+									<i class="level1 arrow" ng-click="configurationItemArrowClicked($event, 'level1', 'cluster')"></i>
+									<span for="" class="itemTitle level1" marker="{{sub_item.name}}" title="{{sub_item.name}}" dataType="{{sub_item.type}}" isactive="{{sub_item.isActive}}">{{sub_item.name}}</span>
+									<!--<i class="icon-align-justify icon-white menu-icon level1 hide" ng-click="configurationMenuIconClicked($event, '.clusterOnly')">
+										<ul class="menu hide"  ng-click="configurationMenuPanelClicked($event)">
+											<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'edit', 'level1', 'Cluster')"><i class="ic ic_edit"></i><span class="editAction">{{local.editUppercase}}</span></a></li>
+											<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'clone', 'level1', 'Cluster')"><i class="ic ic_clone"></i><span class="cloneAction">{{local.cloneUppercase}}</span></a></li>
+											<li ng-class="{'hide': sub_item.isActive == 'true'}"><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'delete', 'level1', 'Cluster')"><i class="ic ic_delete"></i><span class="deleteAction">{{local.deleteUppercase}}</span></a></li>
+										</ul>
+									</i>-->
+								</label>
+								
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="splitLine vertical" split-line="vertical"></div>
+
+		<div id="configurationpanel" class="configOutline">
+			<h3 class="titleText">{{local.outlineConfiguration}}</h3>
+			<div id="leftPanelButtenGroup">
+				<label class="leftPanelButtenLabel"><button class="leftPanelButten leftPanelButten-basic" ng-class="{'leftPanelButten-active': initialInfo.configuration_visibility === 'Basic'}" ng-click="leftPanelButtenClick('basic')">{{local.buttonBasic}}</button></label>
+				<label class="leftPanelButtenLabel"><button class="leftPanelButten leftPanelButten-advanced" ng-class="{'leftPanelButten-active': initialInfo.configuration_visibility === 'Advanced'}" ng-click="leftPanelButtenClick('advanced')">{{local.buttonAdvanced}}</button></label>
+			</div>
+			<div class="configurationCategoryContainer">
+				<ul id="Basic" class="level0 basic topLevel" ng-class="{'hide': initialInfo.configuration_visibility === 'Advanced'}" ng-scrollbar="configBasic" scroll-wrapper="#configurationpanel">
+					<li class="level0-{{$index}}" ng-class="{'hasSubitem': item.subItem.length > 0, 'highlight': highlight.configuration === item.name, 'extend': extend.configuration.level0 === item.name, 'last': $index === initialInfo.configData.Basic.length - 1}" ng-repeat-finished="configBasic" ng-repeat="item in initialInfo.configData.Basic" ng-click="configurationItemClicked($event, $index, 'level0', 'configuration')">
+						<label for="" class="list" ng-mouseenter="mouseEnter($event)" ng-mouseleave="mouseLeave($event)">
+							<i class="level0 arrow" ng-click="configurationItemArrowClicked($event, 'level0', 'configuration')"></i>
+							<span for="" class="itemTitle level0" marker="{{item.name}}" title="{{item.name}}" dataType="{{item.type}}" isactive="{{item.isActive}}">{{item.name}}</span>
+							<!--<i class="icon-align-justify icon-white menu-icon level0 hide" ng-click="configurationMenuIconClicked($event, '#Basic')">
+								<ul class="menu hide"  ng-click="configurationMenuPanelClicked($event)">
+									<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'edit', 'level0', 'Configuration')"><i class="ic ic_edit"></i><span class="editAction">{{local.editUppercase}}</span></a></li>
+									<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'clone', 'level0', 'Configuration')"><i class="ic ic_clone"></i><span class="cloneAction">{{local.cloneUppercase}}</span></a></li>
+									<li ng-class="{'hide': item.isActive == 'true'}"><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'delete', 'level0', 'Configuration')"><i class="ic ic_delete"></i><span class="deleteAction">{{local.deleteUppercase}}</span></a></li>
+								</ul>
+							</i>-->
+						</label>
+						<ul class="level1">
+							<li ng-class="{'hasSubitem': sub_item.subItem.length > 0, 'highlight': highlight.configuration === sub_item.name, 'extend': extend.configuration.level1 === sub_item.name}" class="level1-{{$index}}" ng-repeat="sub_item in item.subItem" ng-click="configurationItemClicked($event, $index, 'level1', 'configuration')">
+								<label for="" class="list" ng-mouseenter="mouseEnter($event)" ng-mouseleave="mouseLeave($event)">
+									<i class="level1 arrow" ng-click="configurationItemArrowClicked($event, 'level1', 'configuration')"></i>
+									<span for="" class="itemTitle level1" marker="{{sub_item.name}}" title="{{sub_item.name}}" dataType="{{sub_item.type}}" isactive="{{sub_item.isActive}}">{{sub_item.name}}</span>
+									<!--<i class="icon-align-justify icon-white menu-icon level1 hide" ng-click="configurationMenuIconClicked($event, '#Basic')">
+										<ul class="menu hide"  ng-click="configurationMenuPanelClicked($event)">
+											<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'edit', 'level1', 'Configuration')"><i class="ic ic_edit"></i><span class="editAction">{{local.editUppercase}}</span></a></li>
+											<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'clone', 'level1', 'Configuration')"><i class="ic ic_clone"></i><span class="cloneAction">{{local.cloneUppercase}}</span></a></li>
+											<li ng-class="{'hide': sub_item.isActive == 'true'}"><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'delete', 'level1', 'Configuration')"><i class="ic ic_delete"></i><span class="deleteAction">{{local.deleteUppercase}}</span></a></li>
+										</ul>
+									</i>-->
+								</label>
+								<ul class="level2">
+									<li class="level2-{{$index}}" ng-class="{'hasSubitem': sub_sub_item.subItem.length > 0, 'highlight': highlight.configuration === sub_sub_item.name}" ng-repeat="sub_sub_item in sub_item.subItem" ng-click="configurationItemClicked($event, $index, 'level2', 'configuration')">
+										<label for="" class="list" ng-mouseenter="mouseEnter($event)" ng-mouseleave="mouseLeave($event)">
+											<i class="level2 arrow" ng-click="configurationItemArrowClicked($event, 'level2', 'configuration')"></i>
+											<span for="" class="itemTitle level2" marker="{{sub_sub_item.name}}" title="{{sub_sub_item.name}}" dataType="{{sub_sub_item.type}}" isactive="{{sub_sub_item.isActive}}">{{sub_sub_item.name}}</span>
+											<!--<i class="icon-align-justify icon-white menu-icon level2 hide" ng-click="configurationMenuIconClicked($event, '#Basic')">
+												<ul class="menu hide"  ng-click="configurationMenuPanelClicked($event)">
+													<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'edit', 'level2', 'Configuration')"><i class="ic ic_edit"></i><span class="editAction">{{local.editUppercase}}</span></a></li>
+													<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'clone', 'level2', 'Configuration')"><i class="ic ic_clone"></i><span class="cloneAction">{{local.cloneUppercase}}</span></a></li>
+													<li ng-class="{'hide': sub_sub_item.isActive == 'true'}"><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'delete', 'level2', 'Configuration')"><i class="ic ic_delete"></i><span class="deleteAction">{{local.deleteUppercase}}</span></a></li>
+												</ul>
+											</i>-->
+										</label>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					
+				</ul>
+
+				<ul id="Advanced" class="level0 advanced topLevel" ng-class="{'hide': initialInfo.configuration_visibility === 'Basic', 'hasSubitem': item.subItem.length > 0}" ng-scrollbar="configAdvanced" scroll-wrapper="#configurationpanel">
+					<li class="level0-{{$index}}" ng-repeat-finished="configAdvanced" ng-repeat="item in initialInfo.configData.Advanced" ng-class="{'hasSubitem': item.subItem.length > 0, 'highlight':highlight.configuration === item.name, 'extend': extend.configuration.level0 === item.name, 'last': {{$index}} === initialInfo.configData.Advanced.length - 1}" ng-click="configurationItemClicked($event, $index, 'level0', 'configuration')">
+						<label for="" class="list" ng-mouseenter="mouseEnter($event)" ng-mouseleave="mouseLeave($event)">
+							<i class="level0 arrow" ng-click="configurationItemArrowClicked($event, 'level0', 'configuration')"></i>
+							<span for="" class="itemTitle level0" marker="{{item.name}}" title="{{item.name}}" dataType="{{item.type}}" isactive="{{item.isActive}}">{{item.name}}</span>
+							<!--<i class="icon-align-justify icon-white menu-icon level0 hide" ng-click="configurationMenuIconClicked($event, '#Advanced')">
+								<ul class="menu hide"  ng-click="configurationMenuPanelClicked($event)">
+									<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'edit', 'level0', 'Configuration')"><i class="ic ic_edit"></i><span class="editAction">{{local.editUppercase}}</span></a></li>
+									<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'clone', 'level0', 'Configuration')"><i class="ic ic_clone"></i><span class="cloneAction">{{local.cloneUppercase}}</span></a></li>
+									<li ng-class="{'hide': item.isActive == 'true'}"><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'delete', 'level0', 'Configuration')"><i class="ic ic_delete"></i><span class="deleteAction">{{local.deleteUppercase}}</span></a></li>
+								</ul>
+							</i>-->
+						</label>
+						<ul class="level1">
+							<li class="level1-{{$index}}" ng-class="{'hasSubitem': sub_item.subItem.length > 0, 'highlight': highlight.configuration === sub_item.name, 'extend': extend.configuration.level1 === sub_item.name}" ng-repeat="sub_item in item.subItem" ng-click="configurationItemClicked($event, $index, 'level1', 'configuration')">
+								<label for="" class="list" ng-mouseenter="mouseEnter($event)" ng-mouseleave="mouseLeave($event)">
+									<i class="level1 arrow" ng-click="configurationItemArrowClicked($event, 'level1', 'configuration')"></i>
+									<span for="" class="itemTitle level1" marker="{{sub_item.name}}" title="{{sub_item.name}}" dataType="{{sub_item.type}}" isactive="{{sub_item.isActive}}">{{sub_item.name}}</span>
+									<!--<i class="icon-align-justify icon-white menu-icon level1 hide" ng-click="configurationMenuIconClicked($event, '#Advanced')">
+										<ul class="menu hide"  ng-click="configurationMenuPanelClicked($event)">
+											<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'edit', 'level1', 'Configuration')"><i class="ic ic_edit"></i><span class="editAction">{{local.editUppercase}}</span></a></li>
+											<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'clone', 'level1', 'Configuration')"><i class="ic ic_clone"></i><span class="cloneAction">{{local.cloneUppercase}}</span></a></li>
+											<li ng-class="{'hide': sub_item.isActive == 'true'}"><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'delete', 'level1', 'Configuration')"><i class="ic ic_delete"></i><span class="deleteAction">{{local.deleteUppercase}}</span></a></li>
+										</ul>
+									</i>-->
+								</label>
+								<ul class="level2">
+									<li class="level2-{{$index}}" ng-repeat="sub_sub_item in sub_item.subItem" ng-class="{'hasSubitem': sub_sub_item.subItem.length > 0, 'highlight': highlight.configuration === sub_sub_item.name}" ng-click="configurationItemClicked($event, $index, 'level2', 'configuration')">
+										<label for="" class="list" ng-mouseenter="mouseEnter($event)" ng-mouseleave="mouseLeave($event)">
+											<i class="level2 arrow" ng-click="configurationItemArrowClicked($event, 'level2', 'configuration')"></i>
+											<span for="" class="itemTitle level2" marker="{{sub_sub_item.name}}" title="{{sub_sub_item.name}}" dataType="{{sub_sub_item.type}}" isactive="{{sub_sub_item.isActive}}">{{sub_sub_item.name}}</span>
+											<!--<i class="icon-align-justify icon-white menu-icon level2 hide" ng-click="configurationMenuIconClicked($event, '#Advanced')">
+												<ul class="menu hide"  ng-click="configurationMenuPanelClicked($event)">
+													<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'edit', 'level2', 'Configuration')"><i class="ic ic_edit"></i><span class="editAction">{{local.editUppercase}}</span></a></li>
+													<li><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'clone', 'level2', 'Configuration')"><i class="ic ic_clone"></i><span class="cloneAction">{{local.cloneUppercase}}</span></a></li>
+													<li ng-class="{'hide': sub_sub_item.isActive == 'true'}"><a href="javascript:void(0);"  ng-click="configurationMenuItemClicked($event, 'delete', 'level2', 'Configuration')"><i class="ic ic_delete"></i><span class="deleteAction">{{local.deleteUppercase}}</span></a></li>
+												</ul>
+											</i>-->
+										</label>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="splitLine horizontal" split-line="autoResizeHorizontal" id="splitLineForHome"></div>
+	<div class="rightPanel" ng-controller="cfg.configurationLayout.controller">
+		<div class="infobar" ng-class="messageType" ng-show="messageShow">
+			<span>{{messageText}}</span>
+			<button type="button" class="alertClose" ng-click="closeMsgBar('homepage');"></button>
+		</div>
+		<div class="cfg_editTable" ng-edit-table table-data="tableData" server-name="initialInfo.clusterName.value" config-name="initialInfo.CategoryNameArr" selected-Index="selectedindex"></div>
+	</div>
+</div>

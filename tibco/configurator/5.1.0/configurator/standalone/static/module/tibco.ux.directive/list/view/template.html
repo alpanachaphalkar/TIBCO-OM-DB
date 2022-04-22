@@ -1,0 +1,19 @@
+<table class="table" >
+    <thead>
+    <tr>
+        <th>{{value}}</th>
+        <th>{{delete}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in data" ng-repeat-finished="listTable">
+        <td>
+            <span ng-show="false">{{item.value}}</span>
+            <input type="text" ng-model="data[$index].value" value="item.value" ng-show="true" ng-keyup="listAddNew(item, $index)"/>
+        </td>
+        <td>
+            <span class="deleteIcon" ng-click="listDel($index)"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>

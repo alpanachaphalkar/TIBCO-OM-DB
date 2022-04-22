@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+	<include resource="org/springframework/boot/logging/logback/base.xml"/>
+	<statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${log_console_level}</level>
+        </filter>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%date{ISO8601} %5p [%X{businessTransactionId}] [%X{orderRef}] [%X{engineName}] [%c] [%X{operation}] - %m %X{stackTrace}%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="LocalLogFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>./logs/aopd.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover. Make sure the path matches the one in the file element or else
+             the rollover logs are placed in the working directory. -->
+			<fileNamePattern>./logs/aopd_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>5MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!-- keep 20 days' worth of history -->
+			<maxHistory>20</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%date{ISO8601} %5p [%X{businessTransactionId}] [%X{orderRef}] [%X{engineName}] [%c] [%X{operation}] - %m %X{stackTrace}%n</pattern>
+		</encoder>
+	</appender>
+	<logger name="com.tibco.fom" level="INFO" additivity="false">
+		<appender-ref ref="console"/>
+		<appender-ref ref="LocalLogFileAppender"/>
+	</logger>
+	<logger name="com.tibco.om" level="INFO" additivity="false">
+		<appender-ref ref="console"/>
+		<appender-ref ref="LocalLogFileAppender"/>
+	</logger>
+	<logger name="com.tibco.aff" level="INFO" additivity="false">
+		<appender-ref ref="console"/>
+		<appender-ref ref="LocalLogFileAppender"/>
+	</logger>
+
+	<logger name="com.tibco.fom.bootstrap" level="INFO" additivity="false">
+		<appender-ref ref="console"/>
+		<appender-ref ref="LocalLogFileAppender"/>
+	</logger>
+	<logger name="com.tibco.aff.eca" level="INFO" additivity="false">
+		<appender-ref ref="console"/>
+		<appender-ref ref="LocalLogFileAppender"/>
+	</logger>
+	<logger name="com.tibco.om.configclient" level="INFO" additivity="false">
+		<appender-ref ref="console"/>
+		<appender-ref ref="LocalLogFileAppender"/>
+	</logger>
+	<logger name="com.tibco.om.th" level="INFO" additivity="false">
+		<appender-ref ref="console"/>
+		<appender-ref ref="LocalLogFileAppender"/>
+	</logger>
+
+	<logger name="org.dozer.loader.MappingsParser" level="INFO" additivity="false">
+		<appender-ref ref="console" level="INFO"/>
+	</logger>
+
+	<logger name="org.dozer.DozerBeanMapper" level="INFO" additivity="false">
+		<appender-ref ref="console"/>
+	</logger>
+
+	<!-- There is some error that keeps coming and floods the log, which needs to be investigated why 
+		This block is to suppress the error logs and keep the log from flooding -->
+	<logger name="org.springframework.transaction.support.TransactionSynchronizationUtils" level="OFF" additivity="false">
+		<appender-ref ref="console" level="OFF"/>
+	</logger>
+
+	<!-- We want messages from the error handler to go to the central log so this category is added and has additional AsyncJMSAppender to it -->
+	<logger name="org.apache.camel.processor.DefaultErrorHandler" level="ERROR" additivity="false">
+		<appender-ref ref="console"/>
+		<appender-ref ref="LocalLogFileAppender"/>
+	</logger>
+
+	<root level="ERROR">
+		<appender-ref ref="console"/>
+		<appender-ref ref="LocalLogFileAppender"/>
+	</root>	
+</configuration>

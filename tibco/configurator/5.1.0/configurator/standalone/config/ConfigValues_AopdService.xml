@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration description="The initial configuration setup for FOM Automated Order Plan Development" displayName="FOM Automated Order Plan Development" name="AOPD" xmlns="http://www.tibco.com/af/config/confbeans/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tibco.com/af/config/confbeans/1.0">
+	<Cluster>
+		<Category description="Catalog Store Configuration for AOPD" name="Catalog Store Configuration for AOPD" visibility="Basic">
+			<ConfValue description="Max No of Product Model cached" name="Max No of Product Model cached" propname="com.tibco.fos.model.cacheType.cache.maxNoProductcached" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="1000" value="1000"/>
+			</ConfValue>
+			<ConfValue description="Enable Product Model Global Cache" isHotDeployable="true" name="Enable Product Model Global Cache" propname="enableProductModelGlobalCache" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Product Model Cache Expiry Period" isHotDeployable="true" name="Product Model Cache Expiry Period" propname="productCacheExpiryPeriod" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="30" value="30"/>
+			</ConfValue>
+			<ConfValue description="Max No of Action Model cached" name="Max No of Action Model cached" propname="com.tibco.af.aopd.cacheType.cache.maxNoActioncached" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="1000" value="1000"/>
+			</ConfValue>
+			<ConfValue description="Enable Action Model Global Cache" isHotDeployable="true" name="Enable Action Model Global Cache" propname="enableActionModelGlobalCache" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Action Model Cache Expiry Period" isHotDeployable="true" name="Action Model Cache Expiry Period" propname="actionCacheExpiryPeriod" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="30" value="30"/>
+			</ConfValue>
+			<ConfValue description="Application name to show on actuator info endpoint" isHotDeployable="false" name="Application Name" propname="info.app.name" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="AOPD" value="AOPD"/>
+			</ConfValue>
+		</Category>
+		<Category description="AOPD General Configuration" name="AOPD General Configuration" visibility="Basic">
+			<ConfValue description="Non-Executing Plan-Fragment IDs" isHotDeployable="true" name="[Tenant] Non-Executing Plan-Fragment IDs" propname="tnt##nonexecutingPlanfragmentID" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="NON_EXECUTING" value="[{TENANT:'TIBCO',VALUE='NON_EXECUTING',TYPE:'ConfString'}]"/>
+			</ConfValue>
+			<ConfValue description="Logging Configuration File Path" isHotDeployable="true" name="Logging Configuration File Path" propname="logging.config" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="config/logback_aopd.xml" value="config/logback_aopd.xml"/>
+			</ConfValue>
+			<ConfValue description="AOPD Soap Service Schema Validation" isHotDeployable="true" name="AOPD Soap Service Schema Validation" propname="com.tibco.af.aopd.service.schema.validation" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="true" value="true"/>
+			</ConfValue>
+		</Category>
+		
+		<Category description="AOPD Application Flags configuration" name="AOPD Flags Configuration" visibility="Basic">
+			<ConfValue description="Controls the flag to merge affinity UDF name" name="[Tenant] AffinityUDFNameMerge" propname="tnt##com.tibco.af.aopd.flags.affinity.affinityudfnamemerge" sinceVersion="5.0" visibility="Basic">				
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]"/>
+			</ConfValue>
+			<ConfValue description="To not merge certain UDFs during Affinity Sequencing, those UDFs should be added as CSV in the variable" name="[Tenant] CharacterisitcsWithoutAffinityPostfix" propname="tnt##com.tibco.af.aopd.flags.affinity.characterisitcswithoutaffinitypostfix" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="" value="[{TENANT:'TIBCO',VALUE='',TYPE:'ConfString'}]"/>
+			</ConfValue>
+			<ConfValue description="Within AOPD, if the sequence is -1, it will skip the product and all its mandatory children in the Execution Plan" name="[Tenant] SkipItemSequence" propname="tnt##com.tibco.af.aopd.flags.skipitemsequence" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="-1" value="[{TENANT:'TIBCO',VALUE='-1',TYPE:'ConfString'}]"/>
+			</ConfValue>
+			<ConfValue description="MergeAffinityItemDescription" name="[Tenant] MergeAffinityItemDescription" propname="tnt##com.tibco.af.aopd.flags.affinity.mergeaffinityitemdescription" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>
+			<ConfValue description="HierarchySingleUse" name="[Tenant] HierarchySingleUse" propname="tnt##com.tibco.af.aopd.flags.singleuse.hierarchysingleuse" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>
+			<ConfValue description="EnableAffinityUDFParent" name="[Tenant] EnableAffinityUDFParent" propname="tnt##com.tibco.af.aopd.flags.affinity.enableaffinityudfparent" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>			
+			<ConfValue description="Internal UDFs to be skipped for affinity merging" name="[Tenant] UDFList" propname="tnt##com.tibco.af.aopd.flags.udflist" sinceVersion="5.0" visibility="Basic">
+			
+			
+				<ConfString default="" value="[{TENANT:'TIBCO',VALUE='EPMR_ACTION_PROVIDE,EPMR_ACTION_UPDATE,EPMR_ACTION_CEASE,EPMR_ACTION_WITHDRAW,COMPENSATE_PROVIDE,COMPENSATE_UPDATE,COMPENSATE_CEASE,MODIFICATION_IDENTIFYING_ATTR',TYPE:'ConfList'}]"/>
+
+			
+				
+			</ConfValue>
+			<ConfValue description="Enable/Disable extended behavior for PDO/MDO and LinkID mapping" name="[Tenant] EnableBiDirectionalLinkID" propname="tnt##com.tibco.af.aopd.flags.enablebidirectionallinkid" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>
+			<ConfValue description="Enable/Disable backward compatibility for udf change amendment using MODIFICATION_IDENTIFYING_ATTR " name="[Tenant] EnableModificationIdentifyingAttribute" propname="tnt##com.tibco.af.aopd.flags.amendment.enablemodificationidentifyingattribute" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>
+			<ConfValue description="Enable backward compatibility of NO dependency in COMPENSATE plan item on the existing plan item being cancelled." name="[Tenant] NoDependencyInCOMPPlanItems" propname="tnt##com.tibco.af.aopd.flags.amendment.noDependencyInCOMPPlanItems" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>
+			<ConfValue description="Enable/Disable backward compatibility for Date Shift amendment to generate comp redo tasks" name="[Tenant] EnableDateShiftCompRedo" propname="tnt##com.tibco.af.aopd.flags.amendment.dateshiftcompredo" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>
+			<ConfValue description="Enable COMPENSATE and RESTART behaviour in case of the required EPMR characteristic not present in the product model." name="[Tenant] CompensateRestartForNoEPMRChar" propname="tnt##com.tibco.af.aopd.flags.amendment.compensateRestartForNoEPMRChar" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>
+			<ConfValue description="Allow Multiple Required Products for the same link ID" name="[Tenant] AllowMultipleRequiredProducts" propname="tnt##com.tibco.af.aopd.flags.allowmultiplerequiredproducts" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>
+			<ConfValue description="Ignore First child dependency for source product in PDO relationship" name="[Tenant] IgnorePDOFirstChildDependency" propname="tnt##com.tibco.af.aopd.flags.ignorepdofirstchilddependency" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>
+			<ConfValue description="Configurable handling for PCO conflict" name="[Tenant] HandleConflict" propname="tnt##com.tibco.af.aopd.flags.handleconflict" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="Apply" value="[{TENANT:'TIBCO',VALUE='Apply',TYPE:'ConfString'}]
+"/>
+			</ConfValue>
+			<ConfValue description="Configurable handling for circular PCO dependencies" name="handlepcocircularDependency" propname="com.tibco.af.aopd.flags.handlepcocircularDependency" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="Error" value="Error"/>
+			</ConfValue>			
+			<ConfValue description="Include only the orderline for attribute based decomposition" name="[Tenant] ABDProductOrderline" propname="tnt##com.tibco.af.aopd.flags.includeonlyproductorderline" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>
+			<ConfValue description="Include plan item udfs for evaluating attribute based decomposition" name="[Tenant] ABDIncludeCharacteristics" propname="tnt##com.tibco.af.aopd.flags.includeproductmodelcharacteristics" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>   
+            <ConfValue description="Enable Parent_ID UDF check for plan item equivalence" name="[Tenant] EnableParentIDUdfCheck" propname="tnt##com.tibco.af.aopd.flags.enableparentidudfcheck" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="true" value="[{TENANT:'TIBCO',VALUE='true',TYPE:'ConfBool'}]
+"/>
+			</ConfValue>
+			<ConfValue description="Disable Parent Items Dependency Impact Functionality" name="[Tenant] DisableParentItemsDependencyImpact" propname="tnt##com.tibco.af.aopd.flags.disableParentItemsDependencyImpact" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]"/>				
+			</ConfValue>
+			<ConfValue description="Disable affinity broken UDF modification impact" name="[Tenant] DisableAffinityBrokeUDFImpact" propname="tnt##com.tibco.af.aopd.flags.disableAffinityBrokeUDFImpact" sinceVersion="4.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]"/>				
+			</ConfValue>
+		</Category>
+		<Category description="Inventory Configuration" name="Inventory Configuration" visibility="Basic">
+			<ConfValue description="Merge inventory in AOPD request" name="Merge inventory in AOPD request" propname="com.tibco.fom.oms.afi.aopd.merge.inventory" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Inventory service address" isHotDeployable="true" name="Host/Port for Inventory Service" propname="com.tibco.fom.oms.afi.aopd.merge.inventory.url" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="localhost:8080" value="http://localhost:8080/fsi-server/soapapi/v1/service"/>
+			</ConfValue>
+			<ConfValue description="Inventory service username" isHotDeployable="true" name="Inventory service username" propname="com.tibco.fom.oms.afi.aopd.merge.inventory.username" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin@tibco" value="admin@tibco"/>
+			</ConfValue>
+			<ConfValue description="Inventory service password" isHotDeployable="true" name="Inventory service password" propname="com.tibco.fom.oms.afi.aopd.merge.inventory.password" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" value="admin"/>
+			</ConfValue>
+		</Category>
+        <Category description="Catalog Data Source Configuration" name="Catalog Data Source Configuration" visibility="Basic">
+			<ConfValue description="Pooled Data Source Driver Class Name" name="Pooled Data Source Driver Class Name" propname="datasourceDriverClassName" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="org.postgresql.Driver"/>
+					<EnumValue value="oracle.jdbc.driver.OracleDriver"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Username" name="Pooled Data Source Username" propname="catalogDsUsername" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" value="catalogdsuserll"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Password" name="Pooled Data Source Password" propname="catalogDsPassword" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" isPassword="true" value="catalogdsuserll"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source URL" name="Pooled Data Source URL" propname="catalogDsUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" default="true" value="jdbc:postgresql://localhost:5432/catalogdsdbll?currentSchema=catalogdsschemall"/>
+					<EnumValue   value="jdbc:oracle:thin:@//localhost:1521/orcl.apac.tibco.com"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Initialize Size" name="Pooled Data Source Initialize Size" propname="catalogDsInitializeSize" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="2" value="2"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Idle" name="Pooled Data Source Max Idle" propname="catalogDsMaxIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="11" value="11"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Active" name="Pooled Data Source Max Active" propname="catalogDsMaxActive" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="12" value="12"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Wait" name="Pooled Data Source Max Wait" propname="catalogDsMaxWait" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Query" name="Pooled Data Source Validation Query" propname="datasourceValidationQuery" sinceVersion="5.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue  value="select 1 from dual"/>
+					<EnumValue  selected="true" default="true" value="SELECT 1"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test OnBorrow" name="Pooled Data Source Test OnBorrow" propname="catalogDsTestOnBorrow" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Interval" name="Pooled Data Source Validation Interval" propname="catalogDsValidationInterval" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test WhileIdle" name="Pooled Data Source Test WhileIdle" propname="catalogDsTestWhileIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Eviction Interval" name="Pooled Data Source Eviction Interval" propname="catalogDsTimeBetweenEvictionRunsMillis" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Minimum Evictable Idle Time" name="Pooled Data Source Minimum Evictable Idle Time" propname="catalogDsMinEvictableIdleTimeMillis" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Tests Per Eviction Run" name="Pooled Data Source Tests Per Eviction Run" propname="catalogDsNumTestsPerEvictionRun" sinceVersion="5.0" visibility="Advanced">
+				<ConfNum default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Default AutoCommit" name="Pooled Data Source Default AutoCommit" propname="catalogDsDefaultAutoCommit" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Rollback On Return" name="Pooled Data Source Rollback On Return" propname="catalogDsRollbackOnReturn" sinceVersion="2.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Commit On Return" name="Pooled Data Source Commit On Return" propname="catalogDsCommitOnReturn" sinceVersion="2.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Database Custom Property" name="Pooled Database Custom Property" propname="catalogDsCustomProperty" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="" value=""/>
+			</ConfValue>
+		</Category>
+		<Category description="Redis Data Source Configuration" name="Redis Data Source Configuration" visibility="Basic">
+			<ConfValue description="Redis Server Host for Storing Catalog Models" isHotDeployable="true" name="Redis Server Host for Storing Catalog Models" propname="catalogRedisHost" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="localhost" value="localhost"/>
+			</ConfValue>
+			<ConfValue description="Whether redis is running in Cluster Mode" isHotDeployable="true" name="clusterEnabled" propname="redisClusterEnabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+				<ConfValue description="Redis Server Port for Storing Catalog Models" isHotDeployable="true" name="Redis Server Port for Storing Catalog Models" propname="catalogRedisPort" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6379" value="6379"/>
+			</ConfValue>
+			<ConfValue description="Test On Borrow" isHotDeployable="true" name="Test On Borrow" propname="redisTestOnBorrow" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Test On Return" isHotDeployable="true" name="Test On Return" propname="redisTestOnReturn" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Test While Idle" isHotDeployable="true" name="Test While Idle" propname="redisTestWhileIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Block When Exhausted" isHotDeployable="true" name="Block When Exhausted" propname="redisBlockedWhenExhausted" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="JMX Enabled" isHotDeployable="true" name="JMX Enabled" propname="redisJmxEnabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="LIFO" isHotDeployable="true" name="LIFO" propname="redisLifo" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Max Idle" isHotDeployable="true" name="Max Idle" propname="redisMaxIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="64" value="64"/>
+			</ConfValue>
+			<ConfValue description="Min Idle" isHotDeployable="true" name="Min Idle" propname="redisMinIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="16" value="16"/>
+			</ConfValue>
+			<ConfValue description="Max Total" isHotDeployable="true" name="Max Total" propname="redisMaxTotal" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="64" value="64"/>
+			</ConfValue>
+			<ConfValue description="Number of Test Eviction Per Run" isHotDeployable="true" name="Number of Test Eviction Per Run" propname="redisNumTestsPerEvictionRun" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Soft Min Evictable Idle Time Millis" isHotDeployable="true" name="Soft Min Evictable Idle Time Millis" propname="redisSoftMinEvictableIdleTimeMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="3000" value="3000"/>
+			</ConfValue>
+			<ConfValue description="Min Evictable Idle Time Millis" isHotDeployable="true" name="Min Evictable Idle Time Millis" propname="redisMinEvictableIdleTimeMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6000" value="6000"/>
+			</ConfValue>
+			<ConfValue description="Time Between Eviction Runs Millis" isHotDeployable="true" name="Time Between Eviction Runs Millis" propname="redisTimeBetweenEvictionRunsMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="3000" value="3000"/>
+			</ConfValue>
+		</Category>
+		<Category description="Persistence" name="Persistence" visibility="Basic">
+			<ConfValue description="Database Type. Allowed values are oracle or postgres" name="Database Type" propname="databaseType" readonly="false" sinceVersion="3.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="postgres"/>
+					<EnumValue value="oracle"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Hibernate Dialect" name="com.tibco.af.hibernate.dialect" propname="hibernateDialect" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" value="org.hibernate.dialect.PostgreSQLDialect"/>
+					<EnumValue value="org.hibernate.dialect.Oracle10gDialect"/>				
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Hibernate Show SQL" name="hibernate.show_sql" propname="catalogHibernateShowSql" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+		</Category>
+		<Category description="JMS Configurations for Global Cache Clean" name="Messaging Configurations" visibility="Basic">
+			<ConfValue description="JMS Server URL" isHotDeployable="true" name="JMS Server URL" propname="emsServerURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tcp://localhost:7222" value="tcp://localhost:7222"/>
+			</ConfValue>
+			<ConfValue description="For SSL Configuration value should be ssl" name="Constant that holds the name of the environment property for specifying the security protocol to use in Tibjms JNDI lookups." propname="securityProtocol" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="For SSL enable verify host value should be false" name="Constant that holds the name of SSL property specifying if client should verify the server certificate in Tibjms JNDI lookups." propname="sslEnableVerifyHost" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="JMS Server User Name" isHotDeployable="true" name="JMS Server User Name" propname="emsServerUsername" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" value="admin"/>
+			</ConfValue>
+			<ConfValue description="JMS Server Password" isHotDeployable="true" name="JMS Server Password" propname="emsServerPassword" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" isPassword="true"  value="admin"/>
+			</ConfValue>
+			<ConfValue description="JNDI Connection Factory Name" name="JNDI Connection Factory Name" propname="jndiConnectionFactory" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="TopicConnectionFactory" value="TopicConnectionFactory"/>
+			</ConfValue>
+			<ConfValue description="Initializing Context Factory Name" name="Initializing Context Factory Name" propname="initialContextFactory" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="com.tibco.tibjms.naming.TibjmsInitialContextFactory" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+			</ConfValue>
+			<ConfValue description="Keep JMS Session Transacted" name="Keep JMS Session Transacted" propname="jmsSessionTransacted" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="JMS Receive Calls Timeout" name="JMS Receive Calls Timeout" propname="timeoutMillis" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="Global Cache Clean Up Topic Name" name="Global Cache Clean Up Topic Name" propname="globalCacheCleanupTopicName" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.fos.global.cache.clean.publish" value="tibco.fos.global.cache.clean.publish"/>
+			</ConfValue>
+		</Category>
+	</Cluster>
+</Configuration>
+<!-- Copyright (c) 2017-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

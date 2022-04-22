@@ -1,0 +1,6 @@
+#Configuration Files
+#Sun Feb 20 15:19:52 IST 2011
+com.tibco.af.configurator.oms.file=ConfigValues_OMSUI.xml
+com.tibco.af.configurator.jm.file=ConfigValues_JEOMS.xml
+com.tibco.af.configurator.aopd.file=ConfigValues_AOPD.xml
+com.tibco.af.configurator.ope.file=ConfigValues_OPE.xml

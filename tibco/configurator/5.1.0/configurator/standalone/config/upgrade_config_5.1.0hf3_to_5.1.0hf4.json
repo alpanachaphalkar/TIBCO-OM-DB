@@ -1,0 +1,940 @@
+[
+	{
+		"appDescription": "Migration Service",
+		"categories": [
+			{
+				"ConfValues": [
+					{
+						"description": "Hibernate Show SQL",
+						"propName": "archivalHibernateShowSql",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false,
+						"value": "false",
+						"valueType": "Boolean"
+					},
+					{
+						"description": "Pooled Data Source Initialize Size",
+						"propName": "archivalDsInitialSize",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false,
+						"value": "10",
+						"valueType": "String"
+					},
+					{
+						"description": "Pooled Data Source Max Wait",
+						"propName": "archivalDsMaxWait",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false,
+						"value": "10000",
+						"valueType": "String"
+					},
+					{
+						"description": "Pooled Data Source Max Active",
+						"propName": "archivalDsMaxActive",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false,
+						"value": "100",
+						"valueType": "String"
+					},
+					{
+						"description": "Pooled Data Source Max Idle",
+						"propName": "archivalDsMaxIdle",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false,
+						"value": "100",
+						"valueType": "String"
+					},
+					{
+						"description": "Pooled Data Source Min Idle",
+						"propName": "archivalDsMinIdle",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false,
+						"value": "100",
+						"valueType": "String"
+					}
+				],
+				"categoryName": "Archival Database Configurations for Target Application",
+				"description": "Archival Database Configurations for Target Application",
+				"visibility": "Basic"
+			}
+		]
+	},
+	{
+		"appDescription": "Catalog Service",
+		"categories": [
+			{
+				"ConfValues": [
+					{
+						"description": "Single Product Catalog Loading Queue",
+						"propName": "singleProductCatalogLoadingQueue",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "tibco.aff.catalog.product.request.single",
+						"valueType": "String"
+					},
+					{
+						"description": "Single Plan-Fragment Catalog Loading Queue",
+						"propName": "singlePlanfragmentCatalogLoadingQueue",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "tibco.aff.catalog.planfragment.request.single",
+						"valueType": "String"
+					},
+					{
+						"description": "Single Action Model Catalog Loading Queue",
+						"propName": "singleActionCatalogLoadingQueue",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "tibco.aff.catalog.action.request.single",
+						"valueType": "String"
+					},
+					{
+						"description": "Message redelivery count",
+						"propName": "redeliveryCount",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "5",
+						"valueType": "String"
+					},
+					{
+						"description": "Message redelivery delay in milliseconds",
+						"propName": "redeliveryDelay",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "10000",
+						"valueType": "String"
+					},
+					{
+						"description": "Product Catalog Loading Dead Queue",
+						"propName": "productCatalogLoadingDeadQueue",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "tibco.aff.catalog.product.request.dead",
+						"valueType": "String"
+					},
+					{
+						"description": "Plan-Fragment Catalog Loading Dead Queue",
+						"propName": "planfragmentCatalogLoadingDeadQueue",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "tibco.aff.catalog.planfragment.request.dead",
+						"valueType": "String"
+					},
+					{
+						"description": "Action Model Catalog Loading Dead Queue",
+						"propName": "actionCatalogLoadingDeadQueue",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "tibco.aff.catalog.action.request.dead",
+						"valueType": "String"
+					},
+					{
+						"description": "Single Product Catalog Loading Dead Queue",
+						"propName": "singleProductCatalogLoadingDeadQueue",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "tibco.aff.catalog.product.request.single.dead",
+						"valueType": "String"
+					},
+					{
+						"description": "Single Plan-Fragment Catalog Loading Dead Queue",
+						"propName": "singlePlanfragmentCatalogLoadingDeadQueue",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "tibco.aff.catalog.planfragment.request.single.dead",
+						"valueType": "String"
+					},
+					{
+						"description": "Single Action Model Catalog Loading Dead Queue",
+						"propName": "singleActionCatalogLoadingDeadQueue",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "tibco.aff.catalog.action.request.single.dead",
+						"valueType": "String"
+					}
+				],
+				"categoryName": "Messaging Configurations",
+				"description": "JMS Configurations for Online Catalog Publishing from FC",
+				"visibility": "Basic"
+			}
+		]
+	},
+	{
+		"appDescription": "Jeopardy Service",
+		"categories": [
+			{
+				"categoryName": "Generic configuration",
+				"description": "Generic configuration",
+				"visibility": "Basic",
+				"ConfValues": [
+					{
+						"propName": "logging.config",
+						"description": "Logging File",
+						"value": "config/logback_jeopardy.xml",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "tibedsConfigFilePath",
+						"description": "Absolute file path for TIBEDS config file",
+						"value": "C:/repository/Tibco_Projects/git_repo_LL/github/fom-5.1.0-HF2/src/jeopardy/target/jeopardy/standalone/config/tibeds_config.xml",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "info.app.name",
+						"description": "Application name to show on actuator info endpoint",
+						"value": "Jeopardy",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					}
+				]
+			},
+			{
+				"categoryName": "Jeopardy Engine configuration",
+				"description": "Jeopardy Engine configuration",
+				"visibility": "Basic",
+				"ConfValues": [
+					{
+						"propName": "riskThreshold",
+						"description": "Risk Threshold",
+						"value": "25",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "outOfScopeThreshold",
+						"description": "Out of scope threshold",
+						"value": "25",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "planProcessStartDate",
+						"description": "Plan process start date",
+						"value": "01/18/2012",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "timeWindow",
+						"description": "Time window",
+						"value": "10",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "timeWindowUnit",
+						"description": "Time window unit",
+						"value": "MINUTE",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyDetectionInterval",
+						"description": "Jeopardy detection cycle interval in seconds",
+						"value": "60",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "planLevelThresholdDuration",
+						"description": "Plan level threshold duration",
+						"value": "0",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "sectionLevelThresholdDuration",
+						"description": "Section level threshold duration",
+						"value": "0",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "numOfOrdersPerCycle",
+						"description": "Number of orders to process per cycle",
+						"value": "0",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyDetectorStartDelay",
+						"description": "Jeopardy detector start delay in seconds",
+						"value": "10",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					}
+				]
+			},
+			{
+				"categoryName": "Jeopardy Data Source Configuration",
+				"description": "Jeopardy Data Source Configuration",
+				"visibility": "Basic",
+				"ConfValues": [
+					{
+						"propName": "datasourceDriverClassName",
+						"description": "Data Source Driver Name",
+						"value": "org.postgresql.Driver",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyDsURL",
+						"description": "Data Source URL",
+						"value": "jdbc:postgresql://localhost:5432/jeopardydbll?currentSchema=jeopardyschemall",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyDsUsername",
+						"description": "Data Source Username",
+						"value": "jeopardyuserll",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyDsPassword",
+						"description": "Data Source Password",
+						"value": "ENC(Sc9wFyFGECzY7yXQCGfh1Q==)",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyDsInitialSize",
+						"description": "Pooled Data Source Initialize Size",
+						"value": "10",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyDsMaxIdle",
+						"description": "Pooled Data Source Max Idle",
+						"value": "100",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyDsMinIdle",
+						"description": "Pooled Data Source Min Idle",
+						"value": "100",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyDsMaxActive",
+						"description": "Pooled Data Source Max Active",
+						"value": "100",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyDsMaxWait",
+						"description": "Pooled Data Source Max Wait",
+						"value": "30000",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "datasourceValidationQuery",
+						"description": "Pooled Data Source Validation Query",
+						"value": "SELECT 1",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyDsTestOnBorrow",
+						"description": "Pooled Data Source Test OnBorrow",
+						"value": "false",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyDsValidationInterval",
+						"description": "Pooled Data Source Validation Interval",
+						"value": "5000",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "hibernateDsDefaults",
+						"description": "Enable Hibernate Metadata Defaults",
+						"value": "false",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "hibernateDialect",
+						"description": "Hibernate Dialect",
+						"value": "org.hibernate.dialect.PostgreSQLDialect",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jeopardyHibernateShowSql",
+						"description": "Hibernate Show SQL",
+						"value": "false",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					}
+				]
+			},
+			{
+				"categoryName": "Messaging configuration",
+				"description": "Messaging configuration",
+				"visibility": "Basic",
+				"ConfValues": [
+					{
+						"propName": "emsServerURL",
+						"description": "EMS server url",
+						"value": "tcp://localhost:7222",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "emsServerUsername",
+						"description": "EMS server username",
+						"value": "admin",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "emsServerPassword",
+						"description": "EMS server password",
+						"value": "admin",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jndiConnectionFactory",
+						"description": "JNDI connection factory",
+						"value": "GenericConnectionFactory",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "initialContextFactory",
+						"description": "Initial context factory",
+						"value": "com.tibco.tibjms.naming.TibjmsInitialContextFactory",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "planDevelopmentNotificationQueue",
+						"description": "Plan development notification queue",
+						"value": "jeopardy.plan.create",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "planDevelopmentNotificationDeadQueue",
+						"description": "Plan development notification dead queue",
+						"value": "jeopardy.plan.create.dead",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "orderNotificationQueue",
+						"description": "Order notification queue",
+						"value": "jeopardy.order",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "orderNotificationDeadQueue",
+						"description": "Order notification dead queue",
+						"value": "jeopardy.order.dead",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "planNotificationQueue",
+						"description": "Plan notification queue",
+						"value": "jeopardy.plan",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "planNotificationDeadQueue",
+						"description": "Plan notification dead queue",
+						"value": "jeopardy.plan.dead",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "planItemExecuteRequestNotificationQueue",
+						"description": "Plan item execute request notification queue",
+						"value": "jeopardy.planitem.execute.request",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "planItemExecuteRequestNotificationDeadQueue",
+						"description": "Plan item execute request notification dead queue",
+						"value": "jeopardy.planitem.execute.request.dead",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "planItemExecuteResponseNotificationQueue",
+						"description": "Plan item execute response notification queue",
+						"value": "jeopardy.planitem.execute.response",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "planItemExecuteResponseNotificationDeadQueue",
+						"description": "Plan item execute response notification dead queue",
+						"value": "jeopardy.planitem.execute.response.dead",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "milestoneNotifyRequestNotificationQueue",
+						"description": "Milestone notify request notification queue",
+						"value": "jeopardy.milestone.notify.request",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "milestoneNotifyRequestNotificationDeadQueue",
+						"description": "Milestone notify request notification dead queue",
+						"value": "jeopardy.milestone.notify.request",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "milestoneReleaseRequestNotificationQueue",
+						"description": "Milestone release request notification queue",
+						"value": "jeopardy.milestone.release.request",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "milestoneReleaseRequestNotificationDeadQueue",
+						"description": "Milestone release request notification dead queue",
+						"value": "jeopardy.milestone.release.request.dead",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "processComponentModelPublishQueue",
+						"description": "Process component model publish queue",
+						"value": "jeopardy.processcomponent.publish.queue",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "processComponentModelPublishDeadQueue",
+						"description": "Process component model publish dead queue",
+						"value": "jeopardy.processcomponent.publish.dead.queue",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "notificationRedeliveryCount",
+						"description": "Notification redelivery count",
+						"value": "1",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "notificationReceiverCount",
+						"description": "Notification receiver count",
+						"value": "1",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "jmsSessionTransacted",
+						"description": "Whether JMS session is transacted",
+						"value": "true",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "timeoutMillis",
+						"description": "JMS timeout in millis",
+						"value": "10000",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					}
+				]
+			},
+			{
+				"categoryName": "Relational configuration for Catalog datasource",
+				"description": "Relational configuration for Catalog datasource",
+				"visibility": "Basic",
+				"ConfValues": [
+					{
+						"propName": "datasourceDriverClassName",
+						"description": "Data Source Driver Name",
+						"value": "org.postgresql.Driver",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "catalogDsUrl",
+						"description": "Data Source URL",
+						"value": "jdbc:postgresql://localhost:5432/catalogdsdbll?currentSchema=catalogdsschemall",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "catalogDsUsername",
+						"description": "Data Source Username",
+						"value": "catalogdsuserll",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "catalogDsPassword",
+						"description": "Data Source Password",
+						"value": "ENC(LyZjaTxmkBpL+MuSLgf82Q==)",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "catalogDsInitializeSize",
+						"description": "Pooled Data Source Initialize Size",
+						"value": "10",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "catalogDsMaxIdle",
+						"description": "Pooled Data Source Max Idle",
+						"value": "100",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "catalogDsMinIdle",
+						"description": "Pooled Data Source Min Idle",
+						"value": "100",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "catalogDsMaxActive",
+						"description": "Pooled Data Source Max Active",
+						"value": "100",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "catalogDsMaxWait",
+						"description": "Pooled Data Source Max Wait",
+						"value": "30000",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "datasourceValidationQuery",
+						"description": "Pooled Data Source Validation Query",
+						"value": "SELECT 1",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "catalogDsTestOnBorrow",
+						"description": "Pooled Data Source Test OnBorrow",
+						"value": "false",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "catalogDsValidationInterval",
+						"description": "Pooled Data Source Validation Interval",
+						"value": "5000",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "hibernateDsDefaults",
+						"description": "Enable Hibernate Metadata Defaults",
+						"value": "false",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "hibernateDialect",
+						"description": "Hibernate Dialect",
+						"value": "org.hibernate.dialect.PostgreSQLDialect",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					},
+					{
+						"propName": "catalogHibernateShowSql",
+						"description": "Hibernate Show SQL",
+						"value": "false",
+						"valueType": "String",
+						"propertyVisibility": "Advanced",
+						"tenantProperty": false
+					}
+				]
+			},
+			{
+				"categoryName": "Redis configuration for Catalog datasource",
+				"description": "Redis configuration for Catalog datasource",
+				"visibility": "Basic",
+				"ConfValues": [
+					{
+						"propName": "catalogRedisHost",
+						"description": "Redis Server Host for Catalog datasource",
+						"value": "localhost",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisClusterEnabled",
+						"description": "Whether redis is running in Cluster Mode",
+						"value": "true",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "catalogRedisPort",
+						"description": "Redis Server Port for Catalog datasource",
+						"value": "6379",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisTestOnBorrow",
+						"description": "Test On Borrow",
+						"value": "true",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisTestOnReturn",
+						"description": "Test On Return",
+						"value": "true",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisTestWhileIdle",
+						"description": "Test While Idle",
+						"value": "true",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisBlockedWhenExhausted",
+						"description": "Block When Exhausted",
+						"value": "true",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisJmxEnabled",
+						"description": "JMX Enabled",
+						"value": "true",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisLifo",
+						"description": "LIFO",
+						"value": "true",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisMaxIdle",
+						"description": "Max Idle",
+						"value": "64",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisMinIdle",
+						"description": "Min Idle",
+						"value": "16",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisMaxTotal",
+						"description": "Max Total",
+						"value": "64",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisNumTestsPerEvictionRun",
+						"description": "Number of Test Eviction Per Run",
+						"value": "5",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisSoftMinEvictableIdleTimeMillis",
+						"description": "Soft Min Evictable Idle Time Millis",
+						"value": "3000",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisMinEvictableIdleTimeMillis",
+						"description": "Min Evictable Idle Time Millis",
+						"value": "6000",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "redisTimeBetweenEvictionRunsMillis",
+						"description": "Time Between Eviction Runs Millis",
+						"value": "3000",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					}
+				]
+			},
+			{
+				"categoryName": "Lock properties",
+				"description": "Lock properties",
+				"visibility": "Basic",
+				"ConfValues": [
+					{
+						"propName": "lockRetryCount",
+						"description": "Lock retry count",
+						"value": "5",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "lockRetryInterval",
+						"description": "Lock retry interval",
+						"value": "2",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					},
+					{
+						"propName": "hashCodeIndexDistributionSize",
+						"description": "Hashcode distribution index size",
+						"value": "2048",
+						"valueType": "String",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false
+					}
+				]
+			}
+		]
+	},
+	{
+		"appDescription": "Order Management System",
+		"categories": [
+			{
+				"ConfValues": [
+					{
+						"description": "Authentication Service Username",
+						"propName": "authorization.service.username",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "apiUser",
+						"valueType": "String"
+					},
+					{
+						"description": "Authentication Service Password",
+						"propName": "authorization.service.password",
+						"propertyVisibility": "Basic",
+						"tenantProperty": false,
+						"value": "apiUser",
+						"valueType": "String"
+					}
+				],
+				"categoryName": "Application Security",
+				"description": "Application Security",
+				"visibility": "Advanced"
+			}
+		]
+	}
+]

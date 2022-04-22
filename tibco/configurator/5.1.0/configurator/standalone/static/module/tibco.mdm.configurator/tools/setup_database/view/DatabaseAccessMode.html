@@ -1,0 +1,30 @@
+<div ng-controller="configurator.controller.tools.setupDatabaseOracle.DatabaseAccessMode">
+  <div class="dialog-form">
+    <div class="dialog-title">
+      <h3>{{local.title}}</h3>
+      <h6>{{local.info}}</h6>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <label class="radio">
+          <input type="radio" name="mode" value="true" ng-model="data.SkipUser" ng-change="changeMode()">
+          <strong>{{local.useExisting}}</strong>
+          <br/><span>{{local.useExistingInfo1}}</span>
+          <br/><span>{{local.useExistingInfo2}}</span>
+        </label>
+      </div>
+      <div class="control-group">
+        <label class="radio">
+          <input type="radio" name="mode" value="false" ng-model="data.SkipUser" ng-change="changeMode()">
+          <strong>{{local.createNew}}</strong>
+          <br/><span>{{local.createNewInfo1}}</span>
+          <br/><span>{{local.createNewInfo2}}</span>
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+  </div>
+</div>

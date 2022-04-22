@@ -1,0 +1,41 @@
+<div  ng-controller="configurator.controller.tools.Setup_Wizard.MessagingConfigSummary">
+  <div class="dialog-form" ng-show="showSummary">
+    <div class="dialog-title">
+        <h3>{{local.ShowSummaryTitle}}</h3>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <label>{{local.ShowSummaryReport}}</label>
+      </div>     
+      <div class="control-group label-inline form-horizontal">
+        <label class="control-label">{{local.ShowSummaryMsgConfig}}</label>
+        <label class="checkbox">{{data.msgConfig}}</label>
+      </div>       
+      <div class="control-group label-inline form-horizontal">
+        <label class="control-label">{{local.ShowSummaryLogFilePath}}</label>
+        <label class="checkbox">{{data.logFilePath}}</label>
+        <form action="DatabaseSetup.do" method="post" target="_blank" style="display:inline;margin-left: 20px;">
+        <input type="hidden" name="action" value="downloadFOM">
+          <input type="hidden" name="fileType" value="output">
+           <input type="hidden" name="CONFIG" value="msgConfig">
+          <button type="submit" class="cfg_butt">{{local.ShowSummaryOpen}}</button>
+        </form>
+      </div> 
+    </div>
+  </div>
+  <div class="dialog-form" ng-hide="showSummary">
+    <div class="dialog-title">
+        <h3>{{local.ShowSummaryProgress}}</h3>
+    </div>
+    <div class="dialog-content">
+        <div class="control-group">
+          <label class="control-label">{{local.ShowSummaryWaitInfo}}</label>
+          <div class="progress progress-striped active">
+            <div class="bar" style="width: 100%;"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

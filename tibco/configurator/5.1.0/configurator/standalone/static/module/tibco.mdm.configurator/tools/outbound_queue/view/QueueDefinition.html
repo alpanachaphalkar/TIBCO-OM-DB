@@ -1,0 +1,47 @@
+<div ng-controller="configurator.controller.tools.outboundQueue.QueueDefinition">
+  <div class="dialog-form QueueDefinition" style="height:380px;overflow-y:auto;">
+    <div class="dialog-title">
+      <h3>{{local.title}}<span>{{local.information}}</span></h3>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <label class="control-label">{{local.logicalQueueName}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.LogicalName"></i></label>
+        <input ng-model="data.baseDetails.logicalQName" type="text" class="control-input input-block-level" />
+        <label class="control-label">{{local.physicalQueueName}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.PhysicalName"></i></label>
+        <input ng-model="data.baseDetails.physicalName" type="text" class="control-input input-block-level"/>
+      </div>
+      <div class="control-group">
+        <label class="checkbox">
+          <input type="checkbox" ng-model="data.baseDetails.addToJNDI" />{{local.addFile}}
+        </label>
+      </div>
+      <div class="control-group" ng-show="data.baseDetails.vendorName == 'Websphere MQ'">
+        <label class="control-label">{{local.websphereInfo}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.WebsphereInfo"></i></label>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>{{local.websphereName}}</th>
+              <th>{{local.websphereValue}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{local.websphereTargetClient}}</td>
+              <td>
+                <select ng-model="data.baseDetails.vendorWebsphereData.mqTargetClient" ng-options = "v for v in staticData.targetClient"></select>
+              </td>
+            </tr>
+            <tr>
+              <td>{{local.websphereCodeSetSID}}</td>
+              <td><input type="text" ng-model="data.baseDetails.vendorWebsphereData.mqCCSID" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+  </div>
+</div>

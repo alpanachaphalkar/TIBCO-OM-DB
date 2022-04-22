@@ -1,0 +1,22 @@
+<div class="item" ng-repeat="item in item.subItem">
+	<div id="{{item.name}}" class="item-label level2" ng-click="selectItem($event, $index, item, true);" ng-mouseover="showIcon($event)" ng-mouseleave="hideIcon($event)">
+		<span class="leaf" ng-show="item.subItem == null || item.subItem.length == 0"></span>
+		<span class="collapsed" ng-hide="item.subItem == null || item.subItem.length == 0" ng-click="toggleSub($event);"></span>
+		<span>{{item.name}}</span>
+		<span class="editaBtn">
+			<ul class="hide" ng-mouseleave="focused = false;">
+				<li ng-mouseenter="hoverLi($event)" ng-mouseleave="hoverLi($event)">
+					<a href="javascript:void(0);" ng-click="editAction('edit', treeTitle, item, $index);showDropdownFunc();"><i class="icon-edit"></i>Edit</a>
+				</li>
+				<li ng-mouseenter="hoverLi($event)" ng-mouseleave="hoverLi($event)">
+					<a href="javascript:void(0);" ng-click="editAction('clone', treeTitle, item, $index);showDropdownFunc();"><i class="icon-edit"></i>Clone</a>
+				</li>
+				<li ng-mouseenter="hoverLi($event)" ng-mouseleave="hoverLi($event)" >
+					<a href="javascript:void(0);" ng-click="editAction('delete', treeTitle, item, $index);showDropdownFunc();"><i class="icon-edit"></i>Delete</a>
+				</li>
+			</ul>
+			<i class="icon-list" style="display:none;" ng-click="showDropdownFunc($event);" ng-mouseenter="hoverIcon($event)" ng-mouseleave="hoverIcon($event)"></i>
+		</span>
+	</div>
+	<div class="sub-items {{treeTitle == 'Configuration' ? 'hide' : ''}}" ng-include="'module/tibco.ux.directive/applyTree/view/branches.html'"></div>
+</div>

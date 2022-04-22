@@ -1,0 +1,52 @@
+<div ng-controller="configurator.controller.tools.outboundQueue.EditProperties" id="EditProperties">
+  <div class="dialog-form">
+    <div class="dialog-title">
+      <h3>{{local.title}}<span>{{local.information}}</span></h3>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group" ng-show="data.subItem.properties.length > 0">
+        <label class="control-label">{{local.properties}}</label>
+        <div class="propperties">
+          <table class="table">
+            <tr ng-repeat="item in data.subItem.properties">
+              <td class="prop-name">{{item.name}}</td>
+              <td class="prop-value">
+                <div class="editValue" ng-click="item.showEdit = true" ng-hide="item.showEdit">{{item.value}}</div>
+                <div ng-show="item.showEdit">
+                  <input ng-blur="item.showEdit = false" type="text" ng-model="item.value" />
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="control-group" ng-show="data.subItem.mandatoryKeys.valueName">
+        <label class="control-label">{{local.selectMandatoryKey}}</label>
+        <div class="mandatory">
+          <table class="table">
+            <tr ng-repeat="item in data.subItem.mandatoryKeys.valueName">
+              <td class="check">
+                <input type="checkbox" />
+              </td>
+              <td class="name">{{item}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="control-group" ng-show="data.subItem.optionalKeys.valueName">
+        <label class="control-label">{{local.selectOptionalKey}}</label>
+        <div class="optional">
+          <table class="table">
+            <tr ng-repeat="item in data.subItem.optionalKeys.valueName">
+              <td class="check">
+                <input type="checkbox" />
+              </td>
+              <td class="name">{{item}}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>

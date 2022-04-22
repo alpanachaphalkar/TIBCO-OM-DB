@@ -1,0 +1,98 @@
+<div  ng-controller="configurator.controller.tools.addPlugin.summary">
+    <div class="dialog-form addPlugin" ng-show="showSummary">
+        <div class="dialog-title">
+            <h3>{{local.summaryTitle}}<span>{{local.summaryInfo}}</span></h3>
+        </div>
+        <div class="dialog-content">
+            <div class="control-group contentTitle">
+                <table>
+                    <tr>
+                        <td class="arrow" ng-init="isExpend_1 = true" ng-click="isExpend_1 = !isExpend_1">
+                            <img ng-if="!isExpend_1" ng-src="image/arrow.gif">
+                            <img ng-if="isExpend_1" ng-src="image/arrowDown.gif">
+                        </td>
+                        <td>{{local.reportTitle}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="control-group label-inline form-horizontal" ng-show="isExpend_1">
+                <label class="control-label">{{local.configLable}}</label>
+                <div class="controls">
+                    <span ng-show="installResults.configValues === ''"><img ng-src="image/subscribe.png"> {{local.installStatusNotInvoked}}</span>
+                    <span ng-show="installResults.configValues === 'false'"><img ng-src="image/delete_16x16.gif"> {{local.installStatusFaild}}</span>
+                    <span ng-show="installResults.configValues === 'true'"><img ng-src="image/subscribe.png"> {{local.installStatusSuccess}}</span>
+                </div>
+            </div>
+            <div class="control-group label-inline form-horizontal" ng-show="isExpend_1">
+                <label class="control-label">{{local.databaseLable}}</label>
+                <div class="controls">
+                    <span ng-show="installResults.database === ''"><img ng-src="image/subscribe.png"> {{local.installStatusNotInvoked}}</span>
+                    <span ng-show="installResults.database === 'false'"><img ng-src="image/delete_16x16.gif"> {{local.installStatusFaild}}</span>
+                    <span ng-show="installResults.database === 'true'"><img ng-src="image/subscribe.png"> {{local.installStatusSuccess}}</span>
+                </div>
+            </div>
+            <div class="control-group label-inline form-horizontal" ng-show="isExpend_1">
+                <label class="control-label">{{local.addonLable}}</label>
+                <div class="controls">
+                    <span ng-show="installResults.addonComponents === ''"><img ng-src="image/subscribe.png"> {{local.installStatusNotInvoked}}</span>
+                    <span ng-show="installResults.addonComponents === 'false'"><img ng-src="image/delete_16x16.gif"> {{local.installStatusFaild}}</span>
+                    <span ng-show="installResults.addonComponents === 'true'"><img ng-src="image/subscribe.png"> {{local.installStatusSuccess}}</span>
+                </div>
+            </div>
+            <div class="control-group contentTitle">
+                <table>
+                    <tr>
+                        <td class="arrow" ng-init="isExpend_2 = true" ng-click="isExpend_2 = !isExpend_2">
+                            <img ng-if="!isExpend_2" ng-src="image/arrow.gif">
+                            <img ng-if="isExpend_2" ng-src="image/arrowDown.gif">
+                        </td>
+                        <td>{{local.logTitle}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="control-group label-inline form-horizontal" ng-show="isExpend_2">
+                <label class="control-label">{{local.configLable}}</label>
+                <div class="controls">
+                    <form action="AddonPluginInstaller.do" method="post" target="_blank">
+                        <input type="hidden" name="action" value="download">
+                        <input type="hidden" name="fileType" value="{{logFiles.configValues}}">
+                        <button ng-disabled="!logFiles.configValues" type="submit" >{{local.openFile}}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="control-group label-inline form-horizontal" ng-show="isExpend_2">
+                <label class="control-label">{{local.databaseLable}}</label>
+                <div class="controls">
+                    <form action="AddonPluginInstaller.do" method="post" target="_blank">
+                        <input type="hidden" name="action" value="download">
+                        <input type="hidden" name="fileType" value="{{logFiles.database}}">
+                        <button ng-disabled="!logFiles.database" type="submit" >{{local.openFile}}</button>
+                    </form>
+                </div>
+            </div>
+            <div class="control-group label-inline form-horizontal" ng-show="isExpend_2">
+                <label class="control-label">{{local.addonLable}}</label>
+                <div class="controls">
+                    <form action="AddonPluginInstaller.do" method="post" target="_blank">
+                        <input type="hidden" name="action" value="download">
+                        <input type="hidden" name="fileType" value="{{logFiles.addonComponents}}">
+                        <button ng-disabled="!logFiles.addonComponents" type="submit" >{{local.openFile}}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dialog-form" ng-hide="showSummary">
+        <div class="dialog-title">
+            <h3>{{local.progress}}</h3>
+        </div>
+        <div class="dialog-content">
+            <div class="control-group">
+                <label class="control-label">{{local.wait}}</label>
+                <div class="progress-striped active">
+                    <div class="progress_bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

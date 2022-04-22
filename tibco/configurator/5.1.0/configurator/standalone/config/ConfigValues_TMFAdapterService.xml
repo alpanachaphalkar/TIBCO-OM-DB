@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration description="The Initial Configuration Setup for TMF Adapter Service" displayName="Order Management - TMF Adapter Service" name="TMF Adapter Service" xmlns="http://www.tibco.com/af/config/confbeans/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tibco.com/af/config/confbeans/1.0">
+	<Cluster>
+		<Category description="TMF OM Adapter Engine Configuration" name="TMF OM Adapter Engine Configuration" visibility="Basic">
+			<ConfValue description="Authentication Token Signing Key" isHotDeployable="true" name="Authentication Token Signing Key" propname="authentication.token.signing.key" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ENC(nSa0k6lmjPPN8ZA5SO6BpQ==)" isPassword="true" value="ENC(nSa0k6lmjPPN8ZA5SO6BpQ==)"/>
+			</ConfValue>
+			<ConfValue description="Use Static Access-Token" isHotDeployable="true" name="Use Static Access-Token" propname="useAccessTokenFromProperty" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Static Access-Token" isHotDeployable="true" name="Static Access-Token" propname="access.token" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="" isPassword="true"  value=""/>
+			</ConfValue>			
+			<ConfValue description="Logging Configuration File Path" isHotDeployable="true" name="Logging Configuration File Path" propname="logging.config" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="config/logback_tmf.xml" value="config/logback_tmf.xml"/>
+			</ConfValue>
+			<ConfValue description="Application name to show on actuator info endpoint" isHotDeployable="false" name="Application Name" propname="info.app.name" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="TMF-OM-Adapter" value="TMF-OM-Adapter"/>
+			</ConfValue>
+			<ConfValue description="Tenant ID to be passed with the token" isHotDeployable="true" name="Tenant ID" propname="om.server.tenantid" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="TIBCO" value="TIBCO"/>
+			</ConfValue>
+		</Category>
+		<Category description="Orchestrator Service Configuration" name="Orchestrator Service Configuration" visibility="Basic">
+			<ConfValue description="Orchestrator Service Submit Order End-Point" isHotDeployable="true" name="Orchestrator Service Submit Order End-Point" propname="omServerOrderUrl" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/order" value="http://localhost:9093/v1/order"/>
+			</ConfValue>
+			<ConfValue description="Inclusion of Properties During Serialization" isHotDeployable="true" name="Inclusion of Properties During Serialization" propname="spring.jackson.default-property-inclusion" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="NON_NULL" value="NON_NULL"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Service WithdrawOrder End-Point" isHotDeployable="true" name="Orchestrator Service WithdrawOrder End-Point" propname="omServerWithdrawOrderPath" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/order" value="http://localhost:9093/v1/order"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Service GetOrderDetails End-Point" isHotDeployable="true" name="Orchestrator Service GetOrderDetails End-Point" propname="omServerOrderDetailsPath" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/order" value="http://localhost:9093/v1/order"/>
+			</ConfValue>
+		</Category>
+		<Category description="Authorization Server Configuration Properties Used for Swagger UI" name="Authentication Server Configuration Properties Used for Swagger UI" visibility="Basic">
+			<ConfValue description="Authentication Service Username" name="Authentication Service Username" propname="authorization.service.username" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="apiUser" value="apiUser"/>
+			</ConfValue>
+			<ConfValue description="Authentication Service Password" name="Authentication Service Password" propname="authorization.service.password" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="apiUser" value="ENC(fpihKlXrIKg=)"/>
+			</ConfValue>
+		</Category>
+	</Cluster>
+</Configuration>
+<!-- Copyright (c) 2017-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

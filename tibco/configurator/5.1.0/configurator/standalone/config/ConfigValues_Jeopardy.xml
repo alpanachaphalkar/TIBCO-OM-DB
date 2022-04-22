@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration description="The Initial Configuration Setup for Jeopardy" displayName="Order Management - Jeopardy" name="Jeopardy Services" xmlns="http://www.tibco.com/af/config/confbeans/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tibco.com/af/config/confbeans/1.0">
+    <Cluster>
+        <Category description="Generic configuration" name="Generic configuration" visibility="Basic">
+            <ConfValue description="Logging File" name="Logging File" propname="logging.config" visibility="Basic">
+                <ConfString default="config/logback_jeopardy.xml" value="config/logback_jeopardy.xml"/>
+            </ConfValue>
+            <ConfValue description="Absolute file path for TIBEDS config file" name="Absolute file path for TIBEDS config file" propname="tibedsConfigFilePath" visibility="Basic">
+                <ConfString default="C:/repository/Tibco_Projects/git_repo_LL/github/fom-5.1.0-HF2/src/jeopardy/target/jeopardy/standalone/config/tibeds_config.xml" value="C:/repository/Tibco_Projects/git_repo_LL/github/fom-5.1.0-HF2/src/jeopardy/target/jeopardy/standalone/config/tibeds_config.xml"/>
+            </ConfValue>
+            <ConfValue description="Application name to show on actuator info endpoint" isHotDeployable="false" name="Application Name" propname="info.app.name" readonly="false" sinceVersion="5.0" visibility="Basic">
+                <ConfString default="Jeopardy" value="Jeopardy"/>
+            </ConfValue>
+        </Category>
+        <Category description="Jeopardy Engine configuration" name="Jeopardy Engine configuration" visibility="Basic">
+            <ConfValue description="Risk Threshold" name="Risk Threshold" propname="riskThreshold" visibility="Basic">
+                <ConfString default="25" value="25"/>
+            </ConfValue>
+            <ConfValue description="Out of scope threshold" name="Out of scope threshold" propname="outOfScopeThreshold" visibility="Basic">
+                <ConfString default="25" value="25"/>
+            </ConfValue>
+            <ConfValue description="Plan process start date" name="Plan process start date" propname="planProcessStartDate" visibility="Basic">
+                <ConfString default="01/18/2012" value="01/18/2012"/>
+            </ConfValue>
+            <ConfValue description="Time window" name="Time window" propname="timeWindow" visibility="Basic">
+                <ConfString default="10" value="10"/>
+            </ConfValue>
+            <ConfValue description="Time window unit" name="Time window unit" propname="timeWindowUnit" visibility="Basic">
+                <ConfString default="MINUTE" value="MINUTE"/>
+            </ConfValue>
+            <ConfValue description="Jeopardy detection cycle interval in seconds" name="Jeopardy detection cycle interval" propname="jeopardyDetectionInterval" visibility="Basic">
+                <ConfString default="60" value="60"/>
+            </ConfValue>
+            <ConfValue description="Plan level threshold duration" name="Plan level threshold duration" propname="planLevelThresholdDuration" visibility="Basic">
+                <ConfString default="0" value="0"/>
+            </ConfValue>
+            <ConfValue description="Section level threshold duration" name="Section level threshold duration" propname="sectionLevelThresholdDuration" visibility="Basic">
+                <ConfString default="0" value="0"/>
+            </ConfValue>
+            <ConfValue description="Number of orders to process per cycle" name="Number of orders to process per cycle" propname="numOfOrdersPerCycle" visibility="Basic">
+                <ConfString default="0" value="0"/>
+            </ConfValue>
+            <ConfValue description="Jeopardy detector start delay in seconds" name="Jeopardy detector start delay" propname="jeopardyDetectorStartDelay" visibility="Basic">
+                <ConfString default="10" value="10"/>
+            </ConfValue>
+        </Category>
+        <Category description="Jeopardy Data Source Configuration" name="Jeopardy Data Source Configuration" visibility="Basic">
+            <ConfValue description="Data Source Driver Name" isHotDeployable="true" name="Data Source Driver Name" propname="datasourceDriverClassName" readonly="false" visibility="Basic">
+                <ConfEnum>
+                    <EnumValue default="true" selected="true" value="org.postgresql.Driver"/>
+                    <EnumValue value="oracle.jdbc.driver.OracleDriver"/>
+                </ConfEnum>
+            </ConfValue>
+            <ConfValue description="Data Source URL" isHotDeployable="false" name="Data Source URL" propname="jeopardyDsUrl" readonly="false" visibility="Basic">
+                <ConfEnum>
+                    <EnumValue default="true" selected="true" value="jdbc:postgresql://localhost:5432/jeopardydbll?currentSchema=jeopardyschemall"/>
+                    <EnumValue value="jdbc:oracle:thin:@//localhost:1521/orcl.apac.tibco.com"/>
+                </ConfEnum>
+            </ConfValue>
+            <ConfValue description="Data Source Username" isHotDeployable="true" name="Data Source Username" propname="jeopardyDsUsername" readonly="false" visibility="Basic">
+                <ConfString default="jeopardyuserll" value="jeopardyuserll"/>
+            </ConfValue>
+            <ConfValue description="Data Source Password" isHotDeployable="true" name="Data Source Password" propname="jeopardyDsPassword" readonly="false" visibility="Basic">
+                <ConfString default="jeopardyuserll" isPassword="true"  value="jeopardyuserll"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Initialize Size" name="Pooled Data Source Initialize Size" propname="jeopardyDsInitialSize" visibility="Advanced">
+                <ConfString default="10" value="10"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Max Idle" name="Pooled Data Source Max Idle" propname="jeopardyDsMaxIdle" visibility="Advanced">
+                <ConfString default="100" value="100"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Min Idle" name="Pooled Data Source Min Idle" propname="jeopardyDsMinIdle" visibility="Advanced">
+                <ConfString default="100" value="100"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Max Active" name="Pooled Data Source Max Active" propname="jeopardyDsMaxActive" visibility="Advanced">
+                <ConfString default="100" value="100"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Max Wait" name="Pooled Data Source Max Wait" propname="jeopardyDsMaxWait" visibility="Advanced">
+                <ConfString default="30000" value="30000"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Validation Query" name="Pooled Data Source Validation Query" propname="datasourceValidationQuery" visibility="Advanced">
+                <ConfEnum>
+                    <EnumValue selected="true" default="true" value="SELECT 1"/>
+                    <EnumValue  value="select 1 from dual"/>
+                </ConfEnum>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Test OnBorrow" name="Pooled Data Source Test OnBorrow" propname="jeopardyDsTestOnBorrow" visibility="Advanced">
+                <ConfBool default="false" value="false"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Validation Interval" name="Pooled Data Source Validation Interval" propname="jeopardyDsValidationInterval" visibility="Advanced">
+                <ConfString default="5000" value="5000"/>
+            </ConfValue>
+            <ConfValue description="Enable Hibernate Metadata Defaults" isHotDeployable="true" name="Enable Hibernate Metadata Defaults" propname="hibernateDsDefaults" readonly="false" visibility="Advanced">
+                <ConfBool default="false" value="false"/>
+            </ConfValue>
+            <ConfValue description="Hibernate Dialect" isHotDeployable="true" name="Hibernate Dialect" propname="hibernateDialect" readonly="false" visibility="Advanced">
+                <ConfEnum>
+                    <EnumValue selected="true" default="true" value="org.hibernate.dialect.PostgreSQLDialect"/>
+                    <EnumValue  value="org.hibernate.dialect.Oracle10gDialect"/>
+                </ConfEnum>
+            </ConfValue>
+            <ConfValue description="Hibernate Show SQL" name="Hibernate Show SQL" propname="jeopardyHibernateShowSql" visibility="Advanced">
+                <ConfBool default="false" value="false"/>
+            </ConfValue>
+        </Category>
+        <Category description="Messaging configuration" name="Messaging configuration" visibility="Basic">
+            <ConfValue description="EMS server url" isHotDeployable="true" name="EMS server url" propname="emsServerURL" readonly="false" visibility="Basic">
+                <ConfString default="tcp://localhost:7222" value="tcp://localhost:7222"/>
+            </ConfValue>
+            <ConfValue description="EMS server username" isHotDeployable="true" name="EMS server username" propname="emsServerUsername" readonly="false" visibility="Basic">
+                <ConfString default="admin" value="admin"/>
+            </ConfValue>
+            <ConfValue description="EMS server password" isHotDeployable="true" name="EMS server password" propname="emsServerPassword" readonly="false" visibility="Basic">
+                <ConfString default="admin" value="admin"/>
+            </ConfValue>
+            <ConfValue description="JNDI connection factory" isHotDeployable="true" name="JNDI connection factory" propname="jndiConnectionFactory" readonly="false" visibility="Basic">
+                <ConfString default="GenericConnectionFactory" value="GenericConnectionFactory"/>
+            </ConfValue>
+            <ConfValue description="Initial context factory" isHotDeployable="true" name="Initial context factory" propname="initialContextFactory" readonly="false" visibility="Basic">
+                <ConfString default="com.tibco.tibjms.naming.TibjmsInitialContextFactory" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+            </ConfValue>
+            <ConfValue description="Plan development notification queue" isHotDeployable="true" name="Plan development notification queue" propname="planDevelopmentNotificationQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.plan.create" value="jeopardy.plan.create"/>
+            </ConfValue>
+            <ConfValue description="Plan development notification dead queue" isHotDeployable="true" name="Plan development notification dead queue" propname="planDevelopmentNotificationDeadQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.plan.create.dead" value="jeopardy.plan.create.dead"/>
+            </ConfValue>
+            <ConfValue description="Order notification queue" isHotDeployable="true" name="Order notification queue" propname="orderNotificationQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.order" value="jeopardy.order"/>
+            </ConfValue>
+            <ConfValue description="Order notification dead queue" isHotDeployable="true" name="Order notification dead queue" propname="orderNotificationDeadQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.order.dead" value="jeopardy.order.dead"/>
+            </ConfValue>
+            <ConfValue description="Plan notification queue" isHotDeployable="true" name="Plan notification queue" propname="planNotificationQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.plan" value="jeopardy.plan"/>
+            </ConfValue>
+            <ConfValue description="Plan notification dead queue" isHotDeployable="true" name="Plan notification dead queue" propname="planNotificationDeadQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.plan.dead" value="jeopardy.plan.dead"/>
+            </ConfValue>
+            <ConfValue description="Plan item execute request notification queue" isHotDeployable="true" name="Plan item execute request notification queue" propname="planItemExecuteRequestNotificationQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.planitem.execute.request" value="jeopardy.planitem.execute.request"/>
+            </ConfValue>
+            <ConfValue description="Plan item execute request notification dead queue" isHotDeployable="true" name="Plan item execute request notification dead queue" propname="planItemExecuteRequestNotificationDeadQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.planitem.execute.request.dead" value="jeopardy.planitem.execute.request.dead"/>
+            </ConfValue>
+            <ConfValue description="Plan item execute response notification queue" isHotDeployable="true" name="Plan item execute response notification queue" propname="planItemExecuteResponseNotificationQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.planitem.execute.response" value="jeopardy.planitem.execute.response"/>
+            </ConfValue>
+            <ConfValue description="Plan item execute response notification dead queue" isHotDeployable="true" name="Plan item execute response notification dead queue" propname="planItemExecuteResponseNotificationDeadQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.planitem.execute.response.dead" value="jeopardy.planitem.execute.response.dead"/>
+            </ConfValue>
+            <ConfValue description="Milestone notify request notification queue" isHotDeployable="true" name="Milestone notify request notification queue" propname="milestoneNotifyRequestNotificationQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.milestone.notify.request" value="jeopardy.milestone.notify.request"/>
+            </ConfValue>
+            <ConfValue description="Milestone notify request notification dead queue" isHotDeployable="true" name="Milestone notify request notification dead queue" propname="milestoneNotifyRequestNotificationDeadQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.milestone.notify.request" value="jeopardy.milestone.notify.request"/>
+            </ConfValue>
+            <ConfValue description="Milestone release request notification queue" isHotDeployable="true" name="Milestone release request notification queue" propname="milestoneReleaseRequestNotificationQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.milestone.release.request" value="jeopardy.milestone.release.request"/>
+            </ConfValue>
+            <ConfValue description="Milestone release request notification dead queue" isHotDeployable="true" name="Milestone release request notification dead queue" propname="milestoneReleaseRequestNotificationDeadQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.milestone.release.request.dead" value="jeopardy.milestone.release.request.dead"/>
+            </ConfValue>
+            <ConfValue description="Process component model publish queue" isHotDeployable="true" name="Process component model publish queue" propname="processComponentModelPublishQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.processcomponent.publish.queue" value="jeopardy.processcomponent.publish.queue"/>
+            </ConfValue>
+            <ConfValue description="Process component model publish dead queue" isHotDeployable="true" name="Process component model publish dead queue" propname="processComponentModelPublishDeadQueue" readonly="false" visibility="Basic">
+                <ConfString default="jeopardy.processcomponent.publish.dead.queue" value="jeopardy.processcomponent.publish.dead.queue"/>
+            </ConfValue>
+            <ConfValue description="Notification redelivery count" isHotDeployable="true" name="Notification redelivery count" propname="notificationRedeliveryCount" readonly="false" visibility="Basic">
+                <ConfString default="1" value="1"/>
+            </ConfValue>
+            <ConfValue description="Notification receiver count" isHotDeployable="true" name="Notification receiver count" propname="notificationReceiverCount" readonly="false" visibility="Basic">
+                <ConfString default="1" value="1"/>
+            </ConfValue>
+            <ConfValue description="Whether JMS session is transacted" isHotDeployable="true" name="Whether JMS session is transacted" propname="jmsSessionTransacted" readonly="false" visibility="Basic">
+                <ConfString default="true" value="true"/>
+            </ConfValue>
+            <ConfValue description="JMS timeout in millis" isHotDeployable="true" name="JMS timeout in millis" propname="timeoutMillis" readonly="false" visibility="Basic">
+                <ConfString default="10000" value="10000"/>
+            </ConfValue>
+        </Category>
+        <Category description="Relational configuration for Catalog datasource" name="Relational configuration for Catalog datasource" visibility="Basic">
+            <ConfValue description="Data Source Driver Name" isHotDeployable="true" name="Data Source Driver Name" propname="datasourceDriverClassName" readonly="false" visibility="Basic">
+                <ConfEnum>
+                    <EnumValue default="true" selected="true" value="org.postgresql.Driver"/>
+                    <EnumValue value="oracle.jdbc.driver.OracleDriver"/>
+                </ConfEnum>
+            </ConfValue>
+            <ConfValue description="Data Source URL" isHotDeployable="false" name="Data Source URL" propname="catalogDsUrl" readonly="false" visibility="Basic">
+                <ConfEnum>
+                    <EnumValue default="true" selected="true" value="jdbc:postgresql://localhost:5432/catalogdsdbll?currentSchema=catalogdsschemall"/>
+                    <EnumValue value="jdbc:oracle:thin:@//localhost:1521/orcl.apac.tibco.com"/>
+                </ConfEnum>
+            </ConfValue>
+            <ConfValue description="Data Source Username" isHotDeployable="true" name="Data Source Username" propname="catalogDsUsername" readonly="false" visibility="Basic">
+                <ConfString default="catalogdsuserll" value="catalogdsuserll"/>
+            </ConfValue>
+            <ConfValue description="Data Source Password" isHotDeployable="true" name="Data Source Password" propname="catalogDsPassword" readonly="false" visibility="Basic">
+                <ConfString default="catalogdsuserll" isPassword="true"  value="catalogdsuserll"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Initialize Size" name="Pooled Data Source Initialize Size" propname="catalogDsInitializeSize" visibility="Advanced">
+                <ConfString default="10" value="10"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Max Idle" name="Pooled Data Source Max Idle" propname="catalogDsMaxIdle" visibility="Advanced">
+                <ConfString default="100" value="100"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Min Idle" name="Pooled Data Source Min Idle" propname="catalogDsMinIdle" visibility="Advanced">
+                <ConfString default="100" value="100"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Max Active" name="Pooled Data Source Max Active" propname="catalogDsMaxActive" visibility="Advanced">
+                <ConfString default="100" value="100"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Max Wait" name="Pooled Data Source Max Wait" propname="catalogDsMaxWait" visibility="Advanced">
+                <ConfString default="30000" value="30000"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Validation Query" name="Pooled Data Source Validation Query" propname="datasourceValidationQuery" visibility="Advanced">
+                <ConfEnum>
+                    <EnumValue selected="true" default="true" value="SELECT 1"/>
+                    <EnumValue  value="select 1 from dual"/>
+                </ConfEnum>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Test OnBorrow" name="Pooled Data Source Test OnBorrow" propname="catalogDsTestOnBorrow" visibility="Advanced">
+                <ConfBool default="false" value="false"/>
+            </ConfValue>
+            <ConfValue description="Pooled Data Source Validation Interval" name="Pooled Data Source Validation Interval" propname="catalogDsValidationInterval" visibility="Advanced">
+                <ConfString default="5000" value="5000"/>
+            </ConfValue>
+            <ConfValue description="Enable Hibernate Metadata Defaults" isHotDeployable="true" name="Enable Hibernate Metadata Defaults" propname="hibernateDsDefaults" readonly="false" visibility="Advanced">
+                <ConfBool default="false" value="false"/>
+            </ConfValue>
+            <ConfValue description="Hibernate Dialect" isHotDeployable="true" name="Hibernate Dialect" propname="hibernateDialect" readonly="false" visibility="Advanced">
+                <ConfEnum>
+                    <EnumValue selected="true" default="true" value="org.hibernate.dialect.PostgreSQLDialect"/>
+                    <EnumValue  value="org.hibernate.dialect.Oracle10gDialect"/>
+                </ConfEnum>
+            </ConfValue>
+            <ConfValue description="Hibernate Show SQL" name="Hibernate Show SQL" propname="catalogHibernateShowSql" visibility="Advanced">
+                <ConfBool default="false" value="false"/>
+            </ConfValue>
+        </Category>
+        <Category description="Redis configuration for Catalog datasource" name="Redis configuration for Catalog datasource" visibility="Basic">
+            <ConfValue description="Redis Server Host for Catalog datasource" isHotDeployable="true" name="Redis Server Host for Catalog datasource" propname="catalogRedisHost" readonly="false" visibility="Basic">
+                <ConfString default="localhost" value="localhost"/>
+            </ConfValue>
+            <ConfValue description="Whether redis is running in Cluster Mode" isHotDeployable="true" name="Whether redis is running in Cluster Mode" propname="redisClusterEnabled" readonly="false" visibility="Basic">
+                <ConfBool default="true" value="true"/>
+            </ConfValue>
+            <ConfValue description="Redis Server Port for Catalog datasource" isHotDeployable="true" name="Redis Server Port for Catalog datasource" propname="catalogRedisPort" readonly="false" visibility="Basic">
+                <ConfString default="6379" value="6379"/>
+            </ConfValue>
+            <ConfValue description="Test On Borrow" isHotDeployable="true" name="Test On Borrow" propname="redisTestOnBorrow" readonly="false" visibility="Basic">
+                <ConfBool default="true" value="true"/>
+            </ConfValue>
+            <ConfValue description="Test On Return" isHotDeployable="true" name="Test On Return" propname="redisTestOnReturn" readonly="false" visibility="Basic">
+                <ConfBool default="true" value="true"/>
+            </ConfValue>
+            <ConfValue description="Test While Idle" isHotDeployable="true" name="Test While Idle" propname="redisTestWhileIdle" readonly="false" visibility="Basic">
+                <ConfBool default="true" value="true"/>
+            </ConfValue>
+            <ConfValue description="Block When Exhausted" isHotDeployable="true" name="Block When Exhausted" propname="redisBlockedWhenExhausted" readonly="false" visibility="Basic">
+                <ConfBool default="true" value="true"/>
+            </ConfValue>
+            <ConfValue description="JMX Enabled" isHotDeployable="true" name="JMX Enabled" propname="redisJmxEnabled" readonly="false" visibility="Basic">
+                <ConfBool default="true" value="true"/>
+            </ConfValue>
+            <ConfValue description="LIFO" isHotDeployable="true" name="LIFO" propname="redisLifo" readonly="false" visibility="Basic">
+                <ConfBool default="true" value="true"/>
+            </ConfValue>
+            <ConfValue description="Max Idle" isHotDeployable="true" name="Max Idle" propname="redisMaxIdle" readonly="false" visibility="Basic">
+                <ConfString default="64" value="64"/>
+            </ConfValue>
+            <ConfValue description="Min Idle" isHotDeployable="true" name="Min Idle" propname="redisMinIdle" readonly="false" visibility="Basic">
+                <ConfString default="16" value="16"/>
+            </ConfValue>
+            <ConfValue description="Max Total" isHotDeployable="true" name="Max Total" propname="redisMaxTotal" readonly="false" visibility="Basic">
+                <ConfString default="64" value="64"/>
+            </ConfValue>
+            <ConfValue description="Number of Test Eviction Per Run" isHotDeployable="true" name="Number of Test Eviction Per Run" propname="redisNumTestsPerEvictionRun" readonly="false" visibility="Basic">
+                <ConfString default="5" value="5"/>
+            </ConfValue>
+            <ConfValue description="Soft Min Evictable Idle Time Millis" isHotDeployable="true" name="Soft Min Evictable Idle Time Millis" propname="redisSoftMinEvictableIdleTimeMillis" readonly="false" visibility="Basic">
+                <ConfString default="3000" value="3000"/>
+            </ConfValue>
+            <ConfValue description="Min Evictable Idle Time Millis" isHotDeployable="true" name="Min Evictable Idle Time Millis" propname="redisMinEvictableIdleTimeMillis" readonly="false" visibility="Basic">
+                <ConfString default="6000" value="6000"/>
+            </ConfValue>
+            <ConfValue description="Time Between Eviction Runs Millis" isHotDeployable="true" name="Time Between Eviction Runs Millis" propname="redisTimeBetweenEvictionRunsMillis" readonly="false" visibility="Basic">
+                <ConfString default="3000" value="3000"/>
+            </ConfValue>
+        </Category>
+        <Category description="Lock properties" name="Lock properties" visibility="Basic">
+            <ConfValue description="Lock retry count" isHotDeployable="true" name="Lock retry count" propname="lockRetryCount" readonly="false" visibility="Basic">
+                <ConfString default="5" value="5"/>
+            </ConfValue>
+            <ConfValue description="Lock retry interval" isHotDeployable="true" name="Lock retry interval" propname="lockRetryInterval" readonly="false" visibility="Basic">
+                <ConfString default="2" value="2"/>
+            </ConfValue>
+            <ConfValue description="Hashcode distribution index size" isHotDeployable="true" name="Hashcode distribution index size" propname="hashCodeIndexDistributionSize" readonly="false" visibility="Basic">
+                <ConfString default="2048" value="2048"/>
+            </ConfValue>
+        </Category>
+    </Cluster>
+</Configuration>

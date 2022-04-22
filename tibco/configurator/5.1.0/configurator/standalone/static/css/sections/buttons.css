@@ -1,0 +1,121 @@
+/*
+ buttons
+*/
+.cfg_butt {
+    height: 30px;
+    padding: 0px 10px;
+    font-size: 12px;
+    font-family: "Arial";
+    color: #4c4c4c;
+    background-color: #ededed;
+    text-shadow: 0 1px #fff;
+    outline: none;
+    /* border */
+    border: solid 1px #c4c4c4;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    /* box shadow */
+    -webkit-box-shadow: inset 0 1px 0 1px #fff;
+    -moz-box-shadow: inset 0 1px 0 1px #fff;
+    box-shadow: inset 0 1px 0 1px #fff;
+    /* linear gradient */
+    background-image: -webkit-linear-gradient(top, #fff, #ededed);
+    background-image: -moz-linear-gradient(top, #fff, #ededed);
+    background-image: -o-linear-gradient(top, #fff, #ededed);
+    background-image: linear-gradient(to bottom, #fff, #ededed);
+    /* for IE */
+    behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.cfg_butt:hover {
+    background-color: #ededed;
+    background-color: #d0eaf8\9;
+    background-image: -webkit-linear-gradient(top, #d5f1ff, #c1dce9);
+    background-image: -moz-linear-gradient(top, #d5f1ff, #c1dce9);
+    background-image: -o-linear-gradient(top, #d5f1ff, #c1dce9);
+    background-image: linear-gradient(to bottom, #d5f1ff, #c1dce9);
+}
+
+.cfg_butt:active {
+    background-color: #d7d7d7;
+    -webkit-box-shadow: 0 1px #fff, inset 0 1px 2px #6f6f6f;
+    -moz-box-shadow: 0 1px #fff, inset 0 1px 2px #6f6f6f;
+    box-shadow: 0 1px #fff, inset 0 1px 2px #6f6f6f;
+    border: solid 1px #c4c4c4;
+    background-image: none;
+}
+
+.cfg_butt.inactive {
+    color: #a4a4a4;
+    background-image: -webkit-linear-gradient(top, #f9f9f9, #f5f5f5);
+    background-image: -moz-linear-gradient(top, #f9f9f9, #f5f5f5);
+    background-image: -o-linear-gradient(top, #f9f9f9, #f5f5f5);
+    background-image: linear-gradient(to bottom, #f9f9f9, #f5f5f5);
+}
+
+.cfg_butt.hover {
+    background-color: #ededed;
+    background-color: #d0eaf8\9;
+    background-image: -webkit-linear-gradient(top, #d5f1ff, #c1dce9);
+    background-image: -moz-linear-gradient(top, #d5f1ff, #c1dce9);
+    background-image: -o-linear-gradient(top, #d5f1ff, #c1dce9);
+    background-image: linear-gradient(to bottom, #d5f1ff, #c1dce9);
+}
+
+.cfg_butt.clicked {
+    background-color: #d7d7d7;
+    -webkit-box-shadow: 0 1px #fff, inset 0 1px 2px #6f6f6f;
+    -moz-box-shadow: 0 1px #fff, inset 0 1px 2px #6f6f6f;
+    box-shadow: 0 1px #fff, inset 0 1px 2px #6f6f6f;
+    border: solid 1px #c4c4c4;
+    background-image: none;
+}
+
+.cfg_butt.dark {
+    color: #fff;
+    text-shadow: 0 -1px #4c4c4c;
+    background-color: #354c57;
+    border: solid 1px #1e313c;
+    -webkit-box-shadow: inset 0 1px #536d7a;
+    -moz-box-shadow: inset 0 1px #536d7a;
+    box-shadow: inset 0 1px #536d7a;
+    background-image: -webkit-linear-gradient(top, #314a54, #1e313c);
+    background-image: -moz-linear-gradient(top, #314a54, #1e313c);
+    background-image: -o-linear-gradient(top, #314a54, #1e313c);
+    background-image: linear-gradient(to bottom, #314a54, #1e313c);
+}
+
+.cfg_butt.dark:hover {
+    background-color: #536d7a;
+    -webkit-box-shadow: inset 0 1px #8aadbe;
+    -moz-box-shadow: inset 0 1px #8aadbe;
+    box-shadow: inset 0 1px #8aadbe;
+    background-image: none;
+}
+
+.cfg_butt.dark:active {
+    background-color: #354c57;
+    -webkit-box-shadow: 0 1px #536d7a, inset 0 2px 3px #1e313c;
+    -moz-box-shadow: 0 1px #536d7a, inset 0 2px 3px #1e313c;
+    box-shadow: 0 1px #536d7a, inset 0 2px 3px #1e313c;
+    border: solid 1px #314a54;
+    background-image: none;
+}
+
+.cfg_butt.dark.hover {
+    background-color: #536d7a;
+    -webkit-box-shadow: inset 0 1px #8aadbe;
+    -moz-box-shadow: inset 0 1px #8aadbe;
+    box-shadow: inset 0 1px #8aadbe;
+    background-image: none;
+}
+
+.cfg_butt.dark.clicked {
+    background-color: #354c57;
+    -webkit-box-shadow: 0 1px #536d7a, inset 0 2px 3px #1e313c;
+    -moz-box-shadow: 0 1px #536d7a, inset 0 2px 3px #1e313c;
+    box-shadow: 0 1px #536d7a, inset 0 2px 3px #1e313c;
+    border: solid 1px #314a54;
+    background-image: none;
+}

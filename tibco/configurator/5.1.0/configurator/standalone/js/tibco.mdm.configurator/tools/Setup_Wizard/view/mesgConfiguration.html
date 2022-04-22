@@ -1,0 +1,30 @@
+<div ng-controller="configurator.controller.tools.Setup_Wizard.mesgConfiguration">
+    <div class="dialog-form" style="height:380px;overflow-y:auto;">
+    <div class="dialog-title">
+      <h3>{{local.title}}</h3>
+      <h6>{{local.info}}</h6>
+    </div>
+    <div class="dialog-content">
+	  <div class="control-group">
+            <label class="control-label">{{local.host}}</label>
+            <input type="text" name="name" ng-model="data.msgvalues.HOST">
+     
+            <label class="control-label">{{local.port}}</label>
+            <input type="text" name="name" ng-model="data.msgvalues.PORT">
+      
+            <label class="control-label">{{local.username}}</label>
+            <input type="text" name="name" ng-model="data.msgvalues.USERNAME">
+      
+            <label class="control-label">{{local.password}}</label>
+            <input type="password" name="name" ng-model="data.msgvalues.PASSWORD">
+      </div>
+      
+    </div>
+  </div>
+    <div class="form_buttons">
+		<button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+        <button class="cfg_butt float-right" ng-click="installButtonClick()">{{local.install}}</button>
+        <button ng-hide="data.values.msgConfiguration" class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+    </div>
+</div>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

@@ -1,0 +1,39 @@
+<div ng-controller="configurator.controller.tools.Change_OMS_Log_Level.ChangeOmsLogLevel">
+    <div class="dialog-form" style="height : 380px; overflow-y:auto;">   
+	<div class="dialog-title">
+      <h3>{{local.title}}</h3>      
+    </div>	
+    <div class="dialog-content">
+	  <div class="control-group">
+            <label>{{local.Package}}</label>
+            <input type="text" name="Package" ng-model="data.values.Package">
+      </div>
+      <div style="width:220px" class="control-group">
+            <label>{{local.Level}}</label>
+            <select data-ng-options="o for o in options" data-ng-model="data.values.Level" placeholder="select"></select>
+      </div>
+	   <div class="control-group">
+            <label>{{local.JMX_Host}}</label>
+            <input type="text" name="JMX_Host" ng-model="data.values.JMX_Host">
+      </div>
+	   <div class="control-group">
+            <label>{{local.JMX_Port}}</label>
+            <input type="text" name="JMX_Port" ng-model="data.values.JMX_Port">
+      </div>
+	   <div class="control-group">
+            <label>{{local.Username}}</label>
+            <input type="text" name="Username" ng-model="data.values.Username">
+      </div>
+	   <div class="control-group">
+            <label>{{local.Password}}</label>
+            <input type="password" name="Password" ng-model="data.values.Password">
+      </div>
+      
+    </div>
+  </div>
+    <div class="form_buttons">		
+        <button class="cfg_butt float-right" ng-click="cancelButtonClick()">{{local.cancel}}</button>   
+		<button class="cfg_butt float-right" ng-click="changeLogLevel()">{{local.ok}}</button>		
+    </div>
+</div>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

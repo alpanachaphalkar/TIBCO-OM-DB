@@ -1,0 +1,17 @@
+body { width : 100%; }
+.modal-container { width: 60%; height: auto; border: 1px solid #b2b2b2; margin: 5% 20%; }
+
+/* Tooltips style */
+.tooltip .tooltip-inner { background-color : #529BDA; color : #000; max-width : 600px; }
+.tooltip.top .tooltip-arrow, .tooltip.top-left .tooltip-arrow, .tooltip.top-right .tooltip-arrow {
+    border-top-color: #529BDA;
+}
+.tooltip.right .tooltip-arrow {
+    border-right-color: #529BDA;  
+}
+.tooltip.left .tooltip-arrow {
+    border-left-color: #529BDA;
+}
+.tooltip.bottom .tooltip-arrow, .tooltip.bottom-left .tooltip-arrow, .tooltip.bottom-right .tooltip-arrow {
+    border-bottom-color: #529BDA;
+}

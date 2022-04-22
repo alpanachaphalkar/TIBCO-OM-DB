@@ -1,0 +1,43 @@
+<div id="revisionHistoryPanel" ng-controller="configurator.controller.revision_history">
+  <div class="revisionContainer">
+    <div class="titleLine ">
+      <div class="title"><span>{{local.title}}</span></div>
+      <div class="toolbar">
+        <div class="btnContainer">
+          <button class="cfg_butt" ng-class="{'inactive': selectedIdx < 0}" ng-disabled="selectedIdx < 0" ng-click="revertToSelect()">{{local.buttonRevert}}</button>
+          <button class="cfg_butt" ng-class="{'inactive': selectedIdx < 0}" ng-disabled="selectedIdx < 0" ng-click="recordEdit()">{{local.buttonEdit}}</button>
+          <button class="cfg_butt" ng-class="{'inactive': selectedIdx < 0}" ng-disabled="selectedIdx < 0" ng-click="recordDelete()">{{local.buttonDelete}}</button>
+        </div>
+        <div class="searchContainer">
+         <!--  <input id="recision_action_filter" class="action-filter-input" ng-placeholder placeholder="{{local.placeholderText}}" ng-focus="onfocus();" ng-change="filter();" ng-blur="inFilter=filterKey?true:false" ng-model="filterKey" ng-show="inFilter"> -->
+
+          
+          <span ng-show="inFilter" class="ediTable-action-filter-span">
+            <input id="recision_action_filter" class="ediTable-action-filter-input" ng-blur="inFilter=filterKey?true:false" ng-model="filterKey" ng-change="filter();" ng-placeholder placeholder="{{local.filterHint}}" />
+            <i class="ediTable-action-filter-img"></i>
+          </span>
+          <button class="action-filter-icon" ng-click="showFilter();" ng-hide="inFilter"></button>
+        </div>
+      </div>
+    </div>
+    <div class="revisionContent">
+      <table class="revisionTable" ng-show="tableData !== undefined">
+        <thead>
+          <tr>
+            <th><div>{{local.headerRevisionNo}}</div></th>
+            <th><div>{{local.headerTimestamp}}</div></th>
+            <th><div>{{local.headerDescription}}</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="dataItem in tableData | filter:filterKey" ng-class-odd="'odd'" ng-click="recordSelect($index, dataItem)" ng-class="{'recordRow':selectedIdx != $index, 'selected': selectedIdx == $index}">
+            <td><div>{{"Revision No " + dataItem.rank}}</div></td>
+            <td><div>{{dataItem.time | date : 'yyyy-MM-dd hh:mm:ss a'}}</div></td>
+            <td><div class="normal" ng-class="{'ellipsis':selectedIdx != $index}">{{dataItem.description}}</div></td>
+          </tr>
+        </tbody>
+      </table>
+      <h5 ng-show="tableData === undefined">{{local.inforToWarning}}</h5>
+    </div>
+  </div>
+</div>

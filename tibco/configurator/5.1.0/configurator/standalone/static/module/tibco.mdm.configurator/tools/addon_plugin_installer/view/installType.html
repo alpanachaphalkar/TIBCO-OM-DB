@@ -1,0 +1,55 @@
+<div  ng-controller="configurator.controller.tools.addPlugin.installType">
+    <div class="dialog-form addPlugin">
+        <div class="dialog-title">
+            <h3>{{local.formPanel2Title}}</h3>
+        </div>
+        <div class="dialog-content">
+            <div>
+                <div class="control-group">
+                    <label class="radio">
+                        <input type="radio" name="type" value="typical" ng-model="wizardData.installationType">
+                        <strong>{{local.installTypical}}<br/></strong>
+                        <span ng-class="{'hide': wizardData.installationType !== 'typical'}">{{local.installDefInfo}}<br/></span>
+                        <span ng-class="{'hide': wizardData.installationType !== 'typical'}"><i class="icon-ok"></i> {{local.databaseLable}}<br/></span>
+                        <span ng-class="{'hide': wizardData.installationType !== 'typical'}"><i class="icon-ok"></i> {{local.configLable}}<br/></span>
+                        <span ng-class="{'hide': wizardData.installationType !== 'typical'}"><i class="icon-ok"></i> {{local.addonLable}}<br/></span>
+                    </label>
+                </div>
+            </div>
+            <div>
+                <div class="control-group" ng-class="installType">
+                    <label class="radio">
+                        <input type="radio" name="type" value="custom" ng-model="wizardData.installationType">
+                        <strong>{{local.installCustom}}</strong>
+                        <div ng-class="{'hide': wizardData.installationType !== 'custom'}" class="control-group">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="installTypeopt.databaseInstallation" ng-disabled="installType === 'typical'">
+                                <strong>{{local.databaseLable}}</strong>
+                                <br/><span>{{local.databaseInfo}}</span>
+                            </label>
+                        </div>
+                        <div ng-class="{'hide': wizardData.installationType !== 'custom'}" class="control-group">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="installTypeopt.configValues" ng-disabled="installType === 'typical'">
+                                <strong>{{local.configLable}}</strong>
+                                <br/><span>{{local.configInfo}}</span>
+                            </label>
+                        </div>
+                        <div ng-class="{'hide': wizardData.installationType !== 'custom'}" class="control-group">
+                            <label class="checkbox">
+                                <input type="checkbox" ng-model="installTypeopt.addonComponents" ng-disabled="installType === 'typical'">
+                                <strong>{{local.addonLable}}</strong>
+                                <br/><span>{{local.addonInfo}}</span>
+                            </label>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form_buttons">
+        <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+        <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+        <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+    </div>
+</div>

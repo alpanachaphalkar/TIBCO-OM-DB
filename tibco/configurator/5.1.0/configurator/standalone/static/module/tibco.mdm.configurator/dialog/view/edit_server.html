@@ -1,0 +1,13 @@
+<form class="dialog-form" ng-controller="configurator.controller.editServer_dialog">
+  <div class="dialog-content">
+    <div class="control-group">
+      <label class="control-label">{{local.name}}</label>
+      <input ng-model="categoryData.name" disabled class="control-input input-block-level flag-isActive" type="text" />
+      <input ng-model="categoryData.name" class="control-input input-block-level flag-noActive" type="text" />
+    </div>
+    <div class="control-group">
+      <label class="control-label">{{local.description}}</label>
+      <textarea ng-model="categoryData.description" class="control-input input-block-level"></textarea>
+    </div>
+  </div>
+</form>

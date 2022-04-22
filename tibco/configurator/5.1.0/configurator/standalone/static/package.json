@@ -1,0 +1,15 @@
+{
+  "name": "MDM_Configurator",
+  "version": "0.0.0",
+  "description": "MDM Configurator",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-jasmine": "~0.5.2",
+    "grunt-template-jasmine-requirejs": "~0.1.8",
+    "jasmine-reporters": "~0.2.1",
+    "grunt-protractor-runner": "~0.2.1",
+    "grunt-concurrent": "~0.4.3",
+    "grunt-contrib-watch": "~0.6.0"
+  }
+}

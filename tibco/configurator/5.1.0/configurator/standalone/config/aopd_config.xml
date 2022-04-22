@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tibeds xmlns="http://www.tibco.com/aff/eca/model">
+    <sequencedECARuleSet ruleSetName="orderValidationRule" runOnFailure="false" runOnError="false">
+        <event eventName="orderValidation" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>sape://localhost</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>
+        <sequencedRule>
+	     <!--condition conditionType="bean">
+	            <conditionBean beanId="validateAOPDRequest" methodName="evaluate" interface="com.tibco.aff.eca.base.Condition"/>
+	     </condition-->
+		<action actionType="bean">
+	            <actionBean beanId="basicOrderValidationAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		</action>
+	  </sequencedRule>
+    </sequencedECARuleSet>
+    
+    <sequencedECARuleSet ruleSetName="orderDecompositionRule" runOnFailure="false" runOnError="false">
+        <event eventName="orderDecomposition" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>sape://localhost</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>
+        <sequencedRule>
+		<action actionType="bean">
+	            <actionBean beanId="createNewPlanAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  </action>
+		      <action actionType="bean">
+	            <actionBean beanId="populatePlanItemAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  </action>
+	      <action actionType="bean">
+	            <actionBean beanId="autoProvisionAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  </action>
+		  <action actionType="bean">
+	            <actionBean beanId="productRequiredForAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  </action>
+		  <action actionType="bean">
+	            <actionBean beanId="dynamicDependencyAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  </action>
+		  <action actionType="bean">
+	            <actionBean beanId="sequencingAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  </action>
+	  </sequencedRule>
+    </sequencedECARuleSet>
+
+
+
+    <sequencedECARuleSet ruleSetName="orderOptimizationRule" runOnFailure="false" runOnError="false">
+        <event eventName="orderOptimization" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>sape://localhost</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>
+         <sequencedRule>
+	  		<condition conditionType="bean">
+	            <conditionBean beanId="validateSingleUse" methodName="evaluate" interface="com.tibco.aff.eca.base.Condition"/>
+	        </condition>
+	        <action actionType="bean">
+	            <actionBean beanId="singleUseAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  	</action>
+		  	<action actionType="bean">
+	            <actionBean beanId="updateSingleUseAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  	</action>
+			<action actionType="bean">
+	            <actionBean beanId="ceaseSingleUseAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  	</action>
+		  	<action actionType="bean">
+	            <actionBean beanId="inventorySingleUseAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  	</action>
+	  	</sequencedRule>
+		<sequencedRule>
+		  	<condition conditionType="bean">
+            	<conditionBean beanId="validateProductDependsOn" methodName="evaluate" interface="com.tibco.aff.eca.base.Condition"/>
+       		 </condition>
+       		 <action actionType="bean">
+         		   <actionBean beanId="productDependsOnAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+	  		</action>
+	  	 </sequencedRule>
+	  	<sequencedRule>
+		  	<condition conditionType="bean">
+	            <conditionBean beanId="validateCrossLinkAffinity" methodName="evaluate" interface="com.tibco.aff.eca.base.Condition"/>
+	        </condition>
+	        <action actionType="bean">
+	            <actionBean beanId="crossLinkAffinityAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  	</action>
+		 </sequencedRule>		 
+	  	 <sequencedRule>
+		  	<condition conditionType="bean">
+            	<conditionBean beanId="validateConditionalAffinity" methodName="evaluate" interface="com.tibco.aff.eca.base.Condition"/>
+       		 </condition>
+       		 <action actionType="bean">
+         		   <actionBean beanId="conditionalAffinityAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+	  		</action>
+	  	 </sequencedRule>
+	  	 <sequencedRule>
+		  	<condition conditionType="bean">
+            	<conditionBean beanId="validateSequencedAffinity" methodName="evaluate" interface="com.tibco.aff.eca.base.Condition"/>
+       		 </condition>
+       		 <action actionType="bean">
+         		   <actionBean beanId="sequencedAffinityAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+	  		</action>
+	  	 </sequencedRule>
+	  	 <sequencedRule>
+		  	<condition conditionType="bean">
+            	<conditionBean beanId="validateInLinkAffinity" methodName="evaluate" interface="com.tibco.aff.eca.base.Condition"/>
+       		 </condition>
+       		 <action actionType="bean">
+         		   <actionBean beanId="inLinkAffinityAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+	  		</action>
+	  	 </sequencedRule>
+	  	 <sequencedRule>		  	
+       		 <action actionType="bean">
+         		   <actionBean beanId="sortBySubscriberIDAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+	  		</action>
+	  	 </sequencedRule>	
+	  	 <sequencedRule>	
+	  	 	<action actionType="bean">
+	            <actionBean beanId="siblingAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  	</action>  		
+	        <action actionType="bean">
+	            <actionBean beanId="dependentProductAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  	</action>		  			  	
+	  	</sequencedRule>
+    </sequencedECARuleSet>
+    
+    
+   <sequencedECARuleSet ruleSetName="orderAmendmentRule" runOnFailure="false" runOnError="false">
+        <event eventName="orderAmendment" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>sape://localhost</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>
+        
+        
+         <sequencedRule>
+		  	<action actionType="bean">
+	            <actionBean beanId="basicOrderValidationAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+			</action>
+	        <action actionType="bean">
+	            <actionBean beanId="updateAmendmentPlanItemIdAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  	</action>
+	        <action actionType="bean">
+	            <actionBean beanId="createAmendmentRuleTableAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  	</action>
+	  	</sequencedRule>
+	  	
+	  	<sequencedRule>
+		  	<condition conditionType="bean">
+				<conditionBean beanId="orderLineActionChangeEvaluator" methodName="evaluate" interface="com.tibco.aff.eca.base.Condition"/>
+			</condition>
+			<action actionType="bean">
+				<actionBean beanId="orderLineActionChangeHandler" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+			</action>
+	  	</sequencedRule>
+	  	
+	  	<sequencedRule>
+		  	<condition conditionType="bean">
+				<conditionBean beanId="validateDateShiftRule" methodName="evaluate" interface="com.tibco.aff.eca.base.Condition"/>
+			</condition>
+	        <action actionType="bean">
+	            <actionBean beanId="amendDateShiftAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  	</action>
+	  	</sequencedRule>
+	  	
+		<sequencedRule>
+		  	<condition conditionType="bean">
+				<conditionBean beanId="validateChangesToUDFsRule" methodName="evaluate" interface="com.tibco.aff.eca.base.Condition"/>
+			</condition>
+	        <action actionType="bean">
+	            <actionBean beanId="amendChangeUDFAction" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+		  	</action>
+	  	</sequencedRule>
+	  	
+	  	<!-- Newly added rule -->
+	  	<sequencedRule>
+		  	<condition conditionType="bean">
+				<conditionBean beanId="parentItemsDependencyImpactEvaluator" methodName="evaluate" interface="com.tibco.aff.eca.base.Condition"/>
+			</condition>
+			<action actionType="bean">
+				<actionBean beanId="parentItemsDependencyImpactHandler" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+			</action>
+	  	</sequencedRule>
+	  	
+	  	<!-- Newly added rule -->
+	  	<sequencedRule>
+		  	<condition conditionType="bean">
+				<conditionBean beanId="compRedoDependencyEvaluator" methodName="evaluate" interface="com.tibco.aff.eca.base.Condition"/>
+			</condition>
+		    <action actionType="bean">
+		    	<actionBean beanId="compRedoDependencyManager" methodName="execute" interface="com.tibco.aff.eca.base.Action"/>
+			</action>		  
+	  	</sequencedRule>
+
+   </sequencedECARuleSet>
+    
+  	
+        
+
+    <!-- <ecaRule ruleName="aopdResponseRule" runOnFailure="false" runOnError="false">
+        <event eventName="aopdResponse" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>asape://localhost</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>       
+        <action actionType="notification">
+            <actionNotification>
+                <endpointType>
+                    <uri>jms:queue:{{com.tibco.fom.oms.afi.aopd.newplanresponse.receiver.queue}}</uri>
+                </endpointType>
+            </actionNotification>
+        </action>
+            
+    </ecaRule> -->
+    
+	<!-- <ecaRule ruleName="aopdAmendResponseRule" runOnFailure="false" runOnError="false">
+        <event eventName="aopdAmendResponse" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>asape://localhost</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>       
+        <action actionType="notification">
+            <actionNotification>
+                <endpointType>
+                    <uri>jms:queue:{{com.tibco.fom.oms.afi.aopd.amendplanresponse.receiver.queue}}</uri>
+                </endpointType>
+            </actionNotification>
+        </action>
+            
+    </ecaRule>-->
+    <ecaRule ruleName="orchResponseRule" runOnFailure="false" runOnError="false">
+        <event eventName="orchResponse" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>asape://localhost</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>       
+        <action actionType="notification">
+            <actionNotification>
+                <endpointType>
+                    <uri>jms:queue:tibco.aff.orchestrator.provider.order.opd.reply</uri>
+                </endpointType>
+            </actionNotification>
+        </action>
+            
+    </ecaRule>
+  
+</tibeds>
+<!-- Copyright (c) 2017-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

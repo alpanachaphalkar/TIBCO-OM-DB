@@ -1,0 +1,2438 @@
+{ 
+  "messageContentProcessors" : 
+    [ 
+      { 
+        "ioProcess" : 
+          [ 
+            { 
+              "name" : "StandardInboundIntgrMsgByteStreamMsgIOProcess",
+              "subItem" : 
+                { 
+                  "mandatoryKeys" : 
+                    { 
+                      "selected" : [  ],
+                      "value" : 
+                        [ 
+                          "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : 
+                        [ 
+                          "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : 
+                    { 
+                      "selected" : [ "ExecMode" ],
+                      "value" : 
+                        [ 
+                          "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardInboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [ "ExecMode" ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "InboundIntgrMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [ "ExecMode" ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardInboundIntgrMsgUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [ "ExecMode" ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "CommStandardInboundIntgrMsgMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [ "ExecMode" ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardIntgrEventByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [ "ExecMode" ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardIntgrEventStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [ "ExecMode" ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardIntgrEventStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [ "ExecMode" ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardIntgrEventUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [ "ExecMode" ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            }
+          ],
+        "name" : "MapToMessageContentCarrierMessageContentProcessor"
+      },
+	  { "ioProcess" : [ { "name" : "StandardOutboundIntgrMsgByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "StandardOutboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "SimpleOutboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "OutboundIntgrMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "StandardOutboundIntgrMsgUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "StandardIntgrEventByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "StandardIntgrEventStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "StandardIntgrEventUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" :[ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            } ],
+        "name" : "SendEmailMessageContentProcessor"
+      },
+      { "ioProcess" : 
+        [ 
+          { "name" : "StandardInboundIntgrMsgByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            },
+            { "name" : "StandardInboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            },
+            { "name" : "InboundIntgrMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            },
+            { "name" : "StandardInboundIntgrMsgUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            },
+            { "name" : "StandardIntgrEventByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            },
+            { "name" : "StandardIntgrEventStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            },
+            { "name" : "StandardIntgrEventUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            }
+          ],
+        "name" : "TransformFileMessageContentProcessor"
+      },
+      { "ioProcess" : [  ],
+        "name" : "CreateStringMessageContentProcessor "
+      },
+      { "ioProcess" : [  ],
+        "name" : "SerializableOptimizedMessageContentToMessageContentMarshaler"
+      },
+      { "ioProcess" : [  ],
+        "name" : "CustomStdIntgrInboundMessageContentToMessageContentMarshaler"
+      },
+      { "ioProcess" : [  ],
+        "name" : "CustomStdIntgrOutboundMessageContentToMessageContentMarshaler"
+      },
+      { "ioProcess" : [  ],
+        "name" : "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler"
+      },
+      { "ioProcess" : [  ],
+        "name" : "CommCommandInfoFromMessageContentCarrierMessageContentToMessageContentMarshaler"
+      },
+      { "ioProcess" : [  ],
+        "name" : "CreateDomMessageContentProcessor"
+      },
+      { "ioProcess" : 
+        [ 
+          { 
+            "name" : "StandardInboundIntgrMsgByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "baseDir",
+                        "name" : "Base directory",
+                        "value" : ""
+                      },
+                      { "key" : "fileNamePrefix",
+                        "name" : "File name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "fileNameSuffix",
+                        "name" : "File name suffix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNamePrefix",
+                        "name" : "Replace file name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNameSuffix",
+                        "name" : "Replace file name suffix",
+                        "value" : ""
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardInboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "baseDir",
+                        "name" : "Base directory",
+                        "value" : ""
+                      },
+                      { "key" : "fileNamePrefix",
+                        "name" : "File name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "fileNameSuffix",
+                        "name" : "File name suffix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNamePrefix",
+                        "name" : "Replace file name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNameSuffix",
+                        "name" : "Replace file name suffix",
+                        "value" : ""
+                      }
+                    ]
+                }
+            },
+            { "name" : "InboundIntgrMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "baseDir",
+                        "name" : "Base directory",
+                        "value" : ""
+                      },
+                      { "key" : "fileNamePrefix",
+                        "name" : "File name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "fileNameSuffix",
+                        "name" : "File name suffix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNamePrefix",
+                        "name" : "Replace file name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNameSuffix",
+                        "name" : "Replace file name suffix",
+                        "value" : ""
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardInboundIntgrMsgUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "baseDir",
+                        "name" : "Base directory",
+                        "value" : ""
+                      },
+                      { "key" : "fileNamePrefix",
+                        "name" : "File name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "fileNameSuffix",
+                        "name" : "File name suffix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNamePrefix",
+                        "name" : "Replace file name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNameSuffix",
+                        "name" : "Replace file name suffix",
+                        "value" : ""
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardIntgrEventByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "baseDir",
+                        "name" : "Base directory",
+                        "value" : ""
+                      },
+                      { "key" : "fileNamePrefix",
+                        "name" : "File name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "fileNameSuffix",
+                        "name" : "File name suffix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNamePrefix",
+                        "name" : "Replace file name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNameSuffix",
+                        "name" : "Replace file name suffix",
+                        "value" : ""
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardIntgrEventStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "baseDir",
+                        "name" : "Base directory",
+                        "value" : ""
+                      },
+                      { "key" : "fileNamePrefix",
+                        "name" : "File name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "fileNameSuffix",
+                        "name" : "File name suffix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNamePrefix",
+                        "name" : "Replace file name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNameSuffix",
+                        "name" : "Replace file name suffix",
+                        "value" : ""
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardIntgrEventUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "baseDir",
+                        "name" : "Base directory",
+                        "value" : ""
+                      },
+                      { "key" : "fileNamePrefix",
+                        "name" : "File name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "fileNameSuffix",
+                        "name" : "File name suffix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNamePrefix",
+                        "name" : "Replace file name prefix",
+                        "value" : ""
+                      },
+                      { "key" : "replaceFileNameSuffix",
+                        "name" : "Replace file name suffix",
+                        "value" : ""
+                      }
+                    ]
+                }
+            }
+          ],
+        "name" : "CreateFileMessageContentProcessor"
+      },
+      { "ioProcess" : [  ],
+        "name" : "DisplayMessageContentProcessor"
+      },
+      { "ioProcess" : [  ],
+        "name" : "LogMessageContentProcessor"
+      },
+      { "ioProcess" : [ { "name" : "StandardInboundIntgrMsgByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : ["Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                          ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardInboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : ["Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : ["ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "InboundIntgrMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardInboundIntgrMsgUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "CommStandardInboundIntgrMsgMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardIntgrEventByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : ["Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : ["ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardIntgrEventStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : ["Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : ["ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            },
+            { "name" : "StandardIntgrEventUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : ["Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+						  ],
+                      "value" : [ "ExecMode",
+                          "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "valueName" : [ "Execution mode",
+                          "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [ { "key" : "msgContentKey",
+                        "name" : "Message Content Key",
+                        "value" : "Payload"
+                      },
+                      { "key" : "mapKey",
+                        "name" : "Map Key",
+                        "value" : "CommInfo"
+                      }
+                    ]
+                }
+            }
+          ],
+        "name" : "MapFromMessageContentCarrierMessageContentProcessor"
+      },
+      { "ioProcess" : [ { "name" : "StandardInboundIntgrMsgByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            },
+			{ "name" : "StandardInboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            },
+            { "name" : "InboundIntgrMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            },
+            { "name" : "StandardInboundIntgrMsgUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            },
+            { "name" : "StandardIntgrEventStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            },
+            { "name" : "StandardIntgrEventUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            },
+            { "name" : "StandardIntgrEventUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "outMsgContentType",
+                        "name" : "Out message content type",
+                        "value" : ""
+                      } ]
+                }
+            }
+          ],
+        "name" : "TransformStringMessageContentProcessor"
+      },
+      { "ioProcess" : [ { "name" : "StandardInboundIntgrMsgByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+			  "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          ""
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+				  "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "",
+                          ""
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            },
+			{ "name" : "StandardInboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          ""
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+                      "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "",
+                          ""
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            },
+			{ "name" : "InboundIntgrMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          ""
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+                      "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "",
+                          ""
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            },
+			{ "name" : "StandardInboundIntgrMsgUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          ""
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+                      "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "",
+                          ""
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            },
+			{ "name" : "StandardIntgrEventByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          ""
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+                      "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "",
+                          ""
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            },
+			{ "name" : "StandardIntgrEventStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          ""
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+                      "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "",
+                          ""
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            },
+			{ "name" : "StandardIntgrEventUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          "",
+                          ""
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+                      "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "",
+                          ""
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            } ],
+        "name" : "XMLFromMessageContentCarrierMessageContentProcessor"
+      },
+      { "ioProcess" : [ { "name" : "StandardInboundIntgrMsgByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+			  "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "Sender:::/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:To/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:ConversationId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Action/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:MessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:Timestamp/text()"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+				  "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:RefToMessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:TimeToLive/text()"
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            },
+			{ "name" : "StandardInboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "Sender:::/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:To/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:ConversationId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Action/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:MessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:Timestamp/text()"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+                      "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:RefToMessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:TimeToLive/text()"
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            },
+			{ "name" : "InboundIntgrMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "Sender:::/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:To/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:ConversationId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Action/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:MessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:Timestamp/text()"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+                      "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:RefToMessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:TimeToLive/text()"
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            },
+			{ "name" : "StandardInboundIntgrMsgUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "Sender:::/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:To/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:ConversationId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Action/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:MessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:Timestamp/text()"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+                      "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:RefToMessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:TimeToLive/text()"
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            },
+			{ "name" : "StandardIntgrEventByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "Sender:::/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:To/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:ConversationId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Action/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:MessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:Timestamp/text()"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+                      "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:RefToMessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:TimeToLive/text()"
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            },
+			{ "name" : "StandardIntgrEventStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "Sender:::/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:To/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:ConversationId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Action/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:MessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:Timestamp/text()"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+                      "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:RefToMessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:TimeToLive/text()"
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            },
+			{ "name" : "StandardIntgrEventUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : { "selected" : [  ],
+                      "value" : [ "Sender",
+                          "Receiver",
+                          "ConversationID",
+                          "Service",
+                          "ServiceType",
+                          "DomainType",
+                          "Action",
+                          "MessageID",
+                          "TimestampStr"
+                        ],
+                      "paramValue" : [ "/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:To/eb:PartyId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:ConversationId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Service/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:From/eb:PartyId/@eb:type",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:Action/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:MessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:Timestamp/text()"
+                        ],
+                      "valueName" : [ "Sender",
+                          "Receiver",
+                          "Conversation ID",
+                          "Service",
+                          "Service type",
+                          "Domain type",
+                          "Action",
+                          "Message ID",
+                          "Timestamp"
+                        ]
+                    },
+                  "optionalKeys" : { "selected" : [  ],
+                      "value" : [ "CorrelationID",
+                          "ExpiryDateTimeStr"
+                        ],
+                      "paramValue" : [ "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:RefToMessageId/text()",
+                          "/se:Envelope/se:Header/eb:MessageHeader/eb:MessageData/eb:TimeToLive/text()"
+                        ],
+                      "valueName" : [ "Correlation ID",
+                          "Expiry date time"
+                        ]
+                    },
+                  "properties" : [  ]
+                }
+            } ],
+        "name" : "XMLToMessageContentCarrierMessageContentProcessor"
+      },
+      { "ioProcess" : [ { "name" : "StandardInboundIntgrMsgByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : ""
+                      } ]
+                }
+            },
+			{ "name" : "StandardInboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : ""
+                      } ]
+                }
+            },
+			{ "name" : "InboundIntgrMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : ""
+                      } ]
+                }
+            },
+			{ "name" : "StandardInboundIntgrMsgUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : ""
+                      } ]
+                }
+            },
+			{ "name" : "StandardIntgrEventByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : ""
+                      } ]
+                }
+            },
+			{ "name" : "StandardIntgrEventStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : ""
+                      } ]
+                }
+            },
+			{ "name" : "StandardIntgrEventUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : ""
+                      } ]
+                }
+            }],
+        "name" : "XSLEnvelopeMessageContentProcessor"
+      },
+      { "ioProcess" : [ { "name" : "StandardInboundIntgrMsgByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : "standard/maps/mpfromebxml21envelopetounknownxml.xsl"
+                      } ]
+                }
+            },
+			{ "name" : "StandardInboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : "standard/maps/mpfromebxml21envelopetounknownxml.xsl"
+                      } ]
+                }
+            },
+			{ "name" : "InboundIntgrMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : "standard/maps/mpfromebxml21envelopetounknownxml.xsl"
+                      } ]
+                }
+            },
+			{ "name" : "StandardInboundIntgrMsgUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : "standard/maps/mpfromebxml21envelopetounknownxml.xsl"
+                      } ]
+                }
+            },
+			{ "name" : "StandardIntgrEventByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : "standard/maps/mpfromebxml21envelopetounknownxml.xsl"
+                      } ]
+                }
+            },
+			{ "name" : "StandardIntgrEventStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : "standard/maps/mpfromebxml21envelopetounknownxml.xsl"
+                      } ]
+                }
+            },
+			{ "name" : "StandardIntgrEventUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "xslFile",
+                        "name" : "XSL file",
+                        "value" : "standard/maps/mpfromebxml21envelopetounknownxml.xsl"
+                      } ]
+                }
+            }],
+        "name" : "XSLTransformMessageContentProcessor"
+      }
+    ],
+  "messageCreator" : 
+    [ 
+      { 
+        "ioProcess" : [  ],
+        "name" : "ByteStreamMessageContentMarshaler"
+      },
+      { "ioProcess" : [  ],
+        "name" : "SerializableMessageContentMarshaler"
+      },
+      { "ioProcess" : [  ],
+        "name" : "StringMessageContentMarshaler"
+      },
+      { "ioProcess" : [  ],
+        "name" : "UTFStringMessageContentMarshaler"
+      }
+    ],
+  "messageFormatters" : 
+    [ 
+      { "ioProcess" : [  ],
+        "name" : "DisplayMessageProcessor"
+      },
+      { "ioProcess" : [ { "name" : "StandardOutboundIntgrMsgByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "StandardOutboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "SimpleOutboundIntgrMsgStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "OutboundIntgrMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "StandardOutboundIntgrMsgUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "StandardIntgrEventByteStreamMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "StandardIntgrEventStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" : [ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            },
+			{ "name" : "StandardIntgrEventUTFStringMsgIOProcess",
+              "subItem" : { "mandatoryKeys" : {  },
+                  "optionalKeys" : {  },
+                  "properties" :[ { "key" : "fromAddr",
+                        "name" : "From Address",
+                        "value" : ""
+                      },
+						{ "key" : "toAddrList",
+                        "name" : "To Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "ccAddrList",
+                        "name" : "CC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "bccAddrList",
+                        "name" : "BCC Address list",
+                        "value" : ""
+                      }	,
+						{ "key" : "subject",
+                        "name" : "Subject",
+                        "value" : ""
+                      }]
+                }
+            } ],
+        "name" : "SendEmailMessageProcessor"
+      }
+    ]
+}

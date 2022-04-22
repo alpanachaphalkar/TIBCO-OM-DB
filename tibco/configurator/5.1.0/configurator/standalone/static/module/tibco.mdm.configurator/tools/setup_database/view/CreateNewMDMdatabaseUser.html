@@ -1,0 +1,62 @@
+<div  ng-controller="configurator.controller.tools.setupDatabaseOracle.CreateNewMDMdatabaseUser">
+  <div class="dialog-form" style="height : 380px; overflow-y:auto;">
+    <div class="dialog-title">
+      <h3>{{local.title}}</h3>
+      <h6>{{local.info}}</h6>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <!-- <label class="control-label">{{local.path}}</label>
+        <input ng-model="data.values.dbHome" class="control-input input-block-level" type="text" /> -->
+        <label class="control-label">{{local.DBHost}}</label>
+        <input ng-model="data.values.HOST" class="control-input input-block-level" type="text" />
+        <label class="control-label">{{local.DBPort}}</label>
+        <input ng-model="data.values.PORT" ng-keydown="checkNumber($event);" class="control-input input-block-level" type="text" maxlength="4" />
+        <label ng-show="data.values.DATABASETYPE === 'ORACLE'" class="control-label">{{local.DBName}}</label>
+        <input ng-show="data.values.DATABASETYPE === 'ORACLE'"  ng-model="data.values.DATABASE" class="control-input input-block-level" type="text" />
+        <label class="control-label">{{local.DBAUserName}}</label>
+        <input  ng-model="data.values.SYSUSERNAME" class="control-input input-block-level" type="text" />
+        <label class="control-label">{{local.DBAUserPassword}}</label>
+        <input ng-model="data.values.SYSPASSWORD"  class="control-input input-block-level" type="password" />
+	  </div>
+    <div class="control-group">
+        <button class="cfg_butt" ng-click="testConnection()" >{{local.testButton}}</button>
+    </div>
+	  <div class="control-group">
+          <label ng-show="data.values.DATABASETYPE === 'POSTGRES' || data.values.DATABASETYPE === 'SQLSERVER'" class="control-label">{{local.DBName}}</label>
+          <input ng-show="data.values.DATABASETYPE === 'POSTGRES' || data.values.DATABASETYPE === 'SQLSERVER'"  ng-model="data.values.DATABASE" class="control-input input-block-level" type="text" />
+          <label class="control-label">{{local.newDBUserName}}</label>
+        <input ng-model="data.values.USERNAME" class="control-input input-block-level" type="text" />
+        <label class="control-label">{{local.newDBUserPassword}}</label>
+        <input ng-model="data.values.PASSWORD"  class="control-input input-block-level" type="password" />
+        <label class="control-label">{{local.newDBConfirmUserPassword}}</label>
+        <input ng-model="repassword" ng-blur="checkPassword($event, data.values.PASSWORD, repassword)" class="control-input input-block-level" type="password" />
+    </div>
+    <div class="control-group">
+          <label ng-show="data.values.DATABASETYPE === 'ORACLE'" class="control-label" >{{local.tableSpaceLocation}}</label>
+          <input ng-show="data.values.DATABASETYPE === 'ORACLE'" ng-model="data.values.TABLESPACELOCATION" class="control-input input-block-level" type="text" />
+
+          <label ng-show="data.values.DATABASETYPE === 'POSTGRES'" class="control-label">{{local.initialDatabase}}</label>
+          <input ng-show="data.values.DATABASETYPE === 'POSTGRES'" ng-model="data.values.INITIALDATABASE" class="control-input input-block-level" type="text" />
+          <label ng-show="data.values.DATABASETYPE === 'POSTGRES'" class="control-label">{{local.veloSchema}}</label>
+          <input ng-show="data.values.DATABASETYPE === 'POSTGRES'" ng-model="data.values.VELOSCHEMA" class="control-input input-block-level" type="text" />
+
+        <label ng-show="data.values.DATABASETYPE === 'POSTGRES'" class="control-label">{{local.tableSpaceLocationVelodbData}}</label>
+        <input ng-show="data.values.DATABASETYPE === 'POSTGRES'" ng-model="data.values.TABLESPACELOCATIONvelodbData" class="control-input input-block-level" type="text" />
+
+        <label ng-show="data.values.DATABASETYPE === 'POSTGRES'" class="control-label">{{local.tableSpaceLocationvelodbIndx}}</label>
+        <input ng-show="data.values.DATABASETYPE === 'POSTGRES'" ng-model="data.values.TABLESPACELOCATIONvelodbindx" class="control-input input-block-level" type="text" />
+
+        <label ng-show="data.values.DATABASETYPE === 'SQLSERVER'" class="control-label">{{local.newDBFileLocation}}</label>
+          <input ng-show="data.values.DATABASETYPE === 'SQLSERVER'" ng-model="data.values.DATABASEFILELOC" class="control-input input-block-level" type="text" />
+      </div>
+      
+      
+    </div>
+  </div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+    <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+  </div>
+</div>

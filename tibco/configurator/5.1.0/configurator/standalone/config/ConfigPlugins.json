@@ -1,0 +1,63 @@
+{
+    "selectedPluginID": "fom",
+    "plugins": [        
+        {
+            "pluginID": "fom",
+            "pluginName": "Fulfillment Order Management",
+            "toolsItem": [
+                "Restore"
+            ],
+            "topPanelItem": [
+                "Save",
+                "Tools",
+                "editCancel"                
+            ],
+            "JVMParam_home": "OM_HOME",
+            "configFilePath": "/config/ConfigValues_Common.xml",
+            "configFileList": [
+                {
+                    "name": "Common Configuration",
+                    "path": "/config/ConfigValues_Common.xml",
+                    "isSelected": true
+                },{
+                    "name": "Order Management System",
+                    "path": "/config/ConfigValues_OrchService.xml",
+                    "isSelected": false
+                },                
+                {
+                    "name": "AOPD",
+                    "path": "/config/ConfigValues_AopdService.xml",
+                    "isSelected": false
+                },                
+                {
+                    "name": "Catalog Service",
+                    "path": "/config/ConfigValues_CatalogService.xml",
+                    "isSelected": false
+                },                
+                {
+                    "name": "Data Service",
+                    "path": "/config/ConfigValues_DataService.xml",
+                    "isSelected": false
+                }, 
+				{
+                    "name": "TMFAdapter Service",
+                    "path": "/config/ConfigValues_TMFAdapterService.xml",
+                    "isSelected": false
+                }, 
+				{
+                    "name": "Archival Service",
+                    "path": "/config/ConfigValues_ArchivalService.xml",
+                    "isSelected": false
+                },{
+                    "name": "Order Management System UI",
+                    "path": "/config/ConfigValues_OMSUI.xml",
+                    "isSelected": false
+                },{
+                    "name": "Migration Service",
+                    "path": "/config/ConfigValues_Migration.xml",
+                    "isSelected": false
+                }
+            ]
+        }
+    ]
+}

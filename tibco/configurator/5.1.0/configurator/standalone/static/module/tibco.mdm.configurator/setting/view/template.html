@@ -1,0 +1,86 @@
+<div id="settingPanel" class="settingPanel" ng-controller="configurator.controller.setting">
+  <div class="settings-container">
+    <div class="titleLine">
+      <h4 class="title">{{local.title}}</h4>
+    </div>
+    <div class="settingContent">
+      <div class="contentTitle">{{local.deploymentTargetsForCluster}}</div>
+      <ul>
+        <li ng-repeat="dpmttgt in deploymentTargets" id="{{dpmttgt.name}}" ng-class-odd="'odd'" class="settingRow">
+          <table class="rowContainer">
+            <tr>
+              <td class="firstClm"><span>{{dpmttgt.name}}</span><span ng-if="dpmttgt.serverName"> - {{dpmttgt.serverName}}</span></td>
+              <td class="middleClm">
+                <span>{{dpmttgt.value}}</span>
+              </td>
+              <td class="lastClm">
+                <a class="editBtn" ng-click="doEdit(dpmttgt)" ng-hide="dpmttgt.panelShow">{{local.buttonEdit}}</a>
+              </td>
+            </tr>
+          </table>
+          <div class="editContainer" ng-show="dpmttgt.panelShow">
+            <form>
+              <ul>
+                <li ng-repeat="valueOpt in dpmttgt.valueOpts" ng-class="{{'settingItem' + $index}}">
+                  <div class="leftFloatDiv"></div>
+                  <div class="leftFloatDiv">
+                    <input type="radio" ng-model="dpmttgt.value" ng-change="doChange()" value="{{valueOpt.name || valueOpt}}" name="selected">
+                    <span>{{valueOpt.name || valueOpt}}</span>
+                  </div>
+                </li>
+              </ul>
+            </form>
+            <div class="btnBar">
+              <table class="rowContainer">
+                <tr>
+                  <td class="firstClm"></td>
+                  <td class="middleClm">
+                    <button class="btn btn-inverse savebtn" ng-disabled="!changed" ng-click="doSave('deploymentTargets', dpmttgt, deploymentTargets)">{{local.saveChanges}}</button>
+                    <a class="cancelButton" ng-click="linkMethod(dpmttgt, 'cancel')">{{local.cancel}}</a>
+                  </td>
+                  <td class="lastClm">
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <hr class="setting-hr">
+    <div class="settingContent" ng-hide="isCloudMode == 'true'">
+      <div class="contentTitle">{{local.visibilityOption}}</div>
+      <ul>
+        <li ng-repeat="visibilityConfigRow in visibility"  ng-class-odd="'odd'" class="settingRow">
+          <table class="rowContainer">
+            <tr>
+              <td class="firstClm"><span>{{visibilityConfigRow.name}}</span>
+                <i class="icon-question-sign tooltip-icon" ng-tooltip="visibilityConfigRow.tooltip" placement="right"></i>
+              </td>
+              <td class="middleClm">
+                <span ng-show="visibilityConfigRow.value">{{visibilityConfigRow.showString}}</span>
+                <span ng-hide="visibilityConfigRow.value">{{visibilityConfigRow.hiddenString}}</span>
+              </td>
+              <td class="lastClm"><a class="editBtn" ng-click="doEdit(visibilityConfigRow)" ng-hide="visibilityConfigRow.panelShow">{{local.buttonEdit}}</a></td>
+            </tr>
+          </table>
+          <div class="editContainer" ng-show="visibilityConfigRow.panelShow">
+            <form>
+              <ul>
+                <li>
+                  <div class="leftFloatDiv"></div>
+                  <div class="leftFloatDiv">
+                    <input type="checkbox" ng-model="visibilityConfigRow.value" ng-change="doSave('visibility',visibilityConfigRow,visibility)" name="selected">
+                    <span>{{visibilityConfigRow.name}}</span>
+                    <a href="" ng-click="linkMethod(visibilityConfigRow, 'cancel')">{{local.cancel}}</a>
+                  </div>
+                </li>
+              </ul>
+            </form>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- </div> -->

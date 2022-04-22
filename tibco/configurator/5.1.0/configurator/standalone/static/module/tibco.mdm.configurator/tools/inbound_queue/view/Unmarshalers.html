@@ -1,0 +1,81 @@
+<div ng-controller="configurator.controller.tools.inboundQueue.Unmarshalers" id="Unmarshalers">
+  <div class="dialog-form" style="height:380px; overflow-y:auto;">
+    <div class="dialog-title">
+      <h3>{{local.title}}
+        <span>{{local.information}}</span>
+      </h3>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <label class="control-label">{{local.messageProcessors}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.UnmarshalersMessageProcessor"></i></label>
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width:7%;">{{local.select}}</th>
+              <th style="width:3%;"></th>
+              <th style="width:3%;"></th>
+              <th style="width:80%;">{{local.processorName}}</th>
+              <th style="width:7%;">{{local.action}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in staticData.unMarshallingDetails.messageProcessor">
+              <td>
+                <input type="checkbox" ng-model="item.isSele" />
+              </td>
+              <td>
+                <i ng-hide="$index === 0" class="icon-arrow-up" ng-click="upAction('messageProcessor', $index)"></i>
+              </td>
+              <td>
+                <i ng-hide="$index === staticData.unMarshallingDetails.messageProcessor.length-1" class="icon-arrow-down" ng-click="downAction('messageProcessor', $index)"></i>
+              </td>
+              <td><div class="itemName" title="{{item.name}}">{{item.name}}</div></td>
+              <td><a ng-hide="searchIoProcess('messageProcessor', $index)" ng-class="{'disable' : !item.isSele}" ng-click="item.isSele ? editProperties('messageProcessor', $index) : false">{{local.edit}}</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="control-group">
+        <label class="control-label">{{local.messageContentExtractor}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.messageContentExtractor"></i></label>
+        <select ng-model="data.unmarshalerJSON.messageContentExtractor" ng-options = "v as v.name for v in staticData.unMarshallingDetails.messageContentExtractor"></select>
+        <a class="editProp" ng-hide="!data.unmarshalerJSON.messageContentExtractor.ioProcess || data.unmarshalerJSON.messageContentExtractor.ioProcess.length === 0" ng-click="editProperties('messageContentExtractor')">{{local.edit}}</a>
+      </div>
+      <div class="control-group">
+        <label class="control-label">{{local.messageContentPeocessor}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.messageContentPeocessor"></i></label>
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width:7%;">{{local.select}}</th>
+              <th style="width:3%;"></th>
+              <th style="width:3%;"></th>
+              <th style="width:80%;">{{local.processorName}}</th>
+              <th style="width:7%;">{{local.action}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in staticData.unMarshallingDetails.messageContentProcessors">
+              <td>
+                <input type="checkbox" ng-model="item.isSele"/>
+              </td>
+              <td>
+                <i ng-hide="$index === 0" class="icon-arrow-up" ng-click="upAction('messageContentProcessors', $index)"></i>
+              </td>
+              <td>
+                <i ng-hide="$index === staticData.unMarshallingDetails.messageContentProcessors.length-1" class="icon-arrow-down" ng-click="downAction('messageContentProcessors', $index)"></i>
+              </td>
+              <td><div class="itemName" title="{{item.name}}">{{item.name}}</div></td>
+              <td><a class="editProp" ng-class="{'disable' : !item.isSele}" ng-hide="searchIoProcess('messageContentProcessors', $index)" ng-click="item.isSele? editProperties('messageContentProcessors', $index) : false">{{local.edit}}</a></td> 
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>  
+    </div>
+  </div>
+  
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+    <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div ng-controller="configurator.controller.tools.Setup_Wizard.DBConfiguration">
+	
+	<div class="dialog-form">
+    <div class="dialog-title">
+      <h3>Database Configuration</h3>
+      <h6>Select the components for which you would like to provide database configuration</h6>
+    </div>
+	 <div class="dialog-content">
+     <div class="control-group">
+            <label class="checkbox-inline">
+                <input type="checkbox" name="mode"  ng-model="data.oms"  ng-true-value="true" ng-false-value="false">
+				<strong>Order Management System</strong>				
+            </label>                        
+     </div>
+	 <div class="control-group">
+            <label class="checkbox-inline">
+                 <input type="checkbox" name="mode" ng-model="data.ocs"  ng-true-value="true" ng-false-value="false">
+				 <strong>Order Capture System</strong>				
+            </label>                      
+    </div>
+	</div>
+	</div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+	<button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+  </div>
+
+</div>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

@@ -9,14 +9,9 @@ global:
 #     - myRegistryKeySecretName
 #   storageClass: myStorageClass
 
-## TIBCO OM Tablespaces
-omTablespaces:
-  - admintablespace
-  - archivaltablespace
-  - catalogtablespace
-  - jeopardytablespace
-  - orchtablespace
-  - ordertablespace
+initAdminDb:
+  image: registry.cloud.okteto.net/db-alpanachaphalkar/tibco-configurator:okteto
+  pullPolicy: IfNotPresent
 
 ## Bitnami PostgreSQL image version
 ## ref: https://hub.docker.com/r/bitnami/postgresql/tags/

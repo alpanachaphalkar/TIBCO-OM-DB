@@ -1,0 +1,6 @@
+#Configuration Files
+#Sun Feb 20 15:19:52 IST 2011
+#<Process Component ID>.<key>=<value>
+#<OLD_PC>.alternateProcessComponent=<NEW_PC>
+#002.destinationName=q1
+#002.loadCapacity=200

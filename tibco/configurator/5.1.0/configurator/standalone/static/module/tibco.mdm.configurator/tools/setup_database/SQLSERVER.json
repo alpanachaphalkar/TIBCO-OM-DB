@@ -1,0 +1,19 @@
+{
+	"tableSpaceValues":[
+		{
+			"tableSpaceID":"Primary",
+			"description":"CIM system primary file storage",
+			"tableSpaceName":"VELODBDATA",
+			"minSize":"200",
+			"maxSize":"500",
+			"tableSpaceLocation":""
+		}, {
+			"tableSpaceID":"Logstorage",
+			"description":"CIM system Log file Storage",
+			"tableSpaceName":"CIMLOG",
+			"minSize":"100",
+			"maxSize":"200",
+			"tableSpaceLocation":""
+		}
+	]
+}

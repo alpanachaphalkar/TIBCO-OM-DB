@@ -1,0 +1,26 @@
+/* Accordion tree - START */
+.accordionTree .treeList .item {position: relative;}
+
+.accordionTree .collapsed {display: inline-block; width: 10px; height: 10px; background: url(../image/cotree_collapsed.jpg);}
+.accordionTree .expended {display: inline-block; width: 10px; height: 10px; background: url(../image/cotree_expended.jpg);}
+.accordionTree .leaf {display: inline-block; width: 10px; height: 10px; background: url(../image/cotree_leaf.jpg);}
+
+.accordionTree .blank {display: inline-block; width: 10px; height: 10px;}
+
+.accordionTree .editaBtn {position: absolute; right: 20px; cursor: pointer; display: inline-block; width: 14px; height: 30px;}
+.accordionTree .editaBtn>i {margin: 0 auto;}
+.accordionTree .editaBtn>ul {position: fixed; background-color: #1F313D; width: auto; z-index: 99;margin: 0 0 10px 15px;}
+.accordionTree .editaBtn>ul li {list-style: none outside none;}
+.accordionTree .editaBtn>ul li a {display: inline-block; line-height: 30px; padding: 0 20px; text-decoration: none; color: #57656e; vertical-align: middle; white-space: nowrap;}
+.accordionTree .editaBtn>ul li a.focused {color: #FFF;}
+.accordionTree .editaBtn>ul li a i {margin-right: 5px;}
+.accordionTree .treeContainer{width:100%;}
+.accordionTree .item-label.level1,
+.accordionTree .item-label.level2,
+.accordionTree .item-label.level3 {
+  white-space: nowrap;              
+  overflow: hidden;             
+  text-overflow: ellipsis;
+  padding-right: 30px;
+}
+/* Accordion tree - END */

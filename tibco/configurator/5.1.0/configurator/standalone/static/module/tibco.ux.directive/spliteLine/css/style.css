@@ -1,0 +1,90 @@
+.splitLineContainer{
+	/*border: 3px solid #000000;*/
+	/*height: 708px;*/
+	position: absolute;
+	overflow: hidden;
+-webkit-user-select: none;
+	/*overflow: hidden;*/
+}
+
+.splitLineContainer .splitLine.vertical{
+	background-color: #314A54;
+    border-top: 1px solid #314A54;
+    box-shadow: 0 1px #536D7A;
+    margin: 15px;
+}
+.splitLineContainer .splitLine.vertical:after{
+	background: url("../image/ic_grabber.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    content: "";
+    cursor: pointer;
+    height: 18px;
+    left: 42%;
+    margin-top: -10px;
+    position: absolute;
+    width: 37px;
+
+}
+
+.splitHorizontal .splitLine.horizontal{
+	background-color: #222222;
+	cursor: w-resize;
+	width: 5px;
+	position: absolute;
+	top: 0;
+	left: 220px;
+	bottom: 0;
+}
+.splitLineContainer .splitLine.horizontal:after{
+	background: url("../image/ic_grabber.png") no-repeat scroll center center rgba(0, 0, 0, 0);
+    content: "";
+    cursor: pointer;
+    height: 18px;
+    left: 42%;
+    margin-top: -10px;
+    position: absolute;
+    width: 37px;
+
+}
+.splitHorizontal>div {
+	position: relative;
+	float: left;
+}
+.bodyDiv .cfg_mainConfig .rightPanel {
+	left: 225px;
+}
+.splitVertical .treeList .wrapper {
+	width: 100% !important;
+}
+.splitVertical .v-bar {
+	margin: 0px;
+}
+
+/*vertical test case*/
+.splitLineContainer .splitVertical .one, .splitVertical .two, .splitVertical .three{
+	border: 2px solid red;
+	position: relative;
+	left: 0;
+	right: 0;	
+	height: 30%;
+	min-height: 5%;
+}
+
+/*horizontal test case*/
+.splitLineContainer .splitHorizontal .one, .splitHorizontal .two, .splitHorizontal .three{
+	border: 2px solid blue;
+	position: relative;
+	float: left;
+	height: 99%;
+	width: 30%;
+	min-width: 5%;
+}
+.splitLineContainer .splitHorizontal .splitLine{
+	float: left;
+	border: 2px dotted #000000;
+	margin: 5px;
+	width: 5px;
+	top: 0;
+	bottom: 0;
+	height: 99%;
+}
+

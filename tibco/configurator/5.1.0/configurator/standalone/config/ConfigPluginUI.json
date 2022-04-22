@@ -1,0 +1,38 @@
+{
+	"language" : {
+		"default" : "en",
+		"props" : [{
+			"name" : "en",
+			"path" : "../module/externaljs/local/local_en.json"
+		}]
+	},
+	"menu" : {
+		"list" : [
+			{
+				"name" : "save",
+				"method" : "save"
+			}, {
+				"name" : "deploy",
+				"method" : "deploy"
+			}, {
+				"name" : "tools",
+				"method" : "tools"
+			}, {
+				"name" : "load_defaults",
+				"method" : "load_defaults"
+			}
+		],
+		"controller" : "",
+		"css" : ""
+	},
+	"wizard" : [
+		{
+			"name" : "Restore",
+			"controller" : "tibco.mdm.configurator/revision_history/controller/controller.js",
+			"css" : "",
+			"display" : "menuitem_restore",
+			"href" : "/revision_history",
+			"showContentIn" : "main_panel"
+		}
+	]	
+}

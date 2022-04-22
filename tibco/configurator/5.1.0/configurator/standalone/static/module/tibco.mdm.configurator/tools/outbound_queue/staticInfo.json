@@ -1,0 +1,206 @@
+{ 
+  "outboundCommContext" : 
+  	[ { "configPropName" : "com.tibco.cim.commInfoExtractor.JMS.Persistent",
+        "defaultValue" : "false",
+        "key" : "Persistent",
+        "propName" : "Message persistence",
+        "valueType" : "boolean"
+      },
+      { "configPropName" : "com.tibco.cim.commInfoExtractor.JMS.Priority",
+        "defaultValue" : "-1",
+        "key" : "Priority",
+        "propName" : "Message priority",
+        "valueType" : "number"
+      },
+      { "configPropName" : "com.tibco.cim.commInfoExtractor.JMS.TimeToLive",
+        "defaultValue" : "-1",
+        "key" : "TimeToLive",
+        "propName" : "Message time to live",
+        "valueType" : "number"
+      },
+      { "configPropName" : "com.tibco.cim.commInfoExtractor.JMS.Timeout",
+        "defaultValue" : "-1",
+        "key" : "Timeout",
+        "propName" : "Message timeout",
+        "valueType" : "number"
+      }
+    ],
+  "outboundIOProcessTemp" : 
+  	[ 
+  	  "StandardOutboundIntgrMsgByteStreamMsgIOProcess",
+      "StandardOutboundIntgrMsgStringMsgIOProcess",
+      "SimpleOutboundIntgrMsgStringMsgIOProcess",
+      "OutboundIntgrMsgIOProcess",
+      "StandardOutboundIntgrMsgUTFStringMsgIOProcess",
+      "StandardIntgrEventByteStreamMsgIOProcess",
+      "StandardIntgrEventStringMsgIOProcess",
+      "StandardIntgrEventUTFStringMsgIOProcess"
+    ],
+  "receiverMgClass" : 
+  	[ "MqMessageReceiverManager",
+      "MqDymanicallFiteredMessageReceiverManager"
+    ],
+  "selectedOutboundMarshallers" : 
+  	{ 
+      "OutboundIntgrMsgIOProcess" : 
+  		{ 
+          "messageContentProcessors" : 
+  			   [ "MapToMessageContentCarrierMessageContentProcessor",
+              "TransformFileMessageContentProcessor",
+              "CreateStringMessageContentProcessor",
+              "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "StringMessageContentMarshaler" ],
+          "messageFormatters" : [  ]
+        },
+      "SimpleOutboundIntgrMsgStringMsgIOProcess" : 
+      	{ "messageContentProcessors" : 
+      		[ "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler",
+              "MapToMessageContentCarrierMessageContentProcessor",
+              "TransformFileMessageContentProcessor"
+            ],
+          "messageCreator" : [ "StringMessageContentMarshaler" ],
+          "messageFormatters" : [  ]
+        },
+      "StandardIntgrEventByteStreamMsgIOProcess" : 
+      	{ "messageContentProcessors" : 
+      		[ "MapToMessageContentCarrierMessageContentProcessor",
+              "TransformFileMessageContentProcessor",
+              "CreateStringMessageContentProcessor",
+              "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "ByteStreamMessageContentMarshaler" ],
+          "messageFormatters" : [  ]
+        },
+      "StandardIntgrEventStringMsgIOProcess" : 
+      	{ "messageContentProcessors" : 
+      		[ "MapToMessageContentCarrierMessageContentProcessor",
+              "TransformFileMessageContentProcessor",
+              "CreateStringMessageContentProcessor",
+              "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "StringMessageContentMarshaler" ],
+          "messageFormatters" : [  ]
+        },
+      "StandardIntgrEventUTFStringMsgIOProcess" : 
+      	{ "messageContentProcessors" : 
+      		[ "MapToMessageContentCarrierMessageContentProcessor",
+              "TransformFileMessageContentProcessor",
+              "CreateStringMessageContentProcessor",
+              "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "UTFStringMessageContentMarshaler" ],
+          "messageFormatters" : [  ]
+        },
+      "StandardOutboundIntgrMsgByteStreamMsgIOProcess" : 
+      	{ "messageContentProcessors" : 
+      		[ "MapToMessageContentCarrierMessageContentProcessor",
+              "TransformFileMessageContentProcessor",
+              "CreateStringMessageContentProcessor",
+              "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "ByteStreamMessageContentMarshaler" ],
+          "messageFormatters" : [  ]
+        },
+      "StandardOutboundIntgrMsgStringMsgIOProcess" : 
+      	{ "messageContentProcessors" : 
+      		[ 
+      		  "MapToMessageContentCarrierMessageContentProcessor",
+              "CreateStringMessageContentProcessor",
+              "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "StringMessageContentMarshaler" ],
+          "messageFormatters" : [ "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler",
+              "MapToMessageContentCarrierMessageContentProcessor",
+              "TransformFileMessageContentProcessor",
+              "CreateStringMessageContentProcessor"
+            ]
+        },
+      "StandardOutboundIntgrMsgUTFStringMsgIOProcess" : 
+      	{ "messageContentProcessors" : 
+      		[ "MapToMessageContentCarrierMessageContentProcessor",
+              "TransformFileMessageContentProcessor",
+              "CreateStringMessageContentProcessor",
+              "CommCommandInfoToMessageContentCarrierMessageContentToMessageContentMarshaler"
+            ],
+          "messageCreator" : [ "UTFStringMessageContentMarshaler" ],
+          "messageFormatters" : [  ]
+        }
+    },
+  "selectedOutboundUnMarshallers" : 
+  	{ "OutboundIntgrMsgIOProcess" : 
+  		  { 
+          "messageContentExtractor" : [ "StringMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "TransformStringMessageContentProcessor",
+              "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        },
+      "SimpleOutboundIntgrMsgStringMsgIOProcess" : 
+      	{ "messageContentExtractor" : [ "StringMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "TransformStringMessageContentProcessor",
+              "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        },
+      "StandardIntgrEventByteStreamMsgIOProcess" : 
+      	{ "messageContentExtractor" : [ "ByteStreamMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor",
+              "TransformStringMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        },
+      "StandardIntgrEventStringMsgIOProcess" : 
+      	{ "messageContentExtractor" : [ "StringMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "TransformStringMessageContentProcessor",
+              "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        },
+      "StandardIntgrEventUTFStringMsgIOProcess" : 
+      	{ "messageContentExtractor" : [ "UTFStringMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "TransformStringMessageContentProcessor",
+              "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        },
+      "StandardOutboundIntgrMsgByteStreamMsgIOProcess" : 
+      	{ "messageContentExtractor" : [ "ByteStreamMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor",
+              "TransformFileMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        },
+      "StandardOutboundIntgrMsgStringMsgIOProcess" : 
+      	{ "messageContentExtractor" : [ "StringMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "TransformStringMessageContentProcessor",
+              "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        },
+      "StandardOutboundIntgrMsgUTFStringMsgIOProcess" : 
+      	{ "messageContentExtractor" : [ "StringMessageContentUnmarshaler" ],
+          "messageContentProcessors" : [ "TransformStringMessageContentProcessor",
+              "CreateFileMessageContentProcessor",
+              "MapFromMessageContentCarrierMessageContentProcessor"
+            ],
+          "messageProcessor" : [  ]
+        }
+    },
+  "senderMgClass" : 
+  	[ 
+  		"MqMessageSenderManager",
+     	"MqDynamicallyFilteredMessageSenderManager"
+    ],
+  "targetClient" : 
+  	[ "NONJMS_MQ",
+      "JMS_COMPLIANT"
+    ]
+} 

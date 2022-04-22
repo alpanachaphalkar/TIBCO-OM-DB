@@ -1,0 +1,44 @@
+<div  ng-controller="configurator.controller.tools.setupDatabaseOracle.CustomProfileSetup">
+  <div class="dialog-form" style="height:380px; overflow-y:auto;">
+    <div class="dialog-title">
+      <h3>{{local.title}}</h3>
+      <h6>{{local.info}}</h6>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>{{local.description}}</th>
+              <th>{{local.name}}</th>
+              <th ng-hide="data.values.DATABASETYPE === 'POSTGRES'">{{local.maxSize}}</th>
+              <th ng-show="data.values.DATABASETYPE === 'ORACLE'">{{local.file}}</th>
+              <th ng-show="data.values.DATABASETYPE === 'SQLSERVER' || data.values.DATABASETYPE === 'POSTGRES'">{{local.location}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in staticData.tableSpaceValues">
+              <td>
+                {{item.description}}
+              </td>
+              <td>
+                <input type="text" style="width : 180px;" ng-model="item.tableSpaceName" class="editable-input" />
+              </td>
+              <td ng-hide="data.values.DATABASETYPE === 'POSTGRES'">
+                <input type="text" style="width : 60px;" ng-model="item.maxSize" class="editable-input" ng-keydown="checkMaxSize($event);"/>
+              </td>
+              <td>
+                <input type="text" style="width : 150px;" ng-model="item.tableSpaceLocation" class="editable-input" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+    <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+  </div>
+</div>

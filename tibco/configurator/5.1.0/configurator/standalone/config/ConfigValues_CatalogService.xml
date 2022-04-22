@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration description="The Initial Configuration Setup for Catalog Service" displayName="Order Management - Catalog Service" name="Catalog Service" xmlns="http://www.tibco.com/af/config/confbeans/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tibco.com/af/config/confbeans/1.0">
+	<Cluster>
+		<Category description="Catalog Engine Configuration" name="Catalog Engine Configuration" visibility="Basic">
+			<ConfValue description="Logging Configuration File Path" isHotDeployable="true" name="Logging Configuration File Path" propname="logging.config" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="config/logback_catalog.xml" value="config/logback_catalog.xml"/>
+			</ConfValue>
+			<ConfValue description="Purge Model Worker Thread Count" isHotDeployable="false" name="Purge Model Worker Thread Count" propname="modelPurgeWorkerThreadCount" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Application name to show on actuator info endpoint" isHotDeployable="false" name="Application Name" propname="info.app.name" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="Catalog Service" value="Catalog Service"/>
+			</ConfValue>
+		</Category>
+		<Category description="JMS Configurations for Online Catalog Publishing from FC" name="Messaging Configurations" visibility="Basic">
+			<ConfValue description="Enable Catalog Loading using JMS" isHotDeployable="true" name="Enable Catalog Loading using JMS" propname="catalogLoadingUsingEms" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="true"/>
+			</ConfValue>
+			<ConfValue description="JMS Server URL" isHotDeployable="true" name="JMS Server URL" propname="emsServerURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tcp://localhost:7222" value="tcp://localhost:7222"/>
+			</ConfValue>
+			<ConfValue description="For SSL Configuration value should be ssl" name="Constant that holds the name of the environment property for specifying the security protocol to use in Tibjms JNDI lookups." propname="tibjmsNamingSecurityProtocol" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="For SSL enable verify host value should be false" name="Constant that holds the name of SSL property specifying if client should verify the server certificate in Tibjms JNDI lookups." propname="tibjmsNamingSslEnableVerifyHost" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="JMS Server User Name" isHotDeployable="true" name="JMS Server User Name" propname="emsServerUsername" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" value="admin"/>
+			</ConfValue>
+			<ConfValue description="JMS Server Password" isHotDeployable="true" name="JMS Server Password" propname="emsServerPassword" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" isPassword="true"  value="admin"/>
+			</ConfValue>
+			<ConfValue description="JNDI Connection Factory Name" name="JNDI Connection Factory Name" propname="jndiConnectionFactory" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="GenericConnectionFactory" value="GenericConnectionFactory"/>
+			</ConfValue>
+			<ConfValue description="Initializing Context Factory Name" name="Initializing Context Factory Name" propname="initialContextFactory" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="com.tibco.tibjms.naming.TibjmsInitialContextFactory" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+			</ConfValue>
+			<ConfValue description="Keep JMS Session Transacted" name="Keep JMS Session Transacted" propname="jmsSessionTransacted" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="JMS Receive Calls Timeout" name="JMS Receive Calls Timeout" propname="timeoutReceiveCalls" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="JMS Concurrent Consumers" name="JMS Concurrent Consumers" propname="concurrentEmsConsumers" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Product Catalog Loading Queue" name="Product Catalog Loading Queue" propname="productCatalogLoadingQueue" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.catalog.product.request" value="tibco.aff.catalog.product.request"/>
+			</ConfValue>
+			<ConfValue description="Plan-Fragment Catalog Loading Queue" name="Plan-Fragment Catalog Loading Queue" propname="planfragmentCatalogLoadingQueue" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.catalog.planfragment.request" value="tibco.aff.catalog.planfragment.request"/>
+			</ConfValue>
+			<ConfValue description="Action Catalog Loading Queue" name="Action Catalog Loading Queue" propname="actionCatalogLoadingQueue" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.catalog.action.request" value="tibco.aff.catalog.action.request"/>
+			</ConfValue>
+			<ConfValue description="Catalog Service Global Cache Clean Topic Name" isHotDeployable="false" name="Catalog Service Global Cache Clean Topic Name" propname="globalCacheCleanNotificationTopic" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.fos.global.cache.clean.publish" value="tibco.fos.global.cache.clean.publish"/>
+			</ConfValue>
+			<ConfValue description="Single Product Catalog Loading Queue" isHotDeployable="false" name="Single Product Catalog Loading Queue" propname="singleProductCatalogLoadingQueue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.catalog.product.request.single" value="tibco.aff.catalog.product.request.single"/>
+			</ConfValue>
+			<ConfValue description="Single Plan-Fragment Catalog Loading Queue" isHotDeployable="false" name="Single Plan-Fragment Catalog Loading Queue" propname="singlePlanfragmentCatalogLoadingQueue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.catalog.planfragment.request.single" value="tibco.aff.catalog.planfragment.request.single"/>
+			</ConfValue>
+			<ConfValue description="Single Action Catalog Loading Queue" isHotDeployable="false" name="Single Action Catalog Loading Queue" propname="singleActionCatalogLoadingQueue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.catalog.action.request.single" value="tibco.aff.catalog.action.request.single"/>
+			</ConfValue>
+			<ConfValue description="Message redelivery count" isHotDeployable="false" name="Message redelivery count" propname="redeliveryCount" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Message redelivery delay in milliseconds" isHotDeployable="false" name="Message redelivery delay in milliseconds" propname="redeliveryDelay" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="Product Catalog Loading Dead Queue" isHotDeployable="false" name="Product Catalog Loading Dead Queue" propname="productCatalogLoadingDeadQueue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.catalog.product.request.dead" value="tibco.aff.catalog.product.request.dead"/>
+			</ConfValue>
+			<ConfValue description="Single Product Catalog Loading Dead Queue" isHotDeployable="false" name="Single Product Catalog Loading Dead Queue" propname="singleProductCatalogLoadingDeadQueue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.catalog.product.request.single.dead" value="tibco.aff.catalog.product.request.single.dead"/>
+			</ConfValue>
+			<ConfValue description="Plan-Fragment Catalog Loading Dead Queue" isHotDeployable="false" name="Plan-Fragment Catalog Loading Dead Queue" propname="planfragmentCatalogLoadingDeadQueue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.catalog.planfragment.request.dead" value="tibco.aff.catalog.planfragment.request.dead"/>
+			</ConfValue>
+			<ConfValue description="Single Plan-Fragment Catalog Loading Dead Queue" isHotDeployable="false" name="Single Plan-Fragment Catalog Loading Dead Queue" propname="singlePlanfragmentCatalogLoadingDeadQueue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.catalog.planfragment.request.single.dead" value="tibco.aff.catalog.planfragment.request.single.dead"/>
+			</ConfValue>
+			<ConfValue description="Action Catalog Loading Dead Queue" isHotDeployable="false" name="Action Catalog Loading Dead Queue" propname="actionCatalogLoadingDeadQueue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.catalog.action.request.dead" value="tibco.aff.catalog.action.request.dead"/>
+			</ConfValue>
+			<ConfValue description="Single Action Catalog Loading Dead Queue" isHotDeployable="false" name="Single Action Catalog Loading Dead Queue" propname="singleActionCatalogLoadingDeadQueue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.catalog.action.request.single.dead" value="tibco.aff.catalog.action.request.single.dead"/>
+			</ConfValue>
+		</Category>
+		<Category description="Application Security Configurations" name="Application Security Configurations" visibility="Basic">
+			<ConfValue description="User Role for submitPlanFragmentModel Service" isHotDeployable="true" name="User Role for submitPlanFragmentModel Service" propname="operation.roles.submitPlanFragmentModel" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="User Role for submitProductModel Service" isHotDeployable="true" name="User Role for submitProductModel Service" propname="operation.roles.submitProductModel" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="User Role for submitActionModel Service" isHotDeployable="true" name="User Role for submitActionModel Service" propname="operation.roles.submitActionModel" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="User Role for purgePlanFragmentModel Service" isHotDeployable="true" name="User Role for submitPlanFragmentModel Service" propname="operation.roles.purgePlanFragmentModel" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="User Role for purgeProductModel Service" isHotDeployable="true" name="User Role for submitProductModel Service" propname="operation.roles.purgeProductModel" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="User Role for purgeActionModel Service" isHotDeployable="true" name="User Role for submitActionModel Service" propname="operation.roles.purgeActionModel" readonly="false" sinceVersion="5.0" visibility="Basic">		
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="User Role for getProductModelRoles Service" isHotDeployable="true" name="User Role for getProductModelRoles Service" propname="operation.roles.getProductModelRoles" readonly="false" sinceVersion="5.0" visibility="Basic">		
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="User Role for getPlanFragmentModelRoles Service" isHotDeployable="true" name="User Role for getPlanFragmentModelRoles Service" propname="operation.roles.getPlanFragmentModelRoles" readonly="false" sinceVersion="5.0" visibility="Basic">		
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="User Role for getActionModelRoles Service" isHotDeployable="true" name="User Role for getActionModelRoles Service" propname="operation.roles.getActionModelRoles" readonly="false" sinceVersion="5.0" visibility="Basic">		
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+		</Category>
+		<Category description="Catalog Data Source Configuration" name="Catalog Data Source Configuration" visibility="Basic">
+			<ConfValue description="Pooled Data Source Driver Class Name" name="Pooled Data Source Driver Class Name" propname="datasourceDriverClassName" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="org.postgresql.Driver"/>
+					<EnumValue value="oracle.jdbc.driver.OracleDriver"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Username" name="Pooled Data Source Username" propname="catalogDsUsername" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" value="catalogdsuserll"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Password" name="Pooled Data Source Password" propname="catalogDsPassword" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" isPassword="true" value="catalogdsuserll"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source URL" name="Pooled Data Source URL" propname="catalogDsUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" default="true" value="jdbc:postgresql://localhost:5432/catalogdsdbll?currentSchema=catalogdsschemall"/>
+					<EnumValue   value="jdbc:oracle:thin:@//localhost:1521/orcl.apac.tibco.com"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Initialize Size" name="Pooled Data Source Initialize Size" propname="catalogDsInitializeSize" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="2" value="2"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Idle" name="Pooled Data Source Max Idle" propname="catalogDsMaxIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="11" value="11"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Active" name="Pooled Data Source Max Active" propname="catalogDsMaxActive" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="12" value="12"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Wait" name="Pooled Data Source Max Wait" propname="catalogDsMaxWait" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Query" name="Pooled Data Source Validation Query" propname="datasourceValidationQuery" sinceVersion="5.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue  value="select 1 from dual"/>
+					<EnumValue selected="true" default="true" value="SELECT 1"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test OnBorrow" name="Pooled Data Source Test OnBorrow" propname="catalogDsTestOnBorrow" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Interval" name="Pooled Data Source Validation Interval" propname="catalogDsValidationInterval" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test WhileIdle" name="Pooled Data Source Test WhileIdle" propname="catalogDsTestWhileIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Eviction Interval" name="Pooled Data Source Eviction Interval" propname="catalogDsTimeBetweenEvictionRunsMillis" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Minimum Evictable Idle Time" name="Pooled Data Source Minimum Evictable Idle Time" propname="catalogDsMinEvictableIdleTimeMillis" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Tests Per Eviction Run" name="Pooled Data Source Tests Per Eviction Run" propname="catalogDsNumTestsPerEvictionRun" sinceVersion="5.0" visibility="Advanced">
+				<ConfNum default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Default AutoCommit" name="Pooled Data Source Default AutoCommit" propname="catalogDsDefaultAutoCommit" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Rollback On Return" name="Pooled Data Source Rollback On Return" propname="catalogDsRollbackOnReturn" sinceVersion="2.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Commit On Return" name="Pooled Data Source Commit On Return" propname="catalogDsCommitOnReturn" sinceVersion="2.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Database Custom Property" name="Pooled Database Custom Property" propname="catalogDsCustomProperty" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="" value=""/>
+			</ConfValue>
+		</Category>
+		<Category description="Redis Data Source Configuration" name="Redis Data Source Configuration" visibility="Basic">
+			<ConfValue description="Redis Server Host for Storing Catalog Models" isHotDeployable="true" name="Redis Server Host for Storing Catalog Models" propname="catalogRedisHost" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="localhost" value="localhost"/>
+			</ConfValue>
+			<ConfValue description="Whether redis is running in Cluster Mode" isHotDeployable="true" name="clusterEnabled" propname="redisClusterEnabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Redis Server Port for Storing Catalog Models" isHotDeployable="true" name="Redis Server Port for Storing Catalog Models" propname="catalogRedisPort" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6379" value="6379"/>
+			</ConfValue>
+			<ConfValue description="Test On Borrow" isHotDeployable="true" name="Test On Borrow" propname="redisTestOnBorrow" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Test On Return" isHotDeployable="true" name="Test On Return" propname="redisTestOnReturn" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Test While Idle" isHotDeployable="true" name="Test While Idle" propname="redisTestWhileIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Block When Exhausted" isHotDeployable="true" name="Block When Exhausted" propname="redisBlockedWhenExhausted" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="JMX Enabled" isHotDeployable="true" name="JMX Enabled" propname="redisJmxEnabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="LIFO" isHotDeployable="true" name="LIFO" propname="redisLifo" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Max Idle" isHotDeployable="true" name="Max Idle" propname="redisMaxIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="64" value="64"/>
+			</ConfValue>
+			<ConfValue description="Min Idle" isHotDeployable="true" name="Min Idle" propname="redisMinIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="16" value="16"/>
+			</ConfValue>
+			<ConfValue description="Max Total" isHotDeployable="true" name="Max Total" propname="redisMaxTotal" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="64" value="64"/>
+			</ConfValue>
+			<ConfValue description="Number of Test Eviction Per Run" isHotDeployable="true" name="Number of Test Eviction Per Run" propname="redisNumTestsPerEvictionRun" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Soft Min Evictable Idle Time Millis" isHotDeployable="true" name="Soft Min Evictable Idle Time Millis" propname="redisSoftMinEvictableIdleTimeMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="3000" value="3000"/>
+			</ConfValue>
+			<ConfValue description="Min Evictable Idle Time Millis" isHotDeployable="true" name="Min Evictable Idle Time Millis" propname="redisMinEvictableIdleTimeMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6000" value="6000"/>
+			</ConfValue>
+			<ConfValue description="Time Between Eviction Runs Millis" isHotDeployable="true" name="Time Between Eviction Runs Millis" propname="redisTimeBetweenEvictionRunsMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="3000" value="3000"/>
+			</ConfValue>
+		</Category>
+		<Category description="Persistence" name="Persistence" visibility="Basic">
+			<ConfValue description="Database Type. Allowed values are oracle or postgres" name="Database Type" propname="databaseType" readonly="false" sinceVersion="3.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="postgres"/>
+					<EnumValue value="oracle"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Hibernate Dialect" name="com.tibco.af.hibernate.dialect" propname="hibernateDialect" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" value="org.hibernate.dialect.PostgreSQLDialect"/>
+					<EnumValue value="org.hibernate.dialect.Oracle10gDialect"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Hibernate Show SQL" name="hibernate.show_sql" propname="catalogHibernateShowSql" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+		</Category>
+	</Cluster>
+</Configuration>
+<!-- Copyright (c) 2017-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

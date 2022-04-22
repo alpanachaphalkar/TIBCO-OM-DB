@@ -1,0 +1,42 @@
+<config>
+	<system-admin>
+		<property name="defaultLanguage" value="en" desc="default language is English"/>
+		<property name="en" value="../module/local/local_en.json" desc="load this file when language is English"/>
+	</system-admin>
+
+	<!-- navigation menu setting -->
+	<!-- this setting use to configure navigation menu in MDM Configurator system attribute: 1. name: the identifier of menu item 2. display: the display text of menu item 3. href: the module location will 
+		be load after click the menu item 4. showContentIn: indecate the place to show module content. it's value could be: 1. 'dialog': means content will shows in a popup dialog 2. 'main_panel': default value, 
+		means content will shows in main panel. -->
+	<menu-setting>
+		<menu name="save" display="menuitem_save" />
+		<menu name="deploy" display="menuitem_deploy" />
+		<menu name="tools" display="menuitem_tools">
+			<sub-menu name="resotre" display="menuitem_restore" href="#/revision_history" />
+			<sub-menu name="inbound_queue" display="menuitem_sub_inbound_queue" showContentIn="dialog(950,500)" href="#/tools/inbound_queue" />
+			<sub-menu name="outbound_queue" display="menuitem_sub_outbound_queue" showContentIn="dialog(950,500)" href="#/tools/outbound_queue" />
+			<sub-menu name="setup_database" display="menuitem_sub_oracle" showContentIn="dialog(950,500)" href="#/tools/setup_database" />
+			<sub-menu name="migration" display="menuitem_sub_migration" showContentIn="dialog(950,500)" href="#/tools/migration" />
+			<sub-menu name="addon_plugin_installer" display="menuitem_sub_installer" showContentIn="dialog(950,500)" href="#/tools/addon_plugin_installer" />
+		</menu>
+		<menu name="load_defaults" display="menuitem_loadDefaults" href="#/configuration" />
+		<menu name="$global_search_text_box$" />
+		<menu name="user_name" display="menuitem_greeting">
+			<sub-menu name="setting" display="menuitem_sub_setting" href="#/setting" />
+			<sub-menu name="help" display="menuitem_sub_help" href="#/configuration" />
+			<sub-menu name="logout" display="menuitem_sub_logout" />
+		</menu>
+	</menu-setting>
+
+	<resource-load-list>
+		
+		<resource type="script" url="module/tibco.mdm.configurator/revision_history/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/tools/setup_database/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/tools/migration/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/tools/addon_plugin_installer/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/tools/inbound_queue/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/tools/outbound_queue/controller/controller.js" />
+		
+	</resource-load-list>
+</config>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

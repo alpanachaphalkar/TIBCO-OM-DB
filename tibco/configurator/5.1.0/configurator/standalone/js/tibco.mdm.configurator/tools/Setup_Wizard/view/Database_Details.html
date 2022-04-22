@@ -1,0 +1,32 @@
+<div ng-controller="configurator.controller.tools.Setup_Wizard.Database_Details">
+    <div class="dialog-form" style="height:380px;overflow-y:auto;">
+    <div class="dialog-title">
+      <h3>{{local.title}}</h3>
+      <h6>{{local.info}}</h6>
+    </div>
+    <div class="dialog-content">
+	  <div class="control-group">
+            <label class="control-label">{{local.OraclePath}}</label>
+            <input name="name" ng-model="data.values.HOME" type="text">
+     
+            <label class="control-label">{{local.DBName}}</label>
+            <input name="name" ng-model="data.values.DATABASENAMEOMS" type="text">
+      
+            <label class="control-label">{{local.Username}}</label>
+            <input name="name" ng-model="data.values.USERNAME" type="text">
+      
+            <label class="control-label">{{local.Password}}</label>
+            <input name="name" ng-model="data.values.PASSWORD" type="password">
+      </div>
+      <div class="control-group">
+        <button class="cfg_butt" ng-click="testConnection()">{{local.testConnection}}</button>
+      </div>
+    </div>
+  </div>
+    <div class="form_buttons">
+		<button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+        <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+        <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+    </div>
+</div>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

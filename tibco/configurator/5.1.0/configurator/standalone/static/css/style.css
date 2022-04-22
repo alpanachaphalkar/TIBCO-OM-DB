@@ -1,0 +1,452 @@
+body {
+	
+}
+
+.buildGround {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-left: auto;
+	overflow: hidden;
+}
+
+div.bodyDiv {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	/*width: 1000px;*/
+}
+
+div.headerDiv {
+	background-color: #222222;
+	height: 65px;
+	position: relative;
+	-webkit-box-shadow: 0 0 5px rgba(52, 57, 61, .75);
+	-moz-box-shadow: 0 0 5px rgba(52, 57, 61, .75);
+	box-shadow: 0 0 5px rgba(52, 57, 61, .75);
+}
+
+div.contentDiv {
+	position: absolute;
+	top: 65px;
+	bottom: 25px;
+	left: 0px;
+	right: 0px;
+	background-color: #E4E4E4;
+}
+
+.headerDiv .logo {
+	position: absolute;
+	left: 20px;
+	top: 0px;
+	bottom: 0px;
+	height: 35px;
+	margin: auto;
+}
+
+/* ============ menu ============ */
+div.menuDiv {
+	position: absolute;
+	right: 20px;
+	top: 0px;
+	bottom: 0px;
+	height: 25px;
+	margin: auto;
+	color: #6F6F6F;
+}
+
+.menuItem a {
+	font-size: 12px;
+	height: 25px;
+	line-height: 25px;
+	font-weight: normal;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+div.menuDiv .menuItem {
+	list-style: none outside none;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+	margin-right: 20px;
+	font-size: 12px;
+}
+
+div.menuDiv .menuItem-last {
+	list-style: none outside none;
+	display: inline-block;
+	height: 25px;
+	line-height: 25px;
+	vertical-align: middle;
+	margin-right: 0px;
+	font-size: 12px;
+}
+
+div.menuDiv .menuItem-last .cfg_dropdownMenu{
+	right: -20px;
+}
+
+.menu .menuItem a:LINK,div.menuDiv .menuItem-last a:LINK {
+	color: #898989;
+}
+
+.menu .menuItem a:VISITED,div.menuDiv .menuItem-last a:VISITED {
+	color: #898989;
+}
+
+.menu .menuItem a:HOVER,div.menuDiv .menuItem-last a:HOVER {
+	color: #89d8ff;
+}
+
+.menu .menuItem a:ACTIVE,div.menuDiv .menuItem-last a:ACTIVE {
+	color: #89d8ff;
+}
+
+.menu .menuItem a.disable:HOVER,div.menuDiv .menuItem-last a.disable:HOVER {
+	color: #898989;
+}
+
+.menu .menuItem a.disable:ACTIVE,div.menuDiv .menuItem-last a.disable:ACTIVE {
+	color: #898989;
+}
+
+.menu>ul {
+	margin: 0px;
+	height: 25px;
+}
+
+.menu .hasSubMenu>a {
+	background-image: url("../image/ic_triangle.png");
+	background-repeat: no-repeat;
+	background-position: right 4px;
+	padding-right: 15px;
+}
+
+.menu .hasSubMenu>a:HOVER {
+	background-image: url("../image/ic_triangle_hover.png");
+	background-repeat: no-repeat;
+	background-position: right 4px;
+	padding-right: 15px;
+}
+
+/*.menu input.search {
+	color: #536d7a;
+	border: 1px solid #6F6F6F;
+	height: 25px;
+	width: 220px;
+	padding: 0px;
+	margin: 0px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	border: 0px;
+	background-color: #34393d;
+	background-image: url("../image/ic_magicwander.png");
+	background-repeat: no-repeat;
+	background-position: 200px 5px;
+}
+
+.menu input.search:focus {
+	color: #536d7a;
+	border: 1px solid #6F6F6F;
+	height: 25px;
+	width: 220px;
+	padding: 0px;
+	margin: 0px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	border: 0px;
+	background-color: #8aadbe;
+	background-image: url("../image/ic_magicwander.png");
+	background-repeat: no-repeat;
+	background-position: 200px 5px;
+}*/
+
+.open .cfg_dropdownMenu {
+	display: block;
+}
+
+.cfg_dropdown {
+	position: relative;
+	top: -1px;
+}
+
+.cfg_dropdownMenu {
+	display: none;
+	left: -20px;
+	position: absolute;
+	top: 100%;
+	z-index: 1000;
+	float: left;
+	padding: 0px 0px 0px 0px;
+	margin: 0px;
+	list-style: none;
+	background-color: #222222;
+	border: 1px solid #ccc;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	*border-right-width: 2px;
+	*border-bottom-width: 2px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	/*min-width: 90px;*/
+}
+
+.cfg_dropdownMenu li {
+	height: 12px;
+	line-height: 12px;
+	margin: 20px 0px 20px 0px;
+}
+
+.cfg_dropdownMenu a {
+	padding: 0px 20px;
+	line-height: 12px;
+	white-space: nowrap;
+}
+
+.title-panel .title-box {
+	height: 50px;
+}
+
+.title-panel .title-box .title-text {
+	color: #88AFBD;
+	font-size: 16px;
+	font-weight: bold;
+	height: 50px;
+	line-height: 60px;
+	margin-left: 20px;
+}
+
+.title-panel .action-box {
+	background-color: #F5F5F5;
+	height: 50px;
+}
+
+.title-panel .action-box .btn {
+	margin: 10px 0 10px 10px;
+}
+
+.outline {
+	margin-top: 20px;
+}
+
+.outline .title {
+	padding: 20px;
+	color: #CCE7F3;
+	background-color: #4C6872;
+	font-size: 16px;
+	box-shadow: 0px 0px 5px #27383F;
+}
+
+/* =========== tree list =========== */
+.treeList {
+	color: #7394A3;
+}
+
+.treeList .highlight {
+	background-color: #314A53;
+}
+
+.treeList .highlight-leading-yellow {
+	background-color: #FF8C69;
+}
+
+.treeList .item-label {
+	height: 30px;
+}
+
+.treeList .item span {
+	line-height: 30px;
+}
+
+.treeList .level1 {
+	padding-left: 20px;
+}
+
+.treeList .level2 {
+	padding-left: 40px;
+}
+
+.treeList .level3 {
+	padding-left: 60px;
+}
+
+/* =========== footer =========== */
+div.footerDiv {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	height: 25px;
+	background-color: #222222;
+	-webkit-box-shadow: 0 -1px 3px #536d7a;
+	-moz-box-shadow: 0 -1px 3px #536d7a;
+	box-shadow: 0 -1px 3px #536d7a;
+}
+
+div.footerDiv span.copyRight {
+	color: #6F6F6F;
+	display: inline-block;
+	line-height: 25px;
+	height: 25px;
+	float: right;
+	margin-right: 20px;
+	font-size: 10px;
+	color: #4c4c4c;
+	font-weight: normal;
+}
+
+/* =========== loading screen =========== */
+.loadingBackground {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1040;
+	background-color: #FFFFFF;
+}
+
+.loadingBackground .loadingMsgPanel {
+	position: absolute;
+	right: 0px;
+	left: 0px;
+	top: 0px;
+	bottom: 0px;
+	margin: auto;
+	height: 42px;
+	width: 220px;
+}
+
+.loadingBackground .loadingMsgPanel .loadingText {
+	text-align: center;
+}
+
+/* common layout */
+.center-fix {
+	margin: auto;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+/* =========== test =========== */
+.height_100 {
+	height: 100px;
+}
+
+.height_300 {
+	height: 300px;
+}
+
+.relative-position {
+	position: relative;
+}
+
+/*
+	cfg_common_dialog style
+*/
+#cfg_common_dialog {
+	background-color: #FFFFFF;
+	border: 1px solid #E4E4E4;
+	border-radius: 2px 2px 2px 2px;
+	bottom: 0;
+	box-shadow: 0 1px 30px #A4A4A4;
+	height: 160px;
+	left: 0;
+	margin: auto;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 200px;
+	z-index: 9999;
+	display: none;
+}
+
+#cfg_common_dialog .dialogTitle {
+	line-height: 50px;
+	font-size: 14px;
+	color: #FFFFFF;
+	text-shadow: 0 -1px #4c4c4c;
+	background: #536d7a;
+	padding-left: 20px;
+}
+
+#cfg_common_dialog .dialogContent { /*padding: 20px;*/
+	position: relative;
+	overflow: auto;
+}
+
+#cfg_common_dialog .dialogFooter {
+	padding: 20px;
+	border-top: 1px solid #ededed;
+	background-color: #F5F5F5;
+	height: 30px;
+}
+
+#cfg_common_dialog .uxDialogFooter .btn+.btn {
+	margin-bottom: 0;
+	margin-left: 10px;
+}
+
+#cfg_common_dialog .cfgDialogConfigLeftBtn{
+	float:left;
+}
+
+#cfg_common_dialog .cfgDialogConfigRightBtn{
+	float: right;
+}
+#dialogOverlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0.7;
+	display: none;
+	background-color: #000000;
+}
+
+#cfg_common_dialog .msgDialogContainer {
+	padding: 20px;
+}
+/*end of cfg_common_dialog*/
+
+/*
+wizard dialog
+*/
+
+
+.cfg_frame_dialog {
+	background-color: #FFFFFF;
+	border: 1px solid #E4E4E4;
+	border-radius: 2px 2px 2px 2px;
+	box-shadow: 0 1px 30px #A4A4A4;
+	height: 500px;
+	width: 600px;
+	z-index: 9999;
+}
+
+div.form_divider{
+	border-top: 1px solid #EDEDED;
+    height: 0;
+}
+

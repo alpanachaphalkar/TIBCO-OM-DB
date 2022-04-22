@@ -1,0 +1,753 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration description="The Initial Configuration Setup for Order Management" displayName="Order Management - Orchestrator" name="Orchestrator" xmlns="http://www.tibco.com/af/config/confbeans/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tibco.com/af/config/confbeans/1.0">
+	<Cluster>
+		<Category description="Orchestrator Engine Configuration" name="Orchestrator Engine Configuration" visibility="Basic">
+			<ConfValue description="Enable Audit Trail" isHotDeployable="true" name="Enable Audit Trail" propname="enableAuditTrail" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Enable Notification Logging" isHotDeployable="true" name="Enable Notification Logging" propname="enableLogNotifications" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Notification Logging Types" isHotDeployable="true" name="Notification Logging Types" propname="logNotificationTypes" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="*" value="*"/>
+			</ConfValue>
+			<ConfValue description="Enable Duplicate Order Validation" isHotDeployable="true" name="Enable Duplicate Order Validation" propname="validateDuplicateOrder" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Enable Failed Order Recovery" isHotDeployable="true" name="Enable Failed Order Recovery" propname="recoverFailedOrder" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Enable Order Purging Post Order Completion" isHotDeployable="true" name="Enable Order Purging Post Order Completion" propname="enablePurgeCompleteOrder" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Process-Component Notification Publishing End-Point" isHotDeployable="true" name="Process-Component Notification Publishing End-Point" propname="pcNotificationPubEndpoint" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="process-component" value="process-component"/>
+			</ConfValue>
+			<ConfValue description="Number of State-Machines Cached" isHotDeployable="true" name="Number of State-Machines Cached" propname="numCachedMachines" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="200" value="200"/>
+			</ConfValue>
+			<ConfValue description="Enable Order Statistics" isHotDeployable="true" name="Enable Order Statistics" propname="enableStats" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Enable Plan-Fragment Model Caching" isHotDeployable="true" name="Enable Plan-Fragment Model Caching" propname="enablePlanFragmentGlobalCache" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Max No of Plan-Fragment Model cached" name="Max No of Plan-Fragment Model cached" propname="com.tibco.af.orch.cacheType.cache.maxNoPlanFragmentcached" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="1000" value="1000"/>
+			</ConfValue>
+			<ConfValue description="Plan-Fragment Model Cache Expiry Period" isHotDeployable="true" name="Plan-Fragment Model Cache Expiry Period" propname="planFragmentCacheExpiryPeriod" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="30" value="30"/>
+			</ConfValue>
+			<ConfValue description="AOPD Server Plan Generation URL" isHotDeployable="true" name="AOPD Server Plan Generation URL" propname="aopdGeneratePlanResourceURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9094/v1/generatePlan" value="http://localhost:9094/v1/generatePlan"/>
+			</ConfValue>
+			<ConfValue description="AOPD Server Amend Plan Generation URL" isHotDeployable="true" name="AOPD Server Amend Plan Generation URL" propname="aopdAmendPlanResourceURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9094/v1/plan/amend" value="http://localhost:9094/v1/plan/amend"/>
+			</ConfValue>
+			<ConfValue description="Flag to enable or disable the retry of failed OPD request in Orchestrator" isHotDeployable="true" name="Retry Failed OPD" propname="com.tibco.fom.orch.retryFailedOPD" readonly="false" sinceVersion="2.1" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="The number of retries to be done for failed OPD request" isHotDeployable="true" name="OPD Retries" propname="com.tibco.fom.orch.OPDRetries" readonly="false" sinceVersion="2.1" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="The time interval in milliseconds between two consecutive OPD retry requests" isHotDeployable="true" name="OPD Retry Interval" propname="com.tibco.fom.orch.opdRetryInterval" readonly="false" sinceVersion="2.1" visibility="Basic">
+				<ConfString default="6000" value="6000"/>
+			</ConfValue>
+			<ConfValue description="Spring Active Profile" isHotDeployable="true" name="Spring Active Profile" propname="spring.profiles.active" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="DEV" value="DEV"/>
+			</ConfValue>
+			<ConfValue description="Enable Serialization of Dates as Timestamps" isHotDeployable="true" name="Enable Serialization of Dates as Timestamps" propname="spring.jackson.serialization.WRITE_DATES_AS_TIMESTAMPS" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Inclusion of Properties During Serialization" isHotDeployable="true" name="Inclusion of Properties During Serialization" propname="spring.jackson.default-property-inclusion" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="NON_NULL" value="NON_NULL"/>
+			</ConfValue>
+			<ConfValue description="Logging Configuration File Path" isHotDeployable="true" name="Logging Configuration File Path" propname="logging.config" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="config/logback_orch.xml" value="config/logback_orch.xml"/>
+			</ConfValue>
+			<ConfValue description="Flag to enable or disable the overriding of process component destinations from ProcessComponent.props file" isHotDeployable="true" name="[Tenant] Override process component destinations" propname="tnt##overridePlanfragmentDestination" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]" />
+			</ConfValue>
+			<ConfValue description="Flag to enable or disable using the tenant specific destination for process component" isHotDeployable="true" name="[Tenant] Tenant specific destination for process component destinations" propname="tnt##tenantSpecificDestination" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="[{TENANT:'TIBCO',VALUE='false',TYPE:'ConfBool'}]"/>
+			</ConfValue>
+			<ConfValue description="Enable failure point injection" isHotDeployable="true" name="Enable failure point injection" propname="enableFailurePointInjection" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="The Error Handler component to be used in case of failed plan item" isHotDeployable="true" name="Plan Item Error Handler Type" propname="com.tibco.fom.orch.pcErrorHandlerType" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="ExternalErrorHandler"/>
+					<EnumValue value="InternalErrorHandler"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Should the failed plan item be suspended for amendment to progress" name="ShouldFailedPlanItemSuspend" propname="com.tibco.fom.orch.flag.shouldFailedPlanItemSuspend" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="PlanItem error handler request queue" isHotDeployable="true" name="PlanItem error handler request queue" propname="com.tibco.fom.orch.planItem.errhandler.request.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.provider.planItem.failed.request" value="tibco.aff.orchestrator.provider.planItem.failed.request"/>
+			</ConfValue>		
+			<ConfValue description="ID of the plan fragment to be assigned to the cancelled plan items which will have No Reciprocal Action to be done in case of amendments" name="[Tenant] No Reciprocal Action Planfragment ID" propname="tnt##com.tibco.fom.orch.noreciprocalaction.planfragmentID" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="NO_RECIPROCAL_ACTION" value="[{TENANT:'TIBCO',VALUE='NO_RECIPROCAL_ACTION',TYPE:'ConfString'}]"/>
+			</ConfValue>
+			<ConfValue description="Flag to enable or disable the Order Sequencing" name="Flag to enable or disable the Order Sequencing" propname="com.tibco.fom.orch.enableOrderSequencing" sinceVersion="2.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="disable"/>
+					<EnumValue value="enableForAll"/>
+					<EnumValue value="enableWithUdf"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Custom property xPath expression for order sequencing" name="Custom property xPath expression" propname="com.tibco.fom.orch.sequencing.customerJsonPath" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="$.orderRequest.header.customerID" value="$.orderRequest.header.customerID"/>
+			</ConfValue>
+			<ConfValue description="Enable Milestone Release during activation" name="Enable Milestone Release during activation" propname="com.tibco.fom.orch.enableMilestoneReleaseDuringActivation" readonly="false" sinceVersion="2.1" visibility="Basic">
+				<ConfString default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Enable milestones with multiple spaces" name="Enable milestones with multiple spaces" propname="com.tibco.fom.orch.milestone.allowMultipleSpaces" readonly="false" sinceVersion="3.0.2" visibility="Basic">
+				<ConfBool default="false"  value="false"/>
+			</ConfValue>
+			<ConfValue description="Pending Order Event Processing Interval in milliseconds" name="Pending Order Event Processing Interval in milliseconds" propname="pendingOrderProcessor.processingInterval" readonly="false" sinceVersion="5.1" visibility="Basic">
+				<ConfNum default="60000" value="60000"/>
+			</ConfValue>
+			<ConfValue description="Pending Order Event Offset in seconds" name="Pending Order Event Offset in seconds" propname="pendingOrderProcessor.eventOffsetInSeconds" readonly="false" sinceVersion="5.1" visibility="Basic">
+				<ConfNum default="60" value="60"/>
+			</ConfValue>
+			<ConfValue description="Pending Order Event Number of Worker Threads" name="Pending Order Event Number of Worker Threads" propname="pendingOrderProcessor.numOfWorkerThreads" readonly="false" sinceVersion="5.1" visibility="Basic">
+				<ConfNum default="1" value="1"/>
+			</ConfValue>
+			<ConfValue description="Pending Order Event To Process at each run" name="Pending Order Event To Process at each run" propname="pendingOrderProcessor.orderEventProcessCount" readonly="false" sinceVersion="5.1" visibility="Basic">
+				<ConfNum default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Pending Order Event Retry Count" name="Pending Order Event Retry Count" propname="pendingOrderProcessor.orderEventRetryCount" readonly="false" sinceVersion="5.1" visibility="Basic">
+				<ConfNum default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Enable Outbound Notification" isHotDeployable="true" name="Enable Outbound Notification" propname="enableNotification" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Archival Interaction Mode" isHotDeployable="true" name="Archival Interaction Mode" propname="archivalInteractionMode" readonly="false" sinceVersion="5.0" visibility="Basic">
+					<ConfString default="true" value="JMS"/>
+			</ConfValue>
+			<ConfValue description="Sequencing Interaction Mode" isHotDeployable="true" name="Sequencing Interaction Mode" propname="sequencingMode" readonly="false" sinceVersion="5.0" visibility="Basic">
+					<ConfString default="true" value="JMS"/>
+			</ConfValue>
+			<ConfValue description="Number of planitems for large plan" name="Number of planitems for large plan" propname="numPILargePlan" readonly="false" sinceVersion="5.1" visibility="Basic">
+				<ConfNum default="50" value="50"/>
+			</ConfValue>
+			<ConfValue description="Application name to show on actuator info endpoint" isHotDeployable="false" name="Application Name" propname="info.app.name" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="Orchestrator" value="Orchestrator"/>
+			</ConfValue>
+			<ConfValue description="Is migration enabled" isHotDeployable="false" name="Is migration enabled" propname="migrationEnabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Migration service endpoint" isHotDeployable="false" name="Migration service endpoint" propname="migrationURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9100/v1/migration/order" value="http://localhost:9100/v1/migration/order"/>
+			</ConfValue>
+		</Category>		
+		<Category description="Orchestrator JMS Notification Configuration" name="Orchestrator JMS Notification Configuration" visibility="Basic">
+			<ConfValue description="Types of JMS Notification" isHotDeployable="true" name="Types of JMS Notification" propname="jmsNotificationTypes" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="*" value="*"/>
+			</ConfValue>						
+			<ConfValue description="Outbound Notification destination" name="Outbound Notification destination" propname="com.tibco.fom.orch.outbound.notification.destination" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.outbound.notification" value="tibco.aff.orchestrator.outbound.notification"/>
+			</ConfValue>			
+			<ConfValue description="Order status change destination" name="Order status change destination" propname="com.tibco.fom.orch.order.statusChange.destination" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.notification.order" value="tibco.aff.orchestrator.notification.order"/>
+			</ConfValue>
+			<ConfValue description="OrderLine status change destination" name="OrderLine status change destination" propname="com.tibco.fom.orch.orderLine.statusChange.destination" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.notification.orderLine" value="tibco.aff.orchestrator.notification.orderLine"/>
+			</ConfValue>
+			<ConfValue description="Plan status change destination" name="Plan status change destination" propname="com.tibco.fom.orch.plan.statusChange.destination" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.notification.plan" value="tibco.aff.orchestrator.notification.plan"/>
+			</ConfValue>
+			<ConfValue description="PlanItem status change destination" name="PlanItem status change destination" propname="com.tibco.fom.orch.planItem.statusChange.destination" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.notification.planItem" value="tibco.aff.orchestrator.notification.planItem"/>
+			</ConfValue>
+			<ConfValue description="Order Amendment status change destination" name="Order Amendment status change destination" propname="com.tibco.fom.orch.orderAmendment.statusChange.destination" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.notification.orderAmendment" value="tibco.aff.orchestrator.notification.orderAmendment"/>
+			</ConfValue>
+			<ConfValue description="Filter for Order status change notification; * will publish all" name="Order status change filter" propname="com.tibco.fom.orch.order.statusChange.filter" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="*" value="*"/>
+			</ConfValue>
+			<ConfValue description="Filter for OrderLine status change notification; * will publish all" name="OrderLine status change filter" propname="com.tibco.fom.orch.orderLine.statusChange.filter" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="*" value="*"/>
+			</ConfValue>
+			<ConfValue description="Filter for Plan status change notification; * will publish all" name="Plan status change filter" propname="com.tibco.fom.orch.plan.statusChange.filter" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="*" value="*"/>
+			</ConfValue>
+			<ConfValue description="Filter for PlanItem status change notification; * will publish all" name="PlanItem status change filter" propname="com.tibco.fom.orch.planItem.statusChange.filter" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="*" value="*"/>
+			</ConfValue>
+			<ConfValue description="Filter for OrderAmendment status change notification; * will publish all" name="Order Amendment status change filter" propname="com.tibco.fom.orch.orderAmendment.filter" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="*" value="*"/>
+			</ConfValue>
+		</Category>	
+		<Category description="Process-Component Configurations" name="Process-Component Configurations" visibility="Basic">
+			<ConfValue description="PC Execute Request URL" isHotDeployable="true" name="PC Execute Request URL" propname="pcResourceExecuteRequestURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9089/v1/planitem/executionrequest" value="http://localhost:9089/v1/planitem/executionrequest"/>
+			</ConfValue>
+			<ConfValue description="PC Suspend Request URL" isHotDeployable="true" name="PC Suspend Request URL" propname="pcResourceSuspendRequestURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9089/v1/planitem/suspendrequest" value="http://localhost:9089/v1/planitem/suspendrequest"/>
+			</ConfValue>
+			<ConfValue description="PC Activate Request URL" isHotDeployable="true" name="PC Activate Request URL" propname="pcResourceActivateRequestURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9089/v1/planitem/activaterequest" value="http://localhost:9089/v1/planitem/activaterequest"/>
+			</ConfValue>
+			<ConfValue description="PC Error Handler Request URL" isHotDeployable="true" name="PC Error Handler Request URL" propname="pcResourceExtErrorHanlderRequestURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9089/v1/planitem/errorhandlerrequest" value="http://localhost:9089/v1/planitem/errorhandlerrequest"/>
+			</ConfValue>
+			<ConfValue description="PC Feasibility Request URL" isHotDeployable="true" name="PC Feasibility Request URL" propname="feasibleRequestPathRequestURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9089/v1/feasibility" value="http://localhost:9089/v1/feasibility"/>
+			</ConfValue>
+			<ConfValue description="PC Pre Qualification Request URL" isHotDeployable="true" name="PC Pre Qualification Request URL" propname="pqfRequestPathRequestURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9089/v1/pqf" value="http://localhost:9089/v1/pqf"/>
+			</ConfValue>	
+			<ConfValue description="PC PlanItem MilestoneRelease Request URL" isHotDeployable="true" name="PC PlanItem MilestoneRelease Request URL" propname="pcResourceMileReleaseRequestURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9089/v1/planitem/milestonerelease" value="http://localhost:9089/v1/planitem/milestonerelease"/>
+			</ConfValue>
+			<ConfValue description="Default Acknowledge Mode for Process-Component" isHotDeployable="false" name="Default Acknowledge Mode for Process-Component" propname="defaultAckMode" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="JMS" value="JMS"/>
+			</ConfValue>
+		</Category>
+		<Category description="Archival Service Configurations" name="Archival Service Configurations" visibility="Basic">
+			<ConfValue description="Archival GetOrderDetails URL" isHotDeployable="true" name="Archival GetOrderDetails URL" propname="archivalGetOrderDetailsURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9099/v1/ordersByCriteria" value="http://localhost:9099/v1/ordersByCriteria"/>
+			</ConfValue>
+		</Category>
+		<Category description="OPE Configuration" name="OPE Configurations" visibility="Basic">
+			<ConfValue description="OPE Service Offer Validation Secure URL" isHotDeployable="true" name="OPE Service Offer Validation Secure URL" propname="opeOfferValidationSecureURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:8181/opes/api/v1/offers/validate" value="http://localhost:8181/opes/api/v1/offers/validate"/>
+			</ConfValue>
+			<ConfValue description="OPE Service Offer Validation Non Secure URL" isHotDeployable="true" name="OPE Service Offer Validation Non Secure URL" propname="opeOfferValidationNonSecureURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9090/opes/api/v1/offers/validate" value="http://localhost:9090/opes/api/v1/offers/validate"/>
+			</ConfValue>
+			<ConfValue description="OPE Service Get Auth URL" isHotDeployable="true" name="OPE Service Get Auth URL" propname="opeGetAuthTokenURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:8181/login" value="http://localhost:8181/login"/>
+			</ConfValue>
+			<ConfValue description="OPE Secure Service API Username" isHotDeployable="true" name="OPE Secure Service API Username" propname="opeSecureApiUsername" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" value="admin"/>
+			</ConfValue>
+			<ConfValue description="OPE Secure Service API Password" isHotDeployable="true" name="OPE Secure Service API Password" propname="opeSecureApiPassword" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" value="admin"/>
+			</ConfValue>
+			<ConfValue description="Enable Offer Validation" isHotDeployable="true" name="Enable Offer Validation" propname="extResource.enableOfferValidation" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue value="true"/>
+					<EnumValue default="true" selected="true" value="false"/>
+				</ConfEnum>
+			</ConfValue>
+		</Category>
+		<Category description="Application Security Configurations" name="Application Security Configurations" visibility="Basic">
+			<ConfValue description="User Role for submitOrder Service" isHotDeployable="true" name="User Role for submitOrder Service" propname="operation.roles.submitOrder" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="User Role for orderExecutionPlan Service" isHotDeployable="true" name="User Role for orderExecutionPlan Service" propname="operation.roles.orderExecutionPlan" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+			<ConfValue description="User Role for getOrderDetails Service" isHotDeployable="true" name="User Role for getOrderDetails Service" propname="operation.roles.getOrderDetails" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+			<ConfValue description="User Role for getAuditTrail Service" isHotDeployable="true" name="User Role for getAuditTrail Service" propname="operation.roles.getAuditTrail" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+			<ConfValue description="User Role for executePlanItemReply Service" isHotDeployable="true" name="User Role for executePlanItemReply Service" propname="operation.roles.executePlanItemReply" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="User Role for orderWithdraw Service" isHotDeployable="true" name="User Role for orderWithdraw Service" propname="operation.roles.orderWithdraw" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+		</Category>
+		<Category description="Messaging Configuration" name="Messaging Configuration" visibility="Basic">
+			<ConfValue description="JMS Server URL" isHotDeployable="true" name="JMS Server URL" propname="emsServerURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tcp://localhost:7222" value="tcp://localhost:7222"/>
+			</ConfValue>
+			<ConfValue description="JMS Server User Name" isHotDeployable="true" name="JMS Server User Name" propname="emsServerUsername" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" value="admin"/>
+			</ConfValue>
+			<ConfValue description="JMS Server Password" isHotDeployable="true" name="JMS Server Password" propname="emsServerPassword" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" isPassword="true"  value="admin"/>
+			</ConfValue>
+			<ConfValue description="JNDI Connection Factory Name" name="JNDI Connection Factory Name" propname="jndiConnectionFactory" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="GenericConnectionFactory" value="GenericConnectionFactory"/>
+			</ConfValue>
+			<ConfValue description="For SSL Configuration value should be ssl" name="Constant that holds the name of the environment property for specifying the security protocol to use in Tibjms JNDI lookups." propname="tibjmsNamingSecurityProtocol" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="For SSL enable verify host value should be false" name="Constant that holds the name of SSL property specifying if client should verify the server certificate in Tibjms JNDI lookups." propname="tibjmsNamingSslEnableVerifyHost" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="Initializing Context Factory Name" name="Initializing Context Factory Name" propname="initialContextFactory" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="com.tibco.tibjms.naming.TibjmsInitialContextFactory" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+			</ConfValue>
+			<ConfValue description="Keep JMS Session Transacted" name="Keep JMS Session Transacted" propname="jmsSessionTransacted" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="JMS Receive Calls Timeout" name="JMS Receive Calls Timeout" propname="timeoutReceiveCalls" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="JMS Concurrent Consumers" name="JMS Concurrent Consumers" propname="concurrentEmsConsumers" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="PlanItem execution response queue" isHotDeployable="true" name="PlanItem execution response queue" propname="com.tibco.fom.orch.planItem.execute.response.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.planItem.execute.reply" value="tibco.aff.orchestrator.planItem.execute.reply"/>
+			</ConfValue>
+			<ConfValue description="PlanItem execution request queue" isHotDeployable="true" name="PlanItem execution request queue" propname="com.tibco.fom.orch.planItem.execute.request.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.planItem.execute.request" value="tibco.aff.orchestrator.planItem.execute.request"/>
+			</ConfValue>
+			<ConfValue description="PlanItem execution response dead queue" isHotDeployable="true" name="PlanItem execution response dead queue" propname="com.tibco.fom.orch.planItem.execute.response.dead.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.planItem.execute.reply.dead" value="tibco.aff.orchestrator.planItem.execute.reply.dead"/>
+			</ConfValue>
+			<ConfValue description="PlanItem execution response receiver count" isHotDeployable="true" name="PlanItem execution response receiver count" propname="com.tibco.fom.orch.planItem.execute.response.count" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="1" value="1"/>
+			</ConfValue>
+			<ConfValue description="PlanItem suspend request queue" isHotDeployable="true" name="PlanItem suspend request queue" propname="com.tibco.fom.orch.planItem.suspend.request.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.planItem.suspend.request" value="tibco.aff.orchestrator.planItem.suspend.request"/>
+			</ConfValue>
+			<ConfValue description="PlanItem suspend response queue" isHotDeployable="true" name="PlanItem suspend response queue" propname="com.tibco.fom.orch.planItem.suspend.response.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.planItem.suspend.reply" value="tibco.aff.orchestrator.planItem.suspend.reply"/>
+			</ConfValue>
+			<ConfValue description="PlanItem suspend response receiver count" isHotDeployable="true" name="PlanItem suspend response receiver count" propname="com.tibco.fom.orch.planItem.suspend.response.count" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="1" value="1"/>
+			</ConfValue>
+			<ConfValue description="PlanItem suspend response dead queue" isHotDeployable="true" name="PlanItem suspend response dead queue" propname="com.tibco.fom.orch.planItem.suspend.response.dead.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.planItem.suspend.reply.dead" value="tibco.aff.orchestrator.planItem.suspend.reply.dead"/>
+			</ConfValue>
+			<ConfValue description="PlanItem activate request queue" isHotDeployable="true" name="PlanItem activate request queue" propname="com.tibco.fom.orch.planItem.activate.request.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.planItem.activate.request" value="tibco.aff.orchestrator.planItem.activate.request"/>
+			</ConfValue>
+			<ConfValue description="MilestoneReleaseRequest from Orchestrator to process components queue" name="MilestoneReleaseRequest from Orchestrator to process components queue" propname="com.tibco.fom.orch.planItem.milestone.releaseRequest.queue" readonly="false" sinceVersion="2.1" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.planItem.milestone.release.request" value="tibco.aff.orchestrator.planItem.milestone.release.request"/>
+			</ConfValue>
+			<ConfValue description="Queue for receiving SOAP Over JMS Order Service requests" name="Order Service Queue" propname="com.tibco.af.oms.ordersService.queue" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.oms.ordersService" value="tibco.aff.oms.ordersService"/>
+			</ConfValue>
+			<ConfValue description="Minimum number of concurrent consumers for listener (default 1)" name="Minimum number of concurrent consumers for listener" propname="com.tibco.af.oms.webservice.soap.jms.concurrentConsumers" sinceVersion="5.0" visibility="Advanced">
+				<ConfNum default="1" value="1"/>
+			</ConfValue>
+			<ConfValue description="External PreQualificationFailed request queue" isHotDeployable="true" name="External PreQualificationFailed request queue" propname="com.tibco.fom.orch.prequalificationfailed.request.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.provider.order.prequal.failed.request" value="tibco.aff.orchestrator.provider.order.prequal.failed.request"/>
+			</ConfValue>
+			<ConfValue description="External PreQualificationFailed reply queue" isHotDeployable="true" name="External PreQualificationFailed reply queue" propname="com.tibco.fom.orch.prequalificationfailed.reply.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.provider.order.prequal.failed.reply" value="tibco.aff.orchestrator.provider.order.prequal.failed.reply"/>
+			</ConfValue>
+			<ConfValue description="External PreQualificationFailed reply queue receiver count" isHotDeployable="true" name="External PreQualificationFailed reply queue receiver count" propname="com.tibco.fom.orch.prequalificationfailed.reply.queue.receiver.count" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6" value="6"/>
+			</ConfValue>
+			<ConfValue description="External PreQualificationFailed reply dead queue" isHotDeployable="true" name="External PreQualificationFailed reply dead queue" propname="com.tibco.fom.orch.prequalificationfailed.reply.dead.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.provider.order.prequal.failed.reply.dead" value="tibco.aff.orchestrator.provider.order.prequal.failed.reply.dead"/>
+			</ConfValue>
+			<ConfValue description="Flag to enable or disable the error handling for failed feasibility request in Orchestrator" isHotDeployable="true" name="Enable Feasibility Error Handling" propname="com.tibco.fom.orch.enableFeasibilityErrorHandling" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Flag to enable or disable the feasibility check for orders in Orchestrator" isHotDeployable="true" name="Feasibility Required" propname="com.tibco.fom.orch.feasibilityRequired" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Flag to enable or disable the retry of failed feasibility request in Orchestrator" isHotDeployable="true" name="Retry Failed Feasibility" propname="com.tibco.fom.orch.retryFailedFeasibility" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="The number of retries to be done for failed feasibility request" isHotDeployable="true" name="Feasibility Retries" propname="com.tibco.fom.orch.feasibilityRetries" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="The time interval in milliseconds between two consecutive feasibility retry requests" isHotDeployable="true" name="Feasibility Retry Interval" propname="com.tibco.fom.orch.feasibilityRetryInterval" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6000" value="6000"/>
+			</ConfValue>
+			<ConfValue description="External Feasibility request queue" isHotDeployable="true" name="External Feasibility request queue" propname="com.tibco.fom.orch.feasibility.request.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.provider.order.feasibility.request" value="tibco.aff.orchestrator.provider.order.feasibility.request"/>
+			</ConfValue>
+			<ConfValue description="External Feasibility reply queue" isHotDeployable="true" name="External Feasibility reply queue" propname="com.tibco.fom.orch.feasibility.reply.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.provider.order.feasibility.reply" value="tibco.aff.orchestrator.provider.order.feasibility.reply"/>
+			</ConfValue>
+			<ConfValue description="External Feasibility reply queue receiver count" isHotDeployable="true" name="External Feasibility reply queue receiver count" propname="com.tibco.fom.orch.feasibility.reply.queue.receiver.count" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6" value="6"/>
+			</ConfValue>	
+			<ConfValue description="External Feasibility reply dead queue" isHotDeployable="true" name="External Feasibility reply dead queue" propname="com.tibco.fom.orch.feasibility.reply.dead.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.provider.order.feasibility.reply.dead" value="tibco.aff.orchestrator.provider.order.feasibility.reply.dead"/>
+			</ConfValue>
+			<ConfValue description="PlanItem error handler response queue" isHotDeployable="true" name="PlanItem error handler response queue" propname="com.tibco.fom.orch.planItem.errhandler.response.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.provider.planItem.failed.reply" value="tibco.aff.orchestrator.provider.planItem.failed.reply"/>
+			</ConfValue>
+			<ConfValue description="PlanItem error handler response receiver count" isHotDeployable="true" name="PlanItem error handler response receiver count" propname="com.tibco.fom.orch.planItem.errhandler.response.count" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="1" value="1"/>
+			</ConfValue>
+			<ConfValue description="PlanItem error handler response dead queue" isHotDeployable="true" name="PlanItem error handler response dead queue" propname="com.tibco.fom.orch.planItem.errhandler.response.dead.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.provider.planItem.failed.reply.dead" value="tibco.aff.orchestrator.provider.planItem.failed.reply.dead"/>
+			</ConfValue>
+			<ConfValue description="Order Sequencing queue" isHotDeployable="true" name="Order Sequencing queue" propname="com.tibco.fom.orch.order.sequencing.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.oms.ordersSequencer.notification.order" value="tibco.aff.oms.ordersSequencer.notification.order"/>
+			</ConfValue>
+			<ConfValue description="Order Sequencing dead queue" isHotDeployable="true" name="Order Sequencing dead queue" propname="com.tibco.fom.orch.order.sequencing.dead.queue" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.oms.ordersSequencer.notification.order.dead" value="tibco.aff.oms.ordersSequencer.notification.order.dead"/>
+			</ConfValue>
+			<ConfValue description="Order Sequencing Retry Count" isHotDeployable="true" name="Order Sequencing Retry Count" propname="com.tibco.fom.orch.order.sequencing.retry.count" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Order Sequencing Receiver Count" isHotDeployable="true" name="Order Sequencing Receiver Count" propname="com.tibco.fom.orch.order.sequencing.receiver.count" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="1" value="1"/>
+			</ConfValue>
+			<ConfValue description="Global Cache Clean Up Topic Name" name="Global Cache Clean Up Topic Name" propname="globalCacheCleanupTopicName" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.fos.global.cache.clean.publish" value="tibco.fos.global.cache.clean.publish"/>
+			</ConfValue>
+		</Category>
+		<Category description="Status Messages Redelivery Policy Configuration" name="Status Messages Redelivery Policy Configuration" visibility="Advanced">
+			<ConfValue description="Maximum number of times the Status Message to be retried" name="Status Message Max Retry Count" propname="com.tibco.af.oms.statusmessage.max.redeliveries" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="3" value="3"/>
+			</ConfValue>
+			<ConfValue description="Interval delay in millisecs between Status Message retries" name="Status Message Retry Interval" propname="com.tibco.af.oms.statusmessage.redelivery.delay" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="3000" value="3000"/>
+			</ConfValue>
+			<ConfValue description="Maximum delay in millisecs For Status Message retries" name="Status Message Max Retry Delay" propname="com.tibco.af.oms.statusmessage.max.redelivery.delay" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="30000" value="30000"/>
+			</ConfValue>
+			<ConfValue description="Use Exponential backoff For Status Message retries" name="Use Exponential backoff For Status Message retries" propname="com.tibco.af.oms.statusmessage.useExponentialBackOff" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Exponential backoff Multiplier For Status Message retries" name="Exponential backoff Multiplier For Status Message retries" propname="com.tibco.af.oms.statusmessage.exponentialBackOffMultiplier" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="2" value="2"/>
+			</ConfValue>
+			<ConfValue description="Log retry attempt For Status Message retries" name="Log retry attempt For Status Message retries" propname="com.tibco.af.oms.statusmessage.logRetryAttempted" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Log retry failed stacktrace For Status Message retries" name="Log retry failed stacktrace For Status Message retries" propname="com.tibco.af.oms.statusmessage.logStackTrace" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+		</Category>
+		<Category description="Admin Data Source Configuration" name="Admin Data Source Configuration" visibility="Basic">
+			<ConfValue description="Pooled Data Source Driver Class Name" name="Pooled Data Source Driver Class Name" propname="datasourceDriverClassName" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="org.postgresql.Driver"/>
+					<EnumValue value="oracle.jdbc.driver.OracleDriver"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Username" name="Pooled Data Source Username" propname="adminDsUsername" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" value="adminuserll"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Password" name="Pooled Data Source Password" propname="adminDsPassword" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" isPassword="true" value="adminuserll"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source URL" name="Pooled Data Source URL" propname="adminDsUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" default="true" value="jdbc:postgresql://localhost:5432/admindbll?currentSchema=adminschemall"/>
+					<EnumValue  value="jdbc:oracle:thin:@//localhost:1521/orcl.apac.tibco.com"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Initialize Size" name="Pooled Data Source Initialize Size" propname="adminDsInitializeSize" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="2" value="2"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Idle" name="Pooled Data Source Max Idle" propname="adminDsMaxIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="11" value="11"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Active" name="Pooled Data Source Max Active" propname="adminDsMaxActive" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="12" value="12"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Wait" name="Pooled Data Source Max Wait" propname="adminDsMaxWait" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Query" name="Pooled Data Source Validation Query" propname="datasourceValidationQuery" sinceVersion="5.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue   value="select 1 from dual"/>
+					<EnumValue default="true" selected="true" value="SELECT 1"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test OnBorrow" name="Pooled Data Source Test OnBorrow" propname="adminDsTestOnBorrow" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Interval" name="Pooled Data Source Validation Interval" propname="adminDsValidationInterval" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test WhileIdle" name="Pooled Data Source Test WhileIdle" propname="adminDsTestWhileIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Eviction Interval" name="Pooled Data Source Eviction Interval" propname="adminDsTimeBetweenEvictionRunsMillis" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Minimum Evictable Idle Time" name="Pooled Data Source Minimum Evictable Idle Time" propname="adminDsMinEvictableIdleTimeMillis" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Tests Per Eviction Run" name="Pooled Data Source Tests Per Eviction Run" propname="adminDsNumTestsPerEvictionRun" sinceVersion="5.0" visibility="Advanced">
+				<ConfNum default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Default AutoCommit" name="Pooled Data Source Default AutoCommit" propname="adminDsDefaultAutoCommit" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Rollback On Return" name="Pooled Data Source Rollback On Return" propname="adminDsRollbackOnReturn" sinceVersion="2.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Commit On Return" name="Pooled Data Source Commit On Return" propname="adminDsCommitOnReturn" sinceVersion="2.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Database Custom Property" name="Pooled Database Custom Property" propname="adminDsCustomProperty" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="" value=""/>
+			</ConfValue>
+
+		</Category>
+		<Category description="Order Data Source Configuration" name="Order Data Source Configuration" visibility="Basic">
+			<ConfValue description="Pooled Data Source Driver Class Name" name="Pooled Data Source Driver Class Name" propname="datasourceDriverClassName" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="org.postgresql.Driver"/>
+					<EnumValue value="oracle.jdbc.driver.OracleDriver"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Username" name="Pooled Data Source Username" propname="orderDsUsername" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" value="orderuserll"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Password" name="Pooled Data Source Password" propname="orderDsPassword" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" isPassword="true" value="orderuserll"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source URL" name="Pooled Data Source URL" propname="orderDsUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" default="true" value="jdbc:postgresql://localhost:5432/orderdbll?currentSchema=orderschemall"/>
+					<EnumValue  value="jdbc:oracle:thin:@//localhost:1521/orcl.apac.tibco.com"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Initialize Size" name="Pooled Data Source Initialize Size" propname="orderDsInitializeSize" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="2" value="2"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Idle" name="Pooled Data Source Max Idle" propname="orderDsMaxIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="11" value="11"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Active" name="Pooled Data Source Max Active" propname="orderDsMaxActive" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="12" value="12"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Wait" name="Pooled Data Source Max Wait" propname="orderDsMaxWait" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Query" name="Pooled Data Source Validation Query" propname="datasourceValidationQuery" sinceVersion="5.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue  value="select 1 from dual"/>
+					<EnumValue selected="true" default="true" value="SELECT 1"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test OnBorrow" name="Pooled Data Source Test OnBorrow" propname="orderDsTestOnBorrow" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Interval" name="Pooled Data Source Validation Interval" propname="orderDsValidationInterval" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test WhileIdle" name="Pooled Data Source Test WhileIdle" propname="orderDsTestWhileIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Eviction Interval" name="Pooled Data Source Eviction Interval" propname="orderDsTimeBetweenEvictionRunsMillis" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Minimum Evictable Idle Time" name="Pooled Data Source Minimum Evictable Idle Time" propname="orderDsMinEvictableIdleTimeMillis" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Tests Per Eviction Run" name="Pooled Data Source Tests Per Eviction Run" propname="orderDsNumTestsPerEvictionRun" sinceVersion="5.0" visibility="Advanced">
+				<ConfNum default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Default AutoCommit" name="Pooled Data Source Default AutoCommit" propname="orderDsDefaultAutoCommit" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Rollback On Return" name="Pooled Data Source Rollback On Return" propname="orderDsRollbackOnReturn" sinceVersion="2.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Commit On Return" name="Pooled Data Source Commit On Return" propname="orderDsCommitOnReturn" sinceVersion="2.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Database Custom Property" name="Pooled Database Custom Property" propname="orderDsCustomProperty" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="" value=""/>
+			</ConfValue>
+
+		</Category>
+		<Category description="Catalog Data Source Configuration" name="Catalog Data Source Configuration" visibility="Basic">
+			<ConfValue description="Pooled Data Source Driver Class Name" name="Pooled Data Source Driver Class Name" propname="datasourceDriverClassName" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="org.postgresql.Driver"/>
+					<EnumValue value="oracle.jdbc.driver.OracleDriver"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Username" name="Pooled Data Source Username" propname="catalogDsUsername" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" value="catalogdsuserll"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Password" name="Pooled Data Source Password" propname="catalogDsPassword" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="aff_oms" isPassword="true" value="catalogdsuserll"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source URL" name="Pooled Data Source URL" propname="catalogDsUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue  selected="true" default="true" value="jdbc:postgresql://localhost:5432/catalogdsdbll?currentSchema=catalogdsschemall"/>
+					<EnumValue  value="jdbc:oracle:thin:@//localhost:1521/orcl.apac.tibco.com"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Initialize Size" name="Pooled Data Source Initialize Size" propname="catalogDsInitializeSize" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="2" value="2"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Idle" name="Pooled Data Source Max Idle" propname="catalogDsMaxIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="11" value="11"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Active" name="Pooled Data Source Max Active" propname="catalogDsMaxActive" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="12" value="12"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Max Wait" name="Pooled Data Source Max Wait" propname="catalogDsMaxWait" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Query" name="Pooled Data Source Validation Query" propname="datasourceValidationQuery" sinceVersion="5.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue  value="select 1 from dual"/>
+					<EnumValue  selected="true" default="true" value="SELECT 1"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test OnBorrow" name="Pooled Data Source Test OnBorrow" propname="catalogDsTestOnBorrow" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Interval" name="Pooled Data Source Validation Interval" propname="catalogDsValidationInterval" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test WhileIdle" name="Pooled Data Source Test WhileIdle" propname="catalogDsTestWhileIdle" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Eviction Interval" name="Pooled Data Source Eviction Interval" propname="catalogDsTimeBetweenEvictionRunsMillis" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Minimum Evictable Idle Time" name="Pooled Data Source Minimum Evictable Idle Time" propname="catalogDsMinEvictableIdleTimeMillis" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Tests Per Eviction Run" name="Pooled Data Source Tests Per Eviction Run" propname="catalogDsNumTestsPerEvictionRun" sinceVersion="5.0" visibility="Advanced">
+				<ConfNum default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Default AutoCommit" name="Pooled Data Source Default AutoCommit" propname="catalogDsDefaultAutoCommit" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Rollback On Return" name="Pooled Data Source Rollback On Return" propname="catalogDsRollbackOnReturn" sinceVersion="2.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Commit On Return" name="Pooled Data Source Commit On Return" propname="catalogDsCommitOnReturn" sinceVersion="2.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Pooled Database Custom Property" name="Pooled Database Custom Property" propname="catalogDsCustomProperty" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="" value=""/>
+			</ConfValue>
+
+		</Category>
+		<Category description="Persistence" name="Persistence" visibility="Basic">
+			<ConfValue description="Database Type. Allowed values are oracle or postgres" name="Database Type" propname="databaseType" readonly="false" sinceVersion="3.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="postgres"/>
+					<EnumValue value="oracle"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Hibernate Dialect" name="com.tibco.af.hibernate.dialect" propname="hibernateDialect" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" value="org.hibernate.dialect.PostgreSQLDialect"/>
+					<EnumValue value="org.hibernate.dialect.Oracle10gDialect"/>				
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Hibernate Show SQL" name="hibernate.show_sql" propname="catalogHibernateShowSql" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+		</Category>
+		<Category description="Time Dependency" name="Time Dependency" visibility="Basic">
+			<ConfValue description="Time Dependency Buffer Interval in seconds" isHotDeployable="true" name="Time Dependency Buffer Interval in seconds" propname="timedep.bufferInterval" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="1" value="1"/>
+			</ConfValue>
+			<ConfValue description="Time Dependency Row Process Count" isHotDeployable="true" name="Time Dependency Row Process Count" propname="timedep.numRows" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Time Dependency Polling Interval in milliseconds" isHotDeployable="true" name="Time Dependency Polling Interval in milliseconds" propname="timedep.pollingInterval" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="10000" value="10000"/>
+			</ConfValue>
+		</Category>
+		<Category description="Application Security" name="Application Security" visibility="Advanced">
+			<ConfValue description="Enable User Name token based Security" name="Enable User Name token based Security" propname="com.tibco.af.oms.webservice.security.userNameTokenBased" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Enable Schema validation" name="Enable Schema validation" propname="com.tibco.af.oms.webservice.schema.validation" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Default Authentication Provider" isHotDeployable="false" name="Default User Credential Store" propname="com.tibco.af.oms.security.authProvider" readonly="true" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="defaultAuthenticationProvider" value="defaultAuthenticationProvider"/>
+			</ConfValue>
+			<ConfValue description="Authentication Service Username" name="Authentication Service Username" propname="authorization.service.username" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="apiUser" value="apiUser"/>
+			</ConfValue>
+			<ConfValue description="Authentication Service Password" name="Authentication Service Password" propname="authorization.service.password" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="apiUser" value="ENC(6HXFDtL/6VA=)"/>
+			</ConfValue>
+		</Category>
+		<Category description="Redis Data Source Configuration" name="Redis Data Source Configuration" visibility="Basic">
+			<ConfValue description="Redis Server Host for Storing Order Related Information" isHotDeployable="true" name="Redis Server Host for Storing Order Related Information" propname="orderRedisHost" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="localhost" value="localhost"/>
+			</ConfValue>
+			<ConfValue description="Redis Server Port for Storing Order Related Information" isHotDeployable="true" name="Redis Server Port for Storing Order Related Information" propname="orderRedisPort" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6379" value="6379"/>
+			</ConfValue>
+			<ConfValue description="Redis Server Host for Storing Order Statistics" isHotDeployable="true" name="Redis Server Host for Storing Order Statistics" propname="redisStatsHost" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="localhost" value="localhost"/>
+			</ConfValue>
+			<ConfValue description="Redis Server Port for Storing Order Statistics" isHotDeployable="true" name="Redis Server Port for Storing Order Statistics" propname="redisStatsPort" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6379" value="6379"/>
+			</ConfValue>
+			<ConfValue description="Redis Server Host for Storing Catalog Models" isHotDeployable="true" name="Redis Server Host for Storing Catalog Models" propname="catalogRedisHost" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="localhost" value="localhost"/>
+			</ConfValue>
+			<ConfValue description="Redis Server Port for Storing Catalog Models" isHotDeployable="true" name="Redis Server Port for Storing Catalog Models" propname="catalogRedisPort" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6379" value="6379"/>
+			</ConfValue>
+			<ConfValue description="Whether redis for Catalog Related Information is running in Cluster Mode" isHotDeployable="true" name="clusterEnabledForCatalog" propname="redisClusterEnabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Whether redis for Order Related Information is running in Cluster Mode" isHotDeployable="true" name="clusterEnabledForOrder" propname="redisClusterEnabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Test On Borrow" isHotDeployable="true" name="Test On Borrow" propname="redisTestOnBorrow" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Test On Return" isHotDeployable="true" name="Test On Return" propname="redisTestOnReturn" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Test While Idle" isHotDeployable="true" name="Test While Idle" propname="redisTestWhileIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Block When Exhausted" isHotDeployable="true" name="Block When Exhausted" propname="redisBlockedWhenExhausted" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="JMX Enabled" isHotDeployable="true" name="JMX Enabled" propname="redisJmxEnabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="LIFO" isHotDeployable="true" name="LIFO" propname="redisLifo" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Max Idle" isHotDeployable="true" name="Max Idle" propname="redisMaxIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="64" value="64"/>
+			</ConfValue>
+			<ConfValue description="Min Idle" isHotDeployable="true" name="Min Idle" propname="redisMinIdle" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="16" value="16"/>
+			</ConfValue>
+			<ConfValue description="Max Total" isHotDeployable="true" name="Max Total" propname="redisMaxTotal" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="64" value="64"/>
+			</ConfValue>
+			<ConfValue description="Number of Test Eviction Per Run" isHotDeployable="true" name="Number of Test Eviction Per Run" propname="redisNumTestsPerEvictionRun" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Soft Min Evictable Idle Time Millis" isHotDeployable="true" name="Soft Min Evictable Idle Time Millis" propname="redisSoftMinEvictableIdleTimeMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="3000" value="3000"/>
+			</ConfValue>
+			<ConfValue description="Min Evictable Idle Time Millis" isHotDeployable="true" name="Min Evictable Idle Time Millis" propname="redisMinEvictableIdleTimeMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="6000" value="6000"/>
+			</ConfValue>
+			<ConfValue description="Time Between Eviction Runs Millis" isHotDeployable="true" name="Time Between Eviction Runs Millis" propname="redisTimeBetweenEvictionRunsMillis" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="3000" value="3000"/>
+			</ConfValue>
+		</Category>
+		<Category description="Lock Configuration" name="Lock Configuration" visibility="Basic">
+			<ConfValue description="Default Lock Timeout" isHotDeployable="true" name="Default Lock Timeout" propname="lockManager.defaultLockTimeout" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="60" value="60"/>
+			</ConfValue>
+			<ConfValue description="Lock Retry Count" isHotDeployable="true" name="Lock Retry Count" propname="lockManager.lockRetryCount" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="0" value="0"/>
+			</ConfValue>
+			<ConfValue description="Lock Retry Interval" isHotDeployable="true" name="Lock Retry Interval" propname="lockManager.lockRetryInterval" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="2" value="2"/>
+			</ConfValue>			
+			<ConfValue description="Lock Retry Delay Offset Count" isHotDeployable="true" name="Lock Retry Delay Offset Count" propname="lockManager.lockRetryDelayOffsetCount" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>			
+			<ConfValue description="Number of Threads in Thread Schedular" isHotDeployable="true" name="Number of Threads in Thread Schedular" propname="lockManager.numThreads" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="100" value="100"/>
+			</ConfValue>			
+			<ConfValue description="Lock Schedular Pre Run Time" isHotDeployable="true" name="Lock Schedular Pre Run Time" propname="lockManager.lockSchedularPreRunTime" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="10" value="10"/>
+			</ConfValue>			
+			<ConfValue description="Hashcode Distribution Index Size" isHotDeployable="true" name="Hashcode Distribution Index Size" propname="lockManager.hashCodeIndexDistributionSize" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="1024" value="1024"/>
+			</ConfValue>
+		</Category>
+	</Cluster>
+</Configuration>
+<!-- Copyright (c) 2017-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

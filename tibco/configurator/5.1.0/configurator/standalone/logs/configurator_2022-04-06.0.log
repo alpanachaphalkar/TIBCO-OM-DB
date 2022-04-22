@@ -1,0 +1,262 @@
+2022-04-06 07:57:58,936  INFO [] [] [] [com.tibco.fom.configShare.ShareConfiguration] [upload]
+                - [ThreadID:1] Uploading config files to db ... 
+2022-04-06 07:59:32,464  INFO [] [] [] [com.tibco.fom.configShare.ShareConfiguration] [upload]
+                - [ThreadID:1] Uploading config files to db ... 
+2022-04-06 07:59:32,782  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/aopd_config.xml 
+2022-04-06 07:59:32,795  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/aopd_config.xml 
+2022-04-06 07:59:32,809  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/ConfigFiles.props 
+2022-04-06 07:59:32,814  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/ConfigFiles.props 
+2022-04-06 07:59:34,076  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##nonexecutingPlanfragmentID  
+2022-04-06 07:59:34,322  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.affinity.affinityudfnamemerge  
+2022-04-06 07:59:34,323  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.affinity.characterisitcswithoutaffinitypostfix  
+2022-04-06 07:59:34,324  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.skipitemsequence  
+2022-04-06 07:59:34,324  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.affinity.mergeaffinityitemdescription  
+2022-04-06 07:59:34,325  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.singleuse.hierarchysingleuse  
+2022-04-06 07:59:34,325  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.affinity.enableaffinityudfparent  
+2022-04-06 07:59:34,327  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.udflist  
+2022-04-06 07:59:34,328  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.enablebidirectionallinkid  
+2022-04-06 07:59:34,328  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.amendment.enablemodificationidentifyingattribute  
+2022-04-06 07:59:34,329  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.amendment.noDependencyInCOMPPlanItems  
+2022-04-06 07:59:34,329  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.amendment.dateshiftcompredo  
+2022-04-06 07:59:34,330  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.amendment.compensateRestartForNoEPMRChar  
+2022-04-06 07:59:34,330  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.allowmultiplerequiredproducts  
+2022-04-06 07:59:34,331  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.ignorepdofirstchilddependency  
+2022-04-06 07:59:34,331  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.handleconflict  
+2022-04-06 07:59:34,332  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.includeonlyproductorderline  
+2022-04-06 07:59:34,332  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.includeproductmodelcharacteristics  
+2022-04-06 07:59:34,333  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.enableparentidudfcheck  
+2022-04-06 07:59:34,333  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.disableParentItemsDependencyImpact  
+2022-04-06 07:59:34,334  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.disableAffinityBrokeUDFImpact  
+2022-04-06 07:59:34,403  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for aopd 
+2022-04-06 07:59:34,452  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for archival 
+2022-04-06 07:59:34,503  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for catalog 
+2022-04-06 07:59:34,535  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for common 
+2022-04-06 07:59:34,579  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for dataservice 
+2022-04-06 07:59:34,631  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for jeopardy 
+2022-04-06 07:59:34,687  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for migration 
+2022-04-06 07:59:34,724  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for omsui 
+2022-04-06 07:59:34,747  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##overridePlanfragmentDestination  
+2022-04-06 07:59:34,748  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##tenantSpecificDestination  
+2022-04-06 07:59:34,749  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.fom.orch.noreciprocalaction.planfragmentID  
+2022-04-06 07:59:34,836  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for orch 
+2022-04-06 07:59:34,858  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for tmf 
+2022-04-06 07:59:34,870  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/customDomainExt.xml 
+2022-04-06 07:59:34,882  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/customDomainExt.xml 
+2022-04-06 07:59:34,895  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_aopd.xml 
+2022-04-06 07:59:34,901  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_aopd.xml 
+2022-04-06 07:59:34,910  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_arch.xml 
+2022-04-06 07:59:34,915  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_arch.xml 
+2022-04-06 07:59:34,924  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_catalog.xml 
+2022-04-06 07:59:34,928  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_catalog.xml 
+2022-04-06 07:59:34,938  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_dataservice.xml 
+2022-04-06 07:59:34,943  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_dataservice.xml 
+2022-04-06 07:59:34,952  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_jeopardy.xml 
+2022-04-06 07:59:34,957  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_jeopardy.xml 
+2022-04-06 07:59:34,967  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_migration.xml 
+2022-04-06 07:59:34,972  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_migration.xml 
+2022-04-06 07:59:34,983  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_orch.xml 
+2022-04-06 07:59:34,988  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_orch.xml 
+2022-04-06 07:59:34,998  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_tmf.xml 
+2022-04-06 07:59:35,002  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_tmf.xml 
+2022-04-06 07:59:35,012  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/OMSUILog4j.xml 
+2022-04-06 07:59:35,016  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/OMSUILog4j.xml 
+2022-04-06 07:59:35,027  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/OMSUILog4j.xml 
+2022-04-06 07:59:35,031  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/OMSUILog4j.xml 
+2022-04-06 07:59:35,043  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/ProcessComponent.props 
+2022-04-06 07:59:35,049  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/ProcessComponent.props 
+2022-04-06 07:59:35,061  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/tibeds_config.xml 
+2022-04-06 07:59:35,067  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/tibeds_config.xml 
+2022-04-06 14:53:37,526  INFO [] [] [] [com.tibco.fom.configShare.ShareConfiguration] [upload]
+                - [ThreadID:1] Uploading config files to db ... 
+2022-04-06 14:53:38,007  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/aopd_config.xml 
+2022-04-06 14:53:38,058  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/aopd_config.xml 
+2022-04-06 14:53:38,074  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/ConfigFiles.props 
+2022-04-06 14:53:38,081  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/ConfigFiles.props 
+2022-04-06 14:53:39,145  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##nonexecutingPlanfragmentID  
+2022-04-06 14:53:39,372  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.affinity.affinityudfnamemerge  
+2022-04-06 14:53:39,372  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.affinity.characterisitcswithoutaffinitypostfix  
+2022-04-06 14:53:39,373  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.skipitemsequence  
+2022-04-06 14:53:39,374  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.affinity.mergeaffinityitemdescription  
+2022-04-06 14:53:39,374  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.singleuse.hierarchysingleuse  
+2022-04-06 14:53:39,375  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.affinity.enableaffinityudfparent  
+2022-04-06 14:53:39,376  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.udflist  
+2022-04-06 14:53:39,378  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.enablebidirectionallinkid  
+2022-04-06 14:53:39,379  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.amendment.enablemodificationidentifyingattribute  
+2022-04-06 14:53:39,380  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.amendment.noDependencyInCOMPPlanItems  
+2022-04-06 14:53:39,380  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.amendment.dateshiftcompredo  
+2022-04-06 14:53:39,381  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.amendment.compensateRestartForNoEPMRChar  
+2022-04-06 14:53:39,381  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.allowmultiplerequiredproducts  
+2022-04-06 14:53:39,382  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.ignorepdofirstchilddependency  
+2022-04-06 14:53:39,382  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.handleconflict  
+2022-04-06 14:53:39,383  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.includeonlyproductorderline  
+2022-04-06 14:53:39,383  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.includeproductmodelcharacteristics  
+2022-04-06 14:53:39,384  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.enableparentidudfcheck  
+2022-04-06 14:53:39,384  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.disableParentItemsDependencyImpact  
+2022-04-06 14:53:39,385  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.af.aopd.flags.disableAffinityBrokeUDFImpact  
+2022-04-06 14:53:39,512  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for aopd 
+2022-04-06 14:53:39,582  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for archival 
+2022-04-06 14:53:39,660  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for catalog 
+2022-04-06 14:53:39,700  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for common 
+2022-04-06 14:53:39,750  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for dataservice 
+2022-04-06 14:53:39,829  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for jeopardy 
+2022-04-06 14:53:39,901  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for migration 
+2022-04-06 14:53:39,941  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for omsui 
+2022-04-06 14:53:39,961  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##overridePlanfragmentDestination  
+2022-04-06 14:53:39,962  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##tenantSpecificDestination  
+2022-04-06 14:53:39,963  INFO [] [] [] [com.tibco.om.configtransform.BasicXMLConfigurationTransformer] []
+                - Found tenant specific property tnt##com.tibco.fom.orch.noreciprocalaction.planfragmentID  
+2022-04-06 14:53:40,064  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for orch 
+2022-04-06 14:53:40,089  INFO [] [] [] [com.tibco.om.configtransform.DBConfigWriter] []
+                - Configuration saved for tmf 
+2022-04-06 14:53:40,101  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/customDomainExt.xml 
+2022-04-06 14:53:40,106  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/customDomainExt.xml 
+2022-04-06 14:53:40,118  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_aopd.xml 
+2022-04-06 14:53:40,123  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_aopd.xml 
+2022-04-06 14:53:40,134  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_arch.xml 
+2022-04-06 14:53:40,139  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_arch.xml 
+2022-04-06 14:53:40,149  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_catalog.xml 
+2022-04-06 14:53:40,157  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_catalog.xml 
+2022-04-06 14:53:40,167  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_dataservice.xml 
+2022-04-06 14:53:40,174  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_dataservice.xml 
+2022-04-06 14:53:40,186  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_jeopardy.xml 
+2022-04-06 14:53:40,193  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_jeopardy.xml 
+2022-04-06 14:53:40,203  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_migration.xml 
+2022-04-06 14:53:40,209  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_migration.xml 
+2022-04-06 14:53:40,221  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_orch.xml 
+2022-04-06 14:53:40,228  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_orch.xml 
+2022-04-06 14:53:40,239  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_tmf.xml 
+2022-04-06 14:53:40,244  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/logback_tmf.xml 
+2022-04-06 14:53:40,254  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/OMSUILog4j.xml 
+2022-04-06 14:53:40,260  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/OMSUILog4j.xml 
+2022-04-06 14:53:40,268  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/OMSUILog4j.xml 
+2022-04-06 14:53:40,272  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/OMSUILog4j.xml 
+2022-04-06 14:53:40,282  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/ProcessComponent.props 
+2022-04-06 14:53:40,286  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/ProcessComponent.props 
+2022-04-06 14:53:40,296  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Saving file  =>file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/tibeds_config.xml 
+2022-04-06 14:53:40,302  INFO [] [] [] [com.tibco.fom.configShare.RelationalRepository] [save]
+                - [ThreadID:1] Updating file successful => file:///opt/tibco/om/5.1/roles/configurator/standalone/bin/../config/tibeds_config.xml 

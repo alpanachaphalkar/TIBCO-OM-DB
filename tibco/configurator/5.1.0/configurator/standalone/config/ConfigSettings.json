@@ -1,0 +1,21 @@
+[{
+  "visibility": {
+    "showHiddenCategory": true,
+    "showHiddenProperty": true
+  },
+  "queueVendor": {
+    "valueOpts": [
+     "TIBCO",
+     "Websphere MQ"
+    ],
+    "value": "TIBCO"
+  },
+  "deploymentTargets": {
+    "valueOpts": [
+	"Router Configuration",
+	"Application Security",
+	"Order Summary Data Collection Method",
+	"Execution Plan Rebuild Schedule"
+    ]
+  }
+}]

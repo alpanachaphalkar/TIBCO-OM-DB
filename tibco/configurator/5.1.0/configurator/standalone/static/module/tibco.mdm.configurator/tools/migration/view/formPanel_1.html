@@ -1,0 +1,58 @@
+<div  ng-controller="configurator.controller.tools.migration.formPanel1">
+  <form name="specForm">
+    <div class="dialog-form sepcifyUpdateDatails">
+      <div class="dialog-title">
+        <h3>{{local.dialogTitle}}</h3>
+        <h6>{{local.dialogSubTitle}}</h6>
+      </div>
+      <div class="dialog-title">
+        <h3>{{local.newInstallation}}</h3>
+      </div>
+      <div class="dialog-content">
+        <div class="control-group">
+          <label for="" class="control-label">{{local.location}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.location"></i></label>
+          <input type="text" name="newVersionPath" class="control-input input-block-level" ng-model="migrationDetails.migrationWizard.newVersion.installedPath" required>
+          <label for="" class="control-label">{{local.version}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.version"></i></label>
+          <select ng-model="migrationDetails.migrationWizard.newVersion.version.value" ng-options="value for value in migrationDetails.migrationWizard.newVersion.version.valueOpt"></select>
+          <label for="" class="control-label">{{local.GDSNEnabled}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.GDSNEnabled"></i></label>
+          <div class="controls">
+            <label for="" class="radio inline">
+              <input type="radio" name="GDSNNew" id="optionsRadio1" ng-disabled="true" ng-model="migrationDetails.migrationWizard.newVersion.GDSN" value="true" required>{{local.GDSNEnabledCheckboxYes}}
+            </label>
+            <label for="" class="radio inline">
+              <input type="radio" name="GDSNNew" id="optionsRadio2" ng-disabled="true" ng-model="migrationDetails.migrationWizard.newVersion.GDSN" value="false" required>{{local.GDSNEnabledCheckboxNo}}
+            </label>
+          </div>
+
+        </div>
+        <div class="control-group label-inline form-horizontal"></div>
+      </div>
+      <div class="dialog-title">
+        <h3>{{local.preVersion}}</h3>
+      </div>
+      <div class="dialog-content">
+        <div class="control-group">
+          <label for="" class="control-label">{{local.location}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.preLocation"></i></label>
+          <input type="text" name="preVersionPath" ng-model="migrationDetails.migrationWizard.previousVersion.installedPath" style="width: 630px;" />
+          <button ng-click="doBrowse()" class="cfg_butt browserButt">{{local.browse}}</button>
+          <label for="" class="control-label">{{local.version}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.preVersion"></i></label>
+          <select ng-model="migrationDetails.migrationWizard.previousVersion.version.value" ng-options="value for value in migrationDetails.migrationWizard.previousVersion.version.valueOpt"></select>
+          <label for="" class="control-label">{{local.GDSNEnabled}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.preGDSNEnable"></i></label>
+          <div class="controls">
+            <label for="" class="radio inline">
+              <input type="radio" name="GDSNPrevious" id="optionsRadio1" ng-model="migrationDetails.migrationWizard.previousVersion.GDSN" value="true" required>{{local.GDSNEnabledCheckboxYes}}
+            </label>
+            <label for="" class="radio inline">
+              <input type="radio" name="GDSNPrevious" id="optionsRadio2" ng-model="migrationDetails.migrationWizard.previousVersion.GDSN" value="false" required>{{local.GDSNEnabledCheckboxNo}}
+            </label>
+          </div>
+        </div>
+        <div class="control-group label-inline form-horizontal"></div>
+      </div>
+    </div>
+    <div class="form_buttons">
+      <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+      <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+    </div>
+  </form>
+</div>

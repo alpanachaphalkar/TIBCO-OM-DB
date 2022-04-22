@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration description="The Initial Configuration Setup for Archival Service" displayName="Archival Service" name="Archival Service" xmlns="http://www.tibco.com/af/config/confbeans/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tibco.com/af/config/confbeans/1.0">
+	<Cluster>
+		<Category description="Archival Engine Configuration" name="Archival Engine Configuration" visibility="Basic">
+			<ConfValue description="Logging Configuration File Path" isHotDeployable="true" name="Logging Configuration File Path" propname="logging.config" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="config/logback_arch.xml" value="config/logback_arch.xml"/>
+			</ConfValue>
+			<ConfValue description="Enable Order Purging Post Order Completion" isHotDeployable="true" name="Enable Order Purging Post Order Completion" propname="enablePurgeCompleteOrder" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>			
+			<ConfValue description="" isHotDeployable="true" name="Order UDF Search Keys" propname="com.tibco.archival.order.udf.searchkeys" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfList>
+					<ConfListString value="OrderUDF"/> 
+				</ConfList>
+			</ConfValue>
+			<ConfValue description="" isHotDeployable="true" name="Order Line UDF Search Keys" propname="com.tibco.archival.orderline.udf.searchkeys" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfList>
+					<ConfListString value="test"/> 
+				</ConfList>
+			</ConfValue>
+			<ConfValue description="" isHotDeployable="true" name="Order Executable States" propname="com.tibco.archival.order.states" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfList>
+					<ConfListString value="Execution"/> 
+					<ConfListString value="Blocked"/> 
+					<ConfListString value="Complete"/>
+					<ConfListString value="Cancelled"/>
+					<ConfListString value="Withdrawn"/>
+					<ConfListString value="OPD"/> 
+					<ConfListString value="Suspended"/>
+					<ConfListString value="Cancelled"/>
+					<ConfListString value="Prequalificationfailed"/>
+					<ConfListString value="Feasibility"/> 
+				</ConfList>
+			</ConfValue>
+			<ConfValue description="Orchestrator Interaction Mode" isHotDeployable="true" name="Orchestrator Interaction Mode" propname="orchInteractionMode" readonly="false" sinceVersion="5.0" visibility="Basic">
+
+					<ConfString default="true" value="JMS"/>
+
+			</ConfValue>
+			<ConfValue description="Application name to show on actuator info endpoint" isHotDeployable="false" name="Application Name" propname="info.app.name" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="Archival Service" value="Archival Service"/>
+			</ConfValue>
+		</Category>
+		<Category description="Archival Database Configurations" name="Archival Database Configurations" visibility="Basic">
+			<ConfValue description="Data Source Driver Name" isHotDeployable="true" name="Data Source Driver Name" propname="datasourceDriverClassName" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="org.postgresql.Driver"/>
+					<EnumValue value="oracle.jdbc.driver.OracleDriver"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Data Source URL" isHotDeployable="false" name="Data Source URL" propname="archivalDsUrl" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue selected="true" default="true" value="jdbc:postgresql://localhost:5432/archivaldbll?currentSchema=archivalschemall"/>
+					<EnumValue  value="jdbc:oracle:thin:@//localhost:1521/orcl.apac.tibco.com"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Data Source Username" isHotDeployable="true" name="Data Source Username" propname="archivalDsUsername" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="archivaluserll" value="archivaluserll"/>
+			</ConfValue>
+			<ConfValue description="Data Source Password" isHotDeployable="true" name="Data Source Password" propname="archivalDsPassword" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="archivaluserll" isPassword="true"  value="archivaluserll"/>
+			</ConfValue>
+			<ConfValue description="Hibernate Dialect" isHotDeployable="true" name="Hibernate Dialect" propname="hibernateDialect" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="org.hibernate.dialect.PostgreSQLDialect"/>
+					<EnumValue  value="org.hibernate.dialect.Oracle10gDialect"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Enable Hibernate Metadata Defaults" isHotDeployable="true" name="Enable Hibernate Metadata Defaults" propname="hibernateDsDefaults" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Enable Hibernate Show Queries" isHotDeployable="true" name="Enable Hibernate Show Queries" propname="archivalHibernateShowSql" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Number of connections that will be established when the connection pool is started." isHotDeployable="true" name="Connection Pool Size" propname="archivalDsInitialSize" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="10" value="10"/>
+			</ConfValue>
+			<ConfValue description="Maximum number of milliseconds that the pool will wait (when there are no available connections and the getMaxActive has been reached) for a connection to be returned before throwing an exception." isHotDeployable="true" name="Max Wait Time" propname="archivalDsMaxWait" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="30000" value="30000"/>
+			</ConfValue>
+			<ConfValue description="Maximum number of active connections that can be allocated from this pool at the same time." isHotDeployable="true" name="Max Active Time" propname="archivalDsMaxActive" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="100" value="100"/>
+			</ConfValue>
+			<ConfValue description="Maximum number of connections that should be kept in the idle pool." isHotDeployable="true" name="Max Connections in the Idle Pool" propname="archivalDsMaxIdle" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="100" value="100"/>
+			</ConfValue>
+			<ConfValue description="Minimum number of established connections that should be kept in the pool at all times." isHotDeployable="true" name="Min Connections in the Pool" propname="archivalDsMinIdle" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="10" value="10"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Query" name="Pooled Data Source Validation Query" propname="datasourceValidationQuery" sinceVersion="1.1" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue  default="true" selected="true"  value="SELECT 1"/>
+					<EnumValue value="SELECT 1 from dual"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Test OnBorrow" name="Pooled Data Source Test OnBorrow" propname="archivalDsTestOnBorrow" sinceVersion="1.1" visibility="Advanced">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Pooled Data Source Validation Interval" name="Pooled Data Source Validation Interval" propname="archivalDsValidationInterval" sinceVersion="1.1" visibility="Advanced">
+				<ConfString default="5000" value="5000"/>
+			</ConfValue>
+		</Category>
+		<Category description="Orchestrator Configuration" name="Orchestrator Configuration" visibility="Basic">
+			<ConfValue description="Orchestrator Web Service Archival Service URL" name="Orchestrator Web Service Archival Service URL" propname="orderArchivalserviceUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/order/archival" value="http://localhost:9093/v1/order/archival"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Web Service Amend Order URL" name="Orchestrator Web Service Amend Order URL" propname="orderOrchAmendOrderUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/amend" value="http://localhost:9093/v1/amend"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Web Service Suspend Order URL" name="Orchestrator Web Service Suspend Order URL" propname="orderOrchSuspendOrderUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/order/suspend" value="http://localhost:9093/v1/order/suspend"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Web Service Activate Order URL" name="Orchestrator Web Service Activate Order URL" propname="orderOrchActivateOrderUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/order/activate" value="http://localhost:9093/v1/order/activate"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Web Service Cancel Order URL" name="Orchestrator Web Service Cancel Order URL" propname="orderOrchCancelOrderUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/order/cancel" value="http://localhost:9093/v1/order/cancel"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Web Service Withdraw Order URL" name="Orchestrator Web Service Withdraw Order URL" propname="orderOrchWithdrawOrderUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/order" value="http://localhost:9093/v1/order"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Web Service Bulk Order Action URL" name="Orchestrator Web Service Bulk Order Action URL" propname="orderOrchBulkActionUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/orders/bulkaction" value="http://localhost:9093/v1/orders/bulkaction"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Web Service Plan Preview URL" name="Orchestrator Web Service Plan Preview URL" propname="orderOrchPlanPreviewUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/planPreview" value="http://localhost:9093/v1/planPreview"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Web Service Purge Order URL" name="Orchestrator Web Service Purge Order URL" propname="orderPurgeOrderUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/order/purgeOrder" value="http://localhost:9093/v1/order/purgeOrder"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Web Service Error Handler Order URL" name="Orchestrator Web Service Error Handler Order URL" propname="orderErrorHandlerreplyUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/planitem/errorHandlerreply" value="http://localhost:9093/v1/planitem/errorHandlerreply"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Web Service BulkError Handler Order URL" name="Orchestrator Web Service BulkError Handler Order URL" propname="orderBulkErrorHandlerreplyUrl" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9093/v1/planitem/bulkErrorHandlerreply" value="http://localhost:9093/v1/planitem/bulkErrorHandlerreply"/>
+			</ConfValue>
+		</Category>
+		<Category description="Application Security Configurations" name="Application Security Configurations" visibility="Basic">
+			<ConfValue description="User Role for orderSummary Service" isHotDeployable="true" name="User Role for orderSummary Service" propname="operation.roles.orderSummary" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+			<ConfValue description="User Role for ordersByCriteria Service" isHotDeployable="true" name="User Role for ordersByCriteria Service" propname="operation.roles.ordersByCriteria" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+			<ConfValue description="User Role for orderByQueryFilter Service" isHotDeployable="true" name="User Role for orderByQueryFilter Service" propname="operation.roles.orderByQueryFilter" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+			<ConfValue description="User Role for orderDetails Service" isHotDeployable="true" name="User Role for orderDetails Service" propname="operation.roles.orderDetails" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+			<ConfValue description="User Role for executionPlanbyQueryFilter Service" isHotDeployable="true" name="User Role for executionPlanbyQueryFilter Service" propname="operation.roles.executionPlanbyQueryFilter" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+			<ConfValue description="User Role for enrichedPlanByPlanId Service" isHotDeployable="true" name="User Role for enrichedPlanByPlanId Service" propname="operation.roles.enrichedPlanByPlanId" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+			<ConfValue description="User Role for auditTrailForOrder Service" isHotDeployable="true" name="User Role for auditTrailForOrder Service" propname="operation.roles.auditTrailForOrder" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+			<ConfValue description="User Role for auditTrailForPlan Service" isHotDeployable="true" name="User Role for auditTrailForPlan Service" propname="operation.roles.auditTrailForPlan" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN,ROLE_USER" value="ROLE_ADMIN,ROLE_USER"/>
+			</ConfValue>
+		</Category>
+		<Category description="Authorization Server Configuration Properties Used for Swagger UI" name="Authentication Server Configuration Properties Used for Swagger UI" visibility="Basic">
+			<ConfValue description="Authentication Service Username" name="Authentication Service Username" propname="authorization.service.username" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="apiUser" value="apiUser"/>
+			</ConfValue>
+			<ConfValue description="Authentication Service Password" name="Authentication Service Password" propname="authorization.service.password" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="apiUser" value="ENC(6HXFDtL/6VA=)"/>
+			</ConfValue>
+		</Category>
+		<Category description="JMS Configurations for Orchestrator - Archival Communication" name="Messaging Configurations" visibility="Basic">
+			<ConfValue description="JMS Server URL" isHotDeployable="true" name="JMS Server URL" propname="emsServerURL" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tcp://localhost:7222" value="tcp://localhost:7222"/>
+			</ConfValue>
+			<ConfValue description="For SSL Configuration value should be ssl" name="Constant that holds the name of the environment property for specifying the security protocol to use in Tibjms JNDI lookups." propname="securityProtocol" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="For SSL enable verify host value should be false" name="Constant that holds the name of SSL property specifying if client should verify the server certificate in Tibjms JNDI lookups." propname="sslEnableVerifyHost" sinceVersion="2.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="JMS Server User Name" isHotDeployable="true" name="JMS Server User Name" propname="emsServerUsername" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" value="admin"/>
+			</ConfValue>
+			<ConfValue description="JMS Server Password" isHotDeployable="true" name="JMS Server Password" propname="emsServerPassword" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" isPassword="true"  value="admin"/>
+			</ConfValue>
+			<ConfValue description="JNDI Connection Factory Name" name="JNDI Connection Factory Name" propname="jndiConnectionFactory" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="GenericConnectionFactory" value="GenericConnectionFactory"/>
+			</ConfValue>
+			<ConfValue description="Initializing Context Factory Name" name="Initializing Context Factory Name" propname="initialContextFactory" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="com.tibco.tibjms.naming.TibjmsInitialContextFactory" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+			</ConfValue>
+			<ConfValue description="Keep JMS Session Transacted" name="Keep JMS Session Transacted" propname="jmsSessionTransacted" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="JMS Receive Calls Timeout" name="JMS Receive Calls Timeout" propname="timeoutMillis" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="10000" value="10000"/>
+			</ConfValue>
+			<ConfValue description="JMS Concurrent Consumers" name="JMS Concurrent Consumers" propname="concurrentEmsConsumers" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Notification Destination Queue" name="Orchestrator Notification Destination Queue" propname="archivalNotificationQueue" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.archival.notification" value="tibco.aff.orchestrator.archival.notification"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Notification Dead Queue" name="Orchestrator Notification Dead Queue" propname="archivalNotificationDeadQueue" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="tibco.aff.orchestrator.archival.notification.dead" value="tibco.aff.orchestrator.archival.notification.dead"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Notification Redelivery Count" name="Orchestrator Notification Redelivery Count" propname="archivalNotificationRedeliveryCount" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5" value="5"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator Notification Receiver Count" name="Orchestrator Notification Receiver Count" propname="archivalNotificationReceiverCount" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="1" value="1"/>
+			</ConfValue>
+		</Category>
+	</Cluster>
+</Configuration>
+<!-- Copyright (c) 2017-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

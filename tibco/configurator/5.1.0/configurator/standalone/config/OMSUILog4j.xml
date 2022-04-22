@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration packages="com.tibco.aff.logclient.customappenders">
+	<Appenders>
+	
+		<Console name="console" target="SYSTEM_OUT">
+			<ThresholdFilter level="${env:log_console_level}" onMatch="ACCEPT" onMismatch="DENY"/>
+			<PatternLayout pattern="%d{MMM dd yyyy HH:mm:ss,SSS} %-5p %c - %m%n"/>
+		</Console>
+	
+		<RollingFile name="LocalLogFileAppender" fileName="logs/omsui-local.log" filePattern="logs/omsui-local-%i.log">
+			<PatternLayout>
+				<pattern>%d{dd MMM yyyy HH:mm:ss,SSS} %5p [%X{businessTransactionId}] [%X{orderRef}] [%X{component}] [%c] [%X{operation}] - %m %X{stackTrace}%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<SizeBasedTriggeringPolicy size="5MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="20"/>
+		</RollingFile> 
+ 	
+	</Appenders>
+	<Loggers>
+	
+		<Logger name="com.tibco.aff" level="INFO" additivity="false">
+			<appender-ref ref="console"/>
+			<appender-ref ref="LocalLogFileAppender"/>
+		</Logger>
+		
+		<Logger name="com.tibco.aff.ots.server.helper.OMSRestTemplate" level="ERROR" additivity="false">
+			<appender-ref ref="console"/>
+			<appender-ref ref="LocalLogFileAppender"/>
+		</Logger>
+		
+		<Logger name="com.tibco.aff.ots.server.rpc.OrderServiceImpl" level="ERROR" additivity="false">
+			<appender-ref ref="console"/>
+			<appender-ref ref="LocalLogFileAppender"/>
+		</Logger>
+
+		<Logger name="com.tibco.fom" level="INFO" additivity="false">
+			<appender-ref ref="console"/>
+			<appender-ref ref="LocalLogFileAppender"/>
+		</Logger>
+
+		<Logger name="com.tibco.aff.oms.config" level="INFO" additivity="false">
+			<appender-ref ref="console"/>
+			<appender-ref ref="LocalLogFileAppender"/>
+		</Logger>
+		
+		<Root level="ERROR">
+			<AppenderRef ref="console"/>
+			<AppenderRef ref="LocalLogFileAppender"/>
+		</Root>
+	
+	</Loggers>
+</Configuration>
+<!-- Copyright (c) 2017-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

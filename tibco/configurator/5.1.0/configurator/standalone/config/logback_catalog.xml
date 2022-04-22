@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+	<include resource="org/springframework/boot/logging/logback/base.xml"/>
+	<statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${log_console_level}</level>
+        </filter>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%date{ISO8601} %5p [%X{businessTransactionId}] [%X{orderRef}] [%X{engineName}] [%c] [%X{operation}] - %m %X{stackTrace}%n</pattern>
+		</encoder>
+	</appender>
+	<appender name="LocalLogFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>./logs/catalog-service.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover. Make sure the path matches the one in the file element or else
+             the rollover logs are placed in the working directory. -->
+			<fileNamePattern>./logs/catalog-service_%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<maxFileSize>5MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!-- keep 20 days' worth of history -->
+			<maxHistory>20</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%date{ISO8601} %5p [%X{businessTransactionId}] [%X{orderRef}] [%X{engineName}] [%c] [%X{operation}] - %m %X{stackTrace}%n</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="com.tibco.om" level="INFO" additivity="false">
+		<appender-ref ref="console"/>
+		<appender-ref ref="LocalLogFileAppender"/>
+	</logger>
+	<logger name="com.tibco.om.cpe.engine" level="INFO" additivity="false">
+		<appender-ref ref="console"/>
+		<appender-ref ref="LocalLogFileAppender"/>
+	</logger>
+	<root level="ERROR">
+		<appender-ref ref="console"/>
+		<appender-ref ref="LocalLogFileAppender"/>
+	</root>	
+</configuration>

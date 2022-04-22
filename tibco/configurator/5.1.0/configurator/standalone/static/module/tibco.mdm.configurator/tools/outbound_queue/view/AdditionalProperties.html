@@ -1,0 +1,42 @@
+<div ng-controller="configurator.controller.tools.outboundQueue.AdditionalProperties" id="AdditionalProperties">
+  <div class="dialog-form AdditionalProperties">
+    <div class="dialog-title">
+      <h3>{{local.title}}
+        <span>{{local.information}}</span>
+      </h3>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group label-inline form-horizontal">
+        <label class="control-label">{{local.scheme}}</label>
+        <label class="checkbox">
+          <input type="checkbox" ng-model="hasCommName" ng-change="overrideAction()"/> {{local.checkboxYes}}
+        </label>
+      </div>
+      <div class="control-group">
+        <label class="control-label">{{local.schemeName}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.schemeName"></i></label>
+        <input type="text" ng-model="data.baseDetails.pkgScheme" ng-disabled="!hasCommName" class="control-input input-block-level" />
+      </div>
+      <div class="control-group label-inline form-horizontal">
+        <label class="control-label">{{local.managerProperty}}</label>
+        <label class="checkbox">
+          <input type="checkbox" ng-model="data.baseDetails.inheritSender" ng-change="chooseInheritSender()"/> {{local.checkboxYes}}
+        </label>
+      </div>
+      <div class="control-group">
+        <label class="control-label">{{local.IOProcessTemplate}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.IOProcessTemplate"></i></label>
+        <select style="width : 100%;" ng-model="data.senderMngrJSON.destName" ng-options = "v for v in staticData.outboundIOProcessTemp"></select>
+      </div>
+      <div class="control-group label-inline form-horizontal">
+        <label class="control-label">{{local.useInternalTransport}}</label>
+        <label class="checkbox">
+          <input type="checkbox" ng-model="data.baseDetails.bypassComm" ng-change="chooseBypassComm()" /> {{local.checkboxYes}}
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+    <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+  </div>
+</div>

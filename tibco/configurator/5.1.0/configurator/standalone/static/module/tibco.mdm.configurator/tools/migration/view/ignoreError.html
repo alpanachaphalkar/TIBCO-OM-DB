@@ -1,0 +1,20 @@
+<div id="ignoreErrorMsg" ng-controller="configurator.controller.tools.migration.ignoreError">
+  <div ng-repeat="compnt in ignoreErrorMsg.component">
+    <div class="ignoreErrorDlgTop">{{compnt.componentName}} {{local.errorInformation}}</div>
+    <div class="ignoreErrorDlgContent">
+      <table>
+        <tr>
+          <td>{{local.logFileName}}</td>
+          <td>
+            <form action="MigrationWizard.do" method="post" target="_blank">
+              {{compnt.logFileName}}
+              <input type="hidden" name="action" value="download">
+              <input type="hidden" name="fileType" value="{{compnt.logFileName}}">
+              <button ng-disabled="!compnt.logFileName" type="submit" >{{local.open}}</button>
+            </form>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

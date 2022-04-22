@@ -1,0 +1,72 @@
+(function() {
+    var util = configurator.util;
+
+    util.createController("configurator.controller.tools.Change_OMS_Log_Level", [ "$scope", "$rootScope", "FrameDialog" ], function($scope, $rootScope, FrameDialog) {
+		
+        $scope.wizardData = {
+            title : "Change OMS Log Level",
+            forms : [ {
+                name : "Change OMS Log Level",
+                title : "Change OMS Log Level",
+                templateUrl : "module/externaljs/tibco.mdm.configurator/tools/Change_OMS_Log_Level/view/ChangeOmsLogLevel.html"
+            }]
+        };
+    }); 
+	
+	
+	util.createController("configurator.controller.tools.Change_OMS_Log_Level.ChangeOmsLogLevel", [ "$scope", "$rootScope", "UXWizard", "Constant", "UXI18N" ,"ConfiguratorService","MDMValidation" ], function($scope, $rootScope, UXWizard, Constant, UXI18N,ConfiguratorService,MDMValidation ) {
+	
+	
+		$scope.data = UXWizard.getData("dataOfSetup_Wizard") || {
+           values : {}
+        };
+		function doValidation(callback){
+            MDMValidation.doValidate([{
+                keys : [{
+                    key : "Package",
+                    value : "Package"
+                },{
+                    key : "Level",
+                    value : "Level"
+                },{
+                    key : "JMX_Host",
+                    value : "JMX Host"
+                },{
+                    key : "JMX_Port",
+                    value : "JMX Port"
+                },{
+                    key : "Username",
+                    value : "Username"
+                },{
+                    key : "Password",
+                    value : "Password"
+                }],
+                object: $scope.data.values,
+                required: true
+            }], function(){
+                callback();
+            }); 
+        }
+		$scope.options = ["DEBUG","INFO","WARN","ERROR","OFF"];
+		$scope.data.values.Level = $scope.options[1];
+        $scope.changeLogLevel = function() {
+		doValidation(function(){
+            ConfiguratorService.SetupDatabaseService({
+                    action: "changeLogLevel",
+                    values : angular.toJson($scope.data.values),
+                    dbaUser: false
+                }, "DatabaseSetup.do").then(function(data){
+                    UXWizard.showInfoBar("info", "Log Level changed");
+                },function(error){
+                    UXWizard.showInfoBar("error",error);
+                });
+			});
+        };
+		
+		$scope.cancelButtonClick = function() {
+            UXWizard.close();
+        };
+        
+    });
+
+}());

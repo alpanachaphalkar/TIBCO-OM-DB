@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" description="These properties will be loaded by all the Order Management Services" displayName="Order Management - General Configurations" name="General Configurations" xmlns="http://www.tibco.com/af/config/confbeans/1.0" xsi:schemaLocation="http://www.tibco.com/af/config/confbeans/1.0">
+	<Cluster>
+		<Category description="General Configurations" name="General Configurations" visibility="Basic">
+			<ConfValue description="Default Tenant ID" isHotDeployable="true" name="Default Tenant ID" propname="default.tenant.id" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="TIBCO" value="TIBCO"/>
+			</ConfValue>
+			<ConfValue description="enableSecureAPI " isHotDeployable="true" name="enableSecureAPI" propname="enableSecureAPI" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="true"/>
+					<EnumValue value="false"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pluggable Cache for Order Management " isHotDeployable="true" name="omPluggableCache" propname="omPluggableCache" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="Redis"/>
+					<EnumValue value="Relational"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Pluggable Cache for Catalog Management " isHotDeployable="true" name="cmPluggableCache" propname="cmPluggableCache" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="Redis"/>
+					<EnumValue value="Relational"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Start Configurator service for - OM or OPES" isHotDeployable="false" name="catalogMode" propname="catalogMode" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="OM" value="OM"/>
+			</ConfValue>
+		</Category>
+		<Category description="Management Actuator endpoint configurations" name="Actuator Configurations" visibility="Basic">
+			<ConfValue description="Web Endpoints to expose" isHotDeployable="true" name="Web Endpoints to expose" propname="management.endpoints.web.exposure.include" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="health,info,ready" value="health,info,ready"/>
+			</ConfValue>
+			<ConfValue description="Jmx Endpoints to expose" isHotDeployable="true" name="Jmx Endpoints to expose" propname="management.endpoints.jmx.exposure.include" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="*" value="*"/>
+			</ConfValue>
+			<ConfValue description="Endpoints base path" isHotDeployable="true" name="Endpoints base path" propname="management.endpoints.web.base-path" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="/management" value="/management"/>
+			</ConfValue>
+			<ConfValue description="Whether to enable the health endpoint" isHotDeployable="true" name="Enable health endpoint" propname="management.endpoints.health.enabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Show details on health endpoint" isHotDeployable="true" name="Show details on health endpoint" propname="management.endpoint.health.show-details" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="ALWAYS"/>
+					<EnumValue  value="NEVER"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="Enable default health indicators" isHotDeployable="true" name="Enable default health indicators" propname="management.health.defaults.enabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Whether to enable the info endpoint" isHotDeployable="true" name="Whether to enable the info endpoint" propname="management.endpoints.info.enabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Whether to enable the metrics endpoint" isHotDeployable="true" name="Enable metrics endpoint" propname="management.endpoints.metrics.enabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Whether to enable the Jolokia endpoint" isHotDeployable="true" name="Enable Jolokia endpoint" propname="management.endpoints.jolokia.enabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="Whether to enable the Spring Redis endpoint" isHotDeployable="true" name="Enable Spring Redis endpoint" propname="management.health.redis.enabled" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Application Version to display on info endpoint" isHotDeployable="true" name="Application Version" propname="info.app.version" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="5.1.0" value="5.1.0"/>
+			</ConfValue>
+		</Category>
+		<Category description="Authorization Server Configuration Properties Used for Swagger UI" name="Authentication Server Configuration Properties Used for Swagger UI" visibility="Basic">
+			<ConfValue description="Authorization Server OAuth URL" isHotDeployable="true" name="Authorization OAuth URL" propname="authorizationServiceTokenEndPoint" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9091/oauth/token" value="http://localhost:9091/oauth/token"/>
+			</ConfValue>
+			<ConfValue description="Authorized Client ID" isHotDeployable="true" name="Authorized Client ID" propname="authorization.client.id" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="order-management-client" value="order-management-client"/>
+			</ConfValue>
+			<ConfValue description="Authorized Client Secret" isHotDeployable="true" name="Authorized Client Secret" propname="authorization.client.secret" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="order-management-secret" isPassword="true"  value="order-management-secret"/>
+			</ConfValue>
+			<ConfValue description="Authentication Token Signing Key" isHotDeployable="true" name="Authentication Token Signing Key" propname="authentication.token.signing.key" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ENC(nSa0k6lmjPPN8ZA5SO6BpQ==)" isPassword="true" value="ENC(nSa0k6lmjPPN8ZA5SO6BpQ==)"/>
+			</ConfValue>
+			<ConfValue description="Use Static Access-Token" isHotDeployable="true" name="Use Static Access-Token" propname="useAccessTokenFromProperty" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+		</Category>
+		<Category description="Metric Configuration" name="Metric Configuration" visibility="Basic">
+			<ConfValue description="Monitoring System to view application metrics" name="Monitoring System to view application metrics" propname="monitoringSystem" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="Whether to enable the Elastic metrics" name="Whether to enable the Elastic metrics" propname="management.metrics.export.elastic.enabled" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="Elastic search Url" name="Elastic search Url" propname="management.metrics.export.elastic.host" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="http://localhost:9200" value="http://localhost:9200"/>
+			</ConfValue>
+			<ConfValue description="Management Metrics Elastic Index" name="Management Metrics Elastic Index" propname="management.metrics.export.elastic.index" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="micrometer-metrics" value="micrometer-metrics"/>
+			</ConfValue>
+			<ConfValue description="Management Metrics Elastic Step" name="Management Metrics Elastic Step" propname="management.metrics.export.elastic.step" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="1m" value="1m"/>
+			</ConfValue>
+			<ConfValue description="Management Metrics Elastic Username" name="Management Metrics Elastic Username" propname="management.metrics.export.elastic.userName" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="Management Metrics Elastic Password" name="Management Metrics Elastic Password" propname="management.metrics.export.elastic.password" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="Management Metrics Dynatrace Uri" name="Management Metrics Dynatrace Uri" propname="management.metrics.export.dynatrace.uri" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="Management Metrics Dynatrace Api Token" name="Management Metrics Dynatrace Api Token" propname="management.metrics.export.dynatrace.api-token" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="Management Metrics Dynatrace Device Id" name="Management Metrics Dynatrace Device Id" propname="management.metrics.export.dynatrace.device-id" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="Management Metrics Dynatrace Step" name="Management Metrics Dynatrace Step" propname="management.metrics.export.dynatrace.step" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="1m" value="1m"/>
+			</ConfValue>
+			<ConfValue description="Whether to enable the Dynatrace metrics" name="Whether to enable the Dynatrace metrics" propname="management.metrics.export.dynatrace.enabled" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="false" value="false"/>
+			</ConfValue>
+		</Category>
+	</Cluster>
+</Configuration>
+<!-- Copyright (c) 2017-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

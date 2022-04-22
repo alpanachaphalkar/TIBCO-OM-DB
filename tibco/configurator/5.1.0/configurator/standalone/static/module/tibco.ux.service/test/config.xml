@@ -1,0 +1,92 @@
+<config>
+	<system-admin>
+		<property name="enableSplashScreen" value="true" desc="enable splash screen" />
+		<property name="enable Log" value="true" desc="enable system log functionality" />
+		<property name="defaultLanguage" value="en" desc="default language is English"/>
+		<property name="en" value="module/local/local_en.json" desc="load this file when language is English"/>
+		<property name="staticInfo" value="config/module/tibco.mdm.configurator/tools/define_new_queue/staticInfo.json" desc="Queue definition static info"/>
+	</system-admin>
+
+	<!-- navigation menu setting -->
+	<!-- this setting use to configure navigation menu in MDM Configurator system attribute: 1. name: the identifier of menu item 2. display: the display text of menu item 3. href: the module location will 
+		be load after click the menu item 4. showContentIn: indecate the place to show module content. it's value could be: 1. 'dialog': means content will shows in a popup dialog 2. 'main_panel': default value, 
+		means content will shows in main panel. -->
+	<menu-setting>
+		<menu name="home" display="menuitem_home" href="#/configuration" />
+		<menu name="resotre" display="menuitem_restore" href="#/revision_history" />
+		<menu name="tools" display="menuitem_tools">
+			<sub-menu name="define_new_queue" display="menuitem_sub_define" showContentIn="dialog(850,500)" href="#/tools/define_new_queue" />
+			<sub-menu name="setup_database" display="menuitem_sub_oracle" showContentIn="dialog(800,500)" href="#/tools/setup_database" />
+			<!-- <sub-menu name="setup_database_SQL" display="menuitem_sub_sql" showContentIn="dialog(800,500)" href="#/tools/setup_database_SQL" /> -->
+			<sub-menu name="migration" display="menuitem_sub_migration" showContentIn="dialog(800,500)" href="#/tools/migration" />
+			<sub-menu name="addon_plugin_installer" display="menuitem_sub_installer" showContentIn="dialog(800,500)" href="#/tools/addon_plugin_installer" />
+			<!-- <sub-menu name="wizard_example" display="Wizard Example" showContentIn="dialog" href="#/example/wizard" /> -->
+		</menu>
+		<menu name="load_defaults" display="menuitem_loadDefaults" href="#/configuration" />
+		<menu name="$global_search_text_box$" />
+		<menu name="user_name" display="menuitem_greeting">
+			<sub-menu name="setting" display="menuitem_sub_setting" href="#/setting" />
+			<sub-menu name="help" display="menuitem_sub_help" href="#/configuration" />
+			<sub-menu name="logout" display="menuitem_sub_logout" />
+		</menu>
+	</menu-setting>
+
+	<resource-load-list>
+		<!-- localization string resource 
+		<resource type="localization-string" url="config/module/local.xml" />
+		<resource type="localization-string" url="config/module/tibco.mdm.configurator/mainframe/local.xml" />
+		<resource type="localization-string" url="config/module/tibco.mdm.configurator/revision_history/local.xml" />
+		<resource type="localization-string" url="config/module/tibco.mdm.configurator/example/wizard/local.xml" />
+		<resource type="localization-string" url="config/module/tibco.mdm.configurator/tools/setup_database_Oracle/local.xml" />
+		<resource type="localization-string" url="config/module/tibco.mdm.configurator/tools/setup_database_SQL/local.xml" />
+		<resource type="localization-string" url="config/module/tibco.mdm.configurator/tools/migration/local.xml" />
+		<resource type="localization-string" url="config/module/tibco.mdm.configurator/tools/addon_plugin_installer/local.xml" />
+		<resource type="localization-string" url="config/module/tibco.mdm.configurator/login/local.xml" />
+		<resource type="localization-string" url="config/module/tibco.mdm.configurator/setting/local.xml" />-->
+
+
+		<!-- html template resource -->
+		<resource id="mainframe.template" type="template" url="config/module/tibco.mdm.configurator/mainframe/view/template.html" />
+
+		<!-- javascript resource -->
+		<resource type="script" url="module/tibco.ux.service/services.js" />
+
+		<resource type="script" url="module/tibco.ux.directive/directive.js" />
+			 
+		<!-- <resource type="script" url="module/tibco.ux.directive/pre-defined.js" />
+		<resource type="script" url="module/tibco.ux.directive/applyTree/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/editTable/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/editTableCell/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/list/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/MDMalert/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/MDMpopover/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/ngBlur/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/showEdit/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/showTooltip/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/spliteLine/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/switchButton/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/uxDialog/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/uxMenuBar/js/directive.js" />
+		<resource type="script" url="module/tibco.ux.directive/uxWizard/js/directive.js" /> -->
+		
+		<resource type="script" url="module/tibco.ux.controller/controller.js"/>
+		
+		<!-- <resource type="script" url="module/tibco.mdm.configurator/configuration/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/dialog/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/example/wizard/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/login/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/mainframe/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/revision_history/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/setting/controller/controller.js" />
+		<resource type="script" url="module/tibco.ux.directive/editTable/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/tools/define_new_queue/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/tools/setup_database/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/tools/setup_database_Oracle/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/tools/setup_database_SQL/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/tools/migration/controller/controller.js" />
+		<resource type="script" url="module/tibco.mdm.configurator/tools/addon_plugin_installer/controller/controller.js" /> -->
+
+		
+	</resource-load-list>
+</config>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

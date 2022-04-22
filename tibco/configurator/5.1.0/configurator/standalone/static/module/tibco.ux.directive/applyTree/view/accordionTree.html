@@ -1,0 +1,59 @@
+<div class="accordionTree outline">
+	<div class="title">
+		<span>{{treeTitle}}</span>
+	</div>
+	<div class="treeClassify" ng-show="treeTitle == 'Configuration'">
+		<div class="switchButton butt_blue" firstbutton = "visibility.button.basic" secondbutton = "visibility.button.advanced" ></div>
+	</div>
+	<div class="treeList Scroller" id="{{treeTitle + 'tree'}}" group-name="{{treeTitle}}">
+	  <div class="treeContainer">
+		<div class="item Basic" ng-show="visibility['default'] == 'Basic' || treeTitle == 'Cluster'" ng-repeat="item in treeData | filter : vfltBasic ">
+			<div ng-class="{'highlight': $index == 0}" id="{{item.name}}" class="item-label level1" ng-click="selectItem($event, $index, item);" ng-mouseover="showIcon($event)" ng-mouseleave="hideIcon($event);leaveIcon();">
+				<span class="blank" ng-show="item.subItem == null || item.subItem.length == 0"></span>
+			    <span class="{{treeTitle == 'Configuration'? 'collapsed' : 'expended' }}" ng-hide="item.subItem == null || item.subItem.length == 0" ng-click="toggleSub($event);"></span>
+				<span>{{item.name}}</span>
+				<span class="editaBtn">
+					<ul class="hide" ng-mouseleave="focused = false;">
+						<li ng-mouseenter="hoverLi($event)" ng-mouseleave="hoverLi($event)">
+							<a href="javascript:void(0);" ng-click="editAction('edit', treeTitle, item, $index);showDropdownFunc();"><i class="icon-edit"></i>Edit</a>
+						</li>
+						<li ng-mouseenter="hoverLi($event)" ng-mouseleave="hoverLi($event)" ng-hide="treeTitle == 'Cluster'&&$index == 0">
+							<a href="javascript:void(0);" ng-click="editAction('clone', treeTitle, item, $index);showDropdownFunc();"><i class="icon-edit"></i>Clone</a>
+						</li>
+						<li ng-mouseenter="hoverLi($event)" ng-mouseleave="hoverLi($event)" ng-hide="treeTitle == 'Cluster'&&$index == 0">
+							<a href="javascript:void(0);" ng-click="editAction('delete', treeTitle, item, $index);showDropdownFunc();"><i class="icon-edit"></i>Delete</a>
+						</li>
+					</ul>
+					<i class="icon-list" style="display:none;" ng-click="showDropdownFunc($event);" ng-mouseenter="hoverIcon($event)" ng-mouseleave="hoverIcon($event)"></i>
+				</span>
+			</div>
+			<div class="sub-items {{treeTitle == 'Configuration' ? 'hide' : ''}}" ng-include="'module/tibco.ux.directive/applyTree/view/branches.html'"></div>
+		</div>
+		
+		<div class="item Advanced" ng-show="visibility['default'] == 'Advanced'" ng-repeat="item in treeData | filter : vfltAdvanced ">
+			<div ng-class="{'highlight': $index == 0}" id="{{item.name}}" class="item-label level1" ng-click="selectItem($event, $index, item);" ng-mouseover="showIcon($event)" ng-mouseleave="hideIcon($event);leaveIcon();">
+				<span class="blank" ng-show="item.subItem == null || item.subItem.length == 0"></span>
+			    <span class="{{treeTitle == 'Configuration'? 'collapsed' : 'expended' }}" ng-hide="item.subItem == null || item.subItem.length == 0" ng-click="toggleSub($event);"></span>
+				<span>{{item.name}}</span>
+				<span class="editaBtn">
+					<ul class="hide" ng-mouseleave="focused = false;">
+						<li ng-mouseenter="hoverLi($event)" ng-mouseleave="hoverLi($event)">
+							<a href="javascript:void(0);" ng-click="editAction('edit', treeTitle, item, $index);showDropdownFunc();"><i class="icon-edit"></i>Edit</a>
+						</li>
+						<li ng-mouseenter="hoverLi($event)" ng-mouseleave="hoverLi($event)" ng-hide="treeTitle == 'Cluster'&&$index == 0">
+							<a href="javascript:void(0);" ng-click="editAction('clone', treeTitle, item, $index);showDropdownFunc();"><i class="icon-edit"></i>Clone</a>
+						</li>
+						<li ng-mouseenter="hoverLi($event)" ng-mouseleave="hoverLi($event)" ng-hide="treeTitle == 'Cluster'&&$index == 0">
+							<a href="javascript:void(0);" ng-click="editAction('delete', treeTitle, item, $index);showDropdownFunc();"><i class="icon-edit"></i>Delete</a>
+						</li>
+					</ul>
+					<i class="icon-list" style="display:none;" ng-click="showDropdownFunc($event);" ng-mouseenter="hoverIcon($event)" ng-mouseleave="hoverIcon($event)"></i>
+				</span>
+			</div>
+			<div class="sub-items {{treeTitle == 'Configuration' ? 'hide' : ''}}" ng-include="'module/tibco.ux.directive/applyTree/view/branches.html'"></div>
+		</div>
+
+
+	  </div>
+	</div>
+</div>

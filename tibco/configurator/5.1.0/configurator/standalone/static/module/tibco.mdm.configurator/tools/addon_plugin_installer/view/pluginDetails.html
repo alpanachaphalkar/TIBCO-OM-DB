@@ -1,0 +1,61 @@
+<div  ng-controller="configurator.controller.tools.addPlugin.pluginDetails">
+	<div class="dialog-form">
+		<div class="dialog-title">
+			<h3>{{local.formPanel1Title}}<span>{{local.info}}</span></h3>
+		</div>
+		<div class="dialog-content">
+			<div class="control-group contentTitle">
+				<table>
+					<tr>
+						<td class="arrow" ng-init="isExpend_1 = true" ng-click="isExpend_1 = !isExpend_1">
+							<img ng-if="!isExpend_1" ng-src="image/arrow.gif">
+							<img ng-if="isExpend_1" ng-src="image/arrowDown.gif">
+						</td>
+						<td>{{local.detected}}</td>
+					</tr>
+				</table>	
+			</div>
+			<div class="control-group" ng-show="isExpend_1">
+				<label class="control-label">{{local.type}}</label>
+				<div class="controls">
+					<select ng-model="wizardData.thisSelectedPlugin" ng-options = "pluginObj.plugin.label for pluginObj in wizardData.plugins" placeholder="select">
+						<option value="">{{local.selectOption}}</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group contentTitle">
+				<table>
+					<tr>
+						<td class="arrow" ng-init="isExpend_2 = true" ng-click="isExpend_2 = !isExpend_2">
+							<img ng-if="!isExpend_2" ng-src="image/arrow.gif">
+							<img ng-if="isExpend_2" ng-src="image/arrowDown.gif">
+						</td>
+						<td>{{local.installationMode}}</td>
+					</tr>
+				</table>	
+			</div>
+			<div class="control-group" ng-show="isExpend_2">
+				<input type="radio" ng-model="installData.migration" value="No" name="installMode">
+				{{local.installNewVersion}}
+			</div>
+            <div class="control-group" ng-show="isExpend_2 && wizardData.thisSelectedPlugin">
+                <input type="radio" ng-model="installData.migration" value="Yes" name="installMode">
+                {{local.migration}}
+                <div class="control-group migrationOption" ng-show="installData.migration === 'Yes'">
+                    {{local.toVersion}}
+                    <select ng-model="installData.toVersion" ng-options = "opt as opt for opt in wizardData.thisSelectedPlugin.plugin.migration.currentVersion.valueOpt" placeholder="select">
+                        <option value="">{{local.selectOption}}</option>
+                    </select>
+                    {{local.fromVersion}}
+                    <select ng-model="installData.fromVersion" ng-options = "opt as opt for opt in wizardData.thisSelectedPlugin.plugin.migration.supportedVersion.valueOpt" placeholder="select">
+                        <option value="">{{local.selectOption}}</option>
+                    </select>
+                </div>
+            </div>
+		</div>
+	</div>
+	<div class="form_buttons">
+		<button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+		<button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+	</div>
+</div>

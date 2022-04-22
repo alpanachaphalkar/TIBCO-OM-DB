@@ -1,0 +1,35 @@
+<div id="browsePathDialog" ng-controller="configurator.controller.tools.migration.browsePath">
+  <div class="toolsbar">
+    <input name="filepath" type="text" ng-model="currentFolder" disabled="disabled"/> 
+    <a ng-click="getParentFolder()"><img src="../../../../../image/goUp.gif"></a>
+    <a ng-click="reloadFolder()"><img src="../../../../../image/reload.gif"></a>
+  </div>
+  <div class="folderTable">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th><div>{{local.file}}</div></th>
+          <th><div>{{local.size}}</div></th>
+          <th><div>{{local.modified}}</div></th>
+          <th><div>{{local.type}}</div></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="path in paths" ng-class-odd="'odd'" ng-class="{'selected': selectedIdx == $index}" ng-mousedown="selecteFolder(path.filePath, $index);" ng-dblclick="getSubFolder(path.filePath)">
+          <td><a><img src="../../../../../image/folder.gif"></a></td>
+          <td>{{path.fileName}}</td>
+          <td></td>
+          <td>{{path.lastModDate | date: 'MMM d, yyyy hh:mm:ss a'}}</td>
+          <td>{{path.type}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="buttonBar">
+    <input name="selectedFolderText" type="text" ng-model="selectedFolder"/>
+    <button ng-click="doChoose();" class="cfg_butt">{{local.choose}}</button>
+    <button ng-click="doCancel();" class="cfg_butt">{{local.cancel}}</button>
+    
+  </div>
+</div>

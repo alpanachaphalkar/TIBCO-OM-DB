@@ -1,0 +1,32 @@
+.cfg_mainConfig .leftPanel {
+    position: absolute;
+    width: 220px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: #3B5662;
+}
+
+.cfg_mainConfig .rightPanel {
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 220px;
+	background-color: #E4E4E4;
+	padding: 20px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+.cfg_mainConfig .rightPanel .infobar {
+	margin-top: -5px;
+	margin-bottom: 10px;
+	width: 100%;
+}
+
+/*left nav panel, contain cluster outline and configuration outline*/
+.cfg_mainConfig .clusterOutline {
+	min-height: 100px;
+	overflow: hidden;
+}

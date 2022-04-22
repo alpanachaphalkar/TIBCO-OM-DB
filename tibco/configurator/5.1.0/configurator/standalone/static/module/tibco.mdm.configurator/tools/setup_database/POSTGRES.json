@@ -1,0 +1,17 @@
+{
+	"tableSpaceValues":[
+		{
+		    "description" : "Master Catalog/Repository Data Table Space",
+			"tableSpaceID":"velodbdata",
+			"tableSpaceName":"velodbdata",
+			"tableSpaceLocation":"velodbdata"
+		},
+		{
+		    "description" : "Master Catalog/Repository Index Table Space",
+			"tableSpaceID":"velodbindx",
+			"tableSpaceName":"velodbindx",
+			"tableSpaceLocation":"velodbindx"
+		}
+		
+	]
+}

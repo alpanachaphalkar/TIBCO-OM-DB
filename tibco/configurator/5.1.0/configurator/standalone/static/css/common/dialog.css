@@ -1,0 +1,606 @@
+#cfg_frame_dialog table input[type=checkbox]{
+  margin-top: -3px;
+}
+
+.popup_dialog {
+  background-color: #FFFFFF;
+  /* border */
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  /* box shadow */
+  -webkit-box-shadow: 0 1px 30px #2B2929;
+  -moz-box-shadow: 0 1px 30px #2B2929;
+  box-shadow: 0 1px 30px #2B2929;
+  background-color: #fff;
+  height: 500px;
+  width: 600px;
+  /* for IE */
+  behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.popup_dialog div.dialog_title_panel {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  height: 50px;
+  background-color: #536d7a;
+}
+
+.popup_dialog div.dialog_title_panel .title_text {
+  font-size: 14px;
+  color: #ffffff;
+  text-shadow: 0 -1px #4c4c4c;
+  margin-left: 20px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.popup_dialog div.dialog_content_panel {
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  bottom: 70px;
+  left: 0px;
+}
+
+
+.popup_dialog div.dialog_button_panel {
+    /* box sizing */
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; 
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    height: 70px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ededed;
+    padding: 20px;
+}
+
+.popup_dialog div.dialog_button_panel button{
+    float: right;
+    margin-left: 10px;
+}
+
+
+
+/* wizard dialog */
+.popup_dialog .wizard .wizard_content_panel{
+  position: absolute;
+    top: 50px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+
+.popup_dialog .wizard .title_list{
+    position: absolute;
+    top: 0px;
+    bottom: 70px;
+    left: 0px;
+    width: 200px;
+    border-right: 1px solid #ededed;
+    overflow: auto;
+}
+
+.popup_dialog .wizard .title_list > ul{
+    margin: 0px;
+    padding: 0px;
+}
+
+.popup_dialog .wizard .title_list .title {
+    font-size: 12px; 
+    line-height: 18px;
+    color: #a4a4a4;
+    padding: 10px 20px;  
+    list-style-type: none;
+    list-style-position: inside;
+}
+
+
+
+.popup_dialog .wizard .title_list .title.highlight {
+    color: #314a54
+}
+
+.popup_dialog .wizard .title_list .title span.num{
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.popup_dialog .wizard div.form_content{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 200px;
+  overflow: auto;
+}
+
+
+
+
+.popup_dialog .wizard div.form_buttons{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 70px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ededed;
+    margin: 0px;
+    padding: 20px;
+    /* box sizing */
+    box-sizing:border-box;
+    -moz-box-sizing:border-box; 
+}
+
+.popup_dialog .wizard div.form_buttons>button{
+  margin-left: 10px;
+  /* for IE */
+  position: relative;
+}
+
+
+
+
+.modal_background {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.dialog-form{
+  font-size: 14px;
+  color: #898989;
+}
+
+.dialog-form .dialog-content{
+  width: 100%;
+  padding-top:10px;
+}
+
+.dialog-form .dialog-content .control-group{
+  margin-bottom: 20px;
+  padding: 0px 20px;
+}
+
+.dialog-form .dialog-content .control-group > .control-label{
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: #4c4c4c;
+}
+
+.dialog-form .dialog-content .control-group > .control-input{
+  font-size: 12px;
+  color: #222222;
+  font-weight: normal;
+  width: 100%;
+}
+
+.dialog-form .dialog-content .control-group i.icon-question-sign{
+  margin-left: 10px;
+}
+
+.dialog-form .dialog-content .control-group select{
+  width: 100%;
+}
+
+.dialog-form .dialog-content .control-group td input{
+  width: 97%;
+}
+
+.dialog-form .dialog-content .control-group textarea{
+  resize: none;
+}
+
+
+.dialog-form .dialog-content .control-group table.table{
+  font-size: 13px;
+}
+
+.dialog-form .dialog-content .progress_bar{
+  background: url("../../image/loading_bar.gif") no-repeat scroll 0 0 transparent;
+  width: 100%;
+  height: 11px;
+}
+
+.dialog-form .dialog-title{
+  width: 100%;
+  border-bottom:solid 1px #ededed;
+  padding: 6px 0px;
+}
+
+.dialog-form .form-horizontal .controls{
+  margin-left: 50px;
+}
+
+
+.dialog-title h3{
+  color: #4c4c4c;
+  font-size: 14px;
+  text-indent: 20px;
+  font-weight: normal;
+  line-height: 14px;
+}
+
+.dialog-title h3 span{
+  color: #898989;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.dialog-title h6{
+  color: #898989;
+  font-size: 12px;
+  margin-left: 5px;
+  text-indent: 20px;
+  font-weight: normal;
+}
+
+.dialog-form .switchContainer{
+  display: inline-block;
+  height: 45px;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.label-inline label{
+  display: inline;
+}
+
+.label-inline label.TroggleButtGroup{
+  margin-left: 20px;
+}
+
+.label-inline label.checkbox{
+  margin-left: 20px;
+}
+
+.label-inline label input[type="checkbox"]{
+  float: none;
+  margin-top: -3px;
+}
+
+label.sele{
+  width: 115px;
+  height: 35px;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  border:1px solid #c4c4c4;
+  margin-right: 5px;
+}
+
+.label-inline label.sele select{
+  background: transparent;
+  background-image:url(../../image/ic_triangle.png);
+  background-repeat: no-repeat;
+  background-position: 95px 15px; 
+  width: 140px;
+  height: 35px;
+  border:none;
+  outline: none;
+}
+
+.label-inline label.sele select option{
+  font-size: 12px;
+  line-height: 24px;
+}
+
+#editConfigDialog .tooltip .tooltip-inner{
+  width: 220px;
+}
+
+
+/*define new queue dialog*/
+
+#defineNewQueue .control-group > select {
+  width: 100%;
+} 
+
+#Marshalers .control-group > select, #Unmarshalers .control-group > select{
+  width: 92%;
+}
+
+#Marshalers .control-group > a, #Unmarshalers .control-group > a{
+  margin-left: 15px;
+}
+
+#Marshalers a.editProp, #Unmarshalers a.editProp{
+  cursor: pointer;
+}
+
+#Marshalers a.editProp.disable, #Unmarshalers a.editProp.disable{
+  cursor: default;
+  color: #898989;
+  text-decoration: none;
+}
+
+#EditProperties table.table{
+  border-bottom: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+}
+
+#EditProperties div.propperties td, #EditProperties div.mandatory td, #EditProperties div.optional td{
+  border-left : 1px solid #dddddd; 
+}
+
+#EditProperties div.propperties td.prop-name{
+  width: 30%;
+}
+
+#EditProperties div.propperties td.prop-value{
+  width: 70%;
+}
+
+#EditProperties div.mandatory td.check, #EditProperties div.optional td.check{
+  width: 30px;
+}
+
+#EditProperties div.editValue{
+  width: 430px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.QueueDefinition .form-horizontal .control-label{
+  width: 70px;
+}
+
+.AdditionalProperties .form-horizontal .control-label{
+  width: 300px;
+}
+
+#defineNewQueue .CommunicationContext .table th.name{
+  width: 30%;
+}
+
+#defineNewQueue .CommunicationContext .table th.property{
+  width: 9%;
+}
+
+#defineNewQueue .CommunicationContext .table th.defaultValue{
+  width: 30%;
+}
+
+#defineNewQueue .CommunicationContext .table th.newValue{
+  width: 30%;
+}
+
+#defineNewQueue .CommunicationContext .table input{
+  margin-bottom: 0px;
+}
+
+#outboundQueue div.dialog-form,
+#inboundQueue div.dialog-form,
+#setupDatabase div.dialog-form{
+  height:380px;
+  overflow-y: auto; 
+}
+
+#outboundQueue .CommunicationContext .table th.name,
+#inboundQueue .CommunicationContext .table th.name{
+  width: 30%;
+}
+
+#outboundQueue .CommunicationContext .table th.property,
+#inboundQueue .CommunicationContext .table th.property{
+  width: 9%;
+}
+
+#outboundQueue .CommunicationContext .table th.defaultValue,
+#inboundQueue .CommunicationContext .table th.defaultValue{
+  width: 30%;
+}
+
+#outboundQueue .CommunicationContext .table th.newValue,
+#inboundQueue .CommunicationContext .table th.newValue{
+  width: 30%;
+}
+
+#outboundQueue .dialog-form .dialog-content .control-group tbody td,
+#inboundQueue .dialog-form .dialog-content .control-group tbody td{
+  line-height: 30px;
+}
+
+#outboundQueue .dialog-form .dialog-content .control-group tbody td .itemName,
+#inboundQueue .dialog-form .dialog-content .control-group tbody td .itemName{
+  width: 535px;
+  overflow: hidden;
+  font-weight: normal;
+}
+
+#outboundQueue .dialog-form .dialog-content .control-group tbody .newValue,
+#inboundQueue .dialog-form .dialog-content .control-group tbody .newValue{
+  width: 218px;
+}
+
+#outboundQueue .dialog-form .dialog-content .control-group table input,
+#outboundQueue .dialog-form .dialog-content .control-group table select,
+#inboundQueue .dialog-form .dialog-content .control-group table input,
+#inboundQueue .dialog-form .dialog-content .control-group table select{
+  margin-bottom: 0px;
+}
+
+#outboundQueue .dialog-form .dialog-content .control-group tbody td input[type="checkbox"],
+#inboundQueue .dialog-form .dialog-content .control-group tbody td input[type="checkbox"]{
+  width: 13px;
+}
+
+/*
+** tools -- Add plugin dialog
+*/
+#addPlugins .contentTitle{
+  color: #4C4C4C;
+  border-bottom: 1px solid #EDEDED;
+}
+
+#addPlugins input[type = 'radio']{
+  margin-top: 0;
+} 
+
+#addPlugins label input[type = 'radio']{
+  margin-top: 4px;
+} 
+
+#addPlugins div.dialog-form{
+  height:380px;
+  overflow-y: auto; 
+}
+
+#addPlugins div.migrationOption {
+  margin-top: 5px;
+}
+
+/*
+*** migration dialog
+*/
+.sepcifyUpdateDatails, .identifyLocation, .selectMigrationType, .defineDatabaseMigration{
+  height: 380px;
+  overflow-y: auto;
+}
+#migration .labelDisabled{
+  color: #a4a4a4;
+}
+/*browse file path dialog in migration*/
+#browsePathDialog{
+  
+}
+#browsePathDialog a{
+  cursor: pointer;
+}
+#browsePathDialog .toolsbar{
+  background-color: #EEEEEE;
+    padding: 5px 0;
+    width: 100%;
+}
+#browsePathDialog .toolsbar img{
+  margin-right: 10px; 
+}
+#browsePathDialog .toolsbar input{
+  margin: 0 5px;
+  width: 85%;
+}
+#browsePathDialog .folderTable{
+    height: 210px;
+    overflow-y: scroll;
+}
+#browsePathDialog .folderTable table{
+  width: 100%;
+  text-align: left;
+}
+#browsePathDialog .folderTable table th{
+  border: 1px solid #EDEDED;
+  padding: 5px;
+  text-align: left;
+}
+#browsePathDialog tr.odd{
+  background-color: #f5f5f5;
+}
+
+#browsePathDialog .buttonBar{
+  background-color: #EDEDED;
+    bottom: 0;
+    padding: 10px 0;
+    position: absolute;
+    width: 100%;
+}
+#browsePathDialog .buttonBar input{
+  width: 68%;
+  margin: 0 10px;
+}
+
+#browsePathDialog tr.selected{
+  background-color: #89D8FF;
+}
+
+#MigrationSummary .expendContent table{
+  width: 100%;
+}
+
+#MigrationSummary .expendContent form{
+  margin: 0;
+}
+
+#MigrationSummary .expendContent table td{
+  text-align: left;
+  width: 50%;
+}
+
+#MigrationSummary .dialog-content .expendTitle .expendInfor{
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.ignoreErrorDlgTop{
+  border-bottom: 1px solid #EDEDED;
+    padding: 10px;
+}
+.ignoreErrorDlgContent{
+  padding: 10px;
+}
+.ignoreErrorDlgContent table{
+  width:100%;
+}
+.ignoreErrorDlgContent form{
+  margin: 0;
+}
+
+/** 
+Setup database
+**/
+
+#setupDatabase .table .editable-input{
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+#setupDatabase .table .editable-input:focus{
+  border: 1px solid #cccccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.title_list table td{
+  vertical-align: top;
+}
+
+label.logFile{
+  display: inline-block;
+  width: 350px;
+}
+
+/*add new property*/
+.table tbody td .deleteIcon,
+.ediTable .edit-table .body .row .deleteIcon{
+  background: url("../../image/delete_16x16.gif") no-repeat scroll 0 0 transparent;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 3px 0 0 10px;
+}
+
+#addNewProperty.dialog-form .dialog-content .control-group.label-inline select{
+  margin: 5px 10px;
+  width: 155px;
+}
+
+#addNewProperty.dialog-form .dialog-content .control-group.valueType select {
+  width: 450px;
+  margin-right: 20px;
+}
+
+#addNewProperty.dialog-form .dialog-content .control-group.valueType .currentValueSet {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: middle;
+}

@@ -1,0 +1,27 @@
+<div  ng-controller="configurator.controller.tools.addPlugin.installDetails">
+    <div class="dialog-form addPlugin">
+        <div class="dialog-title">
+            <h3>{{local.formPanel3Title}}<span>{{local.formPanel3Info}}</span></h3>
+        </div>
+        <div class="dialog-content">
+            <div class="control-group">
+                <label class="control-label">{{local.MQCommonLabel}}</label>
+                <input ng-model="installData.commonDir" class="control-input input-block-level" type="text" />
+            </div>
+            <div class="control-group" ng-if="installData.custom.firstField">
+                <label class="control-label">{{installData.custom.firstField.label}}</label>
+                <input ng-model="installData.custom.firstField.value" class="control-input input-block-level" type="text" />
+            </div>
+            <div class="control-group" ng-if="installData.custom.secondField">
+                <label class="control-label">{{installData.custom.secondField.label}}</label>
+                <input ng-model="installData.custom.secondField.value" class="control-input input-block-level" type="text" />
+            </div>
+        </div>
+    </div>
+    <div class="form_buttons">
+        <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+        <button ng-show="installData.databaseInstallation" class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+        <button ng-hide="installData.databaseInstallation" class="cfg_butt float-right" ng-click="finishButtonClick()">{{local.finish}}</button>
+        <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div  ng-controller="configurator.controller.tools.Setup_Wizard.Create_New_Database_User_OCS">
+
+  <div class="dialog-form" style="height : 380px; overflow-y:auto;">
+  
+    <div class="dialog-title">
+	
+       <h3>{{local.title}}</h3>
+      <h6>{{local.info}}</h6>
+    </div>
+	
+    <div class="dialog-content">
+	
+      <div class="control-group">
+        <!-- <label class="control-label">{{local.path}}</label>
+        <input ng-model="data.values.dbHome" class="control-input input-block-level" type="text" /> -->
+        <label class="control-label">{{local.OraclePath}}</label>
+        <input ng-model="data.values.HOME" class="control-input input-block-level" type="text" />
+        <label class="control-label">{{local.DBName}}</label>
+        <input ng-model="data.values.DATABASENAMEOCS"  class="control-input input-block-level" type="text" />
+        <label class="control-label">{{local.DBAUsername}}</label>
+        <input ng-model="data.values.SYSUSERNAMEOCS" class="control-input input-block-level" type="text" />
+        <label class="control-label">{{local.DBAPassword}}</label>
+        <input  ng-model="data.values.SYSPASSWORDOCS" class="control-input input-block-level" type="password" />
+		
+        <label class="control-label">{{local.newDBUserName}}</label>
+        <input ng-model="data.values.USERNAMEOCS"  class="control-input input-block-level" type="text" />	  
+        <label class="control-label">{{local.newDBPassword}}</label>
+        <input ng-model="data.values.PASSWORDOCS" class="control-input input-block-level" type="password" />
+        <label class="control-label">{{local.newDBRePassword}}</label>
+        <input ng-model="repassword" ng-blur="checkPassword($event, data.values.PASSWORD, repassword)"  class="control-input input-block-level" type="password" />
+       
+      </div>  
+    </div>
+  </div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+    <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+  </div>
+</div>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

@@ -1,0 +1,31 @@
+<div  ng-controller="configurator.controller.tools.Change_OMS_Log_Level.changeLogSummary">
+  <div class="dialog-form" ng-show="showSummary">
+    <div class="dialog-title">
+        <h3>{{local.summaryTitle}}</h3>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <label>{{local.report}}</label>
+      </div>     
+      <div class="control-group label-inline form-horizontal">
+        <label class="control-label">{{local.status}}</label>
+        <label class="checkbox">{{data}}</label>
+      </div>      
+    </div>
+  </div>
+  <div class="dialog-form" ng-hide="showSummary">
+    <div class="dialog-title">
+        <h3>{{local.inProgress}}</h3>
+    </div>
+    <div class="dialog-content">
+        <div class="control-group">
+          <label class="control-label">{{local.wait}}</label>
+          <div class="progress progress-striped active">
+            <div class="bar" style="width: 100%;"></div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+</div>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

@@ -1,0 +1,130 @@
+.settingPanel{
+	background: none repeat scroll 0 0 #E4E4E4;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.settingPanel a {
+	cursor: pointer;
+}
+.settingPanel h4 {
+	margin-bottom: 0;
+	font-size: 18px;
+	color: #8aadbe;
+}
+.settingPanel input{
+	padding: 0;
+	margin: 0;	
+}
+.settingPanel form{
+	margin: 0;
+	padding: 0;
+}
+
+.settingPanel a.cancelButton{
+	color: #333333;
+	text-decoration: underline;
+	margin-left: 10px;
+}
+
+.settingPanel span.warningInfo{
+	color: #536d7a;
+	margin-left: 7px;
+}
+
+.settings-container{
+	background: #FFFFFF;
+	border-color: #c4c4c4;
+	border-radius: 4px;
+	border-width: 1px;
+	border-style: solid;
+	/*padding: 10px 20px;*/
+}
+.settingPanel .titleLine{
+	padding: 10px 20px 0;
+}
+
+.settingContent{
+	border-bottom: 1px solid #c4c4c4;
+}
+
+.settingContent .contentTitle{
+	padding: 20px;
+	font-weight: bold;
+	font-size: 14px;
+	color: #536d7a;
+	border-bottom: 1px solid #c4c4c4;
+}
+.settingContent ul{
+	list-style-type: none;
+	margin-left: 0;
+	margin-bottom: 0;
+}
+.settingContent ul li{
+	line-height: 40px;
+	position: relative;
+}
+.settingContent ul li.settingRow:hover{
+	background-color: #d5f1ff;
+}
+.settingContent ul .odd{
+	background: #F9F9F9;
+}
+.settingPanel table.rowContainer{
+	width: 100%;
+}
+.settingPanel td.firstClm{
+	color: #536d7a;
+	width: 30%;
+	padding-left: 20px;
+}
+.settingPanel td.middleClm{
+	width: 60%;
+	float: left;
+}
+.settingPanel td.lastClm{
+	width: 10%;
+	text-align: right;
+	padding-right: 20px;
+}
+.settingPanel .leftFloatDiv{
+	float: left;
+	margin-right: 10px;
+	text-align: center;
+}
+.settingPanel input{
+	margin-top: -4px;
+}
+.settingPanel .editContainer{
+	padding-bottom: 20px;
+}
+.settingPanel .editContainer ul li{
+	display: table;
+	width: 100%;
+}
+
+.settingPanel .editContainer ul li div.leftFloatDiv:first-child{
+	width: 30%;
+	height: 30px;
+	font-size: 14px;
+	color: #536d7a;
+}
+.settingPanel .editContainer ul li div.leftFloatDiv:first-child img{
+	margin-right: 10px;
+}
+.settingPanel .unSaved{
+	background-color: #89d8ff;
+	line-height: 50px;
+}
+
+.settingPanel .setting-hr{
+	margin: 0;
+	border-top: 5px solid #c4c4c4;
+}
+.settingPanel i.icon-question-sign{
+	margin-left: 10px;
+}

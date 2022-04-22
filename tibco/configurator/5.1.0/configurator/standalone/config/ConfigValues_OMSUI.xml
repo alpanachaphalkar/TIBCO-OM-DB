@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration description="The initial configuration setup for FOM OMS User Interface" displayName="FOM OMS User Interface" name="OMS User Interface" xmlns="http://www.tibco.com/af/config/confbeans/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.tibco.com/af/config/confbeans/1.0">
+	<Cluster>
+		<Category description="OMS UI Engine Configuration" name="OMS UI Engine Configuration" visibility="Basic">
+			<ConfValue description="" name="Web Service HTTP Transport Channel Type" propname="com.tibco.af.omsui.httpChannelType" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="http"/>
+					<EnumValue value="https"/>
+					<EnumValue value="any"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="" name="OMS UI HTTP Port Number" propname="com.tibco.af.omsui.http.port" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="9097" value="9097"/>
+			</ConfValue>
+			<ConfValue description="" name="OMS UI HTTPS Port Number" propname="com.tibco.af.omsui.https.port" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="8443" value="8443"/>
+			</ConfValue>
+			<ConfValue description="Host address of the Archival service" name="Archival service Host Name" propname="archivalHost" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="localhost" value="localhost"/>
+			</ConfValue>
+			<ConfValue description="Port number of the Archival service" name="Archival service Port Number" propname="archivalPort" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="9099" value="9099"/>
+			</ConfValue>
+			
+			<ConfValue description="Host address of the Jeopardy server" name="Jeopardy Server Host Name" propname="jeopardyServiceProxyHost" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="localhost" value="localhost"/>
+			</ConfValue>
+			
+			<ConfValue description="Port number of the Jeopardy Service" name="Jeopardy Service Port Number" propname="jeopardyServiceProxyPort" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="9102" value="9102"/>
+			</ConfValue>
+			
+			<ConfValue description="Enable the Record count fetch for pagination. This will make the data fetch slower and enable Last Page option in pagination." name="Enable Record Count Fetch" propname="com.tibco.af.omsui.enableRecordCountFetch" sinceVersion="5.0" visibility="Advanced">
+				<ConfBool default="true" value="true"/>
+			</ConfValue>
+			<ConfValue description="" name="Http Session Fixation Protection" propname="com.tibco.af.omsui.session-fixation-protection" sinceVersion="5.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="migrateSession"/>
+					<EnumValue value="none"/>
+					<EnumValue value="newSession"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="" name="Maximum Session Per User" propname="com.tibco.af.concurrencyControl.maxSessionPerUser" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="1" value="1"/>
+			</ConfValue>
+
+			<ConfValue description="OMS UI Short Date Format (Day [dd] , Month[MM] and Year [yyyy])" name="OMS UI Short Date Format" propname="com.tibco.af.omsui.shortDateFormat" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="MM/dd/yyyy" value="MM/dd/yyyy"/>
+			</ConfValue>
+
+			<ConfValue description="OMS UI Long Date Time Format (Day [dd] , Month [MM], Year [yyyy], Hour [HH], Minute [mm] and Seconds [ss])" name="OMS UI Long Date Format" propname="com.tibco.af.omsui.longDateFormat" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="MM/dd/yyyy HH:mm:ss" value="MM/dd/yyyy HH:mm:ss"/>
+			</ConfValue>
+
+			<ConfValue description="OMS UI Long Date Time Format (Day [dd] , Month [MM], Year [yyyy], Hour [HH], Minute [mm], Seconds [ss] and Timezone [z])" name="OMS UI Long Date Format Timezone" propname="com.tibco.af.omsui.longDateFormatTimeZone" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="MM/dd/yyyy HH:mm:ss z" value="MM/dd/yyyy HH:mm:ss z"/>
+			</ConfValue>
+
+			<ConfValue description="OMS UI Long Date Time Format (Day [dd] , Month [MM], Year [yyyy], Hour [HH], Minute [mm], Seconds [ss], Milliseconds [SSS] and Timezone [z])" name="OMS UI Long Date Format with TimeZone and Milliseconds" propname="com.tibco.af.omsui.longDateFormatTimeZoneMillis" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="MM/dd/yyyy HH:mm:ss:SSS z" value="MM/dd/yyyy HH:mm:ss:SSS z"/>
+			</ConfValue>
+			<ConfValue description="Default tenant information" name="Default tenantID" propname="com.tibco.af.oms.default.tenantId" sinceVersion="3.1.0" visibility="Basic">
+				<ConfString default="TIBCO" value="TIBCO"/>
+			</ConfValue>
+			<ConfValue description="bcryptPasswordEncoder" name="bcryptPasswordEncoder" propname="com.tibco.af.oms.security.bcryptPasswordEncoder" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" value="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+			</ConfValue>
+			<ConfValue description="Application name to show on actuator info endpoint" isHotDeployable="false" name="Application Name" propname="info.app.name" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="Order Management System UI" value="Order Management System UI"/>
+			</ConfValue>
+		</Category>
+		<Category description="OMS UI PlanItem Display Template" name="PlanItem Display Template" visibility="Basic">
+			<ConfValue description="OMS UI PlanItem Display Template for Grid View. Possible template variables are - PlanItemID, PlanFragmentID, ProductID, Action and Description; these template variables are case sensitive and have to be specified within curly braces {}. Different template variables can be combined with any type of delimiter e.g. {PlanFragmentID}|{PlanItemID}" name="PlanItem Template for Grid View" propname="com.tibco.af.omsui.planItemExpression.gridView" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="{PlanItemID}" value="{PlanItemID}"/>
+			</ConfValue>
+			<ConfValue description="OMS UI PlanItem Display Template for Gantt View. Possible template variables are - PlanItemID, PlanFragmentID,ProductID, Action and Description; these template variables are case sensitive and have to be specified within curly braces {}. Different template variables can be combined with any type of delimiter e.g. {PlanFragmentID}|{PlanItemID}" name="PlanItem Template for Gantt View" propname="com.tibco.af.omsui.planItemExpression.ganttView" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="{Description}" value="{Description}"/>
+			</ConfValue>
+			<ConfValue description="OMS UI PlanItem Display Template for Dependency View. Possible template variables are - PlanItemID, PlanFragmentID, ProductID, Action and Description; these template variables are case sensitive and have to be specified within curly braces {}. Different template variables can be combined with any type of delimiter e.g. {PlanFragmentID}|{PlanItemID}" name="PlanItem Template for Dependency View" propname="com.tibco.af.omsui.planItemExpression.dependencyView" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="{Description}|{PlanItemID}" value="{Description}|{PlanItemID}"/>
+			</ConfValue>
+		</Category>
+		<Category description="OMS UI Grid View and Gantt View Pagination" name="Grid View and Gantt View Pagination" visibility="Basic">
+			<ConfValue description="Enable Grid View and Gantt View Pagination" name="Enable Grid View and Gantt View Pagination" propname="com.tibco.af.omsui.pagination.enable" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false" value="false"/>
+			</ConfValue>
+			<ConfValue description="OMS UI Grid View Page Size" name="Grid View Page Size" propname="com.tibco.af.omsui.gridView.pageSize" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="20" value="20"/>
+			</ConfValue>
+			<ConfValue description="OMS UI Gantt View Page Size" name="Gantt View Page Size" propname="com.tibco.af.omsui.ganttView.pageSize" sinceVersion="5.0" visibility="Basic">
+				<ConfNum default="10" value="10"/>
+			</ConfValue>
+		</Category>
+		<Category description="Persistence" name="Persistence" visibility="Advanced">
+			<ConfValue description="Database Type" name="Database Type" propname="databaseType" readonly="false" sinceVersion="5.0" visibility="Advanced">
+				<ConfEnum>
+					<EnumValue selected="true" value="postgres"/>
+					<EnumValue  value="oracle"/>
+				</ConfEnum>
+			</ConfValue>
+		</Category>
+		<Category description="Orchestrator Configuration" name="Orchestrator Configuration" visibility="Basic">
+			<ConfValue description="The Error Handler component to be used in case of failed plan item" isHotDeployable="true" name="Plan Item Error Handler Type" propname="com.tibco.fom.orch.pcErrorHandlerType" sinceVersion="5.0" visibility="Basic">
+				<ConfEnum>
+					<EnumValue default="true" selected="true" value="ExternalErrorHandler"/>
+					<EnumValue value="InternalErrorHandler"/>
+				</ConfEnum>
+			</ConfValue>
+			<ConfValue description="To force completing plan items in execution status on the bases of role" isHotDeployable="true" name="PlanItem Execution to Complete" propname="com.tibco.fom.orch.roles.piExecutionToComplete" readonly="false" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="ROLE_ADMIN" value="ROLE_ADMIN"/>
+			</ConfValue>
+			<ConfValue description="ID of the plan fragment to be assigned for Non Executing plan items" name="Non Executing Planfragment ID" propname="com.tibco.fom.orch.nonexecuting.planfragmentID" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="NON_EXECUTING" value="NON_EXECUTING"/>
+			</ConfValue>
+		</Category>
+		<Category description="Messaging Configuration" name="Messaging Configuration" visibility="Basic">
+			<ConfValue description="JNDI Connection factory JNDI Name" name="JNDI Connection factory JNDI Name" propname="jndiConnectionFactory" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="GenericConnectionFactory" value="GenericConnectionFactory"/>
+			</ConfValue>
+			<ConfValue description="Topic Connection factory JNDI Name" name="Topic Connection factory JNDI Name" propname="jndiTopicConnectionFactory" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="TopicConnectionFactory" value="TopicConnectionFactory"/>
+			</ConfValue>
+			<ConfValue description="For SSL Configuration value should be ssl" name="Constant that holds the name of the environment property for specifying the security protocol to use in Tibjms JNDI lookups." propname="tibjmsNamingSecurityProtocol" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="For SSL enable verify host value should be false" name="Constant that holds the name of SSL property specifying if client should verify the server certificate in Tibjms JNDI lookups." propname="tibjmsNamingSslEnableVerifyHost" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="" value=""/>
+			</ConfValue>
+			<ConfValue description="JNDI Initial Context Factory" name="JNDI Initial Context Factory" propname="initialContextFactory" sinceVersion="5.0" visibility="Advanced">
+				<ConfString default="com.tibco.tibjms.naming.TibjmsInitialContextFactory" value="com.tibco.tibjms.naming.TibjmsInitialContextFactory"/>
+			</ConfValue>
+			<ConfValue description="JNDI URL for JMS Service" name="JNDI URL" propname="emsServerURL" sinceVersion="1.2" visibility="Basic">
+				<ConfString default="tibjmsnaming://localhost:7222" value="tibjmsnaming://localhost:7222"/>
+			</ConfValue>
+			<ConfValue description="JNDI Username" name="JNDI Username" propname="emsServerUsername" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" value="admin"/>
+			</ConfValue>
+			<ConfValue description="JNDI Password" name="JNDI Password" propname="emsServerPassword" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="admin" isPassword="true" value="admin"/>
+			</ConfValue>
+
+			<ConfValue description="Orchestrator Queue Connection factory JNDI Name" name="Orchestrator Connection factory JNDI Name" propname="jndiCfBeo" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="QueueConnectionFactory"  value="QueueConnectionFactory"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator JMS Delivery Mode" name="Orchestrator JMS Delivery Mode" propname="jndiCfBeoDeliverymode" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="2"  value="2"/>
+			</ConfValue>
+			<ConfValue description="Orchestrator JMS QoS Enabled?" name="Orchestrator JMS QoS Enabled" propname="jndiCfBeoQosEnabled" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false"  value="false"/>
+			</ConfValue>
+
+			<ConfValue description="IPC Queue Connection factory JNDI Name" name="IPC Connection factory JNDI Name" propname="jndiCfIpc" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="GenericConnectionFactory"  value="GenericConnectionFactory"/>
+			</ConfValue>
+			<ConfValue description="IPC  JMS Delivery Mode" name="IPC JMS Delivery Mode" propname="jndiCfIpcDeliverymode" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="1"  value="1"/>
+			</ConfValue>
+			<ConfValue description="IPC JMS QoS Enabled" name="IPC JMS QoS Enabled" propname="jndiCfIpcQosEnabled" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="false"  value="false"/>
+			</ConfValue>
+			<ConfValue description="Post Models on EMS for AOPD Disabled" name="Post Models on EMS for AOPD Disabled" propname="modelEmsPostDisabled" sinceVersion="5.0" visibility="Basic">
+				<ConfBool default="true"  value="true"/>
+			</ConfValue>
+		</Category>
+		
+		<Category description="Application Security" name="Application Security" visibility="Advanced">
+			<ConfValue description="Default Authentication Provider" isHotDeployable="false" name="Default User Credential Store" propname="com.tibco.af.oms.security.authProvider" readonly="true" sinceVersion="5.0" visibility="Basic">
+				<ConfString default="defaultAuthenticationProvider" value="defaultAuthenticationProvider"/>
+			</ConfValue>			
+		</Category>
+	</Cluster>
+</Configuration>
+<!-- Copyright (c) 2021-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

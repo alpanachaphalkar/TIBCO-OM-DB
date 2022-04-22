@@ -1,0 +1,306 @@
+/*
+ buttons
+*/
+.cfg_butt {
+    height: 30px;
+    min-width: 80px;
+    padding: 0px 10px;
+    font-size: 12px;
+    font-family: "Arial";
+    color: #4c4c4c;
+    background-color: #ededed;
+    text-shadow: 0 1px #fff;
+    outline: none;
+    cursor: pointer;
+    /* border */
+    border: solid 1px #c4c4c4;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    /* box shadow */
+    -webkit-box-shadow: inset 0 1px 0 1px #fff;
+    -moz-box-shadow: inset 0 1px 0 1px #fff;
+    box-shadow: inset 0 1px 0 1px #fff;
+    /* linear gradient */
+    background-image: -webkit-linear-gradient(top, #fff, #ededed);
+    background-image: -moz-linear-gradient(top, #fff, #ededed);
+    background-image: -o-linear-gradient(top, #fff, #ededed);
+    background-image: linear-gradient(top bottom, #fff, #ededed);
+    /* for IE */
+    -pie-background: linear-gradient(#ffffff, #ededed);
+    behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.cfg_butt:hover {
+    background-color: #ededed;
+    background-color: #d5f1ff\0;
+    color: #536d7a;
+    background-image: -webkit-linear-gradient(top, #d5f1ff, #c1dce9);
+    background-image: -moz-linear-gradient(top, #d5f1ff, #c1dce9);
+    background-image: -o-linear-gradient(top, #d5f1ff, #c1dce9);
+    background-image: linear-gradient(to bottom, #d5f1ff, #c1dce9);
+    /* for IE */
+    -pie-background: linear-gradient(#d5f1ff, #c1dce9);
+    behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.cfg_butt:active {
+    background-color: #d7d7d7;
+    -webkit-box-shadow: 0 1px #fff, inset 0 1px 2px #6f6f6f;
+    -moz-box-shadow: 0 1px #fff, inset 0 1px 2px #6f6f6f;
+    box-shadow: 0 1px #fff, inset 0 1px 2px #6f6f6f;
+    border: solid 1px #c4c4c4;
+    background-image: none;
+    /* for IE */
+    behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.cfg_butt.inactive {
+    color: #a4a4a4;
+    background-color: #ededed;
+    background-image: -webkit-linear-gradient(top, #f9f9f9, #f5f5f5);
+    background-image: -moz-linear-gradient(top, #f9f9f9, #f5f5f5);
+    background-image: -o-linear-gradient(top, #f9f9f9, #f5f5f5);
+    background-image: linear-gradient(to bottom, #f9f9f9, #f5f5f5);
+    /* for IE */
+    behavior: url(../../lib/PIE/PIE.htc);
+    cursor: default;   
+}
+
+.cfg_butt.hover {
+    background-color: #ededed;
+    background-color: #d5f1ff\9;
+    background-image: -webkit-linear-gradient(top, #d5f1ff, #c1dce9);
+    background-image: -moz-linear-gradient(top, #d5f1ff, #c1dce9);
+    background-image: -o-linear-gradient(top, #d5f1ff, #c1dce9);
+    background-image: linear-gradient(to bottom, #d5f1ff, #c1dce9);
+}
+
+.cfg_butt.clicked {
+    background-color: #d7d7d7;
+    -webkit-box-shadow: 0 1px #fff, inset 0 1px 2px #6f6f6f;
+    -moz-box-shadow: 0 1px #fff, inset 0 1px 2px #6f6f6f;
+    box-shadow: 0 1px #fff, inset 0 1px 2px #6f6f6f;
+    border: solid 1px #c4c4c4;
+    background-image: none;
+}
+
+.cfg_butt.dark {
+    color: #fff;
+    text-shadow: 0 -1px #4c4c4c;
+    background-color: #354c57;
+    border: solid 1px #1e313c;
+    -webkit-box-shadow: inset 0 1px #536d7a;
+    -moz-box-shadow: inset 0 1px #536d7a;
+    box-shadow: inset 0 1px #536d7a;
+    background-image: -webkit-linear-gradient(top, #314a54, #1e313c);
+    background-image: -moz-linear-gradient(top, #314a54, #1e313c);
+    background-image: -o-linear-gradient(top, #314a54, #1e313c);
+    background-image: linear-gradient(to bottom, #314a54, #1e313c);
+    /* for IE */
+    -pie-background: linear-gradient(#314a54, #1e313c);
+    behavior: url(../../lib/PIE/PIE.htc);
+    position: relative;
+}
+
+.cfg_butt.dark:hover {
+    background-color: #536d7a;
+    -webkit-box-shadow: inset 0 1px #8aadbe;
+    -moz-box-shadow: inset 0 1px #8aadbe;
+    box-shadow: inset 0 1px #8aadbe;
+    background-image: none;
+     /* for IE */
+    behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.cfg_butt.dark:active {
+    background-color: #354c57;
+    -webkit-box-shadow: 0 1px #536d7a, inset 0 2px 3px #1e313c;
+    -moz-box-shadow: 0 1px #536d7a, inset 0 2px 3px #1e313c;
+    box-shadow: 0 1px #536d7a, inset 0 2px 3px #1e313c;
+    border: solid 1px #314a54;
+    background-image: none;
+     /* for IE */
+    behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.cfg_butt.dark.hover {
+    background-color: #536d7a;
+    -webkit-box-shadow: inset 0 1px #8aadbe;
+    -moz-box-shadow: inset 0 1px #8aadbe;
+    box-shadow: inset 0 1px #8aadbe;
+    background-image: none;
+     /* for IE */
+    behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.cfg_butt.dark.clicked {
+    background-color: #354c57;
+    -webkit-box-shadow: 0 1px #536d7a, inset 0 2px 3px #1e313c;
+    -moz-box-shadow: 0 1px #536d7a, inset 0 2px 3px #1e313c;
+    box-shadow: 0 1px #536d7a, inset 0 2px 3px #1e313c;
+    border: solid 1px #314a54;
+    background-image: none;
+     /* for IE */
+    behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.cfg_icon{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-top: 1px;
+    line-height: 14px;
+    vertical-align: text-top;
+    background-repeat: no-repeat;
+}
+
+.cfg_icon.closeIcon {
+    background-image: url("../../image/ic_close2.png");
+}
+
+
+/*switch button*/
+
+.switchButton{
+    position: relative;
+    display: inline-block;
+    font-size: 0;
+    vertical-align: middle;
+}
+
+.tbutt{
+    display:inline-block;
+    font-size:12px;
+    font-family:"Arial";
+    padding:10px;
+    margin:0px;
+    text-align:center;
+    text-shadow: 0 1px #fff;
+    vertical-align: middle;
+    cursor:pointer;
+    outline: none;
+    
+}
+
+.switchButton > .tbutt:first-child{
+    -webkit-border-radius: 8px 0 0 8px;
+    -moz-border-radius: 8px 0 0 8px;
+    border-radius: 8px 0 0 8px;
+}
+
+.switchButton > .tbutt:last-child{
+    -webkit-border-radius: 0 8px 8px 0;
+    -moz-border-radius: 0 8px 8px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.switchButton.butt_grey  > .tbutt{
+    color: #4c4c4c;
+    background-color: #f6f6f6;
+    border: solid 1px #c4c4c4;
+    -webkit-box-shadow: -1px 0 1px #c4c4c4, inset 0 1px #fff;
+    -moz-box-shadow: -1px 0 1px #c4c4c4, inset 0 1px #fff;
+    box-shadow: -1px 0 1px #c4c4c4, inset 0 1px #fff;
+    background-image: -webkit-linear-gradient(top, #f9f9f9, #d7d7d7);
+    background-image: -moz-linear-gradient(top, #f9f9f9, #d7d7d7);
+    background-image: -o-linear-gradient(top, #f9f9f9, #d7d7d7);
+    background-image: linear-gradient(to bottom, #f9f9f9, #d7d7d7);
+    /* for IE */
+    behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.switchButton.butt_grey  > .on {
+    color: #6f6f6f;
+    background-color: #d7d7d7;
+    -webkit-box-shadow: 0 1px #fff, inset 0 1px 1px #a4a4a4;
+    -moz-box-shadow: 0 1px #fff, inset 0 1px 1px #a4a4a4;
+    box-shadow: 0 1px #fff, inset 0 1px 1px #a4a4a4;
+    background-image: none;
+    /* for IE */
+    behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.switchButton.butt_blue  > .tbutt{
+    color: #fff;
+    text-shadow: 0 -1px #4c4c4c;
+    background-color: #354c57;
+    -webkit-box-shadow: inset 0 1px #536d7a;
+    -moz-box-shadow: inset 0 1px #536d7a;
+    box-shadow: inset 0 1px #536d7a;
+    border: solid 1px #1e313c;
+    background-image: -webkit-linear-gradient(top, #314a54, #1e313c);
+    background-image: -moz-linear-gradient(top, #314a54, #1e313c);
+    background-image: -o-linear-gradient(top, #314a54, #1e313c);
+    background-image: linear-gradient(to bottom, #314a54, #1e313c);
+    /* for IE */
+    behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.switchButton.butt_blue  > .on {
+    color:#f9f9f9;
+    text-shadow: 0 1px #111111;
+    background-color: #354c57;
+    -webkit-box-shadow: 0 0 #536d7a, inset 0 1px 1px #1e313c;
+    -moz-box-shadow: 0 0 #536d7a, inset 0 1px 1px #1e313c;
+    box-shadow: 0 0 #536d7a, inset 0 1px 1px #1e313c;
+    background-image:none;
+    /* for IE */
+    behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.buildGround .tooltip-icon {
+    position:relative;
+}
+
+.buildGround .tooltip-inner {
+  max-width:398px;
+  width: 398px;
+}
+
+.buildGround .tooltip.in {
+    opacity: 1;
+    filter: alpha(opacity=1);
+}
+
+.buildGround .tooltip.right {
+    left:15px;
+}
+
+.buildGround .tooltip.bottom {
+    top:15px;
+}
+
+.buildGround .tooltip.right .tooltip-arrow {
+    border-right-color: #494E52;
+    background-image: -webkit-linear-gradient(bottom, #34393d, #60656a);
+    background-image: -moz-linear-gradient(bottom, #34393d, #60656a);
+    background-image: -o-linear-gradient(bottom, #34393d, #60656a);
+    background-image: linear-gradient(to top, #34393d, #60656a);
+}
+
+.buildGround .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #494E52;
+    background-image: -webkit-linear-gradient(bottom, #34393d, #60656a);
+    background-image: -moz-linear-gradient(bottom, #34393d, #60656a);
+    background-image: -o-linear-gradient(bottom, #34393d, #60656a);
+    background-image: linear-gradient(to top, #34393d, #60656a);
+}
+
+.buildGround .tooltip .tooltip-inner {
+    max-width: 398px;
+    background-color: #3C4145;
+    -webkit-box-shadow: 0 2px 4px #a4a4a4, inset 0 0 0 1px #fff;
+    -moz-box-shadow: 0 2px 4px #a4a4a4, inset 0 0 0 1px #fff;
+    box-shadow: 0 2px 4px #a4a4a4, inset 0 0 0 1px #fff;
+    background-image: -webkit-linear-gradient(bottom, #34393d, #60656a);
+    background-image: -moz-linear-gradient(bottom, #34393d, #60656a);
+    background-image: -o-linear-gradient(bottom, #34393d, #60656a);
+    background-image: linear-gradient(to top, #34393d, #60656a);
+    font-size: 11px;
+    color: #ffffff;
+    text-shadow: 0 1px #4c4c4c;
+    
+}
+
+

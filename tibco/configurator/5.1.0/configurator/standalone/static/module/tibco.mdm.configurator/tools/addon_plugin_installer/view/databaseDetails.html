@@ -1,0 +1,28 @@
+<div  ng-controller="configurator.controller.tools.addPlugin.databaseDetails">
+    <div class="dialog-form addPlugin">
+        <div class="dialog-title">
+            <h3>{{local.formPanel4Title}}<span>{{local.formPanel4Info}}</span></h3>
+        </div>
+        <div class="dialog-content">
+            <div class="control-group">
+                <label class="control-label">{{local.dbName}}</label>
+                <input ng-model="installData.database.databaseName" type="text" class="control-input input-block-level"/>
+                <label class="control-label">{{local.dbUser}}</label>
+                <input ng-model="installData.database.userName" type="text" class="control-input input-block-level"/>
+                <label class="control-label">{{local.dbPwd}}</label>
+                <input ng-model="installData.database.password" type="password" class="control-input input-block-level"/>
+                <label class="control-label">{{local.dbHome}}</label>
+                <input ng-model="installData.database.dbHome" type="text" class="control-input input-block-level"/>
+                <label class="control-label" ng-hide="$scope.installData.database.databaseType.value === 'SQLSERVER'">{{local.dbTblSpace}}</label>
+                <input ng-model="installData.database.tablespace" type="text" ng-hide="$scope.installData.database.databaseType.value === 'SQLSERVER'" class="control-input input-block-level"/>
+                <label class="control-label" ng-hide="$scope.installData.database.databaseType.value != 'SQLSERVER'">{{local.dbServer}}</label>
+                <input ng-model="installData.database.instanceName" type="text" ng-hide="$scope.installData.database.databaseType.value != 'SQLSERVER'" class="control-input input-block-level"/>
+            </div>
+        </div>
+    </div>
+    <div class="form_buttons">
+        <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+        <button class="cfg_butt float-right" ng-click="finishButtonClick()">{{local.finish}}</button>
+        <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+    </div>
+</div>

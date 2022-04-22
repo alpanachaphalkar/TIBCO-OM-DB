@@ -1,0 +1,48 @@
+<div class="wizard">
+	<div class="dialog_title_panel">
+		<span class="title_text">{{wizardData.title}}</span>
+	</div>
+	<div class="infobar" style="overflow:hidden;width:100%;" ng-class="messageType">
+		<!-- <div style="display:none;" class="barWrapper">
+			<span class="barMsg">{{messageText}}</span>
+			<button type="button" class="alertClose" ng-click="closeInfoBar();"></button>
+		</div> -->
+		<table style="width:100%">
+			<tr>
+				<td style="width:50px;"></td>
+				<td>
+					<span class="barMsg">{{messageText}}</span>
+				</td>
+				<td>
+					<button type="button" class="alertClose" ng-click="closeInfoBar();"></button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="wizard_content_panel">
+		<div class="title_list">
+			<ul>
+				<li ng-class="{'title highlight': $index==currentFormIndex, 'title': $index!=currentFormIndex}" ng-repeat="form in wizardData.forms">
+					<!-- <span class="num">{{$index+1}}</span>
+					<span class="title_text">{{form.title}}</span> -->
+					<table>
+						<thead></thead>
+						<tfoot></tfoot>
+						<tbody>
+							<tr>
+								<td>{{$index+1}}. </td>
+								<td>{{form.title}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</li>
+			</ul>
+		</div>
+		<div class="form_buttons">
+		</div>
+		<div class="form_content">
+			<div ng-include="templateUrl"></div>
+		</div>
+	</div>
+
+</div>

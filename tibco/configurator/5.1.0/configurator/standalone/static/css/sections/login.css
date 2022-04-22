@@ -1,0 +1,183 @@
+.cfg_login .login-frame {
+	width: 350px;
+	height: 229px;
+	margin: auto;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	position: absolute;
+	/* border */
+	border: 1px solid #c4c4c4;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	/* box shadow */
+	-webkit-box-shadow: 0 1px 10px #a4a4a4;
+	-moz-box-shadow: 0 1px 10px #a4a4a4;
+	box-shadow: 0 1px 10px #a4a4a4;
+	background-color: #f5f5f5;
+	/* for IE */
+	behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.cfg_login .login-frame div.login-title {
+	font-size: 18px;
+	color: #34393d;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 56px;
+}
+
+.cfg_login .login-frame .divider {
+	margin: 0px;
+	color: #dfdfdf;
+	background-color: #dfdfdf;
+	height: 3px;
+}
+
+.cfg_login div.login-input {
+	height: 30px;
+	margin: 20px;
+	position: relative;
+}
+
+.cfg_login div.login-input>input {
+	margin: 0px;
+	width: 100%;
+	height: 30px;
+	font-size: 12px;
+	font-family: "Arial";
+	text-indent: 28px;
+	float: left;
+	background-repeat: no-repeat;
+	/* box sizing */
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	/* for IE */
+	position: relative;
+	behavior: url(../../lib/PIE/PIE.htc);
+}
+
+.cfg_login div.login-input input[type=text] {
+	background-image: url(../../image/ic_user.png);
+	background-position: 7px 7px;
+	padding: 0;
+}
+
+.cfg_login div.login-input input[type=password]{
+	background-image: url(../../image/ic_pwd.png);
+	padding: 0;
+}
+
+.cfg_login div.login-password input[type=text] {
+ 	background-image: url(../../image/ic_pwd.png);
+ 	background-position: 0px;
+	padding: 0;
+}
+
+.cfg_login div.login-input>button.cfg_butt {
+	margin: 0px;
+}
+
+.cfg_login div.login-input>input:focus {
+	border: 1px solid #aec4cf;
+	outline: 0;
+	outline: thin dotted \9;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px #aec4cf;
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px #aec4cf;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px #aec4cf;
+}
+
+.cfg_login div.login-input>input.alert {
+	border: 1px solid #fc8c81;
+	outline: 0;
+	outline: thin dotted \9;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px #fc8c81;
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px #aec4cf;
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px #fc8c81;
+}
+
+.cfg_login div.login-input>.tooltip {
+	width: 300px;
+	height:45px;
+	left: 340px;
+	top: 20px;
+	word-wrap:break-word;
+}
+
+.cfg_login div.login-input>.tooltip>.tooltip-arrow {
+	border-width: 8px;
+	margin-top: -8px;
+	left: -9px;
+	border-right-color: #dedede;
+}
+
+.cfg_login div.login-input>.tooltip>.tooltip-arrow>i {
+	display: block;
+	width: 0px;
+	height: 0px;
+	border-color: transparent #f5f5f5 transparent transparent;
+	border-width: 7px;
+	border-style: solid;
+	z-index: 5;
+	position: absolute;
+	top: 50%;
+	left: -6px;
+	margin-top: -7px;
+}
+
+.cfg_login div.login-input>.tooltip>.tooltip-inner {
+	padding: 12px;
+	background-color: #f5f5f5;
+	background-image: none;
+	box-shadow: none;
+	text-shadow: none;
+	color: #fe5747;
+	border: 1px solid #dfdfdf;
+	width:250px;
+	font-size: 13px;
+}
+
+.cfg_login .login-submit {
+	position: relative; /* this for PIE works on this button */
+	float: right;
+}
+.errorMessage{
+	font-family: "Arial";
+    font-size: 13px;
+    height: 30px;
+	background: url("../../image/error.png") no-repeat scroll 0 0 transparent;
+    height: auto !important;
+    line-height: 32px;
+    min-height: 32px;
+    padding-left: 36px;
+	margin-top: 30px;
+}
+
+
+.cfg_login .body{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+.cfg_login .body .left{
+	background: #cccccc;
+	position: absolute;
+	top: 65px;
+	bottom: 0;
+	left: 0;
+	width: 220px;
+	background-color: #3c5663;
+	border-right: 5px solid #000000;
+}
+.cfg_login .body .right{
+	position: absolute;
+	top: 65px;
+	bottom: 0;
+	left: 225px;
+	right: 0;
+}

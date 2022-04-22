@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+
+
+<!-- $concatenate_style_start$ -->
+<link rel="stylesheet" href="css/common/style.css">
+<link rel="stylesheet" href="css/common/buttons.css">
+<link rel="stylesheet" href="css/common/dialog.css">
+
+<link rel="stylesheet" href="css/sections/leftPanel.css">
+<link rel="stylesheet" href="css/sections/revision_history.css">
+<link rel="stylesheet" href="css/sections/setting.css">
+<link rel="stylesheet" href="css/sections/login.css">
+<!-- $concatenate_style_end$ -->
+
+<link rel="stylesheet" href="module/tibco.ux.directive/applyTree/css/style.css">
+<link rel="stylesheet" href="module/tibco.ux.directive/showTooltip/css/style.css">
+<link rel="stylesheet" href="module/tibco.ux.directive/spliteLine/css/style.css">
+<!-- <link rel="stylesheet" href="module/tibco.ux.directive/editTable/css/style.css"> -->
+<link rel="stylesheet" href="module/tibco.ux.directive/ngEditTable/css/style.css">
+
+<link rel="stylesheet" href="lib/scrollBar/kl-scrollbars.css">
+<link rel="stylesheet" href="lib/scrollBar/perfect-scrollbar.css">
+
+<link rel="stylesheet" href="css/common/themes.css">
+
+<link rel="shortcut icon" type="image/x-icon" href="image/favicon.ico">
+
+<title>OM Configurator</title>
+
+</head>
+<body ng-controller="configurator.controller.mainframe" class="theme-1">
+	<div class="buildGround">
+		<div class="bodyDiv">
+			<div class="headerDiv hide">
+				<a href="#/configuration" title="Configurator">
+					<img class="logo" src="image/Logo_MDM_White.png" alt="" />
+				</a>
+				<div class="" id="uxMenuBar" class="" ux-menu-bar></div>
+				<div class="hide globalSearch" id="globalSearchResults" ng-controller="configurator.controller.globalSearch">
+					<table class="globalSearch">
+						<thead class="globalSearch">
+							<tr class="globalSearch">
+								<th class="globalSearch" ng-click="reverse = !reverse" ng-class="{'sortDown': !reverse, 'sortUpper': reverse}">{{local.property}}</th>
+								<th class="globalSearch">{{local.location}}</th>
+								<th class="globalSearch">{{local.value}}</th>
+							</tr>
+						</thead>
+					</table>
+					<div class="searchTableWrapper" ng-scrollbar="globalSearch" scroll-wrapper="#globalSearchResults">
+						<table class="tableContent globalSearch">
+							<tbody class="globalSearch">
+								<tr class="globalSearch item-{{$index}}" ng-repeat="row in results | orderBy: 'name' : reverse" ng-repeat-finished="globalSearch" ng-click="resultSelect($event, $index);">
+									<td class="globalSearch"><span title="{{row.name}}">{{row.name}}</span></td>
+									<td class="globalSearch"><span title="{{row.location}}">{{row.location}}</span></td>
+									<td class="globalSearch"><span title="{{row.value}}">{{row.value}}</span></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div ng-view class="contentDiv"></div>
+		</div>
+
+		<div class="footerDiv hide">
+			<p><span class="copyRight">{{local.footer_copyRightText}}</span><span class="tibcoLogo"></span></p>
+		</div>
+
+		<div id="mainframeLoadingBackgroud" class="loadingBackground hide">
+			<div class="loadingMsgPanel">
+				<div class="loadingText">{{local.MDMConfiguratorUI}}</div>
+				<div>
+					<img src="../config/image/ajax-loader.gif" />
+				</div>
+			</div>
+		</div>
+
+		
+
+		<!-- First-time wizzard dialog -->
+		<div ng-controller="configurator.controller.firsttime_wizzard" class="hide">
+			<div class="cfg_mask" ng-click="hide()"></div>
+		    <div ng-repeat="p in popover_info" class="MDMpopover cfg_popover" left="{{p.left_position}}" right="{{p.right_position}}" top="{{p.top_position}}" bottom="{{p.bottom_position}}"></div>
+		    <div class="cfg_helpbar">
+		      <span class="ic_help">{{local.settingHelp}}</span>
+		      <span>{{local.helpInformation}}</span>
+		    </div>
+		</div>
+
+		<!-- frame dialog -->
+		<div id="cfg_frame_dialog_modal" class="modal_background hide"></div>
+		<div id="cfg_frame_dialog" ng-controller="configurator.controller.frame_dialog" class="popup_dialog center-fix hide">
+			<div ng-include="dialogTemplateUrl"></div>
+		</div>
+
+		<!-- common dialog -->
+		<div id="cfg_common_dialog" ng-controller="configurator.controller.common_dialog">
+			<div class="dialogTitle">
+				<span>{{cfgDialogConfig.title}}</span>
+			</div>
+			<div class="infobar" ng-class="messageType">
+				<span>{{messageText}}</span>
+				<button type="button" class="alertClose" ng-click="closeInfoBar();"></button>
+			</div>
+			<div class="dialogContent">
+				<div ng-include="dialogTemplateUrl"></div>
+			</div>
+			<div ng-show="cfgDialogConfig.buttons" class="dialogFooter">
+				<div class="cfgDialogConfigLeftBtn">
+					<button class="cfg_butt" ng-show="cfgDialogConfig.buttons.button1.show" ng-click="cfgDialogConfig.buttons.button1.method()" ng-disabled="cfgDialogConfig.buttons.button1.disabled">{{cfgDialogConfig.buttons.button1.text}}</button>
+					<button class="cfg_butt" ng-show="cfgDialogConfig.buttons.button2.show" ng-click="cfgDialogConfig.buttons.button2.method()" ng-disabled="cfgDialogConfig.buttons.button2.disabled">{{cfgDialogConfig.buttons.button2.text}}</button>
+				</div>
+				<div class="cfgDialogConfigRightBtn">
+					<button id="cfgDialogConfigRightBtn1" class="cfg_butt" ng-show="cfgDialogConfig.buttons.button3.show" ng-click="cfgDialogConfig.buttons.button3.method()" ng-disabled="cfgDialogConfig.buttons.button3.disabled">{{cfgDialogConfig.buttons.button3.text}}</button>
+					<button id="cfgDialogConfigRightBtn2" class="cfg_butt" ng-show="cfgDialogConfig.buttons.button4.show" ng-click="cfgDialogConfig.buttons.button4.method()" ng-disabled="cfgDialogConfig.buttons.button4.disabled">{{cfgDialogConfig.buttons.button4.text}}</button>
+				</div>
+			</div>
+		</div>
+
+		<div id="cfgMessageBar" ng-controller="configurator.controller.messageBarCtrl">
+			<div ng-class="messageType" ng-show="messageShow">
+				<span>{{messageText}}</span>
+				<button type="button" class="alertClose" ng-click="closeMsgBar();"></button>
+			</div>
+		</div>
+
+		<script type="text/ng-template" id="dialog1">
+			<div class="dialogContainer">
+				<table>
+					<tr ng-repeat="data in testDialogData">
+						<td>{{data.name}}</td>
+						<td>{{data.team}}</td>
+					</tr>
+				</table>
+			</div>
+		</script>
+		<script type="text/ng-template" id="messageDlgTemplate">
+			<div class="msgDialogContainer">
+				<span>{{cfgDialogConfig.message}}</span>
+			</div>
+		</script>
+		
+		<!-- scripts -->
+		<script type="text/javascript" src="lib/jquery/jquery-3.5.0.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery.placeholder.js"></script>
+		<script type="text/javascript" src="lib/jquery/jquery.mousewheel.js"></script>
+		<script type="text/javascript" src="lib/angular/angular.js"></script>
+		<script type="text/javascript" src="lib/angular/angular-route.js"></script>
+		<script type="text/javascript" src="lib/bootstrap/js/bootstrap.js"></script>
+		<script type="text/javascript" src="lib/angular-ui/ui-bootstrap-0.12.1.js"></script>
+		<script type="text/javascript" src="lib/jsutil.js"></script>
+		<script type="text/javascript" src="lib/scrollBar/KLScrollBars.js"></script>
+		<script type="text/javascript" src="lib/scrollBar/perfect-scrollbar.js"></script>
+		<script type="text/javascript" src="lib/requirejs/require.js" data-main="lib/resourceLoader.js"></script>
+
+	</div>
+</body>
+</html>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

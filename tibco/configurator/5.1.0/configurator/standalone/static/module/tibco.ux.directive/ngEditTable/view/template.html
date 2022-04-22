@@ -1,0 +1,137 @@
+<div class="ediTable">
+    <div class="ediTable-action-area">
+        <div class="ediTable-title">
+            <span>{{local.configurationInformation}}</span>
+            <span class="ediTable-title-cluster">{{serverName}} - </span>
+            <span class="ediTable-title-configuration">{{getConfigNames()}}</span>
+        </div>
+        <div class="ediTable-action-bar">
+            <button class="cfg_butt" ng-click="isEnabled() && buttons.addproperty()">{{local.buttonAddNewProperty}}</button>
+            <!--<button class="cfg_butt" ng-class="{inactive : disable.clone}" ng-click="isEnabled() && buttons.clone()" ng-disabled="disable.clone">{{local.cloneButton}}</button>-->
+            <button class="cfg_butt" ng-class="{inactive : disable.todelete}" ng-click="isEnabled() && buttons.todelete()" ng-disabled="disable.todelete">{{local.deleteButton}}</button>
+            <button class="ediTable-action-colpicker" ng-click="columnPicker()"></button>
+            <span ng-show="inFilter" class="ediTable-action-filter-span">
+                <input class="ediTable-action-filter-input" ng-blur="blurAction();" ng-model="filterKey" ng-change="filter();" ng-placeholder placeholder="{{local.filterHint}}" />
+                <i class="ediTable-action-filter-img"></i>
+            </span>
+            <button ng-hide="inFilter" class="ediTable-action-filter-icon" ng-click="inFilterAction();"></button>
+        </div>
+    </div>
+    <script type="text/ng-template" id="columnPicker">
+        <div ng-controller="configurator.controller.columnPickerCtrl">
+            <div class="columnPickerHeader">
+                <span>{{local.showInformation}}</span>
+            </div>
+            <div class="columnPickerContent">
+                <table>
+                    <tbody>
+                        <tr ng-repeat="option in selected">
+                            <td><button class="cfg_butt" ng-click="option.value = !option.value; changeValue(option);">{{option.name}}</button></td>
+                            <td><div ng-if="option.value" class="selectedIcon">{{local.selectedInfor}}</div></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </script>
+
+    <div class="edit-table">
+        <div class="head">
+            <div ng-style="style.isHotDeployable" ng-show = "selected.isHotDeployable" class="cell column-0">
+                <div class="cell-wrapper" ng-click = "sortBy('isHotDeployable')" ng-class="{'ascending':reverse==true&&predicate=='isHotDeployable','descending':reverse==false&&predicate=='isHotDeployable'}">
+                     <span class='hotdeployable-icon'></span>
+                </div>
+            </div>
+            
+            <div ng-style="style.name" ng-show = "selected.name" class="cell column-1 name" ng-class="{'border-hide':selected.value == false&&selected.description == false}">
+                <div class="cell-wrapper" ng-class="{'ascending':reverse==true&&predicate=='name','descending':reverse==false&&predicate=='name'}" ng-click = "sortBy('name')">{{local.theadProperty}}</div>
+                <span class="resize-bar" ng-colunm-resize=".edit-table" free-column=".column-3" column-name="name"></span>
+            </div>
+            
+            <div ng-style="style.value" ng-show = "selected.value" class="cell column-2 value" ng-class="{'border-hide':selected.description == false}">
+                <div class="cell-wrapper" ng-click = "sortBy('value')" ng-class="{'ascending':reverse==true&&predicate=='value','descending':reverse==false&&predicate=='value'}"  ng-show="selected.value">{{local.theadValue}}</div>
+                <span class="resize-bar" ng-colunm-resize=".edit-table" free-column=".column-3" column-name="value"></span>
+            </div>
+            
+            <div ng-style="style.sinceVersion" ng-show = "selected.sinceVersion" class="cell column-4">
+                <div class="cell-wrapper" ng-click = "sortBy('sinceVersion')" ng-class="{'ascending':reverse==true&&predicate=='sinceVersion','descending':reverse==false&&predicate=='sinceVersion'}">{{local.theadVersion}}</div>
+            </div>
+
+            <div ng-style = "style.description" ng-show = "selected.description" class="cell column-3">
+                <div class="cell-wrapper" ng-click = "sortBy('description')" ng-class="{'ascending':reverse==true&&predicate=='description','descending':reverse==false&&predicate=='description'}">{{local.theadDescription}}</div>
+            </div>
+        </div>
+        <div class="body" ng-scrollbar="propertyTable" scroll-wrapper=".ediTable">
+            <div class="body-wrapper">
+                <div class="row" ng-repeat="row in tableData | orderBy:sortMe():reverse | propertyTableFlt:filterKey" ng-repeat-finished="propertyTable" ng-class="{selected: $index === selectedIndex, last: {{$index}} == tableData.length-1}" ng-click="selectRow($index, row)">
+                    <div ng-style="style.isHotDeployable" ng-show = "selected.isHotDeployable" class="cell column-0">
+                        <div class="cell-wrapper" ng-switch="row.isHotDeployable">
+                            <span ng-switch-when="true" class='hotdeployable-icon'></span>
+                            <span ng-switch-when="false"></span>
+                        </div> 
+                    </div>
+                    
+                    <div ng-style="style.name" ng-show = "selected.name" class="cell column-1 name" ng-class="{'border-hide':selected.value == false&&selected.description == false}" ng-mouseover="showDialog($event, row); dialogFixingPosition($event);" ng-mouseleave="hideDialog($event);" ng-click="hideDialog($event);">
+                        <div ng-class="{rmHeight : $index === selectedIndex}" class="cell-wrapper" marker="{{row.name}}">{{row.name}}</div>
+                        <span class="showInfor hide" ng-mouseleave="focused = false"><b>Property:  </b>{{row.name}}</span>
+                    </div>
+                    
+                    <div ng-style="style.value" ng-show = "selected.value" class="cell column-2 value" ng-class="{'border-hide':selected.description == false}" ng-switch="row.dataType" ng-click="isEnabled() && onRender($event, row)">
+                        <div ng-class="{rmHeight : $index === selectedIndex}" class="editValue cell-wrapper" ng-switch-when="string" editable-cell="row.inEditing">
+                            <span ng-hide="row.inEditing"  marker="{{row.value}}">{{row.value}}</span> <input
+                                ng-show="row.inEditing" type="text" class="editInput" value="{{row.value}}"
+                                ng-blur="onRenderQuit($event, row);">
+                        </div>
+                        <div ng-class="{rmHeight : $index === selectedIndex}" class="editValue cell-wrapper" ng-switch-when="number" editable-cell="row.inEditing">
+                            <span ng-hide="row.inEditing">{{row.value}}</span> 
+                            <input ng-show="row.inEditing" type="text" class="editInput" value="{{row.value}}" ng-blur="onRenderQuit($event, row);">
+                        </div>
+                        <div ng-class="{rmHeight : $index === selectedIndex}" class="editValue cell-wrapper" ng-switch-when="password"
+                            editable-cell="row.inEditing">
+                            <span ng-hide="row.inEditing">******</span> <input
+                                ng-show="row.inEditing" class="editInput" type="password"
+                                value="{{row.value}}"
+                                ng-blur="onRenderQuit($event, row);">
+                        </div>
+                        <div ng-class="{rmHeight : $index === selectedIndex}" class="editValue cell-wrapper" ng-switch-when="boolean"
+                            editable-cell="row.inEditing">
+                            <span ng-hide="row.inEditing">{{row.value}}</span>
+                            <select ng-show="row.inEditing" class="editInput" value="{{row.value}}" ng-blur="onRenderQuit($event, row);">
+                                <option>false</option>
+                                <option>true</option>
+                            </select>
+                        </div>
+                        <div ng-class="{rmHeight : $index === selectedIndex}" class="editValue cell-wrapper" ng-switch-when="enum"
+                            editable-cell="row.inEditing">
+                            <span ng-hide="row.inEditing">{{row.value}}</span>
+                            <select ng-model="selectItem" ng-init="selectItem = row.value" ng-show="row.inEditing" class="editInput" ng-options="opt as opt for opt in row.valueOpts" ng-blur="onRenderQuit($event, row);"></select>
+                        </div>
+                        <div ng-class="{rmHeight : $index === selectedIndex}" class="editValue cell-wrapper listBox" ng-switch-when="list">
+                            <span class="listSpan">{{row.value.join(",")}}</span>
+                            <div class="listTable hide">
+                                <div class="listTableTitle">
+                                    <span>{{local.editListProperty}}</span>
+                                    <span class="deleteIcon" title="close" ng-click="closeListTable($event, row)"></span>
+                                </div>
+                                <div class="listTableWrapper" ng-scrollbar="listTable" scroll-wrapper=".listTableTitle">
+                                    <list table-data="row.value" list-name="propertyTable" value="Value" delete="Delete"></list>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div ng-class="{rmHeight : $index === selectedIndex}" class="cell-wrapper">{{row.value}}</div> -->
+                    </div>
+                    
+                    <div ng-style="style.sinceVersion" ng-show = "selected.sinceVersion" class="cell column-4">
+                        <div ng-class="{rmHeight : $index === selectedIndex}" class="cell-wrapper">{{row.sinceVersion}}</div>
+                    </div>
+
+                    <div ng-style = "style.description" ng-show = "selected.description" class="cell column-3" ng-mouseover="showDialog($event, row); dialogFixingPosition($event);" ng-mouseleave="hideDialog($event);" ng-click="hideDialog($event); showInfor($event);">
+                        <div ng-class="{rmHeight : $index === selectedIndex}" class="cell-wrapper">{{transcludeDesc(row.description)}}</div>
+                        <span class="showInfor hide" ng-mouseleave="focused = false"><b>Description:  </b>{{transcludeDesc(row.description)}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

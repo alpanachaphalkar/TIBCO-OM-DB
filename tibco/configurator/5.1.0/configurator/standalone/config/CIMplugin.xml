@@ -1,0 +1,27 @@
+<CIMPlugin>
+    <!-- The name of the plugin with version number. It will describe the plugin name and version number. -->
+    <Name version="3.0">Fulfillment Order Management</Name>
+
+	<DatabaseClass>com.tibco.af.configurator.addonPlugins.CatalogSeedData</DatabaseClass>	
+	<ConfigDatabaseImplClass>com.tibco.af.configurator.modules.services.serviceImpl.FOMDatabaseSetupServiceImpl</ConfigDatabaseImplClass>
+	<ConfigConfiguratorMngrImplClass>com.tibco.af.configurator.modules.services.serviceImpl.FOMConfiguratorMngrServiceImpl</ConfigConfiguratorMngrImplClass>
+	<!--ConfigMigrationClass/>
+	<ConfigAddOnPluginsClass/>
+	<ConfigBrowseServerFileClass/>
+	<ConfigConfiguratorMngrClass/ -->    
+
+			<!-- All custom class that need to created and invoke execute method. -->
+	<CustomClassList>
+				<Class>com.tibco.af.configurator.addonPlugins.EMSConfiguration</Class>
+				<Class>com.tibco.af.configurator.addonPlugins.EncrypterDecryptorUtil</Class>
+				<Class>com.tibco.af.configurator.addonPlugins.JDBCConnection</Class>
+				<Class>com.tibco.af.configurator.addonPlugins.SeedDataInstall</Class>
+				<!--Class>com.tibco.mdm.configurator.addonPlugins.EnterpriseCreation</Class-->
+	</CustomClassList>
+
+			<!-- The jar file containing all the custom defined class. -->
+			<!-- The root location of the jar file is MQ_HOME/plugins/(pluginName)/(versionNumber)/-->
+	<configJarFileLocation>lib/configPlugin-4.0.0-SNAPSHOT.jar</configJarFileLocation>			
+     
+</CIMPlugin>
+<!-- Copyright (c) 2021-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

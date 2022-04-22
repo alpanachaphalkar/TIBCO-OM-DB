@@ -499,3 +499,20 @@ Return the path to the CRL file.
 {{- printf "/opt/bitnami/postgresql/certs/%s" .Values.tls.crlFilename -}}
 {{- end -}}
 {{- end -}}
+
+{{/*
+init-admin-db labels
+*/}}
+{{- define "initAdminDb.labels" -}}
+{{ include "common.labels.standard" . }}
+app.kubernetes.io/name: init-admin-db
+app.kubernetes.io/component: init-admin-db
+{{ include "initAdminDb.selectorLabels" . }}
+{{- end }}
+
+{{/*
+init-admin-db selector labels
+*/}}
+{{- define "initAdminDb.selectorLabels" -}}
+app: init-admin-db
+{{- end -}}

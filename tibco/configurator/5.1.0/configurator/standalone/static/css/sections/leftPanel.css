@@ -1,0 +1,339 @@
+/*left nav panel, contain cluster outline and configuration outline*/
+.cfg_mainConfig .clusterOutline {
+    height: 20%;
+}
+.cfg_mainConfig .configOutline {
+    height: 76%;
+}
+
+.cfg_mainConfig .clusterOutline .clusterCategoryContainer{
+    bottom: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.cfg_mainConfig .configOutline .configurationCategoryContainer{
+    overflow: hidden;
+    overflow-x: visible;
+    overflow-y: auto;
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+/*new style, start*/
+.cfg_mainConfig .leftPanel {
+    position: absolute;
+    width: 220px;
+    min-width: 220px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: #3B5662;
+}
+
+.cfg_mainConfig .rightPanel {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 220px;
+    background-color: #E4E4E4;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.cfg_mainConfig .rightPanel .infobar {
+    margin-top: -5px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.cfg_mainConfig .clusterOutline {
+    height: 20%;
+    position: relative;
+}
+.cfg_mainConfig .configOutline {
+    height: 76%;
+    position: relative;
+}
+/*new style, end*/
+
+/*defined common style for leftPanel, start*/
+.leftPanel{
+    font-size: 12px;
+    color: #8aadbe;
+}
+.leftPanel .hide{
+    display: none;
+}
+.leftPanel ul, .leftPanel ul li{
+    cursor: pointer;
+    list-style: none;
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+}
+.leftPanel label{
+    margin: 0;
+}
+/*defined common style for leftPanel, end*/
+
+
+
+.leftPanel .itemTitle{
+    display: inline-block;
+    position: relative;
+    padding: 5px 20px;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+.leftPanel .itemTitle.level0{
+    width: 130px;
+}
+
+.leftPanel .itemTitle.level1{
+    width: 110px;
+}
+
+.leftPanel .itemTitle.level2{
+    width: 90px;
+}
+
+
+.leftPanel .list{
+    position: relative;
+    font-size: 12px;
+    color: #8aadbe;
+}
+.leftPanel .highlight{
+    background-color: #314a54;
+    font-size: 12px;
+    color: #c1dce9;
+}
+.leftPanel .highlight .list{
+    color: #ffffff;
+}
+.leftPanel .level0 .highlight:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 3px;
+    background-color: #ff8f63;
+    height: 100%;
+}
+
+.leftPanel .list .menu-icon{
+    /*display: inline-block;*/
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+    position: static;
+    z-index: 999;
+}
+.leftPanel .menu-icon .menu{
+    position: fixed;
+    z-index: 999;
+    width: 80px;
+    background-color: #1e313c;
+    -webkit-box-shadow: 0 1px 2px #1e313c;
+    -moz-box-shadow: 0 1px 2px #1e313c;
+    box-shadow: 0 1px 2px #1e313c;
+    margin: 0 0 10px 13px;
+    padding: 0 0 0 5px;
+}
+
+.leftPanel .menu-icon .menu.positionChange-0{
+    margin-top: -95px;
+}
+.leftPanel .menu-icon .menu.positionChange-1{
+    margin-top: -62px;
+}
+.leftPanel .menu-icon .menu.positionChange-2{
+    margin-top: -29px;
+}
+
+.leftPanel .menu-icon .menu li{
+    opacity: 0.8;
+    margin: 10px;
+    width: auto;
+    display: block;
+}
+
+.leftPanel .menu-icon .menu li.hide{
+    display: none;
+}
+
+.leftPanel .menu-icon .menu li a{
+    color: #8aadbe;
+    text-decoration: none;
+    font-style: normal;
+}
+.leftPanel .menu-icon .menu li a span{
+    position: absolute;
+}
+.leftPanel .menu-icon .menu li a:hover{
+    color: #89d8ff;
+}
+.leftPanel .menu-icon .menu li a:hover .ic_edit{
+    background: url('../../image/ic_edit_hover.png') no-repeat;
+}
+.leftPanel .menu-icon .menu li a:hover .ic_clone{
+    background: url('../../image/ic_clone_hover.png') no-repeat;
+}
+.leftPanel .menu-icon .menu li a:hover .ic_delete{
+    background: url('../../image/ic_delete_hover.png') no-repeat;
+}
+.leftPanel .menu-icon .menu .ic{
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    padding-right: 3px;
+}
+
+.leftPanel .menu-icon .menu .ic_edit{
+    background: url('../../image/ic_edit.png') no-repeat;
+}
+.leftPanel .menu-icon .menu .ic_clone{
+    background: url('../../image/ic_clone.png') no-repeat;
+}
+.leftPanel .menu-icon .menu .ic_delete{
+    background: url('../../image/ic_delete.png') no-repeat;
+}
+
+/*arrow button aciton style*/
+.leftPanel .list .arrow{
+    position: absolute;
+    top: 12px;
+    width: 11px;
+    height: 11px;
+    z-index: 999;
+    background: url('../../image/ic_dotblue.png') no-repeat;
+}
+.leftPanel .extend .list .arrow{
+    background: url('../../image/ic_dotwhite.png') no-repeat;
+}
+.leftPanel .hasSubitem > .list > .arrow{
+    top: 11px;
+    background: url('../../image/ic_bluearrow.png') no-repeat;
+}
+.leftPanel .hasSubitem.extend > .list > .arrow{
+    background: url('../../image/ic_whitearrow.png') no-repeat;
+    top: 10px;
+}
+
+.leftPanel .level0 .list{
+    padding: 0 0 0 20px;
+}
+.leftPanel .level1 .list{
+    padding: 0 0 0 40px;
+}
+.leftPanel .level2 .list{
+    padding: 0 0 0 60px;
+}
+
+
+/*for default, the list item is hide*/
+.leftPanel .level0 ul li{
+    display: none;
+}
+/*extend related style defined*/
+.leftPanel .level0 > li.extend > ul > li{
+    display: block;
+}
+.leftPanel .level0 > li.extend > ul > li.extend > ul > li{
+    display: block;
+}
+
+
+
+.leftPanel .titleText{
+    font-size: 12px;
+    color: #ffffff;
+    text-shadow: 0 -1px #4c4c4c;
+
+    padding-left: 20px;
+    margin: 20px 0 0;
+    height: 45px;
+
+    background-color: #3c5663;
+
+    -webkit-box-shadow: 0 -2px 9px #314a54;
+    -moz-box-shadow: 0 -2px 9px #314a54;
+    box-shadow: 0 -2px 9px #314a54;
+    border: solid 1px #314a54;
+	border-top: solid 1px #536d7a;
+}
+
+.leftPanel .configDropdown{
+    background-color: #314a54;
+    color: #8aadbe;
+    border: none;
+    outline: none;
+    border-top: 1px solid #314A54;
+    box-shadow: 0 1px #536D7A;
+}
+
+
+.leftPanel #leftPanelButtenGroup{
+    margin: 20px auto;
+    display: table;
+}
+.leftPanel #leftPanelButtenGroup .leftPanelButten{
+    font-size: 12px;
+    color: #6f6f6f;
+    text-shadow: 0 1px #fff;
+
+    height: 35px;
+    width: 100%;
+
+    color: #fff;
+    text-shadow: 0 -1px #4c4c4c;
+    background-color: #354c57;
+    -webkit-box-shadow: inset 0 1px #536d7a;
+    -moz-box-shadow: inset 0 1px #536d7a;
+    box-shadow: inset 0 1px #536d7a;
+    border: solid 1px #1e313c;
+    background-image: -webkit-linear-gradient(top, #314a54, #1e313c);
+    background-image: -moz-linear-gradient(top, #314a54, #1e313c);
+    background-image: -o-linear-gradient(top, #314a54, #1e313c);
+    background-image: linear-gradient(to bottom, #314a54, #1e313c);
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+.leftPanel #leftPanelButtenGroup .leftPanelButtenLabel {
+    display: table-cell;
+    width: 50%;
+}
+.leftPanel #leftPanelButtenGroup .leftPanelButten-active{
+    color: #8aadbe;
+    text-shadow: 0 1px #6f6f6f;
+
+    background-color: #354c57;
+    -webkit-box-shadow: 0 0 #536d7a, inset 0 1px 1px #1e313c;
+    -moz-box-shadow: 0 0 #536d7a, inset 0 1px 1px #1e313c;
+    box-shadow: 0 0 #536d7a, inset 0 1px 1px #1e313c;
+    background-image: none;
+}
+
+.leftPanel #leftPanelButtenGroup .leftPanelButten-basic{
+    -webkit-border-radius: 8px 0 0 8px;
+    -moz-border-radius: 8px 0 0 8px;
+    border-radius: 8px 0 0 8px;
+    margin-right: -4px;
+}
+
+.leftPanel #leftPanelButtenGroup .leftPanelButten-advanced{
+    -webkit-border-radius: 0 8px 8px 0;
+    -moz-border-radius: 0 8px 8px 0;
+    border-radius: 0 8px 8px 0;
+}

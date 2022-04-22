@@ -1,0 +1,22 @@
+{ 
+  "tableSpaceValues" : 
+    [ 
+      { 
+	    "name" : "omsuser",
+	    "Component" : "OMS",
+		"tableSpaceName" : "AFOMS",
+        "maxSize" : 1000,
+        "minSize" : 500,       
+        "tableSpaceLocation" : "AFOMS.DBF"      
+      },
+	  { 
+	    "name" : "ocsuser",
+		"Component" : "OCS",
+		"tableSpaceName" : "AFOCS",
+        "maxSize" : 1000,
+        "minSize" : 500,       
+        "tableSpaceLocation" : "AFOCS.DBF"      
+      }
+      
+    ] 
+}

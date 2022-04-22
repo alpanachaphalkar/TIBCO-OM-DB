@@ -1,0 +1,28 @@
+<div ng-controller="configurator.controller.tools.inboundQueue.ReceiverManager">
+  <div class="dialog-form">
+    <div class="dialog-title">
+      <h3>{{local.title}}
+        <span>{{local.information}}</span>
+      </h3>
+    </div>
+    <div class="dialog-content" >
+      <div class="control-group">
+        <label class="control-label">{{local.name}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.ReceiverManagerName"></i></label>
+        <input ng-model="data.receiverMngrJSON.name" type="text" class="control-input input-block-level" />
+        <label class="control-label">{{local.classTitle}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.ReceiverManagerClass"></i></label>
+        <select ng-model="data.receiverMngrJSON.className" ng-options = "v for v in staticData.receiverMgClass"></select>
+        <label class="control-label">{{local.poolSize}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.ReceiverPoolSize"></i></label>
+        <input ng-model="data.receiverMngrJSON.poolSize" ng-init="data.receiverMngrJSON.poolSize = 8" type="text" class="control-input input-block-level" />
+        <label class="control-label">{{local.messageAckMode}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.ReciverManagerMode"></i></label>
+        <input ng-model="data.receiverMngrJSON.msgAckMode" ng-init="data.receiverMngrJSON.msgAckMode = 'autoAck'" type="text" class="control-input input-block-level" />
+        <label class="control-label">{{local.IOProcessTemplate}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.ioTemplate"></i></label>
+        <select ng-model="data.receiverMngrJSON.destName" ng-options = "v for v in staticData[direction + 'IOProcessTemp']"></select>
+      </div>
+    </div>
+  </div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+    <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+  </div>
+</div>

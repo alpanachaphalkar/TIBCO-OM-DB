@@ -1,0 +1,36 @@
+<div  ng-controller="configurator.controller.tools.setupDatabaseOracle.ConfirmStorageParameters">
+  <div class="dialog-form">
+    <div class="dialog-title">
+      <h3>{{local.title}}</h3>
+      <h6>{{local.info}}</h6>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>{{local.description}}</th>
+              <th>{{local.name}}</th>
+              <th ng-hide="data.values.DATABASETYPE === 'POSTGRES'">{{local.maxSize}}</th>
+              <th ng-show="data.values.DATABASETYPE === 'ORACLE'">{{local.file}}</th>
+              <th ng-show="data.values.DATABASETYPE === 'SQLSERVER' || data.values.DATABASETYPE === 'POSTGRES'">{{local.location}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in staticData.tableSpaceValues">
+              <td>{{item.description}}</td>
+              <td>{{item.tableSpaceName}}</td>
+              <td ng-hide="data.values.DATABASETYPE === 'POSTGRES'">{{item.maxSize}}</td>
+              <td>{{item.tableSpaceLocation}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="installButtonClick()">{{local.install}}</button>
+    <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="CommunicationContext" ng-controller="configurator.controller.tools.inboundQueue.CommunicationContext">
+  <div class="dialog-form">
+    <div class="dialog-title">
+      <h3>{{local.title}}
+        <span>{{local.information}}</span>
+      </h3>
+    </div>
+    <div class="dialog-content" style="height:300px;">
+      <div class="control-group">
+        <label class="control-label">{{local.name}}<i class="icon-question-sign tooltip-icon" ng-tooltip="tipInfo.CommunicationContextName" placement="right"></i></label>
+        <input ng-model="data.commContextJSON.commContext" type="text" class="control-input input-block-level" />
+      </div>
+      <div class="control-group">
+        <label class="control-label">{{local.property}}<i class="icon-question-sign tooltip-icon" ng-tooltip="tipInfo.CommunicationContextProperty" placement="right"></i></label>
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="name">{{local.propertyName}}</th>
+              <th class="property">{{local.overrideProperty}}</th>
+              <th class="defaultValue">{{local.defaultValue}}</th>
+              <th class="newValue">{{local.newValue}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="prop in staticData.inboundCommContext">
+              <td>{{prop.propName}}</td>
+              <td style="text-align:center;"><input type="checkbox" ng-model="prop.override" ng-change="overrideAction($event, prop);"/></td>
+              <td>{{prop.defaultValue}}</td>
+              <td class="newValue">
+                <div ng-show="prop.override" ng-init="prop.showEdit = false">
+                  <div ng-click="prop.showEdit = true" ng-hide="prop.showEdit">{{prop.value}}</div>
+                  <div ng-switch="prop.valueType" ng-show="prop.showEdit">
+                    <!-- <input class="string" ng-blur="hideEdit(prop)" ng-switch-when="string" type="text"  ng-model="prop.value" /> -->
+                    <input class="string" ng-blur="hideEdit(prop)" ng-switch-when="string" type="text" ng-model="prop.value" />
+                    <input class="number" ng-keydown="checkNumber($event);" ng-blur="hideEdit(prop)" ng-switch-when="number" type="text" ng-model="prop.value" />
+                    <select class="boolean" ng-blur="hideEdit(prop)" ng-switch-when="boolean" ng-options="v for v in ['true','false']" ng-model="prop.value"></select>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+    <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+  </div>
+  
+</div>

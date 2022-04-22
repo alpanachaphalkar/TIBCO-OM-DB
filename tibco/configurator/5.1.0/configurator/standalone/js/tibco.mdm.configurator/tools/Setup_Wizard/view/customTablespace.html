@@ -1,0 +1,51 @@
+<div ng-controller="configurator.controller.tools.Setup_Wizard.customTablespace">
+    <div class="dialog-form">
+    <div class="dialog-title">
+      <h3>{{local.title}}</h3>
+      <h6>{{local.info}}</h6>
+    </div>
+	 <div class="dialog-content">
+      <div class="control-group">
+        <table class="table">
+          <thead>
+           <tr>
+              <th>{{local.Component}}</th>
+              <th>{{local.tableSpaceName}}</th>
+              <th>{{local.MaxSize}}</th>
+              <th>{{local.MinSize}}</th>
+			  <th>{{local.Location}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in staticData.tableSpaceValues">		  
+			  <td ng-show="data.values.{{item.name}}">
+               {{item.Component}}
+              </td>
+              <td ng-show="data.values.{{item.name}}">
+                <input type="text" style="width : 180px;" ng-model="item.tableSpaceName" class="editable-input" />
+              </td>
+              <td ng-show="data.values.{{item.name}}">
+                <input type="text" style="width : 60px;" ng-model="item.minSize" class="editable-input" />
+              </td>
+              <td ng-show="data.values.{{item.name}}">
+                <input type="text" style="width : 150px;" ng-model="item.maxSize" class="editable-input" />
+              </td>
+			   <td ng-show="data.values.{{item.name}}">
+                <input type="text" style="width : 150px;" ng-model="item.tableSpaceLocation" class="editable-input" />
+              </td>
+			  
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+	 
+	 
+	</div>
+    <div class="form_buttons">
+		<button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+        <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+        <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+    </div>
+</div>
+<!-- Copyright (c) 2018-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

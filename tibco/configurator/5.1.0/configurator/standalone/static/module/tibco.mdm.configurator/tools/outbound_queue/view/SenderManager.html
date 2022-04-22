@@ -1,0 +1,34 @@
+<div ng-controller="configurator.controller.tools.outboundQueue.SenderManager">
+  <div class="dialog-form">
+    <div class="dialog-title">
+      <h3>{{local.title}}
+        <span>{{local.information}}</span>
+      </h3>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <label class="control-label">{{local.senderManagerName}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.SenderManagerName"></i></label>
+        <input ng-model="data.senderMngrJSON.name" type="text" class="control-input input-block-level" />
+      </div>
+      <div class="control-group">
+        <label class="control-label">{{local.senderManagerClass}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.SenderManagerClass"></i></label>
+        <select ng-model="data.senderMngrJSON.className" ng-options = "v for v in staticData.senderMgClass"></select>
+      </div>
+      <div class="control-group">
+        <label class="control-label">{{local.poolSize}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.PoolSize"></i></label>
+        <input ng-model="data.senderMngrJSON.poolSize" type="text" class="control-input input-block-level" />
+      </div>
+      <div class="control-group label-inline form-horizontal">
+        <label class="control-label" style="width:300px;">{{local.messagePersistence}}</label>
+        <label class="checkbox">
+          <input type="checkbox" ng-model="data.senderMngrJSON.msgPersistent"/> {{local.checkboxYes}}
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="nextButtonClick()">{{local.next}}</button>
+    <button class="cfg_butt float-right" ng-click="previousButtonClick()">{{local.previous}}</button>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<div ng-controller="configurator.controller.login" class="cfg_login loadingBackground">
+	
+	<div class="header">
+		<div class="headerDiv">
+			<a title="Configurator" href="#/configuration">
+				<img alt="" src="../../../../image/Logo_MDM_White.png" class="logo">
+			</a>			
+		</div>
+	</div>
+	<div class="body">
+		<div class="left">
+		</div>
+		<div class="right">
+			<div class="login-frame">
+				<div class="login-title">
+					<span>{{local.titleUserloginText}}</span>
+				</div>
+				<hr class="divider" />
+				<div class="login-input LoginAlert" inputtype="email">
+					<input type="text" ng-model="data.userName" ng-placeholder placeholder="{{local.placeholderEmailText}}" />
+					<div class="tooltip fade right in" ng-show="errorMessage.userName && !data.userName">
+						<div class="tooltip-arrow">
+							<i></i>
+						</div>
+						<div class="tooltip-inner ng-binding">{{local.errorMessage1}}</div>
+					</div>
+					<div class="tooltip fade right in" ng-show="errorMessage.loginFailed">
+						<div class="tooltip-arrow">
+							<i></i>
+						</div>
+						<div class="tooltip-inner ng-binding">{{loginFailedMessage}}</div>
+					</div>
+					<div class="tooltip fade right in" ng-show="errorMessage.password && !data.password">
+						<div class="tooltip-arrow">
+							<i></i>
+						</div>
+						<div class="tooltip-inner ng-binding">{{local.errorMessage2}}</div>
+					</div>
+				</div>
+
+				<div class="login-input login-password" inputtype="password">
+					<input type="password" ng-model="data.password" ng-placeholder placeholder="{{local.placeholderPasswordText}}" />
+					
+				</div>
+				<div class="login-input">
+					<button class="cfg_butt dark login-submit" ng-click="submit()">{{local.buttonSigninText}}</button>
+				</div>
+				<div class="login-msg"></div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="footerDiv">
+			<p><span class="copyRight ng-binding"> FOM Configurator@ Copyright &copy;2014</span><span class="tibcoLogo"></span></p>
+		</div>
+	</div>
+
+
+
+
+	
+</div>

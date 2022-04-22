@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tibeds xmlns="http://www.tibco.com/aff/eca/model">
+    <ecaRule ruleName="planSdfNotificationRule" runOnFailure="false" runOnError="false">
+        <event eventName="planSdfNotification" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>application</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>
+        <action actionType="notification">
+            <actionNotification>
+                <endpointType>
+                    <uri>jms:queue:tibco.aff.oms.jm.sdf.request</uri>
+                </endpointType>
+            </actionNotification>
+        </action>
+    </ecaRule>
+    <ecaRule ruleName="dbPlanAlertRule" runOnFailure="false" runOnError="false">
+        <event eventName="planJeopardy" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>application</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>
+        <action actionType="notification">
+            <actionNotification>
+                <endpointType>
+                    <uri>jms:topic:tibco.aff.oms.events.jeopardy.publish</uri>
+                </endpointType>
+                <outMessageType>
+                    <plainStringOutMessage>
+                        <messageTemplate> Plan : ${plan/planID} - ${messageCode}:${message}</messageTemplate>
+                    </plainStringOutMessage>
+                </outMessageType>
+            </actionNotification>
+        </action>
+    </ecaRule>
+    <ecaRule ruleName="dbPlanItemAlertRule" runOnFailure="false" runOnError="false">
+        <event eventName="planItemJeopardy" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>application</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>
+        <action actionType="notification">
+            <actionNotification>
+                <endpointType>
+                    <uri>jms:topic:tibco.aff.oms.events.jeopardy.publish</uri>
+                </endpointType>
+                <outMessageType>
+                    <plainStringOutMessage>
+                        <messageTemplate> Plan : ${plan/planID} - PlanItem : ${planItem/planItemID} - ${messageCode}:${message}</messageTemplate>
+                    </plainStringOutMessage>
+                </outMessageType>
+            </actionNotification>
+        </action>
+    </ecaRule>
+    <ecaRule ruleName="tdsSetPlanRule" runOnFailure="false" runOnError="false">
+        <event eventName="tdsSetPlanRequest" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>application</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>
+        <action actionType="notification">
+            <actionNotification>
+                <endpointType>
+                    <uri>jms:queue:tibco.aff.tds.plan.request</uri>
+                </endpointType>
+            </actionNotification>
+        </action>
+    </ecaRule>
+    <ecaRule ruleName="tdsSetPlanItemRule" runOnFailure="false" runOnError="false">
+        <event eventName="tdsSetPlanItemRequest" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>application</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>
+        <action actionType="notification">
+            <actionNotification>
+                <endpointType>
+                    <uri>jms:queue:tibco.aff.tds.plan.request</uri>
+                </endpointType>
+            </actionNotification>
+        </action>
+    </ecaRule>
+    <ecaRule ruleName="tdsSetMilestoneRule" runOnFailure="false" runOnError="false">
+        <event eventName="tdsSetMilestoneRequest" type="event">
+            <eventSource>
+                <endpointType>
+                    <uri>application</uri>
+                </endpointType>
+                <inMessageType>
+                    <javabean/>
+                </inMessageType>
+            </eventSource>
+            <lifetime/>
+        </event>
+        <action actionType="notification">
+            <actionNotification>
+                <endpointType>
+                    <uri>jms:queue:tibco.aff.tds.plan.request</uri>
+                </endpointType>
+            </actionNotification>
+        </action>
+    </ecaRule>
+ </tibeds>
+<!-- Copyright (c) 2017-2017. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

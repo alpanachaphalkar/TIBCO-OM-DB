@@ -1,0 +1,155 @@
+<div  ng-controller="configurator.controller.tools.migration.formPanel4">
+    <div ng-hide="progressing" ng-if="subFormPanel !== 'MigrationSummary'" class="dialog-form defineDatabaseMigration">
+      <div class="dialog-title">
+        <h3>{{local.dialogTitle}}</h3>
+        <h6>{{local.dialogSubTitle}}</h6>
+      </div>
+      <div class="dialog-content">
+        <div class="control-group label-inline">
+          <label class="control-label">{{local.DBHost}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.DBHost"></i></label>
+          <input type="text" class="control-input input-block-level" ng-model="migrationDetails.migrationWizard.database.host">
+          <label class="control-label">{{local.DBPort}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.DBPort"></i></label>
+          <input type="text" class="control-input input-block-level" maxlength="4" ng-keydown="checkNumber($event);" ng-model="migrationDetails.migrationWizard.database.port">
+          <label class="control-label">{{local.DBName}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.DBName"></i></label>
+          <input type="text" class="control-input input-block-level" ng-model="migrationDetails.migrationWizard.database.databaseName">
+          <label class="control-label">{{local.userName}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.userName"></i></label>
+          <input type="text" class="control-input input-block-level" ng-model="migrationDetails.migrationWizard.database.userName" >
+          <label class="control-label">{{local.password}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.password"></i></label>
+          <input type="password" class="control-input input-block-level" ng-model="migrationDetails.migrationWizard.database.password" >
+        </div>
+
+        <div class="control-group" ng-show="migrationDetails.migrationWizard.database.databaseType.value=='ORACLE'">
+          <label  class="control-label">{{local.tabSpace}}<i class="icon-question-sign tooltip-icon" placement="right" ng-tooltip="tipInfo.tabSpace"></i></label>
+          <input type="text" class="control-input input-block-level" ng-model="migrationDetails.migrationWizard.database.tablespace">
+        </div>
+
+      </div>
+    </div>
+    <div ng-if="subFormPanel !== 'MigrationSummary'" class="form_buttons">
+      <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+      <button class="cfg_butt float-right" ng-click="nextButtonClick()" ng-class="{inactive : progressing}" ng-disabled="progressing">{{local.finish}}</button>
+      <button class="cfg_butt float-right" ng-click="previousButtonClick()" ng-class="{inactive : progressing}" ng-disabled="progressing">{{local.previous}}</button>
+    </div>
+
+
+    <div id="MigrationSummary" ng-hide="progressing" ng-if="subFormPanel === 'MigrationSummary'" class="dialog-form defineDatabaseMigration">
+      <div class="dialog-title">
+        <h3>{{local.summaryTitle}}<span>{{local.summaryInfo}}</span></h3>
+      </div>
+      <div class="dialog-content">
+        <div class="control-group contentTitle">
+          <div class="expendTitle" ng-init="isExpend_1 = true" ng-click="isExpend_1 = !isExpend_1">
+            <img ng-if="!isExpend_1" ng-src="image/arrow.gif">
+            <img ng-if="isExpend_1" ng-src="image/arrowDown.gif">
+            <div class="expendInfor">{{local.migrationReport}}</div>
+          </div>
+        </div>
+        <div class="control-group expendContent" ng-show="isExpend_1">
+          <table>
+            <tbody>
+              <tr>
+                <td>{{local.databaseMigration}}</td>
+                <td><img ng-if="summaryInfo.results.database != 'false'" src="../../../../../image/subscribe.png"><img ng-if="summaryInfo.results.database == 'false'" src="../../../../../image/delete_16x16.gif">{{databaseStatus}}</td>
+              </tr>
+              <tr>
+                <td>{{local.configValuesMigration}}</td>
+                <td><img ng-if="summaryInfo.results.configValues != 'false'" src="../../../../../image/subscribe.png"><img ng-if="summaryInfo.results.configValues == 'false'" src="../../../../../image/delete_16x16.gif">{{configvalueStatus}}</td>
+              </tr>
+              <tr>
+                <td>{{local.DependentFilesMigration}}</td>
+                <td><img ng-if="summaryInfo.results.component != 'false'" src="../../../../../image/subscribe.png"><img ng-if="summaryInfo.results.component == 'false'" src="../../../../../image/delete_16x16.gif">{{componentStatus}}</td>
+              </tr>
+              <tr>
+                <td>{{local.GDSNAddonFiles}}</td>
+                <td><img ng-if="summaryInfo.results.gdsnAddon != 'false'" src="../../../../../image/subscribe.png"><img ng-if="summaryInfo.results.gdsnAddon == 'false'" src="../../../../../image/delete_16x16.gif">{{gdsnAddonStatus}}</td>
+              </tr>
+              <tr>
+                <td>{{local.rulesMigration}}</td>
+                <td><img ng-if="summaryInfo.results.rulesMigration != 'false'" src="../../../../../image/subscribe.png"><img ng-if="summaryInfo.results.rulesMigration == 'false'" src="../../../../../image/delete_16x16.gif">{{rulesStatus}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="control-group contentTitle">
+          <div class="expendTitle" ng-init="isExpend_2 = true" ng-click="isExpend_2 = !isExpend_2">
+            <img ng-if="!isExpend_2" ng-src="image/arrow.gif">
+            <img ng-if="isExpend_2" ng-src="image/arrowDown.gif">
+            <div class="expendInfor">{{local.outputLogs}}</div>
+          </div>
+        </div>
+        <div class="control-group expendContent" ng-show="isExpend_2">
+          <table>
+            <tbody>
+              <tr>
+                <td>{{local.databaseMigration}}</td>
+                <td>
+                  <form action="MigrationWizard.do" method="post" target="_blank">
+                    <input type="hidden" name="action" value="download">
+                    <input type="hidden" name="fileType" value="{{summaryInfo.logFiles.database}}">
+                    <button ng-disabled="!summaryInfo.logFiles.database" type="submit" >{{local.open}}</button>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td>{{local.configValuesMigration}}</td>
+                <td>
+                  <form action="MigrationWizard.do" method="post" target="_blank">
+                    <input type="hidden" name="action" value="download">
+                    <input type="hidden" name="fileType" value="{{summaryInfo.logFiles.configValues}}">
+                    <button ng-disabled="!summaryInfo.logFiles.configValues" type="submit" >{{local.open}}</button>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td>{{local.DependentFilesMigration}}</td>
+                <td>
+                  <form action="MigrationWizard.do" method="post" target="_blank">
+                    <input type="hidden" name="action" value="download">
+                    <input type="hidden" name="fileType" value="{{summaryInfo.logFiles.component}}">
+                    <button ng-disabled="!summaryInfo.logFiles.component" type="submit" >{{local.open}}</button>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td>{{local.GDSNAddonFiles}}</td>
+                <td>
+                  <form action="MigrationWizard.do" method="post" target="_blank">
+                    <input type="hidden" name="action" value="download">
+                    <input type="hidden" name="fileType" value="{{summaryInfo.logFiles.gdsnAddon}}">
+                    <button ng-disabled="!summaryInfo.logFiles.gdsnAddon" type="submit" >{{local.open}}</button>
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td>{{local.rulesMigration}}</td>
+                <td>
+                  <form action="MigrationWizard.do" method="post" target="_blank">
+                    <input type="hidden" name="action" value="download">
+                    <input type="hidden" name="fileType" value="{{summaryInfo.logFiles.rultsMigration}}">
+                    <button ng-disabled="!summaryInfo.logFiles.rultsMigration" type="submit" >{{local.open}}</button>
+                  </form>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div ng-if="subFormPanel === 'MigrationSummary'" class="form_buttons">
+      <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.close}}</button>
+    </div>
+
+    <div class="dialog-form" ng-show="progressing">
+      <div class="dialog-title">
+          <h3>{{local.migrationInProgress}}</h3>
+      </div>
+      <div class="dialog-content">
+          <div class="control-group">
+            <label class="control-label">{{local.progressInformation}}</label>
+            <div class="progress-striped active">
+              <div class="progress_bar"></div>
+            </div>
+          </div>
+      </div>
+    </div>
+</div>

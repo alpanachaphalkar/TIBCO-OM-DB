@@ -1,0 +1,133 @@
+
+/*default theme is theme-1*/
+.theme-1{
+
+}
+
+/*theme-2*/
+
+/*for login page*/
+.theme-2{
+
+}
+
+/*header*/
+.theme-2 .headerDiv{
+	background-color: #3783c0;
+}
+.theme-2 #uxMenuBar .searchSpan{
+	background-color: #ffffff;
+	color: #c3c3c3;
+	font-family: Helvetica regular;
+	padding-top: 0;
+}
+.theme-2 .menuItem a{
+	color: #ffffff;
+}
+.theme-2 .menu .menuItem a.disable, .theme-2 div.menuDiv .menuItem-last a.disable{
+	color: #cccccc;
+}
+.theme-2 div.menuDiv .menuItem-last .cfg_dropdownMenu{
+	background-color: #ffffff;
+}
+.theme-2 div.menuDiv .menuItem-last .cfg_dropdownMenu a{
+	color: #4c4c4c;
+}
+.theme-2 div.menuDiv .menuItem-last .cfg_dropdownMenu a:hover{
+	color: #3783c0;
+}
+/*.theme-2 .menu .menuItem a:hover, .theme-2 div.menuDiv .menuItem-last a:hover{
+	color: #ffffff;
+}*/
+.theme-2 .menu .hasSubMenu>a{
+	color: #ffffff;
+	background: url("../../image/theme-2/W.png") right 4px no-repeat;
+}
+.theme-2 .menu .hasSubMenu>a:hover{
+	color: #cccccc;
+}
+.theme-2 .cfg_dropdownMenu{
+	background-color: #ffffff;
+}
+.theme-2 .menuItem .cfg_dropdownMenu a{
+	color: #4c4c4c;
+}
+.theme-2 .menuItem .cfg_dropdownMenu a:hover{
+	color: #3783c0;
+}
+
+
+
+
+/*footer*/
+.theme-2 .footerDiv{
+	background-color: #3783c0;
+}
+.theme-2 .footerDiv .copyRight{
+	color: #ffffff;
+}
+
+/*left panel*/
+.theme-2 .left, .theme-2 .leftPanel{
+	background-color: #3e3f48 !important;
+}
+.theme-2 .leftPanel .list{
+	color: #c3c3c3;
+}
+.theme-2 .leftPanel .highlight .list{
+	color: #ffffff;
+}
+.theme-2 .left .highlight, .theme-2 .leftPanel .highlight{
+	background-color: #575a67 !important;
+}
+.theme-2 .leftPanel .level0 .highlight:before{
+	background-color: #36a6ff;
+}
+.theme-2 .leftPanel #leftPanelButtenGroup .leftPanelButten-active{
+	background-color: #33343d;
+	box-shadow: 0px 0px 2px #1e313c inset !important;
+}
+.theme-2 .leftPanel #leftPanelButtenGroup .leftPanelButten{
+	background-color: #575a67;
+	box-shadow: 0px 0px 1px #575a67 inset;
+}
+
+
+
+.theme-2 .right, .theme-2 .rightPanel{
+	/*background-color: #CCCCCC !important;*/
+}
+
+.theme-2 .left .titleText, .theme-2 .leftPanel .titleText{
+	background-color: #33343d;
+}
+
+/*theme-3*/
+
+/*for login page*/
+.theme-3{
+}
+.theme-3 .headerDiv{
+	background-color: #2376AF;
+}
+.theme-3 .searchSpan{
+	background-color: #5E9BC3 !important;
+	color: #000000 !important;
+}
+.theme-3 .left, .theme-3 .leftPanel{
+	background-color: #AFC9DC !important;
+}
+.theme-3 .left .highlight, .theme-3 .leftPanel .highlight{
+	background-color: #3D8EA0 !important;
+
+}
+.theme-3 .right, .theme-3 .rightPanel{
+	background-color: #FDFDFD !important;
+}
+.theme-3 .left .titleText, .theme-3 .leftPanel .titleText{
+	background-color: #5E9BC3;
+	color: #000000;
+}
+.theme-3 .left .list, .theme-3 .leftPanel .list{
+	color: #000000;
+}

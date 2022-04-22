@@ -1,0 +1,43 @@
+<?xml version = "1.0" encoding = "UTF-8" standalone = "yes"?>
+<ns3:udfColDef xmlns:ns3="http://www.tibco.com/aff/oms/dto/cusomUdfExt" enabled="false">
+	<!--User would need to restart OMS Server and OMS UI after changes in the files.
+	User can only define maximum of one custom columns mapped to udf and make sure that entityColumnName, udfKey is unique-->
+	<ns3:udfDefinitionList name="orderUdf">
+		<ns3:udfDefinition entityColumnName="udfkeyA" udfKey="MSDIN1" enabled="false" uiVisible="true" uiLengthinPX="15">
+			<ns3:allowedValues  value="EMPTY"/>				
+			<ns3:allowedValues  value="EMPTY1"/>				
+		</ns3:udfDefinition>
+		<ns3:udfDefinition entityColumnName="udfkeyB" udfKey="MSDIN2" enabled="false" uiVisible="true" uiLengthinPX="15">		
+		</ns3:udfDefinition>
+		<ns3:udfDefinition entityColumnName="udfkeyC" udfKey="MSDIN3" enabled="false" uiVisible="true" uiLengthinPX="15">		
+		</ns3:udfDefinition>
+		<ns3:udfDefinition entityColumnName="udfkeyD" udfKey="MSDIN4" enabled="false" uiVisible="true" uiLengthinPX="15">		
+		</ns3:udfDefinition>
+	</ns3:udfDefinitionList>
+	
+	<ns3:udfDefinitionList name="planUdf">
+		<ns3:udfDefinition entityColumnName="udfkeyA" udfKey="MSDIN1" enabled="false" uiVisible="true" uiLengthinPX="15">		
+			<ns3:allowedValues display="NO1" value="NO"/>				
+			<ns3:allowedValues display="NO2" value="NO1"/>
+		</ns3:udfDefinition>
+		<ns3:udfDefinition entityColumnName="udfkeyB" udfKey="MSDIN2" enabled="false" uiVisible="true" uiLengthinPX="15">		
+		</ns3:udfDefinition>
+		<ns3:udfDefinition entityColumnName="udfkeyC" udfKey="MSDIN3" enabled="false" uiVisible="true" uiLengthinPX="15">		
+		</ns3:udfDefinition>
+		<ns3:udfDefinition entityColumnName="udfkeyD" udfKey="MSDIN4" enabled="false" uiVisible="true" uiLengthinPX="15">		
+		</ns3:udfDefinition>		
+	</ns3:udfDefinitionList>
+	
+	<ns3:locale lang="en_US"> 
+		<ns3:label key="MSDIN1" text="MSDINTEXT1"/>
+		<ns3:label key="MSDIN2" text="MSDINTEXT2"/>
+		<ns3:label key="MSDIN3" text="MSDINTEXT3"/>
+		<ns3:label key="MSDIN4" text="MSDINTEXT4"/>
+		<ns3:label key="ICI1" text="ICI1TEXT"/>
+		<ns3:label key="ICI2" text="ICI2TEXT"/>
+		<ns3:label key="EMPTY" text="NO1Text"/>
+		<ns3:label key="NO2" text="NO2Text"/>
+	</ns3:locale>
+	
+</ns3:udfColDef>
+<!-- Copyright (c) 2017-2018. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary. -->

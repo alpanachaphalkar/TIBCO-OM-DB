@@ -1,0 +1,37 @@
+<div ng-controller="configurator.controller.tools.inboundQueue.XPathDefinitionFile">
+  <div class="dialog-form" ng-hide="progressing">
+    <div class="dialog-title">
+      <h3>{{local.title}}
+        <span>{{local.information}}</span>
+      </h3>
+    </div>
+    <div class="dialog-content">
+      <div class="control-group">
+        <label class="control-label">{{local.definitionFile}}</label>
+        <input ng-model="data.baseDetails.xpath" type="text" class="control-input input-block-level" />
+      </div>
+    </div>
+  </div>
+
+  <div class="dialog-form" ng-show="progressing">
+      <div class="dialog-title">
+          <h3>{{local.defineNewQueue}}</h3>
+      </div>
+      <div class="dialog-content">
+          <div class="control-group">
+            <label class="control-label">{{local.showInformation}}</label>
+            <div class="progress-striped active">
+              <div class="progress_bar"></div>
+            </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="form_buttons">
+    <button class="cfg_butt float-right" ng-click="closeButtonClick()">{{local.cancel}}</button>
+    <button class="cfg_butt float-right" ng-click="finishButtonClick()" ng-class="{inactive : progressing}" ng-disabled="progressing">{{local.finish}}</button>
+    <button class="cfg_butt float-right" ng-click="previousButtonClick()" ng-class="{inactive : progressing}" ng-disabled="progressing">{{local.previous}}</button>
+  </div>
+
+  
+</div>

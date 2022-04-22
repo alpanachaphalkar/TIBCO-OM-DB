@@ -1,0 +1,76 @@
+.absolute-position {
+  position: absolute;
+}
+
+.bar {
+  background-color: #898989;
+  display: block;
+}
+
+.cursor-move {
+  cursor: move;
+}
+
+.cursor-se-resize {
+  cursor: se-resize;
+}
+
+.h-bar {
+  height: 100%;
+}
+
+.h-scroll-bar {
+  height: 6px;
+}
+
+.no-user-select {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.opaque-6 {
+  -moz-opacity: 0.6;
+  -ms-opacity: 0.6;
+  -o-opacity: 0.6;
+  -webkit-opacity: 0.6;
+  opacity: 0.6;
+}
+
+.resize-knob {
+  bottom: 0px;
+  height: 6px;
+  right: 0px;
+  width: 6px;
+}
+
+.round-corner-3px {
+  /*-moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 0px;*/
+}
+
+.scroll-bar {
+  background-color: transparent;
+}
+
+.v-bar {
+  width: 100%;
+  margin: 0 -10px;
+}
+
+.v-scroll-bar {
+  width: 6px;
+}
+
+.wrappee {
+}
+
+.wrapper {
+}
+
