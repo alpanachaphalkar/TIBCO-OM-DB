@@ -1,0 +1,131 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: admin-db-bin-scripts
+  labels:
+  {{- include "postgres.labels" . | nindent 4 }}
+data:
+{{- with .Files.Glob "files/dbscripts/admin/bin/*.{sh,properties}" }}
+{{ .AsConfig | indent 2 }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: admin-db-sql-scripts
+  labels:
+  {{- include "postgres.labels" . | nindent 4 }}
+data:
+{{- with .Files.Glob "files/dbscripts/admin/scripts/*.sql" }}
+{{ .AsConfig | indent 2 }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: archival-db-bin-scripts
+  labels:
+  {{- include "postgres.labels" . | nindent 4 }}
+data:
+{{- with .Files.Glob "files/dbscripts/archival/bin/*.{sh,properties}" }}
+{{ .AsConfig | indent 2 }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: archival-db-sql-scripts
+  labels:
+  {{- include "postgres.labels" . | nindent 4 }}
+data:
+{{- with .Files.Glob "files/dbscripts/archival/scripts/*.sql" }}
+{{ .AsConfig | indent 2 }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: catalog-db-bin-scripts
+  labels:
+  {{- include "postgres.labels" . | nindent 4 }}
+data:
+{{- with .Files.Glob "files/dbscripts/catalog/bin/*.{sh,properties}" }}
+{{ .AsConfig | indent 2 }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: catalog-db-sql-scripts
+  labels:
+  {{- include "postgres.labels" . | nindent 4 }}
+data:
+{{- with .Files.Glob "files/dbscripts/catalog/scripts/*.sql" }}
+{{ .AsConfig | indent 2 }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jeopardy-db-bin-scripts
+  labels:
+  {{- include "postgres.labels" . | nindent 4 }}
+data:
+{{- with .Files.Glob "files/dbscripts/jeopardy/bin/*.{sh,properties}" }}
+{{ .AsConfig | indent 2 }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jeopardy-db-sql-scripts
+  labels:
+  {{- include "postgres.labels" . | nindent 4 }}
+data:
+{{- with .Files.Glob "files/dbscripts/jeopardy/scripts/*.sql" }}
+{{ .AsConfig | indent 2 }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orch-db-bin-scripts
+  labels:
+  {{- include "postgres.labels" . | nindent 4 }}
+data:
+{{- with .Files.Glob "files/dbscripts/orch/bin/*.{sh,properties}" }}
+{{ .AsConfig | indent 2 }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orch-db-sql-scripts
+  labels:
+  {{- include "postgres.labels" . | nindent 4 }}
+data:
+{{- with .Files.Glob "files/dbscripts/orch/scripts/*.sql" }}
+{{ .AsConfig | indent 2 }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: order-db-bin-scripts
+  labels:
+  {{- include "postgres.labels" . | nindent 4 }}
+data:
+{{- with .Files.Glob "files/dbscripts/order/bin/*.{sh,properties}" }}
+{{ .AsConfig | indent 2 }}
+{{- end }}
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: order-db-sql-scripts
+  labels:
+  {{- include "postgres.labels" . | nindent 4 }}
+data:
+{{- with .Files.Glob "files/dbscripts/order/scripts/*.sql" }}
+{{ .AsConfig | indent 2 }}
+{{- end }}
