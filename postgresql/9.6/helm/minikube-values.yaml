@@ -56,3 +56,9 @@ resources: {}
   # requests:
   #   cpu: 100m
   #   memory: 128Mi
+
+initAdminDb:
+  image: eu.gcr.io/de-fo-gr-pr-shared/tibco/om/configurator:5.1.0-HF5
+  pullPolicy: Never
+  env:
+    adminDsUrl: jdbc:postgresql://postgres.db.svc.cluster.local:5432/admindbll?currentSchema=adminschemall
