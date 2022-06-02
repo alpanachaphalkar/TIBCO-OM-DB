@@ -72,6 +72,8 @@ Get the initialization scripts ConfigMap name.
 init-admin-db labels
 */}}
 {{- define "initAdminDb.labels" -}}
+helm.sh/chart: {{ include "postgres.chart" . }}
+app.kubernetes.io/managed-by: {{ .Release.Service }}
 app.kubernetes.io/name: init-admin-db
 app.kubernetes.io/component: init-admin-db
 {{- end }}
