@@ -14,7 +14,7 @@ image:
   repository: postgres
   pullPolicy: Never
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "9.6"
+  tag: "12"
 
 imagePullSecrets: []
 nameOverride: ""
