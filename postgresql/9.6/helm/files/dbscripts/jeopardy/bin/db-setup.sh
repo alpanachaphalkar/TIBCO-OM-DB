@@ -36,16 +36,16 @@ if [ "$execute_ddl_dml_only" = false ] ; then
 	pg_super_user_password=$(getProperty "PG_SUPER_USER_PASSWORD")
 	PGUSER="${pg_super_user_name}";
 	PGPASSWORD="${pg_super_user_password}"; export PGPASSWORD;
-echo "# --------------------- DROP jeopardy Database STARTS ------------------------------------------------"
+	# --------------------- DROP jeopardy Database STARTS ------------------------------------------------
 	psql -U "${PGUSER}" -d "${pg_super_user_database}" -v pg_schema="${pg_jeopardy_schema}" -h "${PG_HOST}" -p "${PG_PORT}" -a -f $SCRIPTPATH/drop_schema.sql
 	psql -U "${PGUSER}" -d "${pg_super_user_database}" -v pg_database="${pg_jeopardy_database}" -h "${PG_HOST}" -p "${PG_PORT}" -a -f $SCRIPTPATH/drop_database.sql
 	if [ "$is_on_cloud" = false ] ; then
 	  psql -U "${PGUSER}" -v pg_tablespace="${pg_jeopardy_tablespace}" -h "${PG_HOST}" -p "${PG_PORT}" -f $SCRIPTPATH/drop_tablespace.sql
 	fi
 	psql -U "${PGUSER}" -d "${pg_super_user_database}" -v pg_user="${pg_jeopardy_user}" -h "${PG_HOST}" -p "${PG_PORT}" -f $SCRIPTPATH/drop_user.sql
-echo "# ---------------------DROP ENDS ------------------------------------------------------------------"
+	# ---------------------DROP ENDS ------------------------------------------------------------------
 
-echo "# ---------------------------- Create jeopardy Database Starts ---------------------------------------"
+	# ---------------------------- Create jeopardy Database Starts ---------------------------------------
 	PGUSER="${pg_super_user_name}";
 	PGPASSWORD="${pg_super_user_password}"; export PGPASSWORD;
 	psql -U "${PGUSER}" -d "${pg_super_user_database}" -v pg_user="${pg_jeopardy_user}" -v pg_password="'${pg_jeopardy_password}'" -v pg_super_user="${PGUSER}" -h "${PG_HOST}" -p "${PG_PORT}" -f $SCRIPTPATH/create_user.sql
@@ -60,7 +60,7 @@ echo "# ---------------------------- Create jeopardy Database Starts -----------
 	psql -U "${pg_jeopardy_user}" -d "${pg_jeopardy_database}" -v pg_database="${pg_jeopardy_database}" -v pg_schema="${pg_jeopardy_schema}" -v pg_user="${pg_jeopardy_user}" -h "${PG_HOST}" -p "${PG_PORT}" -f $SCRIPTPATH/create_schema.sql
 fi
 
-echo "# --------------------------- DDL and Seed Data Creation For jeopardy --------------------------------"
+# --------------------------- DDL and Seed Data Creation For jeopardy --------------------------------
 PGUSER="${pg_jeopardy_user}";
 PGPASSWORD="${pg_jeopardy_password}"; export PGPASSWORD;
 psql -U "${pg_jeopardy_user}" -d "${pg_jeopardy_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_jeopardy_tablespace}" -f $SCRIPTPATH/oms_seed_jeopardylock.sql

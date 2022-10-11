@@ -89,28 +89,6 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: orch-db-bin-scripts
-  labels:
-  {{- include "postgres.labels" . | nindent 4 }}
-data:
-{{- with .Files.Glob "files/dbscripts/orch/bin/*.{sh,properties}" }}
-{{ .AsConfig | indent 2 }}
-{{- end }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: orch-db-sql-scripts
-  labels:
-  {{- include "postgres.labels" . | nindent 4 }}
-data:
-{{- with .Files.Glob "files/dbscripts/orch/scripts/*.sql" }}
-{{ .AsConfig | indent 2 }}
-{{- end }}
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
   name: order-db-bin-scripts
   labels:
   {{- include "postgres.labels" . | nindent 4 }}

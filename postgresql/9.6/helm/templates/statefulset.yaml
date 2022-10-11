@@ -70,10 +70,6 @@ spec:
               mountPath: /dbscripts/jeopardy/bin
             - name: jeopardy-db-sql-scripts
               mountPath: /dbscripts/jeopardy/scripts
-            - name: orch-db-bin-scripts
-              mountPath: /dbscripts/orch/bin
-            - name: orch-db-sql-scripts
-              mountPath: /dbscripts/orch/scripts
             - name: order-db-bin-scripts
               mountPath: /dbscripts/order/bin
             - name: order-db-sql-scripts
@@ -116,14 +112,6 @@ spec:
         - name: jeopardy-db-sql-scripts
           configMap:
             name: jeopardy-db-sql-scripts
-            defaultMode: 0777
-        - name: orch-db-bin-scripts
-          configMap:
-            name: orch-db-bin-scripts
-            defaultMode: 0777
-        - name: orch-db-sql-scripts
-          configMap:
-            name: orch-db-sql-scripts
             defaultMode: 0777
         - name: order-db-bin-scripts
           configMap:
