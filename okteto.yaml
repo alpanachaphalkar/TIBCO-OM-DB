@@ -1,0 +1,4 @@
+deploy:
+  commands:
+    - name: Deploy
+      command: helm install postgres -f postgresql/12/helm/minikube-values.yaml postgresql/12/helm
