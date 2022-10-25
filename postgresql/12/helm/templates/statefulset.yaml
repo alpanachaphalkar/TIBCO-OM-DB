@@ -122,4 +122,5 @@ spec:
             name: order-db-sql-scripts
             defaultMode: 0777
         - name: tablespaces
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: db-tablespace-pvc
