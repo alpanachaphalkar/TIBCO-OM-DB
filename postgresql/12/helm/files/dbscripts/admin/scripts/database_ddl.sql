@@ -12,11 +12,15 @@ ALTER TABLE ONLY users
 CREATE TABLE app_properties
 (
     key character varying(4096) NOT NULL,
-    value character varying(4096) NOT NULL,
+    value character varying(4096),
     application character varying(128) NOT NULL,
-    profile character varying(128) ,
-    label character varying(128) ,
-    istenantproperty boolean DEFAULT false,
+    propertydescription text,
+    category text,
+    istenantproperty boolean,
+    appdescription text,
+	valuetype character varying(128),
+	allowedvalues text,
+	lastmodifiedbyuser character varying(255) COLLATE pg_catalog."default",
     CONSTRAINT app_properties_pkey PRIMARY KEY (key, application)
 ) TABLESPACE :pg_tablespace;
 
@@ -148,5 +152,45 @@ ALTER TABLE ONLY domainmembers
 	
 ALTER TABLE ONLY domainmembers
     ADD CONSTRAINT fkc6yt32v8822xz72v FOREIGN KEY (domainid) REFERENCES domain(domainid);
+	
+CREATE TABLE DEAD_ORDER_EVENT
+(
+    ORDERID CHARACTER VARYING(128) NOT NULL,
+    EVENTID CHARACTER VARYING(128) NOT NULL,
+    TENANTID CHARACTER VARYING(128) NOT NULL
+)  TABLESPACE :pg_tablespace;
+
+ALTER TABLE ONLY DEAD_ORDER_EVENT ADD CONSTRAINT DEAD_ORDER_EVENT_PK PRIMARY KEY (ORDERID, EVENTID, TENANTID);
+
+CREATE TABLE application_metadata
+(
+    applicationid character varying(255) NOT NULL,
+    applicationdescription character varying(255) NOT NULL,
+    applicationpropertiesfile character varying(255) NOT NULL,
+    configurationfiles character varying(255),
+    CONSTRAINT application_metadata_pkey PRIMARY KEY (applicationid)
+        USING INDEX TABLESPACE :pg_tablespace
+)
+TABLESPACE :pg_tablespace;
+
+CREATE TABLE IF NOT EXISTS app_properties_events
+(
+    key character varying(4096) COLLATE pg_catalog."default" NOT NULL,
+    value character varying(4096) COLLATE pg_catalog."default" NOT NULL,
+    application character varying(128) COLLATE pg_catalog."default" NOT NULL,
+    valuetype character varying(128) COLLATE pg_catalog."default" NOT NULL,
+    propertydescription text COLLATE pg_catalog."default",
+    category character varying(4096) COLLATE pg_catalog."default" NOT NULL,
+    istenantproperty boolean,
+    appdescription text COLLATE pg_catalog."default",
+    allowedvalues text COLLATE pg_catalog."default",
+    event character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    "timestamp" numeric(25,0),
+	lastmodifiedbyuser character varying(255) COLLATE pg_catalog."default"
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE :pg_tablespace;
 
 -- Copyright (c) 2017-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary.

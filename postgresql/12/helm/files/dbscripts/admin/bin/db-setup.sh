@@ -64,4 +64,6 @@ PGUSER="${pg_admin_user}";
 PGPASSWORD="${pg_admin_password}"; export PGPASSWORD;
 
 psql -U "${pg_admin_user}" -d "${pg_admin_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_admin_tablespace}" -f $SCRIPTPATH/database_ddl.sql
+psql -U "${pg_admin_user}" -d "${pg_admin_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_admin_tablespace}" -f $SCRIPTPATH/proc_app_properties_change.sql
+psql -U "${pg_admin_user}" -d "${pg_admin_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_admin_tablespace}" -f $SCRIPTPATH/proc_get_timestamp.sql
 # Copyright (c) 2018-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary.
