@@ -25,14 +25,21 @@ How to run:
 =======
 Process:
 =======
-	Executing drop_partition_by_name first checks to see if there are any orders in the given partition and deletes all the order related data from the tables.
-	Note: it deletes all the data even if the status of the order is not in completed state or suspended state.
+    Executing drop_partition_by_name first checks to see if there are any orders in the given partition which are not yet COMPLETE or CANCELLED.
+	If there are OPEN orders
+	------------------------
+	If there are orders which are not yet COMPLETE or CANCELLED, drop partition procedure stops and does not let that partition to be dropped.
+	Note: If DBA wants to still cleanup partition when there are OPEN orders in the system, they can run purge-orders.sh script to cleanup orders based on FROM_DATE and TO_DATE range. Please check the documentation for details.
+	
+	If there are NO OPEN orders
+	---------------------------
+	If all orders are in either COMPLETE or CANCELLED status, procedure drops given partition one at a time from all order related tables.
 
 =======
 Verify:
 =======
 	Verify 
-	1. The table with the given partition is not present in the database across all archival related tables.
+	1. The table with the given partition is not present in the database across all ORDER related tables.
 	2. All the indexes are usable.
 
 

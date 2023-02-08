@@ -63,5 +63,6 @@ fi
 # --------------------------- DDL and Seed Data Creation For archival --------------------------------
 PGUSER="${pg_archival_user}";
 PGPASSWORD="${pg_archival_password}"; export PGPASSWORD;
+psql -U "${pg_archival_user}" -d "${pg_archival_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_archival_tablespace}" -f $SCRIPTPATH/archival_lock.sql
 psql -U "${pg_archival_user}" -d "${pg_archival_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_archival_tablespace}" -f $SCRIPTPATH/archival_database_ddl.sql
 # Copyright (c) 2018-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary.
