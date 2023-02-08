@@ -12,23 +12,28 @@ echo "# Reading  property from $PROPERTY_FILE"
 
 PG_HOST=$(getProperty "PG_HOST")
 PG_PORT=$(getProperty "PG_PORT")
+pg_super_user_database=$(getProperty "PG_SUPER_USER_DATABASE")
 
 pg_order_user=$(getProperty "PG_ORDER_USER")
 pg_order_password=$(getProperty "PG_ORDER_PASSWORD")
 pg_order_database=$(getProperty "PG_ORDER_DATABASE")
+pg_order_schema=$(getProperty "PG_ORDER_SCHEMA")
 pg_order_tablespace=$(getProperty "PG_ORDER_TABLESPACE")
 
+pg_order_tablespace_location=$(getProperty "PG_ORDER_TABLESPACE_LOCATION")
 is_on_cloud=$(getProperty "IS_CLOUD_PLATFORM")
+default_tenant=$(getProperty "default_tenant")
+execute_ddl_dml_only=$(getProperty "EXECUTE_DDL_DML_ONLY")
 
 SCRIPTPATH=$(dirname "$SCRIPT")
 SCRIPTPATH=$SCRIPTPATH/../scripts
 
 if [ "$is_on_cloud" = true ] ; then
-pg_order_tablespace="pg_default"
+	pg_order_tablespace="pg_default"
 fi
 
-
+# --------------------------- DDL and Seed Data Creation For orderds --------------------------------
 PGUSER="${pg_order_user}";
 PGPASSWORD="${pg_order_password}"; export PGPASSWORD;
-psql -U "${pg_order_user}" -d "${pg_order_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_order_tablespace}" -f $SCRIPTPATH/upgrade_5.1.0hf5_to_5.1.0hf6_ddl.sql
+psql -U "${pg_order_user}" -d "${pg_order_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_order_tablespace}" -v default_tenant="${default_tenant}" -f $SCRIPTPATH/upgrade_5.1.0hf7_to_6.0_ddl.sql
 # Copyright (c) 2018-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary.

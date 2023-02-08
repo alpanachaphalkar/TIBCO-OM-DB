@@ -1,37 +1,56 @@
-﻿--select PURGE_ORDERS('2022-01-01','2022-01-03');
-   
-
-
-CREATE OR REPLACE FUNCTION PURGE_ORDERS (FROM_DATE IN date, TO_DATE IN date)
+CREATE OR REPLACE FUNCTION PURGE_ORDERS (ORDER_STATUS IN VARCHAR, FROM_DATE IN date, TODATE IN date)
 RETURNS VOID AS $$
 
-DECLARE 
-
+DECLARE  
+  PERFCOUNT       INTEGER := 0;
 BEGIN
 
-    RAISE NOTICE 'Start time: %', to_char(current_timestamp, 'Dy DD-Mon-YYYY HH24:MI:SS');
-    RAISE NOTICE 'Initiated purge with FROM_DATE: % , TO_DATE: %',FROM_DATE,TO_DATE;
-    
+  -- Drop temporary table orders_temp if exists. If error outs ignore the error
 
-  EXECUTE 'DELETE FROM notification 
-  WHERE partitiondate>='''||FROM_DATE||''' AND partitiondate<='''||TO_DATE||''''; 
-  
-  EXECUTE 'DELETE FROM order_amendment 
-  WHERE partitiondate>='''||FROM_DATE ||'''AND partitiondate<='''||TO_DATE||''''; 
-  
-  EXECUTE 'DELETE FROM order_event 
-  WHERE partitiondate>='''||FROM_DATE ||'''AND partitiondate<='''||TO_DATE||''''; 
-  
-  EXECUTE 'DELETE FROM order_in_play 
-  WHERE partitiondate>='''||FROM_DATE ||'''AND partitiondate<='''||TO_DATE||''''; 
+    BEGIN
+    EXECUTE 'DROP TABLE orders_temp';
+	
+    EXCEPTION
+      WHEN OTHERS THEN
 
-  EXECUTE 'DELETE FROM order_data 
-  WHERE partitiondate>='''||FROM_DATE||''' AND partitiondate<='''||TO_DATE||''''; 
+    END;
  
+
+CREATE table orders_temp AS SELECT O.orderid FROM order_data O WHERE O.partitiondate between FROM_DATE AND TODATE AND O.status= ORDER_STATUS;
+  
+  RAISE NOTICE 'Time: % - Temp Table created', to_char(current_timestamp, 'Dy DD-Mon-YYYY HH24:MI:SS');
+  
+  -- DROP THE notification TABLE
+  EXECUTE 'DELETE FROM notification
+  WHERE orderid IN (SELECT orderid FROM orders_temp)';
+  
+  -- DROP THE order_amendment TABLE 
+  EXECUTE 'DELETE FROM order_amendment
+  WHERE orderid IN (SELECT orderid FROM orders_temp)';
+  
+  -- DROP THE order_event TABLE
+   EXECUTE 'DELETE FROM order_event
+  WHERE orderid IN (SELECT orderid FROM orders_temp)';
+
+  -- DROP THE order_in_play TABLE
+  EXECUTE 'DELETE FROM order_in_play
+  WHERE orderid IN (SELECT orderid FROM orders_temp)'; 
+  
+   -- DROP THE order_data TABLE
+  EXECUTE 'DELETE FROM order_data
+  WHERE orderid IN (SELECT orderid FROM orders_temp)'; 
+  
+  EXECUTE 'DELETE FROM audit_trail 
+  WHERE orderid IN (SELECT orderid FROM orders_temp)'; 
  
+  GET DIAGNOSTICS PERFCOUNT = ROW_COUNT;
 
   RAISE NOTICE 'Time: % - Final commit after all the tables are cleaned', to_char(current_timestamp, 'Dy DD-Mon-YYYY HH24:MI:SS');
-
+  
+  
+  EXECUTE 'DROP TABLE orders_temp';
+  
+  RAISE NOTICE 'Purge order count: %',PERFCOUNT;
 
   RAISE NOTICE 'End time: %', to_char(current_timestamp, 'Dy DD-Mon-YYYY HH24:MI:SS');  
 

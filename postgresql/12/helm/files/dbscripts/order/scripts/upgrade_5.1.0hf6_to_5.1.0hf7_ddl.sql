@@ -1,1 +1,0 @@
-ALTER TABLE IF EXISTS order_data ADD COLUMN IF NOT EXISTS planid character varying(123);

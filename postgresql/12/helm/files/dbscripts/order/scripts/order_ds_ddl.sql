@@ -1,15 +1,23 @@
+-- Parent table for all partitioned tables to get partitiondate column 
+create table order_partition (
+     partitiondate date not null default current_date
+)tablespace :pg_tablespace;
+
 CREATE TABLE order_data
 (
     orderid character varying(128) NOT NULL,
     orderref character varying(128) ,
+	status character varying(128),
     order_ser text ,
+	planid character varying(123),
     plan_ser text ,
     data bytea,
     org_order_ser text ,
+	partitiondate date,
     tenantid character varying(128) NOT NULL,
     CONSTRAINT order_data_pk PRIMARY KEY (orderid, tenantid)
         USING INDEX TABLESPACE :pg_tablespace
-)
+)inherits (order_partition)
 WITH (
     OIDS = FALSE
 )
@@ -22,9 +30,10 @@ CREATE TABLE audit_trail
     orderid character varying(128) NOT NULL,
     message character varying(256) NOT NULL,
     tenantid character varying(128) NOT NULL,
+	partitiondate date,
     CONSTRAINT audit_trail_pk PRIMARY KEY (id, orderid, tenantid)
         USING INDEX TABLESPACE :pg_tablespace
-)
+)inherits (order_partition)
 WITH (
     OIDS = FALSE
 )
@@ -36,14 +45,15 @@ TABLESPACE :pg_tablespace;
 
 CREATE TABLE notification
 (
-    id character varying(128) NOT NULL,
+    id character varying(512) NOT NULL,
     orderid character varying(128) NOT NULL,
+	partitiondate date,
     key character varying(64) NOT NULL,
     value character varying(64) NOT NULL,
     tenantid character varying(128) NOT NULL,
     CONSTRAINT notification_pk PRIMARY KEY (id, tenantid)
         USING INDEX TABLESPACE :pg_tablespace
-)
+)inherits (order_partition)
 WITH (
     OIDS = FALSE
 )
@@ -58,10 +68,11 @@ CREATE TABLE order_amendment
     seq character varying(128) NOT NULL,
     orderid character varying(128) NOT NULL,
     order_ser text ,
+	partitiondate date,
     tenantid character varying(128) NOT NULL,
     CONSTRAINT order_amendment_pk PRIMARY KEY (seq, orderid, tenantid)
         USING INDEX TABLESPACE :pg_tablespace
-)
+)inherits (order_partition)
 WITH (
     OIDS = FALSE
 )
@@ -75,11 +86,12 @@ CREATE TABLE order_event
 (
     orderid character varying(128) NOT NULL,
     eventid character varying(128) NOT NULL,
+	partitiondate date,
     tenantid character varying(128) NOT NULL,
 	timestampinepoch numeric(250),
     CONSTRAINT order_event_pk PRIMARY KEY (tenantid, eventid, orderid)
         USING INDEX TABLESPACE :pg_tablespace
-)
+)inherits (order_partition)
 WITH (
     OIDS = FALSE
 )
@@ -93,10 +105,11 @@ CREATE TABLE order_in_play
 (
     customerkey character varying(128) NOT NULL,
     tenantid character varying(128) NOT NULL,
+	partitiondate date,
     orderid character varying(128) ,
     CONSTRAINT order_in_play_pk PRIMARY KEY (customerkey, tenantid)
         USING INDEX TABLESPACE :pg_tablespace
-)
+)inherits (order_partition)
 WITH (
     OIDS = FALSE
 )
@@ -132,6 +145,22 @@ WITH (
     OIDS = FALSE
 )
 TABLESPACE :pg_tablespace;
+
+-- Table: order_messages
+
+CREATE TABLE order_messages
+(
+    orderid character varying(128) NOT NULL,
+    tenantid character varying(128) NOT NULL,
+    messages text,
+    CONSTRAINT order_messages_pkey PRIMARY KEY (orderid, tenantid)
+        USING INDEX TABLESPACE :pg_tablespace
+)
+WITH (
+    OIDS = FALSE
+)
+TABLESPACE :pg_tablespace;
+   
 
 
 -- Copyright (c) 2021-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary.
