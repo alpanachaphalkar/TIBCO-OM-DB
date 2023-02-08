@@ -12,6 +12,7 @@ echo "# Reading  property from $PROPERTY_FILE"
 
 PG_HOST=$(getProperty "PG_HOST")
 PG_PORT=$(getProperty "PG_PORT")
+pg_super_user_database=$(getProperty "PG_SUPER_USER_DATABASE")
 
 pg_jeopardy_user=$(getProperty "PG_JEOPARDY_USER")
 pg_jeopardy_password=$(getProperty "PG_JEOPARDY_PASSWORD")
@@ -33,6 +34,5 @@ fi
 
 PGUSER="${pg_jeopardy_user}";
 PGPASSWORD="${pg_jeopardy_password}"; export PGPASSWORD;
-psql -U "${pg_jeopardy_user}" -d "${pg_jeopardy_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_jeopardy_tablespace}" -f $SCRIPTPATH/upgrade_5.1.0hf3_to_5.1.0hf4_jeopardy_lock.sql
-psql -U "${pg_jeopardy_user}" -d "${pg_jeopardy_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_jeopardy_tablespace}" -f $SCRIPTPATH/upgrade_5.1.0hf3_to_5.1.0hf4_ddl.sql
+psql -U "${pg_jeopardy_user}" -d "${pg_jeopardy_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_jeopardy_tablespace}" -f $SCRIPTPATH/upgrade_5.1.0hf7_to_6.0_ddl.sql
 # Copyright (c) 2018-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary.

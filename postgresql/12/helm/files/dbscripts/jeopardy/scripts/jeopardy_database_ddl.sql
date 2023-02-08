@@ -79,8 +79,7 @@ TABLESPACE :pg_tablespace;
 
 CREATE TABLE jeopardy_lock
 (
-    hashindex numeric(5,0) NOT NULL,
-    tenantid character varying(128) NOT NULL
+    hashindex numeric(5,0) NOT NULL
 )
 WITH (
     OIDS = FALSE
@@ -91,6 +90,7 @@ CREATE TABLE jeopardy_alert (
     id character varying(255) not null,
     submitted_date timestamp without time zone,
     alert_msg character varying(1024),
+	orderid character varying(255),
     tenantid character varying(255) NOT NULL,
     CONSTRAINT jeopardy_alert_pk PRIMARY KEY(id, tenantid) USING INDEX TABLESPACE :pg_tablespace
 )

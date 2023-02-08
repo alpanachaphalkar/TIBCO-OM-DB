@@ -63,7 +63,7 @@ fi
 # --------------------------- DDL and Seed Data Creation For jeopardy --------------------------------
 PGUSER="${pg_jeopardy_user}";
 PGPASSWORD="${pg_jeopardy_password}"; export PGPASSWORD;
-psql -U "${pg_jeopardy_user}" -d "${pg_jeopardy_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_jeopardy_tablespace}" -f $SCRIPTPATH/oms_seed_jeopardylock.sql
+psql -U "${pg_jeopardy_user}" -d "${pg_jeopardy_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_jeopardy_tablespace}" -f $SCRIPTPATH/jeopardy_lock.sql
 psql -U "${pg_jeopardy_user}" -d "${pg_jeopardy_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_jeopardy_tablespace}" -f $SCRIPTPATH/jeopardy_database_ddl.sql
 psql -U "${pg_jeopardy_user}" -d "${pg_jeopardy_database}" -h "${PG_HOST}" -p "${PG_PORT}" -v pg_tablespace="${pg_jeopardy_tablespace}" -v default_tenant="${default_tenant}" -f $SCRIPTPATH/jeopardy_database_dml.sql
 # Copyright (c) 2018-2021. TIBCO Software Inc. All Rights Reserved. Confidential & Proprietary.
